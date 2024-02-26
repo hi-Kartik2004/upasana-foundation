@@ -5,8 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IoIosMenu } from "react-icons/io";
+import { UserButton, currentUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 
-function Navbar() {
+async function Navbar() {
+  const user = await currentUser();
   return (
     <nav className="fixed z-10 w-full top-0 backdrop-blur-3xl bg-background/50 border">
       <div className="container px-4 py-3 items-center flex justify-between">
@@ -69,13 +72,17 @@ function Navbar() {
           </Link>
         </div>
         <div className="flex items-center gap-6">
-          <Link
-            href="/sign-in"
-            className="hover:underline underline-offset-8 text-sm"
-          >
-            {" "}
-            Sign in{" "}
-          </Link>
+          {user ? (
+            <UserButton />
+          ) : (
+            <Link
+              href="/sign-in"
+              className="hover:underline underline-offset-8 text-sm"
+            >
+              {" "}
+              Sign in{" "}
+            </Link>
+          )}
           <ThemeToggleBtn />
         </div>
       </div>
