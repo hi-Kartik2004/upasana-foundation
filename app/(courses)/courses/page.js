@@ -2,8 +2,12 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import React from "react";
 import { db } from "@/firebase/config";
 import Link from "next/link";
+import globalData from "@/app/data";
+import { currentUser } from "@clerk/nextjs";
+import { MdDelete } from "react-icons/md";
 
 export async function Courses() {
+  const user = await currentUser();
   let data;
   try {
     const eventCollection = collection(db, "courses");
@@ -30,8 +34,19 @@ export async function Courses() {
           return (
             <div
               key={ele.name}
-              className="border  overflow-hidden transition-shadow duration-300 bg-background rounded"
+              className="border relative overflow-hidden transition-shadow duration-300 bg-background rounded"
             >
+              {user &&
+                globalData.adminEmails.includes(
+                  user.emailAddresses[0].emailAddress
+                ) && (
+                  <Link
+                    href={"delete-course/" + ele.id}
+                    className="absolute top-2 right-2 bg-red-600 px-2 py-1 rounded"
+                  >
+                    <MdDelete />
+                  </Link>
+                )}
               <Link href={"/course/" + ele.id} aria-label="Article">
                 <img
                   src={ele.image || ""}
@@ -62,13 +77,25 @@ export async function Courses() {
                   {ele.description || "Not found"}
                 </p>
 
-                <div>
+                <div className="flex justify-between items-center w-full">
                   <Link
                     href={"/course/" + ele.id}
                     className="hover:underline underline-offset-8 text-primary"
                   >
                     View &rarr;
                   </Link>
+
+                  {user &&
+                    globalData.adminEmails.includes(
+                      user.emailAddresses[0].emailAddress
+                    ) && (
+                      <Link
+                        href={"/manage-course/" + ele.id}
+                        className="hover:underline underline-offset-8 text-primary"
+                      >
+                        Edit &rarr;
+                      </Link>
+                    )}
                 </div>
               </div>
             </div>

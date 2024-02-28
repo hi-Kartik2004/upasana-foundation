@@ -1,6 +1,6 @@
 const data = {
   // admin emails
-  adminEmails: ["kudlu2004@gmail.com"],
+  adminEmails: ["kudlu2004@gmail.com", "upasanafound@gmail.com"],
   // General
   siteName: "E-Cell UVCE, Bengaluru",
   siteDescription: "Empowering Students to Build Tomorrow's Ventures",

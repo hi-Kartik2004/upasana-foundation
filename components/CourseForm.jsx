@@ -18,12 +18,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { db } from "@/firebase/config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "@/firebase/config";
 import { useState, useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
 import Loader from "./Loader";
+import { Toast } from "./ui/toast";
+import { Toaster } from "./ui/toaster";
+import { useTheme } from "next-themes";
+import { useToast } from "./ui/use-toast";
 
 // Helper function to get file extension
 function getFileExtension(fileName) {
@@ -152,7 +156,7 @@ async function addMessageToFirestore({ formData }) {
 }
 
 // Main component for the form
-export default function CourseForm() {
+export default function CourseForm({ edit, courseData }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -195,6 +199,100 @@ export default function CourseForm() {
     }
   }
 
+  let editData;
+  async function getCourseData() {
+    const courseRef = doc(db, "courses", courseData.id);
+    const resp = await getDoc(courseRef);
+    const respData = { ...resp.data(), id: resp.id };
+    return respData;
+  }
+
+  const handleEdit = async () => {
+    setSubmitting(true);
+    try {
+      const { id, ...editValues } = form.getValues(); // Get form values excluding 'id'
+      const isDocEdited = await editCourseInFirestore({
+        id,
+        formData: editValues,
+      });
+
+      if (isDocEdited) {
+        // reset the form after successful submission
+      } else {
+        setSubmitted(false);
+      }
+      toast({
+        title: "Course Updated",
+        description: "Course has been updated successfully",
+      });
+    } catch (error) {
+      console.error(error);
+      setSubmitted(false);
+      toast({
+        title: "Course Updation Failed",
+        description: error.message,
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  async function editCourseInFirestore({ id, formData }) {
+    try {
+      const imageFile = formData.image;
+
+      if (imageFile && imageFile.size === 0) {
+        console.warn("File size is 0 bytes. Skipping upload.");
+        return false;
+      }
+
+      const timestamp = new Date().getTime();
+      const storageRef = ref(storage, `courses/${imageFile.name}_${timestamp}`);
+
+      if (imageFile) {
+        await uploadBytes(storageRef, imageFile);
+      }
+
+      let downloadURL;
+      if (imageFile) {
+        downloadURL = await getDownloadURL(storageRef);
+      }
+
+      const updatedData = {
+        ...formData,
+        timestamp: Date.now(),
+        image: downloadURL || courseData.image, // Use the existing image if not updated
+      };
+
+      const courseRef = doc(db, "courses", id);
+      await setDoc(courseRef, updatedData, { merge: true });
+
+      return true;
+    } catch (error) {
+      console.error("Error updating document in Firestore:", error);
+      return false;
+    }
+  }
+
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (edit) {
+        const data = await getCourseData();
+        console.log("Edit Data ", data);
+        // Use the form.setValue function to set the values
+        Object.keys(data).forEach((key) => {
+          form.setValue(key, data[key]);
+        });
+      }
+    };
+
+    if (typeof window !== "undefined") {
+      fetchData();
+    }
+  }, [edit]);
+
   // Render UI based on form state
   if (submitted) {
     return (
@@ -222,6 +320,7 @@ export default function CourseForm() {
 
   return (
     <Form {...form}>
+      <Toaster />
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
@@ -230,7 +329,11 @@ export default function CourseForm() {
             <FormItem>
               <FormLabel>Course Title*</FormLabel>
               <FormControl>
-                <Input placeholder="Course Title" {...field} />
+                <Input
+                  value={editData?.name}
+                  placeholder="Course Title"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>Keep it innovative and short.</FormDescription>
               <FormMessage />
@@ -245,7 +348,11 @@ export default function CourseForm() {
             <FormItem>
               <FormLabel>Email*</FormLabel>
               <FormControl>
-                <Input placeholder="Your Email" {...field} />
+                <Input
+                  placeholder="Your Email"
+                  value={editData?.email}
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 This would be the contact email for this event.
@@ -262,7 +369,11 @@ export default function CourseForm() {
             <FormItem>
               <FormLabel>Description*</FormLabel>
               <FormControl>
-                <Textarea placeholder="..." {...field} />
+                <Textarea
+                  value={editData?.description}
+                  placeholder="..."
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 This would be shown on the event card.
@@ -279,7 +390,11 @@ export default function CourseForm() {
             <FormItem>
               <FormLabel>Rewards*</FormLabel>
               <FormControl>
-                <Textarea placeholder="what is to be won?" {...field} />
+                <Textarea
+                  value={editData?.prizes}
+                  placeholder="what is to be won?"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 This would appreciate the participants.
@@ -314,7 +429,7 @@ export default function CourseForm() {
 
         <FormField
           control={form.control}
-          name="entryFees"
+          name="fees"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Fees*</FormLabel>
@@ -322,6 +437,7 @@ export default function CourseForm() {
                 <Input
                   placeholder="in INR"
                   type="number"
+                  value={editData?.fees}
                   onChange={(e) => {
                     const value = parseFloat(e.target.value);
                     field.onChange(value);
@@ -343,7 +459,11 @@ export default function CourseForm() {
             <FormItem>
               <FormLabel>Venue*</FormLabel>
               <FormControl>
-                <Input placeholder="Senete Hall, UVCE" {...field} />
+                <Input
+                  value={editData?.venue}
+                  placeholder="Senete Hall, UVCE"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 The venue if the event is offline, else online.
@@ -372,7 +492,9 @@ export default function CourseForm() {
                 />
               </FormControl>
               <FormDescription>
-                Poster of the course, or anything related.
+                {edit
+                  ? "Upload an image to replace exisiting."
+                  : "Upload a thumbnail for this course."}
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -386,7 +508,11 @@ export default function CourseForm() {
             <FormItem>
               <FormLabel>Category*</FormLabel>
               <FormControl>
-                <Input placeholder="Shibhir" {...field} />
+                <Input
+                  value={editData?.course}
+                  placeholder="Shibhir"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>Category this course belong to</FormDescription>
               <FormMessage />
@@ -401,17 +527,26 @@ export default function CourseForm() {
             <FormItem>
               <FormLabel>Link</FormLabel>
               <FormControl>
-                <Input placeholder="https://someimportantlink.com" {...field} />
+                <Input
+                  value={editData?.link}
+                  placeholder="https://someimportantlink.com"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>Some important Link</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-
-        <Button type="submit" disabled={submitting}>
-          {submitting ? "Adding..." : "Add this Event"}
-        </Button>
+        {edit ? (
+          <Button onClick={handleEdit} disabled={submitting}>
+            {submitting ? "Editing..." : "Edit this Course Details"}
+          </Button>
+        ) : (
+          <Button type="submit" disabled={submitting}>
+            {submitting ? "Adding..." : "Add this Course"}
+          </Button>
+        )}
       </form>
     </Form>
   );

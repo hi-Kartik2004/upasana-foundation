@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
           <ThemeProvider
             attribute="class"
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <SignedIn>
-              <AdminMenu username={"admin"} />
+              <AdminMenu />
             </SignedIn>
             <Navbar />
             {children}
