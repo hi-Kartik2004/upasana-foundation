@@ -47,7 +47,7 @@ export async function Courses() {
                     <MdDelete />
                   </Link>
                 )}
-              <Link href={"/course/" + ele.id} aria-label="Article">
+              <Link href={"/register/" + ele.id} aria-label="Article">
                 <img
                   src={ele.image || ""}
                   className="object-cover w-full h-64 rounded"
@@ -65,7 +65,7 @@ export async function Courses() {
                   </p>
                 </div>
                 <Link
-                  href={"/course/" + ele.id}
+                  href={"/register/" + ele.id}
                   aria-label="Article"
                   className="inline-block mb-3  transition-colors duration-200 hover:text-deep-purple-accent-700"
                 >
@@ -79,7 +79,7 @@ export async function Courses() {
 
                 <div className="flex justify-between items-center w-full">
                   <Link
-                    href={"/course/" + ele.id}
+                    href={"/register/" + ele.id}
                     className="hover:underline underline-offset-8 text-primary"
                   >
                     View &rarr;

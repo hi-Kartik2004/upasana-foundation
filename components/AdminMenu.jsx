@@ -24,7 +24,7 @@ function AdminMenu({ username }) {
   const { isLoaded, user } = useUser();
   if (!isLoaded) return null;
   console.log(user);
-  if (!data.adminEmails.includes(user.emailAddresses[0].emailAddress))
+  if (user && !data.adminEmails.includes(user.emailAddresses[0].emailAddress))
     return null;
   const [showMenu, setShowMenu] = useState(false);
   return (

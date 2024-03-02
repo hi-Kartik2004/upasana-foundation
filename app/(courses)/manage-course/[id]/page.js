@@ -6,6 +6,7 @@ import CourseContentForm from "@/components/CourseContentForm";
 import Editor from "@/components/Editor";
 import MusicForm from "@/components/MusicForm";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 async function ManageCourses({ params }) {
   let courseData;
@@ -20,7 +21,7 @@ async function ManageCourses({ params }) {
 
   return (
     <section>
-      <div className="mt-24 container flex justify-center flex-col items-center">
+      <div className="mt-24 relative container flex justify-center flex-col items-center">
         <h1 className="text-center font-bold text-3xl">
           Manage {courseData?.name}
         </h1>
@@ -45,7 +46,7 @@ async function ManageCourses({ params }) {
           <CourseForm edit={true} courseData={courseData} />
         </div>
 
-        <div>
+        <div className="sticky top-24 max-h-[600px]">
           <div className="max-w-[600px] flex-grow p-4 rounded-lg border w-full bg-muted">
             <div className="mb-4">
               <h1 className="text-2xl font-bold text-center">
@@ -60,6 +61,9 @@ async function ManageCourses({ params }) {
         </div>
       </div>
       <div id="editor">
+        <Separator />
+      </div>
+      <div className="mt-4">
         <Editor courseData={courseData} />
       </div>
     </section>

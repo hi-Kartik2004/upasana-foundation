@@ -10,13 +10,16 @@ import { globalData } from "@/app/data";
 import { Separator } from "@/components/ui/separator";
 import { RiUserLocationLine } from "react-icons/ri";
 import RegisterForm from "@/components/RegisterForm";
+import { currentUser } from "@clerk/nextjs";
 
 async function Course({ params }) {
+  const user = await currentUser();
   let courseData;
   try {
     const courseRef = doc(db, "courses", params.id);
     const resp = await getDoc(courseRef);
     courseData = resp.data();
+    courseData = { ...courseData, id: resp.id };
     console.log(courseData);
   } catch (err) {
     console.error(err);
@@ -24,7 +27,7 @@ async function Course({ params }) {
 
   return (
     <>
-      <section className="flex flex-wrap container gap-10 mt-16 py-10 justify-center xl:justify-between">
+      <section className="flex flex-wrap container gap-10 mt-16 py-10 justify-center xl:justify-between relative">
         <div className="max-w-[650px] w-full">
           <div className="w-full h-[100px] rounded-md">
             <img
@@ -113,7 +116,11 @@ async function Course({ params }) {
           </div>
         </div>
 
-        <div className="max-w-[600px] flex flex-col w-full bg-card p-8 py-10 rounded-md border md:overflow-auto">
+        <div
+          className={`max-w-[600px] xl:sticky ${
+            user ? "max-h-[290px]" : "max-h-[350px]"
+          } top-24 right-0 flex flex-col w-full bg-card p-8 py-10 rounded-md border md:overflow-auto`}
+        >
           <h1 className="text-3xl font-semibold text-center">
             <span className="text-primary">Register</span> for{" "}
             {courseData?.name}!

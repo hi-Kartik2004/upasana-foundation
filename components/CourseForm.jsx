@@ -200,6 +200,7 @@ export default function CourseForm({ edit, courseData }) {
   }
 
   let editData;
+
   async function getCourseData() {
     const courseRef = doc(db, "courses", courseData.id);
     const resp = await getDoc(courseRef);
@@ -240,28 +241,26 @@ export default function CourseForm({ edit, courseData }) {
   async function editCourseInFirestore({ id, formData }) {
     try {
       const imageFile = formData.image;
-
+      console.log(imageFile);
       if (imageFile && imageFile.size === 0) {
         console.warn("File size is 0 bytes. Skipping upload.");
-        return false;
       }
 
       const timestamp = new Date().getTime();
       const storageRef = ref(storage, `courses/${imageFile.name}_${timestamp}`);
 
-      if (imageFile) {
-        await uploadBytes(storageRef, imageFile);
-      }
-
       let downloadURL;
-      if (imageFile) {
+      if (imageFile.name) {
+        console.log("Inside");
+        // If a new image file is provided, upload it to storage
+        await uploadBytes(storageRef, imageFile);
         downloadURL = await getDownloadURL(storageRef);
       }
-
+      console.log(downloadURL);
       const updatedData = {
         ...formData,
-        timestamp: Date.now(),
-        image: downloadURL || courseData.image, // Use the existing image if not updated
+        // Use the new image URL if available, otherwise keep the existing one
+        image: downloadURL || courseData.image,
       };
 
       const courseRef = doc(db, "courses", id);
@@ -280,11 +279,7 @@ export default function CourseForm({ edit, courseData }) {
     const fetchData = async () => {
       if (edit) {
         const data = await getCourseData();
-        console.log("Edit Data ", data);
-        // Use the form.setValue function to set the values
-        Object.keys(data).forEach((key) => {
-          form.setValue(key, data[key]);
-        });
+        form.reset(data); // Reset the form with the new data
       }
     };
 
@@ -438,6 +433,7 @@ export default function CourseForm({ edit, courseData }) {
                   placeholder="in INR"
                   type="number"
                   value={editData?.fees}
+                  {...field}
                   onChange={(e) => {
                     const value = parseFloat(e.target.value);
                     field.onChange(value);
