@@ -1,53 +1,41 @@
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import React from "react";
 import { db } from "@/firebase/config";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { currentUser } from "@clerk/nextjs";
 import Link from "next/link";
 import globalData from "@/app/data";
-import { currentUser } from "@clerk/nextjs";
 import { MdDelete } from "react-icons/md";
 
-export async function Courses() {
+async function MyCourses() {
   const user = await currentUser();
   let data;
   try {
-    const eventCollection = collection(db, "courses");
-    const q = query(eventCollection, orderBy("timestamp", "desc"));
+    const eventCollection = collection(db, "course-registrations");
+    const q = query(
+      eventCollection,
+      where("registeredEmail", "==", user.emailAddresses[0].emailAddress)
+    );
     const querySnapshot = await getDocs(q);
     data = querySnapshot.docs.map((doc) => {
-      return { ...doc.data(), id: doc.id };
+      return { ...doc.data() };
     });
   } catch (err) {
     console.error(err);
   }
-
   return (
-    <div className="mt-10 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div className="mb-10 flex flex-col gap-2">
-        <h1 className="text-4xl font-bold text-center">Hello world!</h1>
-        <p className="text-muted-foreground text-center">
-          SadhguruShri is a master communicator, converses in a very simple
-          language, presents complex ideas in an easy to understand way.{" "}
-        </p>
-      </div>
-      <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+    <div className="mt-24 py-4 container">
+      <h1 className="text-4xl font-bold text-center">My Courses</h1>
+      <p className="text-center mt-2 text-muted-foreground">
+        This is something that cannot be done, this is a temporary space.
+      </p>
+      <div className="mt-10 grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
         {data.map((ele) => {
           return (
             <div
               key={ele.name}
               className="border relative overflow-hidden transition-shadow duration-300 bg-background rounded"
             >
-              {user &&
-                globalData.adminEmails.includes(
-                  user.emailAddresses[0].emailAddress
-                ) && (
-                  <Link
-                    href={"delete-course/" + ele.id}
-                    className="absolute top-2 right-2 bg-red-600 px-2 py-1 rounded"
-                  >
-                    <MdDelete />
-                  </Link>
-                )}
-              <Link href={"/register/" + ele.id} aria-label="Article">
+              <Link href={"/course/" + ele.id} aria-label="Article">
                 <img
                   src={ele.image || ""}
                   className="object-cover w-full h-64 rounded"
@@ -65,7 +53,7 @@ export async function Courses() {
                   </p>
                 </div>
                 <Link
-                  href={"/register/" + ele.id}
+                  href={"/course/" + ele.id}
                   aria-label="Article"
                   className="inline-block mb-3  transition-colors duration-200 hover:text-deep-purple-accent-700"
                 >
@@ -79,23 +67,11 @@ export async function Courses() {
 
                 <div className="flex justify-between items-center w-full">
                   <Link
-                    href={"/register/" + ele.id}
+                    href={"/course/" + ele.id}
                     className="hover:underline underline-offset-8 text-primary"
                   >
-                    Know more &rarr;
+                    Refer &rarr;
                   </Link>
-
-                  {user &&
-                    globalData.adminEmails.includes(
-                      user.emailAddresses[0].emailAddress
-                    ) && (
-                      <Link
-                        href={"/manage-course/" + ele.id}
-                        className="hover:underline underline-offset-8 text-primary"
-                      >
-                        Edit &rarr;
-                      </Link>
-                    )}
                 </div>
               </div>
             </div>
@@ -106,4 +82,4 @@ export async function Courses() {
   );
 }
 
-export default Courses;
+export default MyCourses;

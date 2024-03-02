@@ -56,13 +56,11 @@ function CourseRegisterButton({ data }) {
     setRegistering(true);
     const ref = collection(db, "course-registrations");
     const res = await addDoc(ref, {
-      name: user?.fullName,
-      email: user?.emailAddresses[0].emailAddress ?? e.target[0].value,
-      phone: user?.phoneNumbers[0]?.phoneNumber ?? e.target[0].value,
-      courseId: data?.id,
-      courseName: data?.name,
-      coursePrice: data?.fees,
-      // courseExpires: currentdate + 1year
+      ...data,
+      registeredName: user?.fullName,
+      registeredEmail:
+        user?.emailAddresses[0].emailAddress ?? e.target[0].value,
+      registeredPhone: user?.phoneNumbers[0]?.phoneNumber ?? e.target[0].value,
       courseExpires: new Date().getTime() + 31556952000,
       timestamp: new Date().getTime(),
     });

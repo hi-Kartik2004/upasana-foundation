@@ -48,6 +48,7 @@
     "firebase": "^10.6.0",
     "framer-motion": "^11.0.5",
     "lucide-react": "^0.330.0",
+    "markdown-renderer": "^1.0.1",
     "next": "14.1.0",
     "next-themes": "^0.2.1",
     "react": "^18",

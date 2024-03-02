@@ -124,10 +124,7 @@ export default function Editor({
     const timestamp = new Date().getTime();
     const blog = sessionStorage.getItem(sessionLabel);
     const boilerSentence =
-      "This is a blog by " +
-      user.firstName +
-      " " +
-      "hosted on E-cell UVCE. Titled as";
+      "This is a blog " + "hosted on Upasana Foundation. Titled as";
     const recordingFile = await getTextToSpeechRecording(
       boilerSentence + " " + title + " " + description + ". " + blog
     );
