@@ -30,6 +30,7 @@ function DeleteCourse({ params }) {
     setDeleting(true);
     e.preventDefault();
     if (e.target[0].value !== params.id) {
+      setDeleting(false);
       return;
     }
     try {
@@ -46,7 +47,7 @@ function DeleteCourse({ params }) {
     <div className=" mt-28">
       <div>
         <h1 className="text-3xl font-bold text-center">Delete Course</h1>
-        <p className="text-center mt-2 text-muted-foreground">
+        <p className="mx-6 text-center mt-2 text-muted-foreground">
           Are you sure you want to delete course titled {name}? This action
           cannot be undone.
         </p>
@@ -56,7 +57,7 @@ function DeleteCourse({ params }) {
         onSubmit={(e) => {
           deleteDocFromFirestore(e);
         }}
-        className="rounded-lg border p-6 max-w-[500px] my-10 mx-auto flex flex-col gap-4"
+        className="rounded-lg border p-6 max-w-[500px] my-10 mx-auto flex flex-col gap-4 bg-card hover:shadow-lg duration-300 hover:shadow-red-500/50"
       >
         <label>
           <span className="text-muted-foreground">
