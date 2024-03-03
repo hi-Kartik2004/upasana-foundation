@@ -41,7 +41,7 @@ export async function Courses() {
                   user.emailAddresses[0].emailAddress
                 ) && (
                   <Link
-                    href={"delete-course/" + ele.id}
+                    href={"delete-course/" + ele.id + "?name=" + ele.name}
                     className="absolute top-2 right-2 bg-red-600 px-2 py-1 rounded"
                   >
                     <MdDelete />
