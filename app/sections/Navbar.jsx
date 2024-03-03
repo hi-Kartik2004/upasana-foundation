@@ -33,13 +33,6 @@ async function Navbar() {
           >
             About
           </Link>
-
-          <Link
-            href="/events"
-            className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
-          >
-            Events
-          </Link>
           <Link
             href="/courses"
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
@@ -69,6 +62,12 @@ async function Navbar() {
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
           >
             Contact Us
+          </Link>
+          <Link
+            href="/my-courses"
+            className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
+          >
+            My Courses
           </Link>
         </div>
         <div className="flex items-center gap-6">

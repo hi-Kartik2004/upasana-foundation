@@ -56,7 +56,7 @@ function HeroSection({ isMember }) {
           {data?.heroDescription}
         </p>
 
-        <div className="flex gap-10 flex-col lg:flex-row">
+        <div className="flex gap-6 flex-col lg:flex-row">
           {isMember ? (
             <Button className="flex gap-2 items-center font-semibold" size="lg">
               <Link
