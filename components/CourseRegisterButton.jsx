@@ -29,7 +29,10 @@ function CourseRegisterButton({ data }) {
     try {
       const ref = collection(db, "course-registrations");
       const res = await getDocs(
-        query(ref, where("email", "==", user?.emailAddresses[0].emailAddress))
+        query(
+          ref,
+          where("registeredEmail", "==", user?.emailAddresses[0].emailAddress)
+        )
       );
 
       if (res.docs.length > 0) {
