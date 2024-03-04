@@ -83,7 +83,7 @@ async function Course({ params }) {
                 aria-label="Article"
                 className="inline-block text-primary transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                <p className="font-sans text-2xl font-extrabold leading-none tracking-tight lg:text-4xl xl:text-5xl">
+                <p className=" text-2xl font-extrabold leading-none tracking-tight lg:text-4xl xl:text-5xl">
                   {thisCourseData[0]?.title}
                 </p>
               </Link>
@@ -131,7 +131,7 @@ async function Course({ params }) {
                     aria-label="Article"
                     className="inline-block text-primary transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
-                    <p className="font-sans text-2xl font-extrabold leading-none tracking-tight lg:text-2xl">
+                    <p className=" text-2xl font-extrabold leading-none tracking-tight lg:text-2xl">
                       {course?.title}
                     </p>
                   </Link>

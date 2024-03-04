@@ -4,12 +4,13 @@ import Link from "next/link";
 import React from "react";
 import { db } from "@/firebase/config";
 import { currentUser } from "@clerk/nextjs";
+const { encode, decode } = require("url-encode-decode");
 
 async function ExclusiveMusic({ params }) {
   let isAuthorised;
   const user = await currentUser();
   try {
-    const ref = collection(db, "course-music-registration");
+    const ref = collection(db, "course-music-registrations");
     const snapshot = await getDocs(ref);
     const allMusic = snapshot.docs.map((ele) => ele.data());
     const myMusic = allMusic.filter(
@@ -59,6 +60,13 @@ async function ExclusiveMusic({ params }) {
   } catch (err) {
     console.error(err);
   }
+
+  music.forEach((ele) => {
+    const blob = new Blob([ele.file], { type: "audio/mp3" });
+    const dataUrl = URL.createObjectURL(blob);
+    ele.dataUrl = dataUrl;
+  });
+
   return (
     <section>
       <div className="mt-28 container">
@@ -83,6 +91,7 @@ async function ExclusiveMusic({ params }) {
 
         <div className="flex justify-around gap-6 flex-wrap mt-10 mb-10 flex-initial">
           {music.map((ele) => {
+            // Create Blob URL directly for each audio file
             return (
               <div
                 key={ele.heading}
@@ -94,10 +103,11 @@ async function ExclusiveMusic({ params }) {
                   <audio
                     className="mt-2 flex w-full justify-center"
                     controls
-                    controlsList="nodownload"
+                    loop
+                    controlsList="nodownload noplaybackrate"
                   >
                     <source
-                      src={`data:audio/mp3;base64,${btoa(ele.file)}`}
+                      src={ele.file} // ele.file is a url
                       type="audio/mp3"
                     />
                     Your browser does not support the audio element.
