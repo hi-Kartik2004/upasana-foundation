@@ -34,23 +34,51 @@ export function MobileMenu() {
             </Link>
           </SheetClose>
           <SheetClose asChild>
-            <Link href="/" className="hover:underline underline-offset-8">
-              Home
+            <Link
+              href="/about-us"
+              className="hover:underline underline-offset-8"
+            >
+              About us
             </Link>
           </SheetClose>
           <SheetClose asChild>
-            <Link href="/" className="hover:underline underline-offset-8">
-              Home
+            <Link
+              href="/courses"
+              className="hover:underline underline-offset-8"
+            >
+              Courses
             </Link>
           </SheetClose>
           <SheetClose asChild>
-            <Link href="/" className="hover:underline underline-offset-8">
-              Home
+            <Link
+              href="/my-courses"
+              className="hover:underline underline-offset-8"
+            >
+              My Courses
             </Link>
           </SheetClose>
           <SheetClose asChild>
-            <Link href="/" className="hover:underline underline-offset-8">
-              Home
+            <Link
+              href="/sri-paaduka"
+              className="hover:underline underline-offset-8"
+            >
+              Sri Paaduka
+            </Link>
+          </SheetClose>
+          <SheetClose asChild>
+            <Link
+              href="/sri-upasaka"
+              className="hover:underline underline-offset-8"
+            >
+              Sri Upasaka
+            </Link>
+          </SheetClose>
+          <SheetClose asChild>
+            <Link
+              href="/contact-us"
+              className="hover:underline underline-offset-8"
+            >
+              Contact us
             </Link>
           </SheetClose>
         </div>
