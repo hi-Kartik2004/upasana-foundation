@@ -22,9 +22,11 @@ export async function Courses() {
 
   return (
     <div className="mt-10 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div className="mb-10 flex flex-col gap-2">
-        <h1 className="text-4xl font-bold text-center">Hello world!</h1>
-        <p className="text-muted-foreground text-center">
+      <div className="mb-10 flex flex-col items-center gap-2">
+        <h1 className="text-4xl font-bold text-center">
+          Upasana Foundation Couses!
+        </h1>
+        <p className="text-muted-foreground text-center mx-6 max-w-[800px]">
           SadhguruShri is a master communicator, converses in a very simple
           language, presents complex ideas in an easy to understand way.{" "}
         </p>
