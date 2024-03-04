@@ -276,7 +276,13 @@ export default function Editor({
 
         <div className="flex gap-4 flex-wrap">
           <Button variant="outline">
-            <Link href={"/manage-articles/" + courseId}>Manage Articles</Link>
+            <Link
+              href={`/manage-articles/${
+                buttonType == "edit" ? courseId : courseData?.id
+              }`}
+            >
+              Manage Articles
+            </Link>
           </Button>
           {value.length > 75 ? (
             <AlertDialog>
