@@ -70,7 +70,7 @@ async function MyCourses() {
                     href={"/course/" + ele.id}
                     className="hover:underline underline-offset-8 text-primary"
                   >
-                    Refer &rarr;
+                    View &rarr;
                   </Link>
                 </div>
               </div>

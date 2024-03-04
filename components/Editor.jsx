@@ -42,6 +42,7 @@ export default function Editor({
   type,
   showRecording,
   courseData,
+  courseId,
 }) {
   const { isLoaded, user } = useUser();
   console.log(user);
@@ -193,13 +194,11 @@ export default function Editor({
     const blogRef = doc(db, "course-content", blogId);
     const recordingUrl = await getTheDownloadUrlFromFirestore("editBlog");
     await updateDoc(blogRef, {
-      courseId: courseData.id,
       title: title || "No title provided",
       description: description || "No description provided",
       blog: sessionStorage.getItem("editBlog"),
       user: user.firstName + " " + user.lastName,
       email: user.emailAddresses[0].emailAddress,
-      timestamp: Date.now(),
       recordingUrl: { recordingUrl },
     });
     toast({
@@ -216,6 +215,13 @@ export default function Editor({
 
   // blogCode && sessionStorage.setItem("editBlog", blogCode);
 
+  useEffect(() => {
+    !sessionStorage.getItem("addBlog") && sessionStorage.setItem("addBlog", "");
+    blogCode && sessionStorage.setItem("editBlog", blogCode);
+  }, []);
+
+  // blogCode && sessionStorage.setItem("editBlog", blogCode);
+
   let storedValue = "<!-- Write your blog below -->";
   if (typeof window !== "undefined") {
     storedValue = sessionStorage.getItem("addBlog")
@@ -223,7 +229,7 @@ export default function Editor({
       : "";
   }
 
-  const [value, setValue] = React.useState(
+  const [value, setValue] = useState(
     gradient === "Edit"
       ? sessionStorage.getItem("editBlog")
       : storedValue || "<!-- Write your blog below -->"
@@ -237,6 +243,7 @@ export default function Editor({
 
   useEffect(() => {
     blogCode && sessionStorage.setItem("editBlog", blogCode);
+
     setLoading(false);
   }, []);
 
@@ -269,9 +276,7 @@ export default function Editor({
 
         <div className="flex gap-4 flex-wrap">
           <Button variant="outline">
-            <Link href={"/manage-articles/" + courseData.id}>
-              Manage Articles
-            </Link>
+            <Link href={"/manage-articles/" + courseId}>Manage Articles</Link>
           </Button>
           {value.length > 75 ? (
             <AlertDialog>

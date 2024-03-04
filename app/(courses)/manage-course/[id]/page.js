@@ -46,7 +46,7 @@ async function ManageCourses({ params }) {
           <CourseForm edit={true} courseData={courseData} />
         </div>
 
-        <div className="sticky top-24 max-h-[600px]">
+        <div className="sticky top-24 max-h-[450px]">
           <div className="max-w-[600px] flex-grow p-4 rounded-lg border w-full bg-muted">
             <div className="mb-4">
               <h1 className="text-2xl font-bold text-center">
