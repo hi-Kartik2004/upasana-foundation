@@ -31,11 +31,8 @@ function CourseRegisterButton({ data }) {
       const res = await getDocs(
         query(
           ref,
-          where(
-            "registeredEmail",
-            "==",
-            user?.emailAddresses[0].emailAddress && id === data.id
-          )
+          where("registeredEmail", "==", user?.emailAddresses[0]?.emailAddress),
+          where("id", "==", data.id)
         )
       );
 
