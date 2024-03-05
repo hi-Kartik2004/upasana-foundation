@@ -54,7 +54,7 @@ async function Course({ params }) {
         <h1 className="text-4xl font-extrabold text-center">
           Course {title ?? "Title"}
         </h1>
-        <p className="text-center mt-2 text-muted-foreground max-w-[800px] line-clamp-2">
+        <p className="text-center mt-2 text-muted-foreground max-w-[800px] line-clamp-2 mx-4">
           3 I have a sidebar that works great but when I tried to put it in a
           sticky/fixed position, the fixed class makes the content on the right
           of the sidebar overrides the sidebar and I try with sticky class but
@@ -62,11 +62,11 @@ async function Course({ params }) {
         </p>
         <Link
           href={`/course/${params.id}/exclusive-music`}
-          className="mt-4 hover:underline underline-offset-8"
+          className="mt-4 hover:underline underline-offset-8 text-center text-md"
         >
           Get Exclusive Music &rarr;
         </Link>
-        <Separator className="mt-8 max-w-[500px] border border-orange-300/75 shadow-lg shadow-orange-500" />
+        {/* <Separator className="mt-8 max-w-[500px] border border-orange-300/75 shadow-lg shadow-orange-500" /> */}
       </div>
 
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">

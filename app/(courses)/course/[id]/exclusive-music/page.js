@@ -82,11 +82,11 @@ async function ExclusiveMusic({ params }) {
           </p>
           <Link
             href={`/course/${params.id}`}
-            className="mt-4 hover:underline underline-offset-8"
+            className="mt-4 hover:underline underline-offset-8 text-md text-center"
           >
             Get Back to Course &rarr;
           </Link>
-          <Separator className="mt-8 max-w-[500px] border border-orange-300/75 shadow-lg shadow-orange-500" />
+          {/* <Separator className="mt-8 max-w-[250px] lg:max-w-[500px] border border-orange-300/75 shadow-lg shadow-orange-500" /> */}
         </div>
 
         <div className="flex justify-around gap-6 flex-wrap mt-10 mb-10 flex-initial">
