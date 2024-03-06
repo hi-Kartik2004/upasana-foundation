@@ -70,9 +70,7 @@ async function Course({ params }) {
 
           <div className="mt-8">
             <h1 className="text-xl font-semibold">Rewards</h1>
-            <pre>
-              <p className="text-muted-foreground mt-2">{courseData?.prizes}</p>
-            </pre>
+            <p className="text-muted-foreground mt-2">{courseData?.prizes}</p>
           </div>
 
           <div className="mt-8">
