@@ -14,6 +14,7 @@ import {
   BiCheckSquare,
 } from "react-icons/bi";
 import Link from "next/link";
+import { Textarea } from "./ui/textarea";
 
 function CourseRegisterButton({ data }) {
   const { isLoaded, user } = useUser();
@@ -32,12 +33,14 @@ function CourseRegisterButton({ data }) {
         query(
           ref,
           where("registeredEmail", "==", user?.emailAddresses[0]?.emailAddress),
-          where("id", "==", data.id)
+          where("id", "==", data.id),
+          where("courseExpires", ">", Date.now())
         )
       );
 
       if (res.docs.length > 0) {
         setRegistered(true);
+        setExpiry(res.docs[0].data().courseExpires);
         toast({
           title: "Already Registered",
           description: "You have already registered for this course!",
@@ -47,7 +50,7 @@ function CourseRegisterButton({ data }) {
       console.error("Error checking registration:", error);
       // Handle the error (e.g., show a message to the user)
       toast({
-        title: "Error",
+        title: `Error: ${error}`,
         description:
           "An error occurred while checking your registration status.",
         status: "error",
@@ -59,12 +62,14 @@ function CourseRegisterButton({ data }) {
     e.preventDefault();
     setRegistering(true);
     const ref = collection(db, "course-registrations");
+    const formData = new FormData(e.target);
     const res = await addDoc(ref, {
       ...data,
       registeredName: user?.fullName,
-      registeredEmail:
-        user?.emailAddresses[0].emailAddress ?? e.target[0].value,
-      registeredPhone: user?.phoneNumbers[0]?.phoneNumber ?? e.target[0].value,
+      registeredEmail: user?.emailAddresses[0].emailAddress,
+      registeredPhone: user?.phoneNumbers[0]?.phoneNumber,
+      registeredAddress: formData.get("address"),
+      registeredOccupation: formData.get("occupation"),
       courseExpires: new Date().getTime() + 31556952000,
       timestamp: new Date().getTime(),
     });
@@ -99,37 +104,83 @@ function CourseRegisterButton({ data }) {
                 type="email"
                 placeholder="Enter your email"
                 required={true}
+                disabled={user?.emailAddresses[0].emailAddress ? true : false}
+                value={user.emailAddresses[0].emailAddress ?? null}
               />
             </>
           ) : (
-            <>
-              <label className="text-sm text-muted-foreground">
-                Phone Number* (Without +91)
-              </label>
-              <Input
-                type="number"
-                placeholder="Enter your phone number"
-                required={true}
-                min={1000000000}
-                max={9999999999}
-              />
-            </>
+            <div className="flex flex-col gap-6 w-full">
+              <div>
+                <label className="text-sm text-muted-foreground">Name*</label>
+                <Input
+                  type="text"
+                  placeholder="Enter your name"
+                  required={true}
+                  disabled={user?.fullName ? true : false}
+                  value={user?.fullName ? user.fullName : null}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-muted-foreground">
+                  Phone Number* (Without +91)
+                </label>
+                <Input
+                  type="text"
+                  placeholder="Enter your phone number"
+                  required={true}
+                  disabled={user?.phoneNumbers[0]?.phoneNumber ? true : false}
+                  value={user?.phoneNumbers[0]?.phoneNumber ?? null}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-muted-foreground">Email*</label>
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  required={true}
+                  disabled={
+                    user?.emailAddresses[0]?.emailAddress ? true : false
+                  }
+                  value={user?.emailAddresses[0]?.emailAddress ?? null}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-muted-foreground">
+                  Address*
+                </label>
+                <Textarea
+                  type="Address"
+                  name="address"
+                  placeholder="Enter your address"
+                  required={true}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-muted-foreground">
+                  Occupation*
+                </label>
+                <Input
+                  type="text"
+                  name="occupation"
+                  required={true}
+                  placeholder="What do you do?"
+                />
+              </div>
+            </div>
           )
         ) : (
-          <div className="flex flex-col items-center">
+          <div className=" my-24 flex flex-col items-center">
             <BiCheckCircle className="text-6xl text-primary" />
             <h3 className="text-xl font-semibold text-primary">
               You have Already Registered for this course!
             </h3>
             <p className="text-muted-foreground text-center">
-              You can only register for a course once, untill it expires. To
-              Check your course Avalidity,{" "}
-              <Link
-                href="/"
-                className="text-primary underline underline-offset-8"
-              >
-                Click here
-              </Link>
+              You can only register for a course once, untill it expires. Your
+              course Expires on {new Date(expiry).toString()}
             </p>
           </div>
         )}

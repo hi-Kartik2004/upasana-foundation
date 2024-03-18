@@ -16,9 +16,17 @@ async function MyCourses() {
       where("registeredEmail", "==", user.emailAddresses[0].emailAddress)
     );
     const querySnapshot = await getDocs(q);
-    data = querySnapshot.docs.map((doc) => {
-      return { ...doc.data() };
-    });
+    const currentTime = Date.now();
+    data = querySnapshot.docs
+      .map((doc) => {
+        const courseData = doc.data();
+        if (courseData.courseExpires > currentTime) {
+          return { ...courseData };
+        } else {
+          return null;
+        }
+      })
+      .filter(Boolean);
   } catch (err) {
     console.error(err);
   }

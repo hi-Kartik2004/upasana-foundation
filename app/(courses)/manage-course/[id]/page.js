@@ -7,6 +7,17 @@ import Editor from "@/components/Editor";
 import MusicForm from "@/components/MusicForm";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import CodeSnippet from "@/components/CodeSnippet";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import AddImage from "@/components/AddImage";
+import AddVideo from "@/components/AddVideo";
 
 async function ManageCourses({ params }) {
   let courseData;
@@ -65,6 +76,37 @@ async function ManageCourses({ params }) {
       </div>
       <div className="mt-4">
         <Editor courseData={courseData} />
+        <Separator className="my-10" />
+        <div className="flex flex-wrap gap-6 mx-6 justify-around mb-10">
+          <div className="flex flex-col gap-4 items-center mt-4">
+            <AddImage />
+            <AddVideo />
+          </div>
+
+          <div className="flex flex-wrap flex-col overflow-auto">
+            <h3 className="mb-4 text-lg font-medium">Add Video*</h3>
+            <CodeSnippet
+              text={`<video width="100%" controls>
+  <source src="">
+  Your browser does not support the video tag.
+  </source>
+</video>`}
+              language="javascript"
+            />
+          </div>
+
+          <div className="flex flex-wrap flex-col overflow-auto">
+            <h3 className="mb-4 text-lg font-medium">Add Youtube Video*</h3>
+            <CodeSnippet
+              text={`<iframe width="100%" src="" title="YouTube video" 
+frameborder="0" allow="accelerometer; 
+autoplay; clipboard-write; encrypted-media; 
+gyroscope; picture-in-picture; web-share" 
+allowfullscreen></iframe>`}
+              language="javascript"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

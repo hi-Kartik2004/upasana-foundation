@@ -118,7 +118,7 @@ async function Course({ params }) {
 
         <div
           className={`max-w-[600px] xl:sticky ${
-            user ? "max-h-[290px]" : "max-h-[350px]"
+            user ? " max-h-[670px]" : "max-h-[350px]"
           } top-24 right-0 flex flex-col w-full bg-card p-8 py-10 rounded-md border md:overflow-auto`}
         >
           <h1 className="text-3xl font-semibold text-center">
