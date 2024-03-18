@@ -26,12 +26,9 @@ function AddImage() {
           </DialogHeader>
 
           <iframe
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            src="https://imgbb.com/"
+            src="https://postimages.org/"
             width={"100%"}
-            height={"600px"}
+            height={"400px"}
           ></iframe>
         </DialogContent>
       </Dialog>

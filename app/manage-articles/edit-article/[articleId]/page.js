@@ -3,6 +3,10 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/config";
 import React from "react";
 import Editor from "@/components/Editor";
+import CodeSnippet from "@/components/CodeSnippet";
+import AddImage from "@/components/AddImage";
+import AddVideo from "@/components/AddVideo";
+import { Separator } from "@/components/ui/separator";
 
 async function EditArticle({ params }) {
   const user = await currentUser();
@@ -44,6 +48,37 @@ async function EditArticle({ params }) {
               blogTitle={blogData.title}
               blogDescription={blogData.description}
               courseId={blogData.courseId}
+            />
+          </div>
+        </div>
+        <Separator className="my-10" />
+        <div className="flex flex-wrap gap-6 mx-6 justify-around mb-10">
+          <div className="flex flex-col gap-4 items-center mt-4">
+            <AddImage />
+            <AddVideo />
+          </div>
+
+          <div className="flex flex-wrap flex-col overflow-auto">
+            <h3 className="mb-4 text-lg font-medium">Add Video*</h3>
+            <CodeSnippet
+              text={`<video width="100%" controls>
+  <source src="">
+  Your browser does not support the video tag.
+  </source>
+</video>`}
+              language="javascript"
+            />
+          </div>
+
+          <div className="flex flex-wrap flex-col overflow-auto">
+            <h3 className="mb-4 text-lg font-medium">Add Youtube Video*</h3>
+            <CodeSnippet
+              text={`<iframe width="800px" src="" title="YouTube video" 
+frameborder="0" allow="accelerometer; 
+autoplay; clipboard-write; encrypted-media; 
+gyroscope; picture-in-picture; web-share" 
+allowfullscreen></iframe>`}
+              language="javascript"
             />
           </div>
         </div>

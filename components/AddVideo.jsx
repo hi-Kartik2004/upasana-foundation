@@ -28,7 +28,7 @@ function AddVideo() {
           <iframe
             src="https://www.file.io/"
             width={"100%"}
-            height={"600px"}
+            height={"400px"}
           ></iframe>
         </DialogContent>
       </Dialog>

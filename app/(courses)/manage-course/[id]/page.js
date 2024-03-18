@@ -98,7 +98,7 @@ async function ManageCourses({ params }) {
           <div className="flex flex-wrap flex-col overflow-auto">
             <h3 className="mb-4 text-lg font-medium">Add Youtube Video*</h3>
             <CodeSnippet
-              text={`<iframe width="100%" src="" title="YouTube video" 
+              text={`<iframe width="800px" height="400px" src="" title="YouTube video" 
 frameborder="0" allow="accelerometer; 
 autoplay; clipboard-write; encrypted-media; 
 gyroscope; picture-in-picture; web-share" 

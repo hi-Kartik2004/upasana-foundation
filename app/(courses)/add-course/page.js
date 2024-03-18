@@ -17,6 +17,8 @@ import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 import data from "@/app/data";
 import CourseForm from "@/components/CourseForm";
+import { useUser } from "@clerk/nextjs";
+import globalData from "@/app/data";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -31,14 +33,21 @@ const formSchema = z.object({
 });
 
 function page() {
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
+  const { isLoaded, user } = useUser();
+
+  if (!isLoaded) {
+    return null;
+  }
+
+  if (!globalData.adminEmails.includes(user?.emailAddresses[0]?.emailAddress)) {
+    return (
+      <div>
+        <h1 className="mt-32 text-4xl font-bold text-center mb-10">
+          You are not authorized to view this page
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <section className="flex justify-center">

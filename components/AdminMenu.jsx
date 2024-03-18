@@ -15,8 +15,8 @@ const menuLinks = [
     link: "/add-course",
   },
   {
-    name: "Manage Courses",
-    link: "/manage-courses",
+    name: "Add Video",
+    link: "/add-video",
   },
 ];
 
