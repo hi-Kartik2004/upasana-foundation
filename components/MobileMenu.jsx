@@ -58,6 +58,11 @@ export function MobileMenu() {
             </Link>
           </SheetClose>
           <SheetClose asChild>
+            <Link href="/videos" className="hover:underline underline-offset-8">
+              Videos
+            </Link>
+          </SheetClose>
+          <SheetClose asChild>
             <Link
               href="/sri-paaduka"
               className="hover:underline underline-offset-8"
