@@ -56,7 +56,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
   }
+}
+
+input:disabled {
+  @apply bg-muted text-muted-foreground;
 }
 
 /* ======== Scrollbar ========== */
