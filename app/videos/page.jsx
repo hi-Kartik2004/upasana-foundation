@@ -71,7 +71,7 @@ async function Videos() {
 
       <div className="mt-10 mb-10 flex flex-wrap justify-around">
         {data.map((video) => (
-          <Card key={video.id} className="bg-card max-w-[450px]">
+          <Card key={video.id} className="bg-card max-w-[420px]">
             <CardHeader>
               <CardTitle>
                 <VideoDialog video={video} content={"title"} />

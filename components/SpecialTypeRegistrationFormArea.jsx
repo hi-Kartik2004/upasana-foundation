@@ -69,6 +69,7 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
       registeredPhone: user?.phoneNumbers[0]?.phoneNumber,
       registeredAddress: formData.get("address"),
       registeredOccupation: formData.get("occupation"),
+      registeredMessage: formData.get("message"),
       poojaType: extraField,
       courseExpires: new Date().getTime() + 31556952000,
       timestamp: new Date().getTime(),
@@ -172,9 +173,19 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
                   placeholder="What do you do?"
                 />
               </div>
+
+              <div>
+                <label className="text-sm text-muted-foreground">Message</label>
+                <Textarea
+                  type="text"
+                  name="message"
+                  placeholder="Enter your message here..."
+                  required={false}
+                />
+              </div>
               <div>
                 <label className="text-sm text-muted-foreground">
-                  Pooja Type*
+                  Form Type*
                 </label>
                 <Input
                   type="text"

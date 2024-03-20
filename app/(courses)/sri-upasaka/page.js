@@ -9,7 +9,7 @@ import Marquee from "react-fast-marquee";
 function Page() {
   return (
     <div className="container flex flex-col items-center mt-12">
-      <SriPaadukaSimpleHero extraField={"Sri Upasaka Pooja"} />
+      <SriPaadukaSimpleHero extraField={"Sri Upasaka"} />
       <Separator />
       <SriPaadukaFaqSection />
       <Separator />
@@ -19,9 +19,9 @@ function Page() {
           id="register"
         >
           <h2 className="text-3xl text-center font-bold mb-4">
-            Reserve Your spot for Sri Paaduka Pooja!
+            Reserve Your spot for {`Sri Upasaka!`}
           </h2>
-          <SpecialTypeRegistrationForm extraField={"Sri Upasaka Pooja"} />
+          <SpecialTypeRegistrationForm extraField={"Sri Upasaka"} />
         </div>
 
         <div className="max-w-[600px] w-full flex flex-col gap-6 items-center justify-center overflow-hidden mb-10">
