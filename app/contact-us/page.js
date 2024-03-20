@@ -52,6 +52,8 @@ const page = () => {
       name: user.fullName ?? "Not Provided",
       email: user.emailAddresses[0].emailAddress,
       message: formData.message,
+      timestamp: Date.now(),
+      phone: user?.phoneNumbers[0]?.phoneNumber ?? "Not provided",
     });
     setisSubmit(
       "We recieved your message and will get back to you on the provided email soon!"
