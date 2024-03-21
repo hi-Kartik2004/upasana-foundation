@@ -9,6 +9,7 @@ export default authMiddleware({
     "/videos",
     "/sri-paaduka",
     "/sri-upasaka",
+    "/contact-us",
   ],
 });
 

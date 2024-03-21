@@ -105,8 +105,8 @@ const page = () => {
                   name="name"
                   onChange={handleChange}
                   autoComplete="off"
-                  disabled={true}
-                  value={user.fullName}
+                  disabled={user?.fullName ? true : false}
+                  value={user?.fullName ?? null}
                   required
                 />
               </div>
@@ -123,8 +123,8 @@ const page = () => {
                   name="email"
                   onChange={handleChange}
                   autoComplete="off"
-                  disabled={true}
-                  value={user.emailAddresses[0].emailAddress}
+                  disabled={user?.fullName ? true : false}
+                  value={user?.fullName ?? null}
                   required
                 />
               </div>
