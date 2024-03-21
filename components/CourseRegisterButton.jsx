@@ -42,8 +42,8 @@ function CourseRegisterButton({ data }) {
         setRegistered(true);
         setExpiry(res.docs[0].data().courseExpires);
         toast({
-          title: "Already Registered",
-          description: "You have already registered for this course!",
+          title: "Registrations Success!",
+          description: "You have registered for this course!",
         });
       }
     } catch (error) {
@@ -70,13 +70,14 @@ function CourseRegisterButton({ data }) {
       registeredPhone: user?.phoneNumbers[0]?.phoneNumber,
       registeredAddress: formData.get("address"),
       registeredOccupation: formData.get("occupation"),
+      registeredWhatsapp: formData.get("whatsappNumber"),
       courseExpires: new Date().getTime() + 31556952000,
       timestamp: new Date().getTime(),
     });
 
     console.log(res);
     setRegistering(false);
-    setRegistered(true);
+    checkIfAlreadyRegistered();
     toast({
       title: "Registration Successful",
       description: "You have successfully registered for this course!",
@@ -170,13 +171,27 @@ function CourseRegisterButton({ data }) {
                   placeholder="What do you do?"
                 />
               </div>
+
+              <div>
+                <label className="text-sm text-muted-foreground">
+                  WhatsApp Number* (Without +91)
+                </label>
+                <Input
+                  type="number"
+                  name="whatsappNumber"
+                  required={true}
+                  placeholder="Enter your WhatsApp number"
+                  min={1000000000}
+                  max={9999999999}
+                />
+              </div>
             </div>
           )
         ) : (
           <div className=" my-24 flex flex-col items-center">
             <BiCheckCircle className="text-6xl text-primary" />
             <h3 className="text-xl font-semibold text-primary">
-              You have Already Registered for this course!
+              You have Registered for this course!
             </h3>
             <p className="text-muted-foreground text-center">
               You can only register for a course once, untill it expires. Your

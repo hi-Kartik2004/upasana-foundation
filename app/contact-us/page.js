@@ -80,7 +80,8 @@ const page = () => {
             width="100%"
             height="100%"
             title="map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.3471894774875!2d77.58387051434795!3d12.975611486485349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1672fcfc6af1%3A0x9c2dc517c9231979!2sUVCE!5e0!3m2!1sen!2sin!4v1702567242179"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495352.6655755481!2d77.30323535133468!3d12.954225594601922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1711039720290!5m2!1sen!2sus"
+            loading="lazy"
             style={{
               filter: isDarkMode
                 ? "invert(90%) grayscale(100%)"

@@ -108,6 +108,8 @@ const formSchema = z.object({
   link: z.optional(z.string().trim().url({ message: "Invalid URL" })),
   prizes: z.string().min(2, "Please enter a valid prize."),
   category: z.string().min(2, "Please enter a valid category."),
+  startDate: z.string().min(2, "Please enter a valid start date."),
+  time: z.string().min(2, "Please enter a valid time."),
 });
 
 // Function to handle Firestore operation
@@ -172,6 +174,8 @@ export default function CourseForm({ edit, courseData }) {
       link: "",
       prizes: "",
       category: "course",
+      startDate: "",
+      time: "",
     },
   });
 
@@ -464,6 +468,46 @@ export default function CourseForm({ edit, courseData }) {
               <FormDescription>
                 The venue if the event is offline, else online.
               </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="startDate"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Date*</FormLabel>
+              <FormControl>
+                <Input
+                  type={"date"}
+                  value={editData?.startDate}
+                  placeholder="Senete Hall, UVCE"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription>The start Date for this course.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="time"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Time*</FormLabel>
+              <FormControl>
+                <Input
+                  type={"time"}
+                  value={editData?.time}
+                  placeholder="Senete Hall, UVCE"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription>The time for this course.</FormDescription>
               <FormMessage />
             </FormItem>
           )}

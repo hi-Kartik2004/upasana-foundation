@@ -64,6 +64,10 @@ const columns = [
     header: "Phone",
   },
   {
+    accessorKey: "registeredWhatsapp",
+    header: "Whatsapp",
+  },
+  {
     accessorKey: "fees",
     header: "Fees",
   },

@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import { RiUserLocationLine } from "react-icons/ri";
 import RegisterForm from "@/components/RegisterForm";
 import { currentUser } from "@clerk/nextjs";
+import { BsFillClockFill } from "react-icons/bs";
 
 async function Course({ params }) {
   const user = await currentUser();
@@ -25,13 +26,22 @@ async function Course({ params }) {
     console.error(err);
   }
 
+  function reverseDateFormat(dateString) {
+    if (!dateString) return "Anytime"; // Return "Anytime" if dateString is empty or undefined
+
+    const parts = dateString.split("-"); // Split the date string by "-"
+    const reversedDate = parts.reverse().join("-"); // Reverse the order of parts and join them with "-"
+
+    return reversedDate;
+  }
+
   return (
     <>
       <section className="flex flex-wrap container gap-10 mt-16 py-10 justify-center xl:justify-between relative">
         <div className="max-w-[650px] w-full">
           <div className="w-full h-[100px] rounded-md">
             <img
-              src={`https://source.unsplash.com/random/350X350/?nature`}
+              src={`https://source.unsplash.com/random/?nature`}
               alt="unsplash_image_for_this_event"
               className="w-full h-full object-cover rounded-md bg-muted"
             />
@@ -47,6 +57,13 @@ async function Course({ params }) {
                     {courseData?.venue}
                   </span>
                 </div>
+
+                <div className="flex gap-2 items-center">
+                  <BiCalendar />
+                  <span className="text-muted-foreground text-sm">
+                    {reverseDateFormat(courseData?.startDate)}
+                  </span>
+                </div>
               </div>
 
               <div className="flex flex-col gap-2">
@@ -57,20 +74,30 @@ async function Course({ params }) {
                     Rs {courseData?.fees} /-
                   </span>
                 </div>
+
+                <div className="flex gap-2 items-center">
+                  <BsFillClockFill />
+
+                  <span className="text-muted-foreground text-sm">
+                    {courseData?.time ?? "Anytime"}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="mt-8">
             <h1 className="text-xl font-semibold">About the event</h1>
-            <p className="text-muted-foreground mt-2">
+            <p className="text-muted-foreground mt-2 whitespace-pre-wrap">
               {courseData?.description}
             </p>
           </div>
 
           <div className="mt-8">
             <h1 className="text-xl font-semibold">Rewards</h1>
-            <p className="text-muted-foreground mt-2">{courseData?.prizes}</p>
+            <p className="text-muted-foreground mt-2 whitespace-pre-wrap">
+              {courseData?.prizes}
+            </p>
           </div>
 
           <div className="mt-8">
@@ -118,7 +145,7 @@ async function Course({ params }) {
 
         <div
           className={`max-w-[600px] xl:sticky ${
-            user ? " max-h-[670px]" : "max-h-[400px]"
+            user ? " max-h-[650px]" : "max-h-[400px]"
           } top-24 right-0 flex flex-col w-full bg-card p-8 py-10 rounded-md border md:overflow-auto`}
         >
           <h1 className="text-3xl font-semibold text-center">

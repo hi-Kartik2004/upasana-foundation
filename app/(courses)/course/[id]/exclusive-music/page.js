@@ -5,30 +5,39 @@ import React from "react";
 import { db } from "@/firebase/config";
 import { currentUser } from "@clerk/nextjs";
 const { encode, decode } = require("url-encode-decode");
+import globalData from "@/app/data";
 
 async function ExclusiveMusic({ params }) {
   let isAuthorised;
   const user = await currentUser();
-  try {
-    const ref = collection(db, "course-music-registrations");
-    const snapshot = await getDocs(ref);
-    const allMusic = snapshot.docs.map((ele) => ele.data());
-    const myMusic = allMusic.filter(
-      (ele) =>
-        ele.registeredEmail === user.emailAddresses[0].emailAddress &&
-        ele.courseId === params.id
-    );
+  if (globalData.adminEmails.includes(user?.emailAddresses[0]?.emailAddress)) {
+    isAuthorised = true;
+  }
 
-    if (myMusic.length === 0) {
-      isAuthorised = false;
-    } else {
-      isAuthorised = true;
+  if (!isAuthorised) {
+    try {
+      const ref = collection(db, "course-music-registrations");
+      const snapshot = await getDocs(ref);
+      const allMusic = snapshot.docs.map((ele) => ele.data());
+      const myMusic = allMusic.filter(
+        (ele) =>
+          ele.registeredEmail === user.emailAddresses[0].emailAddress &&
+          ele.courseId === params.id
+      );
+
+      if (myMusic.length === 0) {
+        isAuthorised = false;
+      } else {
+        isAuthorised = true;
+      }
+    } catch (err) {
+      console.error(err);
+      return (
+        <h1 className="font-bold text-2xl mt-24">
+          Unable to verify Authority!
+        </h1>
+      );
     }
-  } catch (err) {
-    console.error(err);
-    return (
-      <h1 className="font-bold text-2xl mt-24">Unable to verify Authority!</h1>
-    );
   }
 
   if (!isAuthorised) {
