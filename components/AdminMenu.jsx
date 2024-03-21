@@ -28,7 +28,7 @@ const menuLinks = [
   },
   {
     name: "Special Reg.",
-    link: "/special-registrations",
+    link: "/special-queries",
   },
   {
     name: "Queries",
