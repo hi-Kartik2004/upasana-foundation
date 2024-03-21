@@ -53,23 +53,25 @@ function DeleteCourse({ params }) {
         </p>
       </div>
 
-      <form
-        onSubmit={(e) => {
-          deleteDocFromFirestore(e);
-        }}
-        className="rounded-lg border p-6 max-w-[500px] my-10 mx-auto flex flex-col gap-4 bg-card hover:shadow-lg duration-300 hover:shadow-red-500/50"
-      >
-        <label>
-          <span className="text-muted-foreground">
-            Type the following to confirm deletion of course {name} :-
-          </span>{" "}
-          {params.id}:
-        </label>
-        <Input type="text" placeholder={params.id} />
-        <Button variant={"destructive"} type="submit">
-          {deleteing ? <BiLoader /> : "Delete"}
-        </Button>
-      </form>
+      <div className="flex items-center justify-center">
+        <form
+          onSubmit={(e) => {
+            deleteDocFromFirestore(e);
+          }}
+          className=" mx-2 rounded-lg border p-6 max-w-[500px] my-10 flex flex-col gap-4 bg-card hover:shadow-lg duration-300 hover:shadow-red-500/50"
+        >
+          <label>
+            <span className="text-muted-foreground">
+              Type the following to confirm deletion of course {name} :-
+            </span>{" "}
+            {params.id}:
+          </label>
+          <Input type="text" placeholder={params.id} />
+          <Button variant={"destructive"} type="submit">
+            {deleteing ? <BiLoader /> : "Delete"}
+          </Button>
+        </form>
+      </div>
     </div>
   );
 }
