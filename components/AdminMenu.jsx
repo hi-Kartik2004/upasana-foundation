@@ -18,6 +18,22 @@ const menuLinks = [
     name: "Add Video",
     link: "/add-video",
   },
+  {
+    name: "Course Reg.",
+    link: "/course-registrations",
+  },
+  {
+    name: "Music Reg.",
+    link: "/course-music-registrations",
+  },
+  {
+    name: "Special Reg.",
+    link: "/special-registrations",
+  },
+  {
+    name: "Queries",
+    link: "/contact-us-queries",
+  },
 ];
 
 function AdminMenu({ username }) {
@@ -61,11 +77,7 @@ function AdminMenu({ username }) {
                   );
                 })}
 
-                <Button variant="secondary">
-                  <Link href={`/${username}`}>/admin</Link>
-                </Button>
-
-                <UserButton afterSignOutUrl="/" />
+                {/* <UserButton afterSignOutUrl="/" /> */}
               </SignedIn>
 
               <SignedOut>
