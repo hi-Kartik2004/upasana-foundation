@@ -10,6 +10,9 @@ export default authMiddleware({
     "/sri-paaduka",
     "/sri-upasaka",
     "/contact-us",
+    "/quotes",
+    "/events",
+    "/about-sadhguru",
   ],
 });
 

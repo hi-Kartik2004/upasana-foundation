@@ -52,7 +52,7 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
         toast({
           title: "Already Registered",
           description:
-            "You have already registered for this Pooja our executive will get back to you!",
+            "You have already registered for this event our executive will get back to you!",
         });
       }
     } catch (error) {
@@ -283,7 +283,7 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
           <div className=" my-24 flex flex-col items-center max-w-[800px] justify-center">
             <BiCheckCircle className="text-6xl text-primary" />
             <h3 className="text-xl font-semibold text-primary">
-              You have Already Registered for this Pooja!
+              You have Already Registered for this Event!
             </h3>
             <p className="text-muted-foreground text-center">
               You can only register for a course once, untill our Executives
