@@ -75,7 +75,7 @@ function DonateForm({ addDonationToFirestore }) {
         }}
         className="rounded-lg border p-4 flex flex-col gap-4 w-full"
       >
-        <h2 className="text-center underline underline-offset-8 text-3xl">
+        <h2 className="mt-4 text-center underline underline-offset-8 text-3xl">
           Donation Form
         </h2>
         <div>
