@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { BsFileArrowDown } from "react-icons/bs";
-import { BiStar } from "react-icons/bi";
+import { BiDonateHeart, BiMoney, BiStar } from "react-icons/bi";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { RiDoubleQuotesL } from "react-icons/ri";
 
@@ -110,6 +110,13 @@ async function Navbar() {
                 <Link href="/events" className="flex items-center gap-2">
                   <IoIosPeople />
                   Events
+                </Link>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <Link href="/donate" className="flex items-center gap-2">
+                  <BiDonateHeart />
+                  Donate
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

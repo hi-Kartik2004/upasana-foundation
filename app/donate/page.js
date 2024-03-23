@@ -40,7 +40,7 @@ function Donate() {
           <h2 className="text-center flex items-center text-2xl underline underline-offset-8">
             Send via QR Code
           </h2>
-          <div className="mt-10 flex border rounded-lg p-4">
+          <div className="mt-10 flex items-center justify-around flex-wrap border rounded-lg p-4">
             <div className="border p-4 rounded-lg bg-muted">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6x-ZkJK5Os7Y5HmpPsCOStJDS6EjGrdbC4eKcpaCiiQ&s"
@@ -48,16 +48,20 @@ function Donate() {
               />
             </div>
 
-            <div className="flex flex-col items-start h-full justify-between max-w-[400px] ml-10 w-full">
+            <div className="flex flex-col items-start justify-around max-w-[300px] sm:ml-10 w-full">
               <div>
-                <h2 className="text-2xl font-semibold">lorem ipsum </h2>
-                <p className="mt-2 text-muted-foreground">+91 12345 67890</p>
+                <h2 className="text-2xl mt-4 font-semibold text-center">
+                  lorem ipsum{" "}
+                </h2>
+                <p className="text-center mt-2 text-muted-foreground">
+                  +91 12345 67890
+                </p>
 
-                <p className="mt-2">
+                <p className="mt-2 text-center">
                   encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6x-ZkJK5
                 </p>
               </div>
-              <div className="p-2 border rounded-lg bg-muted">
+              <div className="p-2 flex justify-center w-full mt-6 border rounded-lg bg-muted">
                 <p>UPI Id: 9901848769@ybl</p>
               </div>
             </div>

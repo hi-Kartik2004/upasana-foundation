@@ -107,6 +107,12 @@ export function MobileMenu() {
               Contact us
             </Link>
           </SheetClose>
+
+          <SheetClose asChild>
+            <Link href="/donate" className="hover:underline underline-offset-8">
+              Donate
+            </Link>
+          </SheetClose>
         </div>
       </SheetContent>
     </Sheet>
