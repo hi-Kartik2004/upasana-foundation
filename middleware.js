@@ -13,6 +13,7 @@ export default authMiddleware({
     "/quotes",
     "/events",
     "/about-sadhguru",
+    "/donate",
   ],
 });
 

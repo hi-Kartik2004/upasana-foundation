@@ -33,9 +33,9 @@ function DonateForm({ addDonationToFirestore }) {
     const form = e.target;
     const formData = new FormData(form);
     const data = {
-      name: user.fullName ?? formData.get("name"),
-      email: user.emailAddresses[0]?.emailAddress ?? formData.get("email"),
-      phone: user.phoneNumbers[0]?.phoneNumber ?? formData.get("phone"),
+      name: user?.fullName ?? formData.get("name"),
+      email: user?.emailAddresses[0]?.emailAddress ?? formData.get("email"),
+      phone: user?.phoneNumbers[0]?.phoneNumber ?? formData.get("phone"),
       occupation: formData.get("occupation"),
       address: formData.get("address"),
       message: formData.get("message"),
