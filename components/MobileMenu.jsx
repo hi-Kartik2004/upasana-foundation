@@ -80,6 +80,27 @@ export function MobileMenu() {
           </SheetClose>
           <SheetClose asChild>
             <Link
+              href="/about-sadhguru"
+              className="hover:underline underline-offset-8"
+            >
+              About Sadhguru Shri
+            </Link>
+          </SheetClose>
+
+          <SheetClose asChild>
+            <Link href="/quotes" className="hover:underline underline-offset-8">
+              Quotes
+            </Link>
+          </SheetClose>
+
+          <SheetClose asChild>
+            <Link href="/events" className="hover:underline underline-offset-8">
+              Events
+            </Link>
+          </SheetClose>
+
+          <SheetClose asChild>
+            <Link
               href="/contact-us"
               className="hover:underline underline-offset-8"
             >

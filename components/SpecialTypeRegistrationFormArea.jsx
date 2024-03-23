@@ -15,6 +15,15 @@ import {
 } from "react-icons/bi";
 import Link from "next/link";
 import { Textarea } from "./ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 function SpecialTypeRegistrationFormArea({ extraField }) {
   const { isLoaded, user } = useUser();
@@ -71,6 +80,9 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
       registeredOccupation: formData.get("occupation"),
       registeredMessage: formData.get("message"),
       poojaType: extraField,
+      hobbies: formData.get("hobbies"),
+      whatsapp: formData.get("whatsapp"),
+      coursesTaken: formData.get("coursesTaken"),
       courseExpires: new Date().getTime() + 31556952000,
       timestamp: new Date().getTime(),
       date: new Date().toLocaleDateString(),
@@ -175,7 +187,35 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
               </div>
 
               <div>
-                <label className="text-sm text-muted-foreground">Message</label>
+                <label className="text-sm text-muted-foreground">
+                  Hobbies*
+                </label>
+                <Input
+                  type="text"
+                  name="hobbies"
+                  required={true}
+                  placeholder="What are your hobbies?"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-muted-foreground">
+                  WhatsApp Number* (Without +91)
+                </label>
+                <Input
+                  type="text"
+                  name="whatsapp"
+                  required={true}
+                  placeholder=""
+                  min={1000000000}
+                  max={9999999999}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-muted-foreground">
+                  How do you want to Volunteer? Any Prior Experience?
+                </label>
                 <Textarea
                   type="text"
                   name="message"
@@ -183,6 +223,47 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
                   required={false}
                 />
               </div>
+
+              <div className="w-full">
+                <label className="text-sm text-muted-foreground">
+                  Recent courses attended
+                </label>
+                <Select className="w-full" name={"coursesTaken"}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Select a Course" />
+                  </SelectTrigger>
+                  <SelectContent className="w-full">
+                    <SelectGroup>
+                      <SelectLabel>Select a Course</SelectLabel>
+                      <SelectItem value="  Shakti Kriya Level 1">
+                        Shakti Kriya Level 1
+                      </SelectItem>
+                      <SelectItem value="  Shakti Kriya Level 2">
+                        Shakti Kriya Level 2
+                      </SelectItem>
+                      <SelectItem value="Kriyatmaka Yog">
+                        Kriyatmaka Yoga
+                      </SelectItem>
+                      <SelectItem value="Self-Hypnosis">
+                        Self-Hypnosis
+                      </SelectItem>
+                      <SelectItem value="Sankalpa Shakti">
+                        Sankalpa Shakti
+                      </SelectItem>
+                      <SelectItem value="Mudra Shibir">Mudra Shibir</SelectItem>
+                      <SelectItem value="Pranayama Shibir">
+                        Pranayama Shibir
+                      </SelectItem>
+                      <SelectItem value="Yogika ahara">Yogika ahara</SelectItem>
+                      <SelectItem value="Thathastu">Thathastu</SelectItem>
+                      <SelectItem value="none">
+                        I have not attended any Classes
+                      </SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+
               <div>
                 <label className="text-sm text-muted-foreground">
                   Form Type*

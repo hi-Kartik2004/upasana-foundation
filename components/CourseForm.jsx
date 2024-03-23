@@ -110,6 +110,7 @@ const formSchema = z.object({
   category: z.string().min(2, "Please enter a valid category."),
   startDate: z.string().min(2, "Please enter a valid start date."),
   time: z.string().min(2, "Please enter a valid time."),
+  expiry: z.coerce.number().min(1, "course duration must more than be 1day"),
 });
 
 // Function to handle Firestore operation
@@ -508,6 +509,23 @@ export default function CourseForm({ edit, courseData }) {
                 />
               </FormControl>
               <FormDescription>The time for this course.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="expiry"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Course Duration*</FormLabel>
+              <FormControl>
+                <Input value={editData?.venue} placeholder="10" {...field} />
+              </FormControl>
+              <FormDescription>
+                The duration of the course in days.
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}

@@ -4,9 +4,20 @@ import { SheetClose } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { IoIosMenu } from "react-icons/io";
+import { IoIosArrowDown, IoIosMenu, IoIosPeople } from "react-icons/io";
 import { UserButton, currentUser } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { BsFileArrowDown } from "react-icons/bs";
+import { BiStar } from "react-icons/bi";
+import { PiHandsPrayingFill } from "react-icons/pi";
+import { RiDoubleQuotesL } from "react-icons/ri";
 
 async function Navbar() {
   const user = await currentUser();
@@ -27,6 +38,12 @@ async function Navbar() {
           </Link>
         </div>
         <div className="hidden lg:flex gap-6 items-center">
+          <Link
+            href="/"
+            className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
+          >
+            Home
+          </Link>
           <Link
             href="/about-us"
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
@@ -63,6 +80,40 @@ async function Navbar() {
           >
             Contact Us
           </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant={"link"}
+                className="text-muted-foreground p-0 font-normal outline-none focus-visible:ring-0 ring-0 border-none"
+              >
+                Others <IoIosArrowDown className="ml-1" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Link
+                  href="/about-sadhguru"
+                  className="flex items-center gap-2"
+                >
+                  <PiHandsPrayingFill /> About Sadhguru Sri
+                </Link>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <Link href="/quotes" className="flex items-center gap-2">
+                  <RiDoubleQuotesL />
+                  Quotes
+                </Link>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <Link href="/events" className="flex items-center gap-2">
+                  <IoIosPeople />
+                  Events
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Link
             href="/my-courses"
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"

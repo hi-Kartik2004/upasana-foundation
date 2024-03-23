@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -6,57 +7,72 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "@/firebase/config";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import Link from "next/link";
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import VideoDialog from "@/components/VideoDialog";
-import YouTubeAPI from "youtube-api";
+// import YouTubeAPI from "youtube-api";
+import { Button } from "@/components/ui/button";
+import globalData from "@/app/data";
+import { useUser } from "@clerk/nextjs";
+import DeleteButton from "@/components/DeleteButton";
 
-YouTubeAPI.authenticate({
-  type: "key",
-  key: "AIzaSyB3aMVWp1pUIVtlqro5xcWtbLce76T2xmg",
-});
+function Videos() {
+  const { isLoaded, user } = useUser();
 
-async function getVideoThumbnail(url) {
-  try {
-    const videoId = url.split("v=")[1];
-    const response = await YouTubeAPI.videos.list({
-      id: videoId,
-      part: "snippet",
-    });
-    const thumbnailUrl = response.data.items[0].snippet.thumbnails.default.url;
-    return thumbnailUrl;
-  } catch (error) {
-    console.error("Error fetching video thumbnail:", error);
-    return null;
+  if (!isLoaded) return null;
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const courseRef = collection(db, "videos");
+        const resp = await getDocs(courseRef);
+        const fetchedData = resp.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          thumbnailUrl: getVideoThumbnail(doc.data().link), // Get thumbnail URL
+        }));
+        setData(fetchedData);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures useEffect runs only once on mount
+
+  async function handleDelete(id) {
+    try {
+      const videoRef = doc(db, "videos", id);
+      await deleteDoc(videoRef);
+      console.log(`Video with ID ${id} deleted successfully.`);
+
+      // Remove the deleted video from the UI
+      const updatedData = data.filter((video) => video.id !== id);
+      setData(updatedData);
+    } catch (error) {
+      console.error("Error deleting video:", error);
+      // Handle error, if needed
+    }
   }
-}
 
-async function Videos() {
-  let data;
-  try {
-    const courseRef = collection(db, "videos");
-    const resp = await getDocs(courseRef);
-    data = resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    console.log(data);
-
-    const videosWithThumbnails = await Promise.all(
-      data.map(async (video) => {
-        if (video.link.includes("youtube.com")) {
-          const thumbnailUrl = await getVideoThumbnail(video.link);
-          return { ...video, thumbnailUrl };
-        } else {
-          return video;
-        }
-      })
-    );
-
-    data = videosWithThumbnails;
-  } catch (err) {
-    console.error(err);
+  function getVideoThumbnail(url) {
+    try {
+      if (url.includes("youtube.com")) {
+        const videoId = url.split("v=")[1];
+        return `https://img.youtube.com/vi/${videoId}/default.jpg`;
+      } else {
+        // Handle other video platforms or custom URLs
+        return null;
+      }
+    } catch (error) {
+      console.error("Error getting video thumbnail:", error);
+      return null;
+    }
   }
 
   return (
@@ -69,40 +85,61 @@ async function Videos() {
         </p>
       </div>
 
-      <div className="mt-10 mb-10 flex flex-wrap justify-around">
-        {data.map((video) => (
-          <Card key={video.id} className="bg-card max-w-[420px]">
-            <CardHeader>
-              <CardTitle>
-                <VideoDialog video={video} content={"title"} />
-              </CardTitle>
-              <CardDescription className="line-clamp-2 mt-4">
-                {video.description}
-              </CardDescription>
-            </CardHeader>
+      <div className="mt-10 mb-10 flex flex-wrap gap-4 justify-around">
+        {data.length === 0 ? (
+          <p className="text-lg">We are adding Videos soon!</p>
+        ) : (
+          // Render videos if data array is not empty
+          data.map((video) => (
+            <Card
+              key={video.id}
+              className="bg-card max-w-[420px]"
+              id={`video-${video.id}`}
+            >
+              <CardHeader>
+                <CardTitle>
+                  <VideoDialog video={video} content={"title"} />
+                </CardTitle>
+                <CardDescription className="line-clamp-2 mt-4">
+                  {video.description}
+                </CardDescription>
+              </CardHeader>
 
-            <CardFooter className="flex flex-wrap justify-between items-baseline">
-              <div>
-                <p className="text-xs text-muted-foreground">{video.name}</p>
-                <Link
-                  href={`mailto:${video?.email ?? "upasanafound@gmail.com"}`}
-                  className="text-xs text-muted-foreground underline underline-offset-8"
-                >
-                  {video.email}
-                </Link>
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground">
-                  {video.timestamp.split("T")[0]}
-                </p>
-              </div>
-            </CardFooter>
+              <CardFooter className="flex flex-wrap justify-between items-baseline">
+                <div>
+                  <p className="text-xs text-muted-foreground">{video.name}</p>
+                  <Link
+                    href={`mailto:${video?.email ?? "upasanafound@gmail.com"}`}
+                    className="text-xs text-muted-foreground underline underline-offset-8"
+                  >
+                    {video.email}
+                  </Link>
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground">
+                    {video.timestamp.split("T")[0]}
+                  </p>
+                  {globalData.adminEmails.includes(
+                    user.emailAddresses[0].emailAddress
+                  ) && (
+                    <DeleteButton
+                      email={
+                        user?.emailAddresses[0]?.emailAddress ?? "Not provided"
+                      }
+                      message={"delete"}
+                      id={video.id}
+                      handleDelete={handleDelete}
+                    />
+                  )}
+                </div>
+              </CardFooter>
 
-            <CardContent>
-              <VideoDialog video={video} content={"thumbnail"} />
-            </CardContent>
-          </Card>
-        ))}
+              <CardContent>
+                <VideoDialog video={video} content={"thumbnail"} />
+              </CardContent>
+            </Card>
+          ))
+        )}
       </div>
     </div>
   );
