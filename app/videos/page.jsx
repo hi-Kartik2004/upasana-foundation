@@ -128,7 +128,7 @@ function Videos() {
                       }
                       message={"delete"}
                       id={video.id}
-                      handleDelete={handleDelete}
+                      collection={"videos"}
                     />
                   )}
                 </div>
