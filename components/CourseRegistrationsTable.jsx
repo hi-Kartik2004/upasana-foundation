@@ -52,6 +52,10 @@ const convertToISTDate = (timestamp) => {
 
 const columns = [
   {
+    accessorKey: "docId",
+    header: "id",
+  },
+  {
     accessorKey: "registeredEmail",
     header: "Email",
   },
@@ -107,8 +111,8 @@ export function CourseRegistrationsTable() {
         const ref = collection(db, "course-registrations");
         const querySnapshot = await getDocs(ref);
         const fetchedData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
           ...doc.data(),
+          docId: doc.id,
         }));
         setData(fetchedData);
       } catch (error) {

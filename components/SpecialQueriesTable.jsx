@@ -39,7 +39,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { db } from "@/firebase/config";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, query, orderBy, getDocs } from "firebase/firestore";
+
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 // Define function to convert timestamp to IST date
@@ -94,6 +95,18 @@ export function PoojaRegistrationsTable() {
       ),
     },
     {
+      accessorKey: "hobbies",
+      header: "hobbies",
+    },
+    {
+      accessorKey: "coursesTaken",
+      header: "coursesTaken",
+    },
+    {
+      accessorKey: "whatsapp",
+      header: "whatsapp",
+    },
+    {
       accessorKey: "registeredMessage",
       header: "Message",
       cell: ({ row }) => (
@@ -139,9 +152,11 @@ export function PoojaRegistrationsTable() {
     const fetchData = async () => {
       try {
         const ref = collection(db, "pooja-registrations");
-        const querySnapshot = await getDocs(ref);
+        const querySnapshot = await getDocs(
+          query(ref, orderBy("timestamp", "desc"))
+        );
         const fetchedData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
+          docId: doc.id,
           ...doc.data(),
         }));
         setData(fetchedData);
