@@ -14,6 +14,8 @@ export default authMiddleware({
     "/events",
     "/about-sadhguru",
     "/donate",
+    "/events",
+    "/event/(.*)",
   ],
 });
 
