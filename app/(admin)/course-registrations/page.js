@@ -21,7 +21,9 @@ function Admin() {
         <div className="w-full container mt-4 max-w-[1200px] ">
           <div>
             <h1 className="text-2xl font-semibold">Course registrations</h1>
-            <p className="text-muted-foreground">lorem ipsum dolor sit amet</p>
+            <p className="text-muted-foreground">
+              View and filter course registration records
+            </p>
           </div>
 
           <Separator className="my-4" />

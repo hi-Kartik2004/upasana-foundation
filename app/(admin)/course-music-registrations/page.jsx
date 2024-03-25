@@ -10,7 +10,10 @@ function CourseMusicRegistrations() {
             <h1 className="text-2xl font-semibold">
               Course Music Registrations
             </h1>
-            <p className="text-muted-foreground">lorem ipsum dolor sit amet</p>
+            <p className="text-muted-foreground">
+              {" "}
+              View and filter Music registration records.
+            </p>
           </div>
 
           <Separator className="my-4" />

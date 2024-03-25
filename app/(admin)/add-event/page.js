@@ -9,7 +9,7 @@ function AddEvent() {
           Add Event
         </h1>
         <p className="text-center mt-2 text-muted-foreground">
-          Add event information as a article and publish it.
+          Add event information as an article and publish it.
         </p>
       </div>
 

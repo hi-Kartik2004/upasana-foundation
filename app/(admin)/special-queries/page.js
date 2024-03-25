@@ -9,7 +9,10 @@ function page() {
         <div className="w-full container mt-4 max-w-[1200px] ">
           <div>
             <h1 className="text-2xl font-semibold">Special Queries</h1>
-            <p className="text-muted-foreground">lorem ipsum dolor sit amet</p>
+            <p className="text-muted-foreground">
+              {" "}
+              View and filter Sri Upasaka and Sri Paaduka records
+            </p>
           </div>
 
           <Separator className="my-4" />
