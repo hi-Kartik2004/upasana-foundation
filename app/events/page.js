@@ -45,10 +45,10 @@ async function Events() {
     <div className="container mt-24 mb-10">
       <div className="flex justify-center flex-col items-center">
         <h1 className="text-primary text-center text-4xl font-bold">
-          lorem ipsum.
+          {globalData?.eventsPageTitle ?? "Events"}
         </h1>
         <p className="text-center mt-2 text-muted-foreground">
-          lorem ipsum dor sit ipem
+          {globalData?.eventsPageDescription ?? "No description"}
         </p>
       </div>
 
@@ -94,7 +94,7 @@ async function Events() {
                     {new Date(event.timestamp).toLocaleDateString()}
                   </p>
                   {globalData.adminEmails.includes(
-                    user.emailAddresses[0].emailAddress
+                    user && user.emailAddresses[0].emailAddress
                   ) && (
                     <DeleteButton
                       email={

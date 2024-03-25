@@ -5,6 +5,7 @@ import SpecialTypeRegistrationForm from "@/components/SpecialTypeRegistrationFor
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 import Marquee from "react-fast-marquee";
+import globalData from "@/app/data";
 
 function Page() {
   return (
@@ -19,22 +20,31 @@ function Page() {
           id="register"
         >
           <h2 className="text-3xl text-center font-bold mb-4">
-            Reserve Your spot for Sri Paaduka Pooja!
+            {globalData?.sriPaadukaFormHeading}
           </h2>
           <SpecialTypeRegistrationForm extraField={"Sri Paaduka Pooja"} />
         </div>
 
         <div className="max-w-[600px] w-full flex flex-col gap-6 items-center justify-center overflow-hidden mb-10">
-          <Marquee gradient={false} speed={50} className="flex gap-10">
+          <Marquee
+            gradient={false}
+            speed={50}
+            className="flex gap-10"
+            pauseOnHover
+          >
             <div className="flex gap-6">
-              <SpecialEventTestimonialCard />
-              <SpecialEventTestimonialCard />
-              <SpecialEventTestimonialCard />
+              {globalData?.sriPaadukaTestimonials
+                .slice(0, globalData?.sriPaadukaTestimonials.length / 2)
+                .map((testimonial, index) => (
+                  <SpecialEventTestimonialCard key={index} {...testimonial} />
+                ))}
             </div>
             <div className="flex gap-6">
-              <SpecialEventTestimonialCard />
-              <SpecialEventTestimonialCard />
-              <SpecialEventTestimonialCard />
+              {globalData?.sriPaadukaTestimonials
+                .slice(0, globalData?.sriPaadukaTestimonials.length / 2)
+                .map((testimonial, index) => (
+                  <SpecialEventTestimonialCard key={index} {...testimonial} />
+                ))}
             </div>
           </Marquee>
 
@@ -43,16 +53,21 @@ function Page() {
             speed={50}
             className="flex gap-10"
             direction="right"
+            pauseOnHover
           >
             <div className="flex gap-6">
-              <SpecialEventTestimonialCard />
-              <SpecialEventTestimonialCard />
-              <SpecialEventTestimonialCard />
+              {globalData?.sriPaadukaTestimonials
+                .slice(globalData?.sriPaadukaTestimonials.length / 2)
+                .map((testimonial, index) => (
+                  <SpecialEventTestimonialCard key={index} {...testimonial} />
+                ))}
             </div>
             <div className="flex gap-6">
-              <SpecialEventTestimonialCard />
-              <SpecialEventTestimonialCard />
-              <SpecialEventTestimonialCard />
+              {globalData?.sriPaadukaTestimonials
+                .slice(globalData?.sriPaadukaTestimonials.length / 2)
+                .map((testimonial, index) => (
+                  <SpecialEventTestimonialCard key={index} {...testimonial} />
+                ))}
             </div>
           </Marquee>
         </div>

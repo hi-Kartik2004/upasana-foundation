@@ -6,7 +6,7 @@ import { MdMarkEmailRead } from "react-icons/md";
 import { PiHandCoins } from "react-icons/pi";
 import Link from "next/link";
 import { FaPhoneAlt, FaLocationDot } from "react-icons/fa";
-import { globalData } from "@/app/data";
+import globalData from "@/app/data";
 import { Separator } from "@/components/ui/separator";
 import { RiUserLocationLine } from "react-icons/ri";
 import RegisterForm from "@/components/RegisterForm";
@@ -103,23 +103,23 @@ async function Course({ params }) {
           <div className="mt-8">
             <h1 className="text-xl font-semibold">Contact</h1>
             <div className="mt-2 flex gap-2 items-center">
-              <p>{globalData?.presidentName}</p> -
+              <p>{globalData?.contactPerson}</p> -
               <Link
-                href={`tel:${globalData?.presidentPhone}`}
+                href={`tel:${globalData?.contactPhone}`}
                 className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
               >
                 <FaPhoneAlt />
-                <span>{globalData?.presidentPhone}</span>
+                <span>{globalData?.contactPhone}</span>
               </Link>
             </div>
             <div className="mt-2 flex gap-2 items-center">
-              <p>{globalData?.presidentName}</p> -
+              <p>{globalData?.contactPerson}</p> -
               <Link
-                href={`mailto:${globalData?.presidentEmail}`}
+                href={`mailto:${globalData?.contactEmail}`}
                 className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
               >
                 <MdMarkEmailRead />
-                <span>{globalData?.presidentEmail}</span>
+                <span>{globalData?.contactEmail}</span>
               </Link>
             </div>
             <div className="mt-2 flex gap-2 items-center">
@@ -130,6 +130,16 @@ async function Course({ params }) {
               >
                 <MdMarkEmailRead />
                 <span>{courseData?.email}</span>
+              </Link>
+            </div>
+            <div className="mt-2 flex gap-2 items-center">
+              <p>Other Link</p> -
+              <Link
+                href={`${courseData?.link}`}
+                className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
+              >
+                <MdMarkEmailRead />
+                <span>{courseData?.link}</span>
               </Link>
             </div>
           </div>

@@ -9,27 +9,33 @@ import {
 } from "./ui/card";
 import { Avatar, AvatarImage } from "./ui/avatar";
 
-function SpecialEventTestimonialCard() {
+function SpecialEventTestimonialCard({
+  title,
+  description,
+  image,
+  name,
+  date,
+  type,
+}) {
   return (
     <div className="w-full">
       <Card className="max-w-[400px] shadow-lg shadow-muted">
         <CardHeader>
-          <CardTitle>What is Sri Paaduka Pooja?</CardTitle>
-          <CardDescription>Type</CardDescription>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{type}</CardDescription>
         </CardHeader>
         <CardContent className="text-muted-foreground">
-          You need to login to register for this pooja! You need to login to
-          register for this pooja!
+          {description}
         </CardContent>
         <CardFooter>
           <div className="flex justify-between flex-wrap gap-4 w-full items-center">
             <div className="flex gap-4 items-center">
               <Avatar>
-                <AvatarImage src="https://ui.aceternity.com/_next/image?url=%2Flogo.png&w=64&q=75" />
+                <AvatarImage src={image} />
               </Avatar>
-              <p>lorem</p>
+              <p>{name}</p>
             </div>
-            <p>lorem</p>
+            <p>{date}</p>
           </div>
         </CardFooter>
       </Card>

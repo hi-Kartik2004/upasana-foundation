@@ -1,6 +1,7 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import data from "@/app/data";
 
 const Item = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,36 +49,21 @@ export const FaqSection = () => {
         <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
             <div className="my-6">
-              <Badge>Brand new ✨</Badge>
+              <Badge>{data?.faqSectionBadge}</Badge>
             </div>
             <h2 className=" mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-primary sm:text-5xl md:mx-auto">
-              <span className="relative inline-block">
-                <span className="relative">The</span>
-              </span>{" "}
-              quick, brown fox jumps over a lazy dog
+              {data?.faqSectionTitle}
             </h2>
             <p className="text-base text-muted-foreground md:text-md">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
+              {data?.faqSectionDescription}
             </p>
           </div>
           <div class="space-y-4">
-            <Item title="The quick, brown fox jumps over a lazy dog?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
-            </Item>
-            <Item title="The first mate and his Skipper too will do?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
-            </Item>
-            <Item title="Is the Space Pope reptilian!?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
-            </Item>
-            <Item title="How much money you got on you?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
-            </Item>
+            {data?.faqSectionFAQs.map((faq, index) => (
+              <Item title={faq.question} key={index}>
+                {faq.answer}
+              </Item>
+            ))}
           </div>
         </div>
       </div>

@@ -78,10 +78,9 @@ function Videos() {
   return (
     <div className="container mt-28">
       <div className="flex justify-center items-center flex-col gap-3">
-        <h1 className="font-bold text-4xl">Videos</h1>
+        <h1 className="font-bold text-4xl">{globalData?.videoPageTitle}</h1>
         <p className="text-muted-foreground">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi
-          maxime cumque harum.
+          {globalData?.videoPageDescription}
         </p>
       </div>
 

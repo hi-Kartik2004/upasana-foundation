@@ -32,9 +32,11 @@ async function MyCourses() {
   }
   return (
     <div className="mt-24 py-4 container">
-      <h1 className="text-4xl font-bold text-center">My Courses</h1>
+      <h1 className="text-4xl font-bold text-center">
+        {globalData?.myCoursesTitle}
+      </h1>
       <p className="text-center mt-2 text-muted-foreground">
-        This is something that cannot be done, this is a temporary space.
+        {globalData?.myCoursesDescription}
       </p>
       <div className="mt-10 grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
         {data.map((ele) => {

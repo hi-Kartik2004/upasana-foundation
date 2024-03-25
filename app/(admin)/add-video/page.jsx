@@ -78,8 +78,7 @@ function Page() {
       <div className="flex justify-center flex-col items-center">
         <h2 className="text-4xl font-bold text-primary">Add Videos</h2>
         <p className="text-muted-foreground mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          odio facere a!
+          Add a publically accessible video directly from the youtube video link
         </p>
       </div>
       <Separator className="mt-10" />

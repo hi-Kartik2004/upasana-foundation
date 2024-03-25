@@ -6,6 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import React from "react";
+import data from "@/app/data";
 
 function Quotes() {
   return (
@@ -13,10 +14,10 @@ function Quotes() {
       <div>
         <div className="flex justify-center flex-col items-center">
           <h1 className="text-primary text-center text-4xl font-bold">
-            lorem ipsum.
+            {data?.quotesPageTitle}
           </h1>
           <p className="text-center mt-2 text-muted-foreground">
-            lorem ipsum dor sit ipem
+            {data?.quotesPageDescription}
           </p>
         </div>
       </div>

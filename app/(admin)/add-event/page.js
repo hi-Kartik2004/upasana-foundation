@@ -6,10 +6,10 @@ function AddEvent() {
     <div className="container mt-24">
       <div className="flex justify-center flex-col items-center">
         <h1 className="text-primary text-center text-4xl font-bold">
-          lorem ipsum.
+          Add Event
         </h1>
         <p className="text-center mt-2 text-muted-foreground">
-          lorem ipsum dor sit ipem
+          Add event information as a article and publish it.
         </p>
       </div>
 
