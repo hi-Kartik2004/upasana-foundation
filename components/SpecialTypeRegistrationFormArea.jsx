@@ -24,6 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import MultipleSelector from "./MultipleSelector";
 
 function SpecialTypeRegistrationFormArea({ extraField }) {
   const { isLoaded, user } = useUser();
@@ -33,6 +34,7 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
   const [registering, setRegistering] = useState(false);
   const [registered, setRegistered] = useState(false);
   const [expiry, setExpiry] = useState(null);
+  const [selectedCourses, setSelectedCourses] = useState([]);
   const { toast } = useToast();
 
   const checkIfAlreadyRegistered = async () => {
@@ -72,6 +74,8 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
     setRegistering(true);
     const ref = collection(db, "pooja-registrations");
     const formData = new FormData(e.target);
+
+    const courses = selectedCourses.map((course) => course.value);
     const res = await addDoc(ref, {
       registeredName: user?.fullName,
       registeredEmail: user?.emailAddresses[0].emailAddress,
@@ -82,7 +86,7 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
       poojaType: extraField,
       hobbies: formData.get("hobbies"),
       whatsapp: formData.get("whatsapp"),
-      coursesTaken: formData.get("coursesTaken"),
+      coursesTaken: courses,
       courseExpires: new Date().getTime() + 31556952000,
       timestamp: new Date().getTime(),
       date: new Date().toLocaleDateString(),
@@ -100,6 +104,18 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
   useEffect(() => {
     checkIfAlreadyRegistered();
   }, []);
+
+  const options = [
+    { value: "Shakti Kriya Level 1", label: "Shakti Kriya Level 1" },
+    { value: "Shakti Kriya Level 2", label: "Shakti Kriya Level 2" },
+    { value: "Kriyatmaka Yog", label: "Kriyatmaka Yog" },
+    { value: "Self-Hypnosis", label: "Self-Hypnosis" },
+    { value: "Sankalpa Shakti", label: "Sankalpa Shakti" },
+    { value: "Mudra Shibir", label: "Mudra Shibir" },
+    { value: "Pranayama Shibir", label: "Pranayama Shibir" },
+    { value: "Yogika ahara", label: "Yogika ahara" },
+    { value: "Thathastu", label: "Thathastu" },
+  ];
 
   return (
     <div className="flex w-full">
@@ -137,7 +153,7 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
 
               <div>
                 <label className="text-sm text-muted-foreground">
-                  Phone Number* (Without +91)
+                  Phone Number*
                 </label>
                 <Input
                   type="text"
@@ -186,17 +202,19 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
                 />
               </div>
 
-              <div>
-                <label className="text-sm text-muted-foreground">
-                  Hobbies*
-                </label>
-                <Input
-                  type="text"
-                  name="hobbies"
-                  required={true}
-                  placeholder="What are your hobbies?"
-                />
-              </div>
+              {extraField === "Sri Upasaka" && (
+                <div>
+                  <label className="text-sm text-muted-foreground">
+                    Hobbies*
+                  </label>
+                  <Input
+                    type="text"
+                    name="hobbies"
+                    required={true}
+                    placeholder="What are your hobbies?"
+                  />
+                </div>
+              )}
 
               <div>
                 <label className="text-sm text-muted-foreground">
@@ -212,57 +230,34 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
                 />
               </div>
 
-              <div>
-                <label className="text-sm text-muted-foreground">
-                  How do you want to Volunteer? Any Prior Experience?
-                </label>
-                <Textarea
-                  type="text"
-                  name="message"
-                  placeholder="Enter your message here..."
-                  required={false}
-                />
-              </div>
+              {extraField === "Sri Upasaka" && (
+                <div>
+                  <label className="text-sm text-muted-foreground">
+                    How do you want to Volunteer? Any Prior Experience?
+                  </label>
+                  <Textarea
+                    type="text"
+                    name="message"
+                    placeholder="Enter your message here..."
+                    required={false}
+                  />
+                </div>
+              )}
 
-              <div className="w-full">
-                <label className="text-sm text-muted-foreground">
-                  Recent courses attended
-                </label>
-                <Select className="w-full" name={"coursesTaken"}>
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Select a Course" />
-                  </SelectTrigger>
-                  <SelectContent className="w-full">
-                    <SelectGroup>
-                      <SelectLabel>Select a Course</SelectLabel>
-                      <SelectItem value="  Shakti Kriya Level 1">
-                        Shakti Kriya Level 1
-                      </SelectItem>
-                      <SelectItem value="  Shakti Kriya Level 2">
-                        Shakti Kriya Level 2
-                      </SelectItem>
-                      <SelectItem value="Kriyatmaka Yog">
-                        Kriyatmaka Yoga
-                      </SelectItem>
-                      <SelectItem value="Self-Hypnosis">
-                        Self-Hypnosis
-                      </SelectItem>
-                      <SelectItem value="Sankalpa Shakti">
-                        Sankalpa Shakti
-                      </SelectItem>
-                      <SelectItem value="Mudra Shibir">Mudra Shibir</SelectItem>
-                      <SelectItem value="Pranayama Shibir">
-                        Pranayama Shibir
-                      </SelectItem>
-                      <SelectItem value="Yogika ahara">Yogika ahara</SelectItem>
-                      <SelectItem value="Thathastu">Thathastu</SelectItem>
-                      <SelectItem value="none">
-                        I have not attended any Classes
-                      </SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </div>
+              {extraField === "Sri Upasaka" && (
+                <MultipleSelector
+                  defaultOptions={options}
+                  placeholder="Select courses you've attended..."
+                  emptyIndicator={
+                    <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
+                      no results found.
+                    </p>
+                  }
+                  onChange={(selected) => {
+                    setSelectedCourses(selected);
+                  }}
+                />
+              )}
 
               <div>
                 <label className="text-sm text-muted-foreground">

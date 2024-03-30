@@ -42,11 +42,11 @@ const menuLinks = [
 
 function AdminMenu({ username }) {
   const { isLoaded, user } = useUser();
+  const [showMenu, setShowMenu] = useState(false);
   if (!isLoaded) return null;
   console.log(user);
   if (user && !data.adminEmails.includes(user.emailAddresses[0].emailAddress))
     return null;
-  const [showMenu, setShowMenu] = useState(false);
   return (
     <div className="fixed bottom-6 right-6 z-[100]">
       <div className="relative z-100 hidden lg:block">

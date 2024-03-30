@@ -39,7 +39,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { db } from "@/firebase/config";
-import { collection, query, orderBy, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  orderBy,
+  getDocs,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
@@ -137,10 +144,10 @@ export function PoojaRegistrationsTable() {
 
   const handleDelete = async (row) => {
     try {
-      await deleteDoc(doc(db, "pooja-registrations", row.original.id));
+      await deleteDoc(doc(db, "pooja-registrations", row.original.docId));
       // Update table data to remove the deleted record
       setData((prevData) =>
-        prevData.filter((item) => item.id !== row.original.id)
+        prevData.filter((item) => item.docId !== row.original.docId)
       );
     } catch (error) {
       console.error("Error deleting record:", error);
