@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { currentUser } from "@clerk/nextjs";
+import React, { useState, useEffect } from "react";
+import { currentUser, useUser } from "@clerk/nextjs";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import Link from "next/link";
 import { db } from "@/firebase/config";
@@ -15,48 +15,54 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import DeleteButton from "@/components/DeleteButton";
+import Loader from "@/components/Loader";
 
-async function Events() {
+async function fetchEvents() {
+  const eventsCollectionRef = collection(db, "events");
+  const eventsQuery = query(eventsCollectionRef, orderBy("timestamp", "asc"));
+  const snapshot = await getDocs(eventsQuery);
+  return snapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+}
+
+function Events() {
   const [searchQuery, setSearchQuery] = useState("");
   const [events, setEvents] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const user = await currentUser();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchEvents();
+        setEvents(data);
+        setFilteredEvents(data);
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
-  const handleSearch = (query) => {
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
     setSearchQuery(query);
     const filtered = events.filter((event) =>
-      event.title.toLowerCase().includes(query.toLowerCase())
+      event.title.toLowerCase().includes(query)
     );
     setFilteredEvents(filtered);
   };
 
-  const fetchData = async () => {
-    try {
-      const eventsCollectionRef = collection(db, "events");
-      const eventsQuery = query(
-        eventsCollectionRef,
-        orderBy("timestamp", "asc")
-      );
-      const snapshot = await getDocs(eventsQuery);
-      const data = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setEvents(data);
-      setFilteredEvents(data);
-      setLoading(false);
-    } catch (err) {
-      setError(err);
-      setLoading(false);
-    }
-  };
+  const { isLoaded, user } = useUser();
 
-  React.useEffect(() => {
-    fetchData();
-  }, []);
+  if (!isLoaded) {
+    return null;
+  }
 
   return (
     <div className="container mt-24 mb-10">
@@ -71,13 +77,13 @@ async function Events() {
           placeholder="Search events"
           className="my-4 max-w-[400px]"
           value={searchQuery}
-          onChange={(e) => handleSearch(e.target.value)}
+          onChange={handleSearch}
         />
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-around">
         {loading ? (
-          <div>Loading...</div>
+          <Loader />
         ) : error ? (
           <div>Error: {error.message}</div>
         ) : filteredEvents.length === 0 ? (
@@ -108,7 +114,7 @@ async function Events() {
 
               <CardFooter className="flex flex-wrap justify-between items-baseline">
                 <div>
-                  <p className="text-xs text-muted-foreground">{event.user}</p>
+                  <p className="text-xs text-muted-foreground">{event?.user}</p>
                   <Link
                     href={`mailto:${event?.email ?? "upasanafound@gmail.com"}`}
                     className="text-xs text-muted-foreground underline underline-offset-8"
