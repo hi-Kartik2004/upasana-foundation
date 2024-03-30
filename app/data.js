@@ -5,25 +5,25 @@ const data = {
   siteName: "Upasana Foundation, Bengaluru",
   siteDescription: "Empowering Students to Build Tomorrow's Ventures",
   clubName: "Upasana Foundation",
-  contactPerson: "Rushil BR",
-  contactPhone: "+91 98862 25685",
+  contactPerson: "Upasana Foundation",
+  contactPhone: "+91 94823 30850",
   contactEmail: "entrepreneurshipcelluvce@gmail.com",
 
   // SignIn Page
-  signInTitle: "The quick, brown fox jumps over a lazy dog",
+  signInTitle: "You are Here for a Higher Cause",
   signInDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo. ",
+    "Remove the Layer of Dust enclosing Your true hidden Potential ,Come join Us  Let's dive into the Journey of Self Exploration",
 
   // Hero section
   heroBadgeMessage: "New",
-  heroAlertMessage: "We are currently in beta. Please report any bugs to us.",
-  heroTitleLeft: "The E-cell Community which makes you",
-  heroTitleYellow: " Laugh. Learn. and Launch ",
+  heroAlertMessage: "A Change is a must in Each One’s Life🙂",
+  heroTitleLeft: "Swastha Vyakthi, Swastha Kutumba, Swastha Samaja ",
+  heroTitleYellow: " Through Sadhana, Seva and Love!! ",
   heroTitleRight: "  ",
   heroDescription:
-    "Empowering students with the knowledge and skills to become successful entrepreneurs. Join us on this exciting journey of innovation and creativity.",
-  heroYellowBtnMessage: "Join our Community",
-  heroYellowBtnLink: "/sign-in",
+    "Oh Sadhaka……… You are born for a Cause, You Live for a cause and You are here for a Cause, Find it Here",
+  heroYellowBtnMessage: "Who is Sadhgurushri",
+  heroYellowBtnLink: "/about-sadhguru",
   heroYellowBtnMessageForMembers: "View Exclusive Courses",
   heroYellowBtnLinkForMembers: "/courses",
   heroSecondaryBtnMessage: "View Exclusive Courses",
@@ -35,175 +35,171 @@ const data = {
   ],
 
   // HeroSecondSection
-  heroSecondSectionTitle1: "The quick, brown fox 2",
-  heroSecondSectionTitle2: "jumps over a lazy dog",
+  heroSecondSectionTitle1: "Enter the Door to Change ,",
+  heroSecondSectionTitle2: "Divya Marg!!",
   heroSecondSectionDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit iste voluptatem accusantium doloremque rem aperiam, ipsa eaque quae. Sed ut perspiciatis unde omnis iste.",
+    "Learn the Secrets of a Meaningful Life , Find yourself a new Spiritual Path to See and Live Life , under the Divine Grace of SadhguruShri",
   heroSecondSectionCards: [
     {
-      title: "Sed ut perspiciatis unde omnis iste natus error",
+      title: "Change the way you live through ManoShakthi",
       image:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      href: "/",
+      href: "/courses",
     },
     {
-      title: "Sed ut perspiciatis unde omnis iste natus error",
+      title:
+        "Manifest your Life with what you Actually Want through Self Hypnosis",
       image:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      href: "/",
+      href: "/courses",
     },
     {
-      title: "Sed ut perspiciatis unde omnis iste natus error",
+      title: "Tune Your Body through YOGA",
       image:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      href: "/",
+      href: "/courses",
     },
     {
-      title: "Sed ut perspiciatis unde omnis iste natus error",
+      title:
+        "Get in Connect with your Inner Potential , Join Shakti Kriya Now!!",
       image:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      href: "/",
+      href: "/courses",
     },
   ],
   heroSecondSectionSeeMoreLink: "/",
 
   //  FourCardFeaturesSection
-  fourCardFeaturesSectionBadge: "Brand new ✨",
-  fourCardFeaturesSectionTitle: "The quick, brown fox jumps over a lazy dog",
+  fourCardFeaturesSectionBadge: "Something More ✨",
+  fourCardFeaturesSectionTitle: "Get in Connect with Us",
   fourCardFeaturesSectionDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "Constantly improve yourself and connect with us through learnings from SadhguruShri",
   fourCardFeaturesSectionCards: [
     {
-      title: "The deep ocean1",
-      description:
-        "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear.",
-      link: "/",
+      title: "Know us",
+      description: "Get to Know about Upasana Foundation here",
+      link: "/about",
+    },
+
+    {
+      title: "Dive with Us",
+      description: "Get to Know about our Events and Activities",
+      link: "/events",
     },
     {
-      title: "The deep ocean2",
+      title: "Regular Doses",
       description:
-        "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear.",
-      link: "/",
+        "	Transform yourself through Life changing Stories and Preachings",
+      link: "/events",
     },
+
     {
-      title: "The deep ocean3",
-      description:
-        "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear.",
-      link: "/",
-    },
-    {
-      title: "The deep ocean4",
-      description:
-        "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear.",
-      link: "/",
+      title: "Quick Boosts",
+      description: "Start Your day with a lesson from SadhguruShri",
+      link: "/Quotes",
     },
   ],
 
   // SplitFeaturesSection
-  splitFeaturesSectionBadge: "Brand new ✨",
-  splitFeaturesSectionTitle: "The quick, brown fox jumps over a lazy dog",
+  splitFeaturesSectionBadge: "What else ✨",
+  splitFeaturesSectionTitle: "What all Can I do Here",
   splitFeaturesSectionDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "SadhguruShri always says that an Individual must attain Sarvangeena Unathi , Excellence in all Aspects of Life. We intend all our Sadhakas to be so , Thus these Opportunities",
   splitFeaturesSectionDetails: [
     {
-      title: "The deep Ocean",
+      title: "Divya Marg",
       description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
+        "Experience the Potential in you ,and Divinity of your Inner Self through our Various Shibirs(Workshops).",
     },
     {
-      title: "The deep Ocean",
+      title: "Shri Upasaka",
       description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
+        "As Said ,seva is the Sweetest Selfishness one Can have ,At Upasana Foundation ,you can take up the Opportunity to Perform Seva in Various Forms ",
     },
     {
-      title: "The deep Ocean",
+      title: "Shri Paaduka",
+      description: "Know the Importance of Paaduka and Worship it",
+    },
+
+    {
+      title: "Ever-Learn",
       description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
+        "Start your day with the Teachings and Sayings of SadhguruShri",
     },
     {
-      title: "The deep Ocean",
+      title: "Instill Divine Love",
       description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
+        "We always believe in Seeing each and every life and respect with Love , you will also start feeling the Same ",
     },
     {
-      title: "The deep Ocean",
-      description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
+      title: "Preachings",
+      description: "Learn through Various Preachings by SadhguruShri.",
     },
     {
-      title: "The deep Ocean",
+      title: "Donate",
       description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
+        "We are a Volunteer Run Organisation ,Your Contribution towards a Greater cause will surely Make a Difference",
     },
     {
-      title: "The deep Ocean",
-      description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
-    },
-    {
-      title: "The deep Ocean",
-      description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
+      title: "Experiences Say!!",
+      description: "Check out What our various Sadhakas have to say...",
     },
   ],
 
   // Hero Blog section
   heroBlogSectionCards: [
     {
-      badge: "Travelling",
-      date: "28 DEC 2020",
-      title: "Visit the East",
+      badge: "Bhagavad Gita",
+      date: "the Infinite",
+      title: "An Essence",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
-      href: "/",
+        "In the matter of Experiencing Happiness and distress ,the Individual Soul is Declared Responsible.",
+      href: "/events",
+      imgUrl:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    },
+
+    {
+      badge: "Positivate",
+      date: "Build in Positivity",
+      title: "An Essence",
+      description:
+        "Know that your are what you think , If you this right , the right things will happen , if you think Wrong ,wrong will happen.",
+      href: "/courses",
       imgUrl:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
     {
-      badge: "Travelling",
-      date: "28 DEC 2020",
-      title: "Visit the East",
+      badge: "SadhgurShri",
+      date: "teachings",
+      title: "A Start",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
-      href: "/",
-      imgUrl:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    {
-      badge: "Travelling",
-      date: "28 DEC 2020",
-      title: "Visit the East",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
-      href: "/",
+        "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done",
+      href: "/about-Sadhgurshri",
       imgUrl:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
   ],
 
   // FAQ Section
-  faqSectionBadge: "Brand New ✨",
-  faqSectionTitle: "Frequently Asked Questions",
+  faqSectionBadge: "FAQs 🤔",
+  faqSectionTitle: "I still have a Few Questions??",
   faqSectionDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "We are always open to Questions and here are few most commonly asked Ones",
   faqSectionFAQs: [
     {
-      question:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem?",
+      question: "How do I contact You",
       answer:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+        "You can contact us through the Contact Page or Whatsapp bubble..",
     },
     {
-      question:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem?",
+      question: "Can I Completely get transformed through your Courses",
       answer:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+        "Yes you can ,but Only with regular Sadhana , Seva and when practiced with Shradha",
     },
     {
-      question:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem?",
-      answer:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+      question: "Where can I find the reviews",
+      answer: "You can find the reviews at our Youtube Channel and Google",
     },
   ],
 
@@ -228,21 +224,21 @@ const data = {
   ],
 
   // About page
-  aboutPageHeroTitle: "The quick, brown fox jumps over a lazy dog",
+  aboutPageHeroTitle: "To Bring You near You!!",
   aboutPageHeroDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "’UPA’ means Near or Close and ‘Asana’ means Sitting. When you sit close to your Guru , Guru will help you sit Closer to Yourself and Guide you understand , “Who am I”",
   aboutPageHeroImage:
     "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   aboutPageHeroCards: [
     {
-      title: "I'll be sure to note that in my log",
+      title: "What are We!!",
       description:
-        "Dingy I'm tellin' you rhubaahb Bangah Jo-Jeezly got in a gaum Powrtland stove up dooryahd",
+        "A Spiritual Organization founded by an SadhguruShri Rama to help people raise themselves to a Higher State of Life",
     },
     {
-      title: "I'll be sure to note that in my log",
+      title: "Why are We!!",
       description:
-        "Dingy I'm tellin' you rhubaahb Bangah Jo-Jeezly got in a gaum Powrtland stove up dooryahd",
+        "Aimed for the Upliftment of an Individual , we Provide people with various paths so that they can live a life, full of Happiness",
     },
   ],
 
@@ -250,183 +246,159 @@ const data = {
   aboutPageCards: [
     {
       icon: "",
-      title: "Football Sports",
+      title: "From Guru Krupa",
       description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "After attaining Atma Sakshatkar , SaghguruShri’s aultruism has always urged him to help others experience the Same. Thus Upasana Foundation",
     },
     {
       icon: "",
-      title: "Football Sports",
+      title: "Spiritual Abode",
       description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Adhyatma is always to let you Be Free without any Bounds , SadhguruShri has always guided Sadhakas in Search of something higher and Greater.",
+    },
+
+    {
+      icon: "",
+      title: "You are Divine",
+      description:
+        "SadhguruShri always says that each and every human has equal Potential to Achieve , it's only that he doesn't realize it",
     },
     {
       icon: "",
-      title: "Football Sports",
+      title: "Divya Marg",
       description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Thus, For People aimed to Move higher in Life , we provide them with Various Shibir’s, resources and a lot more to Achieve it.",
+    },
+
+    {
+      icon: "",
+      title: "Changing Lives",
+      description:
+        "Under his Grace , Our Sadhakas , are constantly moving forward in the Same sense , Both Spiritually and in a Worldly Life.",
     },
     {
       icon: "",
-      title: "Football Sports",
+      title: "Moving Higher",
       description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Thousands of People of all ages, who have come here, have changed their ways and transformed themselves both Spiritually and Materialistically in terms of Body, Mind and Soul",
     },
     {
       icon: "",
-      title: "Football Sports",
+      title: "Freed Minds",
       description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Thus allowing themselves to be free and Independent as an Individual , leading a blissful life and Spreading the Same with their friends and family.",
     },
     {
       icon: "",
-      title: "Football Sports",
+      title: "The Defined Motto",
       description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      icon: "",
-      title: "Football Sports",
-      description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      icon: "",
-      title: "Football Sports",
-      description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Thus our Motto , Swatha Vyakthi , Swastha Kutumba , Swastha Samaja through Sadhana , Seva and Love",
     },
   ],
 
   // About Page Last
-  aboutPageTitle1: "The quick, brown fox1",
-  aboutPageTitle2: "jumps over a lazy dog",
+  aboutPageTitle1: "Explore Our Events ,",
+  aboutPageTitle2: "Participate in our Shibirs",
   aboutPageDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "Here ,you can check out our Shibirs,participate in it, experience it and then Practice it.",
   aboutPageImage:
     "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  aboutPageLearnMoreLink: "/",
+  aboutPageLearnMoreLink: "/courses",
 
   // Courses
-  coursesTitle: "Upasana Foundation Courses!",
-  coursesDescription:
-    "SadhguruShri is a master communicator, converses in a very simple language, presents complex ideas in an easy to understand way.",
+  coursesTitle: "Your Transformation Steps!!",
+  coursesDescription: "",
 
   // Video
-  videoPageTitle: "Videos",
-  videoPageDescription:
-    "SadhguruShri is a master communicator, converses in a very simple language!",
+  videoPageTitle: "Preachings by SadhguruShri",
+  videoPageDescription: "",
 
   // Sri Upaska
   sriUpasakaHeroImageUrl: "https://i.ytimg.com/vi/USLQo00V-tA/sddefault.jpg",
-  sriUpasakaHeroTitle: "Upasaka The quick, brown fox jumps over a lazy dog",
+  sriUpasakaHeroTitle: "Shri Upasaka ",
   sriUpasakaHeroDescription:
-    "Upasak Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "Seva is the Sweetest selfishness on can actually have , for the Upliftment of every being including your Own Self ",
   sriUpasakaHeroCards: [
     {
-      title: "Upasaka A business big enough that it could be listed",
+      title: "Who is a Shri Upasaka",
       description:
-        "Those options are already baked in with this model shoot me an email clear.",
+        "Shri Upasaka is a Sadhaka who is involved in some form of Guru Seva , for the Upliftment of the Everyone and Himself , Again Seva can be of any Form ",
     },
     {
-      title: "Upasaka A business big enough that it could be listed",
+      title: "What will I gain??",
       description:
-        "Those options are already baked in with this model shoot me an email clear.",
+        "Seva is a Selfless Service , but by doing Seva , you are the one who will be benefited the Most. Knowingly or Unknowingly you will see a lot of transformations in you as time passes",
     },
   ],
 
   // Sri Upasaka Know more
-  sriUpasakaKnowMoreSectionBadge: "Brand New ✨",
-  sriUpasakaKnowMoreSectionTitle: "The quick, brown fox jumps over a lazy dog",
+  sriUpasakaKnowMoreSectionBadge: "",
+  sriUpasakaKnowMoreSectionTitle: "Why Should I do Seva",
   sriUpasakaKnowMoreSectionDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "Seva is the A mean to remove the I , Here are few points why you Should Perform Service",
   sriUpasakaKnowMoreSectionQuestions: [
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "How will I Changes",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "Seva helps oneself build in Ektha Bhava(Seeing oneself in all) ,thus helping one reach a higher state in Life.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "What will I remove?",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "Seva burns the Aham-kara, ego in Oneself ,thus making one Open and free Mentally",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "What will I Build?",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "We learn a lot through Seva , it builds in Character and Simplicity in Oneself. Also we make Path for many People to move in the right direction",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "Why Should I perform Seva?",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "Performing Guruseva in your life is something which fills all the gaps in you. An Experience which can’t be just described",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "What Can I do?",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "Seva can be of any form ,any field you are good at. Service has no restrictions.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "Feel Blessed to Do Seva...",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "Everyone must do Seva , if you are getting an opportunity to do , you must feel lucky that that the Guru has blessed you with this Opportunity.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "What is most Important?",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "Seva is something which is Only Qualitative, your Strong will to do Seva will take care of everything else.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "How do I become a Shri Upasaka?",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "You can fill out the form below to get an Opportunity to serve the Guru ,and Most importantly start from today by educating people , helping them come into this path, Loving all Unconditionally. ",
     },
   ],
 
   // Sri Upasaka Form heading
-  sriUpasakaFormHeading: "Reserve Your spot for Sri Upasaka",
+  sriUpasakaFormHeading: "Become a Shri Upasaka",
 
   // Sri Upasaka Testimonials
   sriUpasakaTestimonials: [
     {
-      title: "1 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
+      title: "",
+      description: "",
+      image: "",
+      name: "",
+      date: "",
+      type: "",
     },
     {
-      title: "2 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-    {
-      title: "3 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-    {
-      title: "4 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
+      title: "",
+      description: "",
+      image: "",
+      name: "",
+      date: "",
+      type: "",
     },
   ],
 
@@ -583,23 +555,23 @@ const data = {
   ],
 
   // Quotes Page
-  quotesPageTitle: "Quotes",
+  quotesPageTitle: "Quick Boosts",
   quotesPageDescription:
-    "SadhguruShri is a master communicator, converses in a very simple language!",
+    "Know what SadhguruShri has said about Various fields of Life",
 
   // Events Page
   eventsPageTitle: "Events",
   eventsPageDescription:
-    "SadhguruShri is a master communicator, converses in a very simple language!",
+    "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
 
   // Donate Page
-  donatePageTitle: "Donate Page",
+  donatePageTitle: "You can Make a Difference",
   donatePageDescription:
-    "SadhguruShri is a master communicator, converses in a very simple language!",
+    "Upasana Foundation is a Volunteer run Organization , Your Donation will help us reach out to even more people and Bring transformations in their Lives. Thus when you Donate here you Indirectly express yourself following Samastha Lokha Sukhino Bhavantu",
 
   // Qr code details
   qrCodeDetails: {
-    name: "lorem ipsum",
+    name: "Upasana Foundation",
     phone: "+91 12345 67890",
     shortMessage: "lorem ipsum dor sit amet, consectetur adipiscing elit.",
     upiId: "1234567890@ybl",
@@ -609,7 +581,7 @@ const data = {
 
   // Donation Terms & Conditions
   donationTermsAndConditions: [
-    "Donations made to Upasana Foundation are exempt from tax under Section 80G of the Income Tax Act, 1961.",
+    "Donations Once made are Non-refundable",
     "Donations made to Upasana Foundation are exempt from tax under Section 80G of the Income Tax Act, 1961.",
     "Donations made to Upasana Foundation are exempt from tax under Section 80G of the Income Tax Act, 1961.",
   ],
@@ -617,12 +589,12 @@ const data = {
   // my courses
   myCoursesTitle: "My Courses",
   myCoursesDescription:
-    "SadhguruShri is a master communicator, converses in a very simple language!",
+    "Access Your registered courses here!! Let your Sadhana ever go on under SadhguruShri’s Grace",
 
   // Socials
-  instagram: "https://www.instagram.com/",
-  facebook: "https://www.facebook.com/",
-  youtube: "https://www.youtube.com/",
+  instagram: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
+  facebook: "https://www.facebook.com/Upasanafoundation.org?mibextid=ZbWKwL",
+  youtube: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
   twitter: "https://twitter.com/",
 };
 
