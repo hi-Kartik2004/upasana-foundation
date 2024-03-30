@@ -1,4 +1,11 @@
-import DeleteButton from "@/components/DeleteButton";
+"use client";
+import React, { useState } from "react";
+import { currentUser } from "@clerk/nextjs";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import Link from "next/link";
+import { db } from "@/firebase/config";
+import globalData from "@/app/data";
+import { Input } from "@/components/ui/input";
 import {
   Card,
   CardContent,
@@ -7,39 +14,49 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { currentUser } from "@clerk/nextjs";
-import {
-  collection,
-  deleteDoc,
-  doc,
-  getDocs,
-  orderBy,
-  query,
-} from "firebase/firestore";
-import Link from "next/link";
-import React from "react";
-import { db } from "@/firebase/config";
-import globalData from "@/app/data";
+import DeleteButton from "@/components/DeleteButton";
 
 async function Events() {
-  const user = await currentUser();
-  let data = [];
-  try {
-    const eventsCollectionRef = collection(db, "events");
-    const eventsQuery = query(eventsCollectionRef, orderBy("timestamp", "asc"));
-    const snapshot = await getDocs(eventsQuery);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    data = snapshot.docs.map((doc) => {
-      return {
+  const user = await currentUser();
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    const filtered = events.filter((event) =>
+      event.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredEvents(filtered);
+  };
+
+  const fetchData = async () => {
+    try {
+      const eventsCollectionRef = collection(db, "events");
+      const eventsQuery = query(
+        eventsCollectionRef,
+        orderBy("timestamp", "asc")
+      );
+      const snapshot = await getDocs(eventsQuery);
+      const data = snapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
-      };
-    });
+      }));
+      setEvents(data);
+      setFilteredEvents(data);
+      setLoading(false);
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+    }
+  };
 
-    console.log(data);
-  } catch (err) {
-    console.log(err);
-  }
+  React.useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="container mt-24 mb-10">
@@ -50,17 +67,27 @@ async function Events() {
         <p className="text-center mt-2 text-muted-foreground">
           {globalData?.eventsPageDescription ?? "No description"}
         </p>
+        <Input
+          placeholder="Search events"
+          className="my-4 max-w-[400px]"
+          value={searchQuery}
+          onChange={(e) => handleSearch(e.target.value)}
+        />
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-around">
-        {data.length === 0 ? (
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>Error: {error.message}</div>
+        ) : filteredEvents.length === 0 ? (
           <div>
             <h1 className="mt-10 text-3xl text-center">
               No events details found
             </h1>
           </div>
         ) : (
-          data.map((event) => (
+          filteredEvents.map((event) => (
             <Card
               key={event.id}
               className="bg-card max-w-[420px]"
