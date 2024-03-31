@@ -385,20 +385,44 @@ const data = {
   // Sri Upasaka Testimonials
   sriUpasakaTestimonials: [
     {
-      title: "",
-      description: "",
-      image: "",
-      name: "",
-      date: "",
-      type: "",
+      title: "1 The quick, brown fox jumps over a lazy dog",
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      name: "John Doe",
+      date: "28 DEC 2020",
+      type: "Testimonial",
     },
     {
-      title: "",
-      description: "",
-      image: "",
-      name: "",
-      date: "",
-      type: "",
+      title: "2 The quick, brown fox jumps over a lazy dog",
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      name: "John Doe",
+      date: "28 DEC 2020",
+      type: "Testimonial",
+    },
+    {
+      title: "3 The quick, brown fox jumps over a lazy dog",
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      name: "John Doe",
+      date: "28 DEC 2020",
+      type: "Testimonial",
+    },
+    {
+      title: "4 The quick, brown fox jumps over a lazy dog",
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      name: "John Doe",
+      date: "28 DEC 2020",
+      type: "Testimonial",
     },
   ],
 
