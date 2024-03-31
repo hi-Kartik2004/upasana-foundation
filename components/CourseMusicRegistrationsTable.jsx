@@ -44,6 +44,8 @@ import { collection, getDocs } from "firebase/firestore";
 
 const convertToISTDate = (timestamp) => {
   const dateObj = new Date(timestamp);
+  // Set input date object to UTC time zone
+  dateObj.setUTCHours(0, 0, 0, 0);
   const ISTOffset = 330; // Offset in minutes for IST
   const ISTTimestamp = dateObj.getTime() + ISTOffset * 60 * 1000;
   const ISTDate = new Date(ISTTimestamp);

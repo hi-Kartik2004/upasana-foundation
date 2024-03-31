@@ -125,7 +125,7 @@ const page = () => {
                   onChange={handleChange}
                   autoComplete="off"
                   disabled={user?.fullName ? true : false}
-                  value={user?.fullName ?? null}
+                  value={user?.emailAddresses[0].emailAddress ?? null}
                   required
                 />
               </div>
