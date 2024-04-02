@@ -52,7 +52,7 @@ function HeroSection({ isMember }) {
           {data?.heroTitleRight}
         </h1>
 
-        <p className="max-w-[800px] lg:text-base text-muted-foreground text-sm text-center my-6 lg:my-8">
+        <p className="max-w-[800px] lg:text-base text-muted-foreground text-md text-center my-6 lg:my-8">
           {data?.heroDescription}
         </p>
 

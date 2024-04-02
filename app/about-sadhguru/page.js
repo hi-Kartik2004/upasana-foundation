@@ -23,11 +23,11 @@ function AboutSadhguru() {
             className="object-contain max-w-[470px] max-h-[500px] rounded-lg w-full shadow-lg shadow-primary/50"
           />
 
-          <img
+          {/* <img
             src={data?.aboutSadhguruImage2}
             alt="sadhguru-shri"
             className="hidden xl:block object-contain max-w-[470px] max-h-[500px] rounded-lg w-full shadow-lg shadow-primary/50"
-          />
+          /> */}
         </div>
 
         <div className="max-w-[750px] w-full flex flex-col gap-10 mb-0 xl:mb-10">
@@ -38,11 +38,11 @@ function AboutSadhguru() {
 
         {
           <div className="block xl:hidden mb-10">
-            <img
+            {/* <img
               src={data?.aboutSadhguruImage2}
               alt="sadhguru-shri"
               className="object-contain max-w-[470px] max-h-[500px] rounded-lg w-full shadow-lg shadow-primary/50"
-            />
+            /> */}
           </div>
         }
       </div>

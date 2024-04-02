@@ -14,7 +14,7 @@ function HeroContentsSection() {
           </span>
           <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
         </h2>
-        <p className="text-muted-foreground lg:text-sm lg:max-w-md">
+        <p className="text-muted-foreground lg:text-md lg:max-w-md">
           {data?.heroSecondSectionDescription}
         </p>
       </div>
@@ -29,7 +29,7 @@ function HeroContentsSection() {
                     src={card?.image}
                     alt={card?.title}
                   />
-                  <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
+                  <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black text-white bg-opacity-75">
                     <p className="text-sm font-medium tracking-wide">
                       {card?.title}
                     </p>

@@ -18,11 +18,12 @@ import { BsFileArrowDown } from "react-icons/bs";
 import { BiDonateHeart, BiMoney, BiStar } from "react-icons/bi";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { RiDoubleQuotesL } from "react-icons/ri";
+import globalData from "@/app/data";
 
 async function Navbar() {
   const user = await currentUser();
   return (
-    <nav className="fixed z-10 w-full top-0 backdrop-blur-3xl bg-background/50 border">
+    <nav className="fixed z-10 w-full top-0 backdrop-blur-3xl  border bg-yellow-100/50 dark:bg-yellow-800/20">
       <div className="container px-4 py-3 items-center flex justify-between">
         <div className="flex gap-4 items-center">
           <div className="flex lg:hidden">
@@ -30,7 +31,7 @@ async function Navbar() {
           </div>
           <Link href="/">
             <img
-              src="https://www.upasanafoundation.org/assets/img/logo-upasana-new.png"
+              src={`${globalData?.logoLink}`}
               alt="logo"
               width={50}
               height={50}
@@ -50,6 +51,13 @@ async function Navbar() {
           >
             About
           </Link>
+
+          <Link
+            href="/about-sadhguru"
+            className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
+          >
+            About SadhguruShri
+          </Link>
           <Link
             href="/courses"
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
@@ -57,10 +65,10 @@ async function Navbar() {
             Courses
           </Link>
           <Link
-            href="/videos"
+            href="/events"
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
           >
-            Videos
+            Events
           </Link>
           <Link
             href="/sri-paaduka"
@@ -91,15 +99,6 @@ async function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>
-                <Link
-                  href="/about-sadhguru"
-                  className="flex items-center gap-2"
-                >
-                  <PiHandsPrayingFill /> About Sadhguru Sri
-                </Link>
-              </DropdownMenuItem>
-
-              <DropdownMenuItem>
                 <Link href="/quotes" className="flex items-center gap-2">
                   <RiDoubleQuotesL />
                   Quotes
@@ -107,9 +106,9 @@ async function Navbar() {
               </DropdownMenuItem>
 
               <DropdownMenuItem>
-                <Link href="/events" className="flex items-center gap-2">
+                <Link href="/videos" className="flex items-center gap-2">
                   <IoIosPeople />
-                  Events
+                  Videos
                 </Link>
               </DropdownMenuItem>
 

@@ -9,6 +9,9 @@ const data = {
   contactPhone: "+91 94823 30850",
   contactEmail: "entrepreneurshipcelluvce@gmail.com",
 
+  //logo
+  logoLink: "https://www.upasanafoundation.org/assets/img/logo-upasana-new.png",
+
   // SignIn Page
   signInTitle: "You are Here for a Higher Cause",
   signInDescription:
@@ -21,7 +24,7 @@ const data = {
   heroTitleYellow: " Through Sadhana, Seva and Love!! ",
   heroTitleRight: "  ",
   heroDescription:
-    "Oh Sadhaka……… You are born for a Cause, You Live for a cause and You are here for a Cause, Find it Here",
+    "You are born for a Cause, You Live for a cause and You are here for a Cause, Find it Here ",
   heroYellowBtnMessage: "Who is Sadhgurushri",
   heroYellowBtnLink: "/about-sadhguru",
   heroYellowBtnMessageForMembers: "View Exclusive Courses",
@@ -451,42 +454,42 @@ const data = {
     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
   sriPaadukaKnowMoreSectionQuestions: [
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "The quick, brown fox jumps over a lazy dog? 1",
       description:
         "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "The quick, brown fox jumps over a lazy dog? 2",
       description:
         "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "The quick, brown fox jumps over a lazy dog? 3",
       description:
         "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "The quick, brown fox jumps over a lazy dog? 4",
       description:
         "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "The quick, brown fox jumps over a lazy dog? 5",
       description:
         "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "The quick, brown fox jumps over a lazy dog? 6",
       description:
         "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "The quick, brown fox jumps over a lazy dog? 7",
       description:
         "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog?",
+      title: "The quick, brown fox jumps over a lazy dog? 8",
       description:
         "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
     },
@@ -551,7 +554,7 @@ const data = {
     {
       title: "The quick, brown fox jumps over a lazy dog",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       link: "/",
       linkText: "Read More",
     },
