@@ -82,24 +82,35 @@ const data = {
       title: "Know us",
       description: "Get to Know about Upasana Foundation here",
       link: "/about",
+      fourCardFeaturesSectionCardImage:
+        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
     },
 
     {
       title: "Dive with Us",
       description: "Get to Know about our Events and Activities",
       link: "/events",
+
+      fourCardFeaturesSectionCardImage:
+        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
     },
     {
       title: "Regular Doses",
       description:
         "	Transform yourself through Life changing Stories and Preachings",
       link: "/events",
+
+      fourCardFeaturesSectionCardImage:
+        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
     },
 
     {
       title: "Quick Boosts",
       description: "Start Your day with a lesson from SadhguruShri",
       link: "/Quotes",
+
+      fourCardFeaturesSectionCardImage:
+        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
     },
   ],
 

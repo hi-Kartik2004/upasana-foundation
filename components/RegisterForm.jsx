@@ -22,7 +22,7 @@ async function RegisterForm({ data }) {
           </p>
           <Link
             href="/sign-in"
-            className="bg-muted font-semibold  flex justify-center border rounded-lg px-2 py-3 mt-4"
+            className="bg-muted font-semibold flex justify-center border rounded-lg px-2 py-3 mt-4"
           >
             <>Sign in to register &rarr;</>
           </Link>

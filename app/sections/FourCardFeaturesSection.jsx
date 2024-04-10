@@ -39,6 +39,11 @@ function FourCardFeaturesSection() {
                   />
                 </svg>
               </div>
+              <img
+                src={card?.fourCardFeaturesSectionCardImage}
+                alt={card?.title}
+                className="w-full my-4"
+              />
               <h6 className="mb-2 font-semibold leading-5">{card?.title}</h6>
               <p className="mb-3 text-sm text-muted-foreground">
                 {card?.description}

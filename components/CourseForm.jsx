@@ -108,8 +108,8 @@ const formSchema = z.object({
   link: z.optional(z.string().trim().url({ message: "Invalid URL" })),
   prizes: z.string().min(2, "Please enter a valid prize."),
   category: z.string().min(2, "Please enter a valid category."),
-  startDate: z.string().min(2, "Please enter a valid start date."),
-  time: z.string().min(2, "Please enter a valid time."),
+  startDate: z.string().optional(),
+  time: z.string().optional(),
   expiry: z.coerce.number().min(1, "course duration must more than be 1day"),
 });
 
