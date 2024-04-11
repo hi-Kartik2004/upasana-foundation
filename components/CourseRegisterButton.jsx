@@ -33,19 +33,20 @@ function BatchDropdown({ batches, onSelectBatch }) {
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {batches.map((batch, index) => (
-            <SelectItem
-              required
-              key={index}
-              value={`Batch ${index + 1} - ${batch.date}, ${
-                batch.time
-              } IST (${getDayOfWeek(batch.date)})`}
-            >
-              {`Batch ${index + 1} - ${batch.date}, ${
-                batch.time
-              } IST (${getDayOfWeek(batch.date)})`}
-            </SelectItem>
-          ))}
+          {batches &&
+            batches.map((batch, index) => (
+              <SelectItem
+                required
+                key={index}
+                value={`Batch ${index + 1} - ${batch.date}, ${
+                  batch.time
+                } IST (${getDayOfWeek(batch.date)})`}
+              >
+                {`Batch ${index + 1} - ${batch.date}, ${
+                  batch.time
+                } IST (${getDayOfWeek(batch.date)})`}
+              </SelectItem>
+            ))}
         </SelectGroup>
       </SelectContent>
     </Select>
@@ -250,7 +251,7 @@ function CourseRegisterButton({ data }) {
         ) : (
           <div className=" my-24 flex flex-col items-center">
             <BiCheckCircle className="text-6xl text-primary" />
-            <h3 className="text-xl font-semibold text-primary">
+            <h3 className="text-xl text-center font-semibold text-primary">
               You have Registered for this course!
             </h3>
             <p className="text-muted-foreground text-center">

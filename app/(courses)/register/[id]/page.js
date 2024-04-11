@@ -79,7 +79,7 @@ async function Course({ params }) {
                   <BsFillClockFill />
 
                   <span className="text-muted-foreground text-sm">
-                    {courseData?.time ?? "Anytime"}
+                    {!courseData.time ? "Anytime" : courseData.time}
                   </span>
                 </div>
               </div>

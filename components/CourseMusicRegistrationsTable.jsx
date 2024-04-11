@@ -78,6 +78,13 @@ const columns = [
     header: "Course Name",
   },
   {
+    accessorKey: "registeredBatch",
+    header: "Batch",
+    cell: ({ row }) => (
+      <div className="flex w-[100px]">{row.getValue("registeredBatch")}</div>
+    ),
+  },
+  {
     accessorKey: "timestamp",
     header: "Taken on (IST)",
     cell: ({ row }) => <div>{convertToISTDate(row.getValue("timestamp"))}</div>,

@@ -86,6 +86,13 @@ const columns = [
     header: "Course Name",
   },
   {
+    accessorKey: "registeredBatch",
+    header: "Batch",
+    cell: ({ row }) => (
+      <div className="flex w-[100px]">{row.getValue("registeredBatch")}</div>
+    ),
+  },
+  {
     accessorKey: "timestamp",
     header: "Taken on (IST)",
     cell: ({ row }) => <div>{convertToISTDate(row.getValue("timestamp"))}</div>,
@@ -209,12 +216,14 @@ export function CourseRegistrationsTable() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="outline" onClick={handleToggleSortByTimestamp}>
+            <Button
+              className="ml-4"
+              variant="outline"
+              onClick={handleToggleSortByTimestamp}
+            >
               Sort by Taken on Date{" "}
               <CaretSortIcon
-                className={`ml-2 h-4 w-4 ${
-                  sortByTimestampAsc ? "rotate-180" : ""
-                }`}
+                className={`h-4 w-4 ${sortByTimestampAsc ? "rotate-180" : ""}`}
               />
             </Button>
           </div>
