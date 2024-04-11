@@ -277,7 +277,7 @@ export default function CourseForm({ edit, courseData }) {
       };
 
       // Update batches data in the document
-      updatedData.batches = formData.batches;
+      updatedData.batches = formData.batches || null;
 
       const courseRef = doc(db, "courses", id);
       await setDoc(courseRef, updatedData, { merge: true });
@@ -496,37 +496,38 @@ export default function CourseForm({ edit, courseData }) {
           Add Batch
         </Button>
 
-        {form.getValues().batches.map((batch, index) => (
-          <div key={index}>
-            <FormField
-              control={form.control}
-              name={`batches[${index}].date`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{`Batch ${index + 1} Date*`}</FormLabel>
-                  <FormControl>
-                    <Input type="date" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+        {form.getValues().batches &&
+          form.getValues().batches.map((batch, index) => (
+            <div key={index}>
+              <FormField
+                control={form.control}
+                name={`batches[${index}].date`}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{`Batch ${index + 1} Date*`}</FormLabel>
+                    <FormControl>
+                      <Input type="date" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <FormField
-              control={form.control}
-              name={`batches[${index}].time`}
-              render={({ field }) => (
-                <FormItem className="mt-2">
-                  <FormLabel>{`Batch ${index + 1} Time*`}</FormLabel>
-                  <FormControl>
-                    <Input type="time" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-        ))}
+              <FormField
+                control={form.control}
+                name={`batches[${index}].time`}
+                render={({ field }) => (
+                  <FormItem className="mt-2">
+                    <FormLabel>{`Batch ${index + 1} Time*`}</FormLabel>
+                    <FormControl>
+                      <Input type="time" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          ))}
 
         <FormField
           control={form.control}

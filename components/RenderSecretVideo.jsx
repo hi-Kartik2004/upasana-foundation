@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-function RenderSecretAudio({ url }) {
+function RenderSecretVideo({ url }) {
   const [blobURL, setBlobURL] = useState("");
   // Override the URL for demonstration purposes
   //   url =
@@ -65,9 +65,9 @@ function RenderSecretAudio({ url }) {
 
   return (
     <div>
-      <audio controls src={blobURL}></audio>
+      <video controls src={blobURL}></video>
     </div>
   );
 }
 
-export default RenderSecretAudio;
+export default RenderSecretVideo;
