@@ -78,9 +78,15 @@ input:disabled {
   height: 4px;
 }
 
+::-webkit-scrollbar-thumb:horizontal {
+  height: 4px;
+  background-color: hsl(var(--primary));
+}
+
 ::-webkit-scrollbar-thumb {
   background-color: gray;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 /* ============== For markdown =========  */

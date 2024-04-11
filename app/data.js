@@ -85,7 +85,14 @@ const data = {
       fourCardFeaturesSectionCardImage:
         "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
     },
+    {
+      title: "Dive with Us",
+      description: "Get to Know about our Events and Activities",
+      link: "/events",
 
+      fourCardFeaturesSectionCardImage:
+        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
+    },
     {
       title: "Dive with Us",
       description: "Get to Know about our Events and Activities",
@@ -172,7 +179,6 @@ const data = {
       imgUrl:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
-
     {
       badge: "Positivate",
       date: "Build in Positivity",
@@ -190,6 +196,26 @@ const data = {
       description:
         "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done",
       href: "/about-Sadhgurshri",
+      imgUrl:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    },
+    {
+      badge: "Bhagavad Gita",
+      date: "the Infinite",
+      title: "An Essence",
+      description:
+        "In the matter of Experiencing Happiness and distress ,the Individual Soul is Declared Responsible.",
+      href: "/events",
+      imgUrl:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    },
+    {
+      badge: "Bhagavad Gita",
+      date: "the Infinite",
+      title: "An Essence",
+      description:
+        "In the matter of Experiencing Happiness and distress ,the Individual Soul is Declared Responsible.",
+      href: "/events",
       imgUrl:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
