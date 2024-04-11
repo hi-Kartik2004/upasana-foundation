@@ -19,7 +19,7 @@ function FourCardFeaturesSection() {
       </div>
 
       <div className="flex justify-end mb-4">
-        <p className="text-md">scroll &rarr;</p>
+        <p className="text-lg">scroll &rarr;</p>
       </div>
       <div className="flex overflow-auto space-x-4 w-full">
         {data?.fourCardFeaturesSectionCards.map((card, index) => (
