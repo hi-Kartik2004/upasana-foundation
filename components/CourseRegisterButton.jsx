@@ -15,6 +15,56 @@ import {
 } from "react-icons/bi";
 import Link from "next/link";
 import { Textarea } from "./ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+
+function BatchDropdown({ batches, onSelectBatch }) {
+  console.log("called batch dropdown!");
+  return (
+    <Select name="batch">
+      <SelectTrigger className="w-full">
+        <SelectValue placeholder="Select a batch" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          {batches.map((batch, index) => (
+            <SelectItem
+              required
+              key={index}
+              value={`Batch ${index + 1} - ${batch.date}, ${
+                batch.time
+              } IST (${getDayOfWeek(batch.date)})`}
+            >
+              {`Batch ${index + 1} - ${batch.date}, ${
+                batch.time
+              } IST (${getDayOfWeek(batch.date)})`}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  );
+}
+
+function getDayOfWeek(dateString) {
+  const days = [
+    "Sundays",
+    "Mondays",
+    "Tuesdays",
+    "Wednesdays",
+    "Thursdays",
+    "Fridays",
+    "Saturdays",
+  ];
+  const date = new Date(dateString);
+  return days[date.getDay()];
+}
 
 function CourseRegisterButton({ data }) {
   const { isLoaded, user } = useUser();
@@ -24,6 +74,8 @@ function CourseRegisterButton({ data }) {
   const [registering, setRegistering] = useState(false);
   const [registered, setRegistered] = useState(false);
   const [expiry, setExpiry] = useState(null);
+  const [batch, setBatch] = useState(null);
+
   const { toast } = useToast();
 
   const checkIfAlreadyRegistered = async () => {
@@ -71,6 +123,7 @@ function CourseRegisterButton({ data }) {
       registeredAddress: formData.get("address"),
       registeredOccupation: formData.get("occupation"),
       registeredWhatsapp: formData.get("whatsappNumber"),
+      registeredBatch: formData.get("batch"),
       courseExpires: new Date().getTime() + data.expiry * 24 * 60 * 60 * 1000,
       timestamp: new Date().getTime(),
     });
@@ -185,6 +238,13 @@ function CourseRegisterButton({ data }) {
                   max={9999999999}
                 />
               </div>
+
+              <BatchDropdown
+                batches={data?.batches}
+                onSelectBatch={(val) => {
+                  setBatch(val);
+                }}
+              />
             </div>
           )
         ) : (

@@ -105,12 +105,18 @@ const formSchema = z.object({
       }
     )
     .nullable(),
-  link: z.optional(z.string().trim().url({ message: "Invalid URL" })),
+  link: z.string().optional(),
   prizes: z.string().min(2, "Please enter a valid prize."),
   category: z.string().min(2, "Please enter a valid category."),
   startDate: z.string().optional(),
   time: z.string().optional(),
   expiry: z.coerce.number().min(1, "course duration must more than be 1day"),
+  batches: z.array(
+    z.object({
+      date: z.string().optional(),
+      time: z.string().optional(),
+    })
+  ),
 });
 
 // Function to handle Firestore operation
@@ -148,6 +154,8 @@ async function addMessageToFirestore({ formData }) {
       image: downloadURL,
     };
 
+    docData.batches = formData.batches;
+
     const collectionRef = collection(db, "courses");
     const docRef = await addDoc(collectionRef, docData);
 
@@ -177,6 +185,7 @@ export default function CourseForm({ edit, courseData }) {
       category: "course",
       startDate: "",
       time: "",
+      batches: [],
     },
   });
 
@@ -246,7 +255,7 @@ export default function CourseForm({ edit, courseData }) {
   async function editCourseInFirestore({ id, formData }) {
     try {
       const imageFile = formData.image;
-      console.log(imageFile);
+
       if (imageFile && imageFile.size === 0) {
         console.warn("File size is 0 bytes. Skipping upload.");
       }
@@ -256,17 +265,19 @@ export default function CourseForm({ edit, courseData }) {
 
       let downloadURL;
       if (imageFile.name) {
-        console.log("Inside");
         // If a new image file is provided, upload it to storage
         await uploadBytes(storageRef, imageFile);
         downloadURL = await getDownloadURL(storageRef);
       }
-      console.log(downloadURL);
+
       const updatedData = {
         ...formData,
         // Use the new image URL if available, otherwise keep the existing one
         image: downloadURL || courseData.image,
       };
+
+      // Update batches data in the document
+      updatedData.batches = formData.batches;
 
       const courseRef = doc(db, "courses", id);
       await setDoc(courseRef, updatedData, { merge: true });
@@ -474,12 +485,55 @@ export default function CourseForm({ edit, courseData }) {
           )}
         />
 
+        <Button
+          onClick={() => {
+            form.setValue("batches", [
+              ...form.getValues().batches,
+              { date: "", time: "" },
+            ]);
+          }}
+        >
+          Add Batch
+        </Button>
+
+        {form.getValues().batches.map((batch, index) => (
+          <div key={index}>
+            <FormField
+              control={form.control}
+              name={`batches[${index}].date`}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{`Batch ${index + 1} Date*`}</FormLabel>
+                  <FormControl>
+                    <Input type="date" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name={`batches[${index}].time`}
+              render={({ field }) => (
+                <FormItem className="mt-2">
+                  <FormLabel>{`Batch ${index + 1} Time*`}</FormLabel>
+                  <FormControl>
+                    <Input type="time" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        ))}
+
         <FormField
           control={form.control}
           name="startDate"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Date*</FormLabel>
+              <FormLabel>Start Date*</FormLabel>
               <FormControl>
                 <Input
                   type={"date"}
@@ -499,12 +553,12 @@ export default function CourseForm({ edit, courseData }) {
           name="time"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Time*</FormLabel>
+              <FormLabel>Start Time*</FormLabel>
               <FormControl>
                 <Input
                   type={"time"}
                   value={editData?.time}
-                  placeholder="Senete Hall, UVCE"
+                  placeholder="Location / platform"
                   {...field}
                 />
               </FormControl>
