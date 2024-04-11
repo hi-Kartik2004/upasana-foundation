@@ -10,7 +10,7 @@ const data = {
   contactEmail: "entrepreneurshipcelluvce@gmail.com",
 
   //logo
-  logoLink: "https://www.upasanafoundation.org/assets/img/logo-upasana-new.png",
+  logoLink: "https://i.postimg.cc/Bvv37qdc/swan-3.png",
 
   // SignIn Page
   signInTitle: "You are Here for a Higher Cause",
