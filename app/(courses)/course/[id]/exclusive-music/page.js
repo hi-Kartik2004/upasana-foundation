@@ -6,6 +6,8 @@ import { db } from "@/firebase/config";
 import { currentUser } from "@clerk/nextjs";
 const { encode, decode } = require("url-encode-decode");
 import globalData from "@/app/data";
+import MediaPlayer from "@/components/MediaPlayer";
+import RenderSecretAudio from "@/components/RenderSecretAudio";
 
 async function ExclusiveMusic({ params }) {
   let isAuthorised;
@@ -70,12 +72,6 @@ async function ExclusiveMusic({ params }) {
     console.error(err);
   }
 
-  music.forEach((ele) => {
-    const blob = new Blob([ele.file], { type: "audio/mp3" });
-    const dataUrl = URL.createObjectURL(blob);
-    ele.dataUrl = dataUrl;
-  });
-
   return (
     <section>
       <div className="mt-28 container">
@@ -99,29 +95,16 @@ async function ExclusiveMusic({ params }) {
         </div>
 
         <div className="flex justify-around gap-6 flex-wrap mt-10 mb-10 flex-initial">
-          {music.map((ele) => {
+          {music.map((ele, index) => {
             // Create Blob URL directly for each audio file
             return (
               <div
-                key={ele.heading}
+                key={index}
                 className="flex flex-col gap-2 max-w-[400px] rounded-lg border p-6 bg-card shadow-lg transition-shadow duration-300 hover:shadow-lg hover:shadow-orange-500/20 w-full"
               >
                 <h3 className="text-2xl font-semibold">{ele.heading}</h3>
                 <p className="text-muted-foreground">{ele.description}</p>
-                <div>
-                  <audio
-                    className="mt-2 flex w-full justify-center"
-                    controls
-                    loop
-                    controlsList="nodownload noplaybackrate"
-                  >
-                    <source
-                      src={ele.file} // ele.file is a url
-                      type="audio/mp3"
-                    />
-                    Your browser does not support the audio element.
-                  </audio>
-                </div>
+                <div>{<RenderSecretAudio url={ele.file} />}</div>
               </div>
             );
           })}
