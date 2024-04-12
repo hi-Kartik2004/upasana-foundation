@@ -65,7 +65,7 @@ function RenderSecretAudio({ url }) {
 
   return (
     <div>
-      <audio controls src={blobURL}></audio>
+      <audio controls controlsList="nodownload" src={blobURL}></audio>
     </div>
   );
 }

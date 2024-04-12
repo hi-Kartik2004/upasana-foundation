@@ -65,7 +65,12 @@ function RenderSecretVideo({ url }) {
 
   return (
     <div>
-      <video controls className="w-full" src={blobURL}></video>
+      <video
+        controlsList="nodownload"
+        controls
+        className="w-full"
+        src={blobURL}
+      ></video>
     </div>
   );
 }
