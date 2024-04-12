@@ -58,12 +58,12 @@ async function Course({ params }) {
                   </span>
                 </div>
 
-                <div className="flex gap-2 items-center">
+                {/* <div className="flex gap-2 items-center">
                   <BiCalendar />
                   <span className="text-muted-foreground text-sm">
                     {reverseDateFormat(courseData?.startDate)}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               <div className="flex flex-col gap-2">
@@ -75,13 +75,13 @@ async function Course({ params }) {
                   </span>
                 </div>
 
-                <div className="flex gap-2 items-center">
+                {/* <div className="flex gap-2 items-center">
                   <BsFillClockFill />
 
                   <span className="text-muted-foreground text-sm">
                     {!courseData.time ? "Anytime" : courseData.time}
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
