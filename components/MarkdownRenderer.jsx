@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import RenderSecretVideo from "./RenderSecretVideo";
 import RenderSecretAudio from "./RenderSecretAudio";
+import RenderSecretIframe from "./RenderSecretIframe";
 
 const MarkdownRenderer = ({ content }) => {
   const components = {
@@ -12,6 +13,7 @@ const MarkdownRenderer = ({ content }) => {
       <RenderSecretVideo url={src} {...props} />
     ),
     audio: ({ src, ...props }) => <RenderSecretAudio url={src} {...props} />,
+    iframe: ({ src, ...props }) => <RenderSecretIframe url={src} {...props} />,
     // You can define more custom elements here if needed
   };
 

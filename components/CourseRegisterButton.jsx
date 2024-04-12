@@ -24,7 +24,39 @@ import {
   SelectValue,
 } from "./ui/select";
 
-function BatchDropdown({ batches, onSelectBatch }) {
+function calculateExpiryDate(batchDate, expiry) {
+  try {
+    // Parse the batch date string as a Date object
+    const date = new Date(batchDate);
+
+    // Validate the parsed date
+    if (isNaN(date.getTime())) {
+      throw new Error(`Invalid date value: ${batchDate}`);
+    }
+
+    // Validate the expiry parameter
+    if (typeof expiry !== "number" || expiry < 0) {
+      throw new Error(`Invalid expiry value: ${expiry}`);
+    }
+
+    // Add the expiry (number of days) to the date
+    date.setDate(date.getDate() + expiry);
+
+    // Format the expiry date as YYYY-MM-DD
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const expiryDate = `${year}-${month}-${day}`;
+
+    // Return the formatted expiry date
+    return expiryDate;
+  } catch (error) {
+    console.error("Error calculating expiry date:", error.message);
+    return null;
+  }
+}
+
+function BatchDropdown({ expiry, batches, onSelectBatch }) {
   console.log("called batch dropdown!");
   return (
     <Select name="batch">
@@ -38,13 +70,17 @@ function BatchDropdown({ batches, onSelectBatch }) {
               <SelectItem
                 required
                 key={index}
-                value={`Batch ${index + 1} - ${batch.date}, ${
+                value={`Batch ${index + 1} - From: ${
+                  batch.date
+                }, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
                   batch.time
-                } IST (${getDayOfWeek(batch.date)})`}
+                } IST`}
               >
-                {`Batch ${index + 1} - ${batch.date}, ${
+                {`Batch ${index + 1} - From: ${
+                  batch.date
+                }, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
                   batch.time
-                } IST (${getDayOfWeek(batch.date)})`}
+                } IST`}
               </SelectItem>
             ))}
         </SelectGroup>
@@ -241,6 +277,7 @@ function CourseRegisterButton({ data }) {
               </div>
 
               <BatchDropdown
+                expiry={data?.expiry}
                 batches={data?.batches}
                 onSelectBatch={(val) => {
                   setBatch(val);
