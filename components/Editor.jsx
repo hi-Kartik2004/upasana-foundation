@@ -26,6 +26,7 @@ import { storage } from "@/firebase/config";
 import { Checkbox } from "./ui/checkbox";
 import { FaSpinner } from "react-icons/fa";
 import MarkdownEditor from "@uiw/react-markdown-editor";
+import AddVideoToFirebaseDialog from "./AddVideoToFirebaseDialog";
 
 export const dynamic = "force-dynamic";
 
@@ -62,6 +63,12 @@ export default function Editor({
     // Regular expression to match HTML comments
     const commentsRegex = /<!--[\s\S]*?-->/g;
 
+    // Regular expression to match audio tags
+    const audioRegex = /<audio[^>]*>[\s\S]*?<\/audio>/g;
+
+    // Regular expression to match video tags
+    const videoRegex = /<video[^>]*>[\s\S]*?<\/video>/g;
+
     // Replace images with an empty string
     let filteredText = markdownText.replace(imageRegex, "");
 
@@ -70,6 +77,12 @@ export default function Editor({
 
     // Remove HTML comments
     filteredText = filteredText.replace(commentsRegex, "");
+
+    // Remove audio tags
+    filteredText = filteredText.replace(audioRegex, "");
+
+    // Remove video tags
+    filteredText = filteredText.replace(videoRegex, "");
 
     return filteredText;
   }
@@ -264,7 +277,7 @@ export default function Editor({
     <div className="container my-6 min-h-full">
       <Toaster />
       <div className="flex flex-wrap gap-6 justify-between items-center mb-6">
-        <div>
+        <div className="">
           <h1 className="text-3xl font-bold">
             <span className="text-primary">{gradient || "Craft"}</span>{" "}
             {sectionTitle ||
@@ -272,6 +285,9 @@ export default function Editor({
                 type === "event-summary" ? "event Summary " : " blog "
               } for the community!`}
           </h1>
+          <div className="mt-2">
+            <AddVideoToFirebaseDialog />
+          </div>
         </div>
 
         <div className="flex gap-4 flex-wrap">
