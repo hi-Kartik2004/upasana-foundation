@@ -86,10 +86,7 @@ async function ManageCourses({ params }) {
           <div className="flex flex-wrap flex-col overflow-auto">
             <h3 className="mb-4 text-lg font-medium">Add Video*</h3>
             <CodeSnippet
-              text={`<video width="100%" controls>
-  <source src="">
-  Your browser does not support the video tag.
-  </source>
+              text={`<video src="" width="100%" controls>
 </video>`}
               language="javascript"
             />
@@ -98,7 +95,7 @@ async function ManageCourses({ params }) {
           <div className="flex flex-wrap flex-col overflow-auto">
             <h3 className="mb-4 text-lg font-medium">Add Youtube Video*</h3>
             <CodeSnippet
-              text={`<iframe width="800px" height="400px" src="" title="YouTube video" 
+              text={`<iframe width="100%" height="400px" src="" title="YouTube video" 
 frameborder="0" allow="accelerometer; 
 autoplay; clipboard-write; encrypted-media; 
 gyroscope; picture-in-picture; web-share" 

@@ -5,6 +5,8 @@ import {
   orderBy,
   query,
   doc,
+  addDoc,
+  where,
 } from "firebase/firestore";
 import { db } from "@/firebase/config";
 import React from "react";
@@ -20,6 +22,10 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { currentUser } from "@clerk/nextjs";
 import { Cousine } from "next/font/google";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import RatingDialog from "@/components/RatingDialog";
 
 async function Course({ params }) {
   const user = await currentUser();
@@ -113,6 +119,46 @@ async function Course({ params }) {
     );
   }
 
+  async function addRatingToFirestore(rating, feedback) {
+    "use server";
+    const ref = collection(db, "course-ratings");
+    const data = {
+      courseId: courseInfo.id,
+      courseName: courseInfo?.name,
+      ...courseInfo,
+      rating: rating,
+      feedback: feedback,
+    };
+    try {
+      const snapshot = await addDoc(ref, data);
+      isUserRated();
+      return true;
+    } catch (err) {
+      console.error(err);
+    }
+
+    return false;
+  }
+
+  let showRatingButton = true;
+
+  try {
+    const q = query(
+      collection(db, "course-ratings"),
+      where("registeredEmail", "==", user.emailAddresses[0].emailAddress),
+      where("id", "==", params.id)
+    );
+
+    const snapshot = await getDocs(q);
+    console.log(snapshot.size);
+
+    if (snapshot.size > 0) {
+      showRatingButton = false;
+    }
+  } catch (err) {
+    console.error("Error querying documents:", err);
+  }
+
   console.log(title);
   return (
     <div className="mt-28">
@@ -127,17 +173,29 @@ async function Course({ params }) {
               Course {title ?? "Title"}
             </h1>
             <p className="text-center mt-2 text-muted-foreground max-w-[800px] line-clamp-2 mx-4">
-              3 I have a sidebar that works great but when I tried to put it in
-              a sticky/fixed position, the fixed class makes the content on the
-              right of the sidebar overrides the sidebar and I try with sticky
-              class but doesn't work
+              {courseInfo?.description || "No description provided"}
             </p>
-            <Link
-              href={`/course/${params.id}/exclusive-music`}
-              className="mt-4 hover:underline underline-offset-8 text-center text-md"
-            >
-              Get Exclusive Music &rarr;
-            </Link>
+
+            <div className="flex gap-4 items-center flex-wrap mt-4">
+              <div>
+                {showRatingButton && (
+                  <RatingDialog
+                    email={user.emailAddresses[0].emailAddress}
+                    courseId={params.id}
+                    name={title}
+                    addRatingToFirestore={addRatingToFirestore}
+                  />
+                )}
+              </div>
+
+              <Link
+                href={`/course/${params.id}/exclusive-music`}
+                className="hover:underline underline-offset-8 text-center text-md"
+              >
+                Get Exclusive Music &rarr;
+              </Link>
+            </div>
+
             {/* <Separator className="mt-8 max-w-[500px] border border-orange-300/75 shadow-lg shadow-orange-500" /> */}
           </div>
 

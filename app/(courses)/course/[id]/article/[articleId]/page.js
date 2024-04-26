@@ -26,7 +26,10 @@ async function Article({ params }) {
       (course) => course.id === params.id
     );
 
-    if (isThisMyCourse.length === 0) {
+    if (
+      isThisMyCourse.length === 0 &&
+      !globalData.adminEmails.includes(user.emailAddresses[0].emailAddress)
+    ) {
       // push back to a common forbidden page - do it later.
       return (
         <div className="min-h-screen flex flex-col items-center">

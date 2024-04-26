@@ -7,6 +7,17 @@ import globalData from "@/app/data";
 import { MdDelete } from "react-icons/md";
 
 async function MyCourses() {
+  function isCurrentTimeBetween(courseStartsTimestamp, courseExpiresTimestamp) {
+    // Get the current timestamp
+    const currentTime = Date.now();
+
+    // Check if the current time is between courseStarts and courseExpires
+    return (
+      currentTime >= courseStartsTimestamp &&
+      currentTime <= courseExpiresTimestamp
+    );
+  }
+
   const user = await currentUser();
   let data;
   try {
@@ -23,10 +34,6 @@ async function MyCourses() {
         if (courseData.courseExpires > currentTime) {
           return {
             ...courseData,
-            canUserView: isCurrentTimeBetween(
-              doc?.courseStarts,
-              doc?.courseExpires
-            ),
           };
         } else {
           return null;
@@ -35,17 +42,6 @@ async function MyCourses() {
       .filter(Boolean);
   } catch (err) {
     console.error(err);
-  }
-
-  function isCurrentTimeBetween(courseStartsTimestamp, courseExpiresTimestamp) {
-    // Get the current timestamp
-    const currentTime = Date.now();
-
-    // Check if the current time is between courseStarts and courseExpires
-    return (
-      currentTime >= courseStartsTimestamp &&
-      currentTime <= courseExpiresTimestamp
-    );
   }
 
   return (
@@ -93,7 +89,8 @@ async function MyCourses() {
                   {ele.description || "Not found"}
                 </p>
 
-                {ele?.registeredBatch && ele?.canUserView ? (
+                {ele?.registeredBatch &&
+                isCurrentTimeBetween(ele?.courseStarts, ele?.courseExpires) ? (
                   <div className="flex justify-between items-center w-full">
                     <Link
                       href={"/course/" + ele.id}

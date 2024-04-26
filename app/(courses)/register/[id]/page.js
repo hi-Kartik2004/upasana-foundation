@@ -1,7 +1,14 @@
 import { db } from "@/firebase/config";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import React from "react";
-import { BiCalendar } from "react-icons/bi";
+import { BiCalendar, BiStar } from "react-icons/bi";
 import { MdMarkEmailRead } from "react-icons/md";
 import { PiHandCoins } from "react-icons/pi";
 import Link from "next/link";
@@ -35,6 +42,39 @@ async function Course({ params }) {
     return reversedDate;
   }
 
+  async function getAllRatings() {
+    try {
+      const ref = query(
+        collection(db, "course-ratings"),
+        where("courseId", "==", params.id)
+      );
+      const snapshot = await getDocs(ref);
+      let data = [];
+      snapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      return data;
+    } catch (err) {
+      console.error("Error fetching ratings:", err);
+      return [];
+    }
+  }
+
+  async function calculateAverageRating() {
+    const data = await getAllRatings();
+    if (data && data?.length === 0) {
+      return null;
+    }
+
+    let sum = 0;
+    data.forEach((doc) => {
+      sum += doc?.rating;
+    });
+    return [sum / data.length, data.length];
+  }
+
+  const averageRating = await calculateAverageRating();
+
   return (
     <>
       <section className="flex flex-wrap container gap-10 mt-16 py-10 justify-center xl:justify-between relative">
@@ -66,12 +106,21 @@ async function Course({ params }) {
                   </span>
                 </div>
 
-                {/* <div className="flex gap-2 items-center">
-                  <BiCalendar />
-                  <span className="text-muted-foreground text-sm">
-                    {reverseDateFormat(courseData?.startDate)}
-                  </span>
-                </div> */}
+                {averageRating ? (
+                  <div className="flex gap-2 items-center">
+                    <BiStar />
+                    <span className="text-muted-foreground text-sm">
+                      {averageRating[0]} / 5 ({averageRating[1]})
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex gap-2 items-center">
+                    <BiStar />
+                    <span className="text-muted-foreground text-sm">
+                      {"Premium Course"}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className="flex flex-col gap-2">
@@ -83,13 +132,15 @@ async function Course({ params }) {
                   </span>
                 </div>
 
-                {/* <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center">
                   <BsFillClockFill />
 
                   <span className="text-muted-foreground text-sm">
-                    {!courseData.time ? "Anytime" : courseData.time}
+                    {courseData?.expiry
+                      ? courseData.expiry + " days"
+                      : "Lifetime"}
                   </span>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
@@ -103,21 +154,22 @@ async function Course({ params }) {
 
           <div className="mt-8">
             <h1 className="text-xl font-semibold">
-              Batches ({courseData?.batches.length})
+              Batches ({courseData.batches && courseData?.batches.length})
             </h1>
-            {courseData?.batches.map((date, index) => (
-              <p
-                key={date}
-                className="text-muted-foreground mt-2 whitespace-pre-wrap"
-              >
-                {"Batch " +
-                  +(index + 1) +
-                  " : " +
-                  reverseDateFormat(date?.date) +
-                  ", " +
-                  date?.time}
-              </p>
-            ))}
+            {courseData.batches &&
+              courseData?.batches.map((date, index) => (
+                <p
+                  key={date}
+                  className="text-muted-foreground mt-2 whitespace-pre-wrap"
+                >
+                  {"Batch " +
+                    +(index + 1) +
+                    " : " +
+                    reverseDateFormat(date?.date) +
+                    ", " +
+                    date?.time}
+                </p>
+              ))}
             <p className="mt-2 text-sm text-muted-foreground">
               *each class will be for {courseData?.timeOfEachClass} hours
             </p>
