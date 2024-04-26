@@ -16,6 +16,9 @@ import {
 } from "@/components/ui/card";
 import DeleteButton from "@/components/DeleteButton";
 import Loader from "@/components/Loader";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useRouter, useSearchParams } from "next/navigation";
 
 async function fetchEvents() {
   const eventsCollectionRef = collection(db, "events");
@@ -33,6 +36,10 @@ function Events() {
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const router = useRouter();
+
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,6 +54,9 @@ function Events() {
       }
     };
     fetchData();
+    const requestedCategories = searchParams.getAll("categories");
+
+    setSelectedCategories(requestedCategories);
   }, []);
 
   const handleSearch = (e) => {
@@ -56,6 +66,39 @@ function Events() {
       event.title.toLowerCase().includes(query)
     );
     setFilteredEvents(filtered);
+  };
+
+  const handleCategorySelection = (categoryName) => {
+    const index = selectedCategories.indexOf(categoryName);
+    let updatedCategories = [...selectedCategories];
+
+    if (index === -1) {
+      updatedCategories.push(categoryName);
+    } else {
+      updatedCategories.splice(index, 1);
+    }
+
+    setSelectedCategories(updatedCategories);
+
+    // Construct new query string
+    const urlParams = new URLSearchParams();
+    updatedCategories.forEach((category) => {
+      urlParams.append("categories", category);
+    });
+
+    router.push(`?${urlParams.toString()}`);
+    const requestedCategories = searchParams.get("categories");
+
+    requestedCategories.map((ele, index) => {
+      setSelectedCategories(...selectedCategories, ele);
+    });
+  };
+
+  const filterEventsByCategory = (event) => {
+    if (selectedCategories.length === 0) return true;
+    return selectedCategories.some((category) =>
+      event?.categories?.includes(category)
+    );
   };
 
   const { isLoaded, user } = useUser();
@@ -81,6 +124,24 @@ function Events() {
         />
       </div>
 
+      <div className="flex items-center gap-4 flex-wrap justify-center">
+        {/* Render checkboxes for each category */}
+        {/* <p className="text-sm text-muted-foreground">Filter by category</p> */}
+        {globalData?.blogCategories.map((category, index) => (
+          <Label key={index} className="flex gap-2 items-center">
+            <Checkbox
+              name="category"
+              value={category.name}
+              type="checkbox"
+              checked={selectedCategories.includes(category.name)}
+              // Handle checkbox change
+              onClick={() => handleCategorySelection(category.name)}
+            />
+            <p>{category.name}</p>
+          </Label>
+        ))}
+      </div>
+
       <div className="mt-8 flex flex-wrap items-center justify-around">
         {loading ? (
           <Loader />
@@ -93,65 +154,72 @@ function Events() {
             </h1>
           </div>
         ) : (
-          filteredEvents.map((event) => (
-            <Card
-              key={event.id}
-              className="bg-card max-w-[420px]"
-              id={`event-${event.id}`}
-            >
-              <CardHeader>
-                <CardTitle>
+          filteredEvents
+            .filter(filterEventsByCategory) // Filter events by category
+            .map((event) => (
+              <Card
+                key={event.id}
+                className="bg-card max-w-[420px]"
+                id={`event-${event.id}`}
+              >
+                <CardHeader>
+                  <CardTitle>
+                    <Link href={`/event/${event.id}`}>
+                      {event?.title ?? "No title!"}
+                    </Link>
+                  </CardTitle>
+                  <CardDescription className="line-clamp-2 mt-4">
+                    <Link href={`event/${event.id}`}>
+                      {event?.description ?? "No description"}
+                    </Link>
+                  </CardDescription>
+                </CardHeader>
+
+                <CardFooter className="flex flex-wrap justify-between items-baseline">
+                  <div>
+                    <p className="text-xs text-muted-foreground">
+                      {event?.user}
+                    </p>
+                    <Link
+                      href={`mailto:${
+                        event?.email ?? "upasanafound@gmail.com"
+                      }`}
+                      className="text-xs text-muted-foreground underline underline-offset-8"
+                    >
+                      {event?.email ?? "upasanafound@gmail.com"}
+                    </Link>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">
+                      {new Date(event.timestamp).toLocaleDateString()}
+                    </p>
+                    {globalData.adminEmails.includes(
+                      user && user.emailAddresses[0].emailAddress
+                    ) && (
+                      <DeleteButton
+                        email={
+                          user?.emailAddresses[0]?.emailAddress ??
+                          "Not provided"
+                        }
+                        message={"delete"}
+                        id={event.id}
+                        collection={"events"}
+                      />
+                    )}
+                  </div>
+                </CardFooter>
+
+                <CardContent>
                   <Link href={`/event/${event.id}`}>
-                    {event?.title ?? "No title!"}
-                  </Link>
-                </CardTitle>
-                <CardDescription className="line-clamp-2 mt-4">
-                  <Link href={`event/${event.id}`}>
-                    {event?.description ?? "No description"}
-                  </Link>
-                </CardDescription>
-              </CardHeader>
-
-              <CardFooter className="flex flex-wrap justify-between items-baseline">
-                <div>
-                  <p className="text-xs text-muted-foreground">{event?.user}</p>
-                  <Link
-                    href={`mailto:${event?.email ?? "upasanafound@gmail.com"}`}
-                    className="text-xs text-muted-foreground underline underline-offset-8"
-                  >
-                    {event?.email ?? "upasanafound@gmail.com"}
-                  </Link>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">
-                    {new Date(event.timestamp).toLocaleDateString()}
-                  </p>
-                  {globalData.adminEmails.includes(
-                    user && user.emailAddresses[0].emailAddress
-                  ) && (
-                    <DeleteButton
-                      email={
-                        user?.emailAddresses[0]?.emailAddress ?? "Not provided"
-                      }
-                      message={"delete"}
-                      id={event.id}
-                      collection={"events"}
+                    <img
+                      src={event?.eventImg}
+                      alt={event.title}
+                      className="rounded-lg"
                     />
-                  )}
-                </div>
-              </CardFooter>
-
-              <CardContent>
-                <Link href={`/event/${event.id}`}>
-                  <img
-                    src={event?.eventImg}
-                    alt={event.title}
-                    className="rounded-lg"
-                  />
-                </Link>
-              </CardContent>
-            </Card>
-          ))
+                  </Link>
+                </CardContent>
+              </Card>
+            ))
         )}
       </div>
     </div>

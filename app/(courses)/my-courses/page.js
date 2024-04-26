@@ -21,7 +21,13 @@ async function MyCourses() {
       .map((doc) => {
         const courseData = doc.data();
         if (courseData.courseExpires > currentTime) {
-          return { ...courseData };
+          return {
+            ...courseData,
+            canUserView: isCurrentTimeBetween(
+              doc?.courseStarts,
+              doc?.courseExpires
+            ),
+          };
         } else {
           return null;
         }
@@ -30,6 +36,18 @@ async function MyCourses() {
   } catch (err) {
     console.error(err);
   }
+
+  function isCurrentTimeBetween(courseStartsTimestamp, courseExpiresTimestamp) {
+    // Get the current timestamp
+    const currentTime = Date.now();
+
+    // Check if the current time is between courseStarts and courseExpires
+    return (
+      currentTime >= courseStartsTimestamp &&
+      currentTime <= courseExpiresTimestamp
+    );
+  }
+
   return (
     <div className="mt-24 py-4 container">
       <h1 className="text-4xl font-bold text-center">
@@ -75,14 +93,21 @@ async function MyCourses() {
                   {ele.description || "Not found"}
                 </p>
 
-                <div className="flex justify-between items-center w-full">
-                  <Link
-                    href={"/course/" + ele.id}
-                    className="hover:underline underline-offset-8 text-primary"
-                  >
-                    View &rarr;
-                  </Link>
-                </div>
+                {ele?.registeredBatch && ele?.canUserView ? (
+                  <div className="flex justify-between items-center w-full">
+                    <Link
+                      href={"/course/" + ele.id}
+                      className="hover:underline underline-offset-8 text-primary"
+                    >
+                      View &rarr;
+                    </Link>
+                  </div>
+                ) : (
+                  <p>
+                    You can access this course from{" "}
+                    {new Date(ele?.courseStarts).toLocaleString()}
+                  </p>
+                )}
               </div>
             </div>
           );

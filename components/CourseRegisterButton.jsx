@@ -147,11 +147,45 @@ function CourseRegisterButton({ data }) {
     }
   };
 
+  function extractDateAndConvertToTimestamp(inputString) {
+    // Regular expression pattern to match the date
+    const datePattern = /\d{4}-\d{2}-\d{2}/;
+
+    // Find the date using regular expression
+    const match = inputString.match(datePattern);
+
+    // Check if a match is found
+    if (match) {
+      // Extracted date string
+      const dateString = match[0];
+
+      // Parse the date string into a Date object
+      const dateObject = new Date(dateString);
+
+      // Convert the Date object to a timestamp using getTime()
+      const timestamp = dateObject.getTime();
+
+      return timestamp; // Return the timestamp
+    } else {
+      return null; // Return null if no date found
+    }
+  }
+
   const addRegistrationToFirestore = async (e) => {
     e.preventDefault();
     setRegistering(true);
     const ref = collection(db, "course-registrations");
     const formData = new FormData(e.target);
+    let startDate = "";
+    try {
+      startDate =
+        extractDateAndConvertToTimestamp(formData.get("batch")) ||
+        new Date().getTime();
+    } catch (err) {
+      setRegistering(false);
+      console.error(err);
+      return;
+    }
     const res = await addDoc(ref, {
       ...data,
       registeredName: user?.fullName,
@@ -161,7 +195,8 @@ function CourseRegisterButton({ data }) {
       registeredOccupation: formData.get("occupation"),
       registeredWhatsapp: formData.get("whatsappNumber"),
       registeredBatch: formData.get("batch"),
-      courseExpires: new Date().getTime() + data.expiry * 24 * 60 * 60 * 1000,
+      courseExpires: startDate + data.expiry * 24 * 60 * 60 * 1000,
+      courseStarts: startDate,
       timestamp: new Date().getTime(),
     });
 

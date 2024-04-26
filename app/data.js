@@ -536,48 +536,7 @@ const data = {
   sriPaadukaFormHeading: "Reserve Your spot for Sri Paaduka Pooja!",
 
   // Sri Paaduka Testimonials
-  sriPaadukaTestimonials: [
-    {
-      title: "1 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-    {
-      title: "2 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-    {
-      title: "3 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-    {
-      title: "4 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-  ],
+  sriPaadukaTestimonials: [],
 
   // About sadhguru
   aboutSadhguruTitle: "The quick, brown fox jumps over a lazy dog",
@@ -627,6 +586,23 @@ const data = {
   eventsPageTitle: "Events",
   eventsPageDescription:
     "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
+  blogCategories: [
+    {
+      name: "Event",
+    },
+    {
+      name: "Announcements",
+    },
+    {
+      name: "News",
+    },
+    {
+      name: "Visits",
+    },
+    {
+      name: "Others",
+    },
+  ],
 
   // Donate Page
   donatePageTitle: "You can Make a Difference",

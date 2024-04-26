@@ -26,6 +26,8 @@ import { storage } from "@/firebase/config";
 import { Checkbox } from "./ui/checkbox";
 import { FaSpinner } from "react-icons/fa";
 import MarkdownEditor from "@uiw/react-markdown-editor";
+import globalData from "@/app/data";
+import { Label } from "./ui/label";
 
 export const dynamic = "force-dynamic";
 
@@ -52,6 +54,22 @@ export default function AddEventForm({
   const [loading, setLoading] = useState(true);
   const [addingBlog, setAddingBlog] = useState(false);
   const [file, setFile] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  // Function to handle category selection
+  const handleCategorySelection = (categoryName) => {
+    // Check if the category is already selected
+    const index = selectedCategories.indexOf(categoryName);
+    if (index === -1) {
+      // If not selected, add it to the list
+      setSelectedCategories([...selectedCategories, categoryName]);
+    } else {
+      // If already selected, remove it from the list
+      const updatedCategories = [...selectedCategories];
+      updatedCategories.splice(index, 1);
+      setSelectedCategories(updatedCategories);
+    }
+  };
 
   function filterEnglishMarkdown(markdownText) {
     // Regular expression to match images in Markdown
@@ -179,6 +197,7 @@ export default function AddEventForm({
         views: 0,
         recordingUrl: { recordingUrl },
         eventImg: imageUrl,
+        categories: selectedCategories,
       });
       console.log("Blog added with ID: ", docSnap.id);
       toast({
@@ -207,6 +226,7 @@ export default function AddEventForm({
       user: user.firstName + " " + user.lastName,
       email: user.emailAddresses[0].emailAddress,
       recordingUrl: { recordingUrl },
+      categories: selectedCategories,
     });
     toast({
       title: "Blog Edited Successfully",
@@ -335,6 +355,30 @@ export default function AddEventForm({
                       />
 
                       <Input type={"file"} onChange={handleFileUpload} />
+
+                      <div className="flex items-center gap-4 flex-wrap">
+                        {/* Render checkboxes for each category */}
+                        {globalData?.blogCategories.map((category, index) => (
+                          <Label
+                            key={index}
+                            className="flex gap-2 items-center"
+                          >
+                            <Checkbox
+                              name="category"
+                              value={category.name}
+                              type="checkbox"
+                              checked={selectedCategories.includes(
+                                category.name
+                              )}
+                              // Handle checkbox change
+                              onClick={() =>
+                                handleCategorySelection(category.name)
+                              }
+                            />
+                            <p>{category.name}</p>
+                          </Label>
+                        ))}
+                      </div>
                     </div>
                   </AlertDialogDescription>
                 </AlertDialogHeader>

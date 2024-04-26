@@ -14,7 +14,7 @@ function Page() {
       <Separator />
       <SriPaadukaFaqSection />
       <Separator />
-      <div className="flex justify-between gap-6 items-center flex-wrap w-full">
+      <div className="flex justify-around gap-6 items-center flex-wrap w-full">
         <div
           className="flex w-full flex-col px-4 py-10 max-w-[700px]"
           id="register"
@@ -25,52 +25,54 @@ function Page() {
           <SpecialTypeRegistrationForm extraField={"Sri Paaduka Pooja"} />
         </div>
 
-        <div className="max-w-[600px] w-full flex flex-col gap-6 items-center justify-center overflow-hidden mb-10">
-          <Marquee
-            gradient={false}
-            speed={50}
-            className="flex gap-10"
-            pauseOnHover
-          >
-            <div className="flex gap-6">
-              {globalData?.sriPaadukaTestimonials
-                .slice(0, globalData?.sriPaadukaTestimonials.length / 2)
-                .map((testimonial, index) => (
-                  <SpecialEventTestimonialCard key={index} {...testimonial} />
-                ))}
-            </div>
-            <div className="flex gap-6">
-              {globalData?.sriPaadukaTestimonials
-                .slice(0, globalData?.sriPaadukaTestimonials.length / 2)
-                .map((testimonial, index) => (
-                  <SpecialEventTestimonialCard key={index} {...testimonial} />
-                ))}
-            </div>
-          </Marquee>
+        {globalData?.sriPaadukaTestimonials.length > 0 && (
+          <div className="max-w-[600px] w-full flex flex-col gap-6 items-center justify-center overflow-hidden mb-10">
+            <Marquee
+              gradient={false}
+              speed={50}
+              className="flex gap-10"
+              pauseOnHover
+            >
+              <div className="flex gap-6">
+                {globalData?.sriPaadukaTestimonials
+                  .slice(0, globalData?.sriPaadukaTestimonials.length / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard key={index} {...testimonial} />
+                  ))}
+              </div>
+              <div className="flex gap-6">
+                {globalData?.sriPaadukaTestimonials
+                  .slice(0, globalData?.sriPaadukaTestimonials.length / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard key={index} {...testimonial} />
+                  ))}
+              </div>
+            </Marquee>
 
-          <Marquee
-            gradient={false}
-            speed={50}
-            className="flex gap-10"
-            direction="right"
-            pauseOnHover
-          >
-            <div className="flex gap-6">
-              {globalData?.sriPaadukaTestimonials
-                .slice(globalData?.sriPaadukaTestimonials.length / 2)
-                .map((testimonial, index) => (
-                  <SpecialEventTestimonialCard key={index} {...testimonial} />
-                ))}
-            </div>
-            <div className="flex gap-6">
-              {globalData?.sriPaadukaTestimonials
-                .slice(globalData?.sriPaadukaTestimonials.length / 2)
-                .map((testimonial, index) => (
-                  <SpecialEventTestimonialCard key={index} {...testimonial} />
-                ))}
-            </div>
-          </Marquee>
-        </div>
+            <Marquee
+              gradient={false}
+              speed={50}
+              className="flex gap-10"
+              direction="right"
+              pauseOnHover
+            >
+              <div className="flex gap-6">
+                {globalData?.sriPaadukaTestimonials
+                  .slice(globalData?.sriPaadukaTestimonials.length / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard key={index} {...testimonial} />
+                  ))}
+              </div>
+              <div className="flex gap-6">
+                {globalData?.sriPaadukaTestimonials
+                  .slice(globalData?.sriPaadukaTestimonials.length / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard key={index} {...testimonial} />
+                  ))}
+              </div>
+            </Marquee>
+          </div>
+        )}
       </div>
     </div>
   );

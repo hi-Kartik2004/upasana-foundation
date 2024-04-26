@@ -18,8 +18,59 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import { currentUser } from "@clerk/nextjs";
+import { Cousine } from "next/font/google";
 
 async function Course({ params }) {
+  const user = await currentUser();
+  const email = user.emailAddresses[0].emailAddress;
+  console.log(email);
+  function isCurrentTimeBetween(courseStartsTimestamp, courseExpiresTimestamp) {
+    // Get the current timestamp
+    const currentTime = Date.now();
+
+    // Check if the current time is between courseStarts and courseExpires
+    return (
+      currentTime >= courseStartsTimestamp &&
+      currentTime <= courseExpiresTimestamp
+    );
+  }
+
+  let courseInfo;
+
+  try {
+    const querySnapshot = await getDocs(collection(db, "course-registrations"));
+
+    if (querySnapshot.empty) {
+      console.log("No documents found in the collection.");
+    } else {
+      querySnapshot.forEach((doc) => {
+        // Assuming each document has an "email" field to compare with `registeredEmail`
+        if (
+          doc.data().registeredEmail === email &&
+          doc.data().id === params.id
+        ) {
+          courseInfo = doc.data();
+          // return; // Exit the loop if a matching document is found
+        }
+      });
+    }
+
+    if (!courseInfo) {
+      console.log("No matching document found for the provided email and ID.");
+      return (
+        <p className="mt-28 px-4 py-2 rounded-lg border max-w-[500px] w-full mb-10 mx-auto">
+          <b>Unauthorized Access</b> - Unable to validate if you have registered
+          for this course, if you think this is a mistake please contact us!
+        </p>
+      );
+    }
+  } catch (err) {
+    console.error("Error fetching course information:", err);
+  }
+
+  console.log(courseInfo);
+
   let allCourseData;
   try {
     // get course data from firestore
@@ -39,12 +90,27 @@ async function Course({ params }) {
 
   let title;
   try {
+    // where
     const ref = doc(db, "courses", params.id);
     const docSnapshot = await getDoc(ref);
     title = docSnapshot.data().name;
     console.log(title, params.id);
   } catch (err) {
     console.error(err);
+  }
+
+  if (
+    !isCurrentTimeBetween(courseInfo?.courseStarts, courseInfo?.courseExpires)
+  ) {
+    return (
+      <div className="flex justify-center">
+        <p className="mt-28 text-center mb-10 p-2 rounded-lg border max-w-[500px] w-full">
+          You can access this course from{" "}
+          {new Date(courseInfo.courseStarts).toLocaleString()} to
+          {" " + new Date(courseInfo.courseExpires).toLocaleString()}
+        </p>
+      </div>
+    );
   }
 
   console.log(title);

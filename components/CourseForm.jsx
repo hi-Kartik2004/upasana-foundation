@@ -110,6 +110,7 @@ const formSchema = z.object({
   category: z.string().min(2, "Please enter a valid category."),
   startDate: z.string().optional(),
   time: z.string().optional(),
+  timeOfEachClass: z.string().optional(),
   expiry: z.coerce.number().min(1, "course duration must more than be 1day"),
   batches: z.array(
     z.object({
@@ -185,6 +186,7 @@ export default function CourseForm({ edit, courseData }) {
       category: "course",
       startDate: "",
       time: "",
+      timeOfEachClass: "",
       batches: [],
     },
   });
@@ -529,7 +531,7 @@ export default function CourseForm({ edit, courseData }) {
             </div>
           ))}
 
-        <FormField
+        {/* <FormField
           control={form.control}
           name="startDate"
           render={({ field }) => (
@@ -564,6 +566,26 @@ export default function CourseForm({ edit, courseData }) {
                 />
               </FormControl>
               <FormDescription>The time for this course.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        /> */}
+
+        <FormField
+          name="timeOfEachClass"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Time of Each class*</FormLabel>
+              <FormControl>
+                <Input
+                  type={"number"}
+                  value={editData?.time}
+                  placeholder="Duration of each class in hrs"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription>The duration of each class.</FormDescription>
               <FormMessage />
             </FormItem>
           )}

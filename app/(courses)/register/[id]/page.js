@@ -39,13 +39,21 @@ async function Course({ params }) {
     <>
       <section className="flex flex-wrap container gap-10 mt-16 py-10 justify-center xl:justify-between relative">
         <div className="max-w-[650px] w-full">
-          <div className="w-full h-[100px] rounded-md">
+          {/* <div className="w-full h-[100px] rounded-md">
             <img
               src={`https://source.unsplash.com/random/?nature`}
               alt="unsplash_image_for_this_event"
               className="w-full h-full object-cover rounded-md bg-muted"
             />
+          </div> */}
+          <div className="w-full">
+            <img
+              src={`${courseData?.image}`}
+              alt={`${courseData?.name}`}
+              className=" object-cover rounded-md bg-muted"
+            />
           </div>
+
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">{courseData?.name}</h1>
             <div className="flex items-center justify-between mt-4">
@@ -94,6 +102,28 @@ async function Course({ params }) {
           </div>
 
           <div className="mt-8">
+            <h1 className="text-xl font-semibold">
+              Batches ({courseData?.batches.length})
+            </h1>
+            {courseData?.batches.map((date, index) => (
+              <p
+                key={date}
+                className="text-muted-foreground mt-2 whitespace-pre-wrap"
+              >
+                {"Batch " +
+                  +(index + 1) +
+                  " : " +
+                  reverseDateFormat(date?.date) +
+                  ", " +
+                  date?.time}
+              </p>
+            ))}
+            <p className="mt-2 text-sm text-muted-foreground">
+              *each class will be for {courseData?.timeOfEachClass} hours
+            </p>
+          </div>
+
+          <div className="mt-8">
             <h1 className="text-xl font-semibold">Rewards</h1>
             <p className="text-muted-foreground mt-2 whitespace-pre-wrap">
               {courseData?.prizes}
@@ -132,25 +162,27 @@ async function Course({ params }) {
                 <span>{courseData?.email}</span>
               </Link>
             </div>
-            <div className="mt-2 flex gap-2 items-center">
-              <p>Other Link</p> -
-              <Link
-                href={`${courseData?.link}`}
-                className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
-              >
-                <MdMarkEmailRead />
-                <span>{courseData?.link}</span>
-              </Link>
-            </div>
+            {courseData?.link && (
+              <div className="mt-2 flex gap-2 items-center">
+                <p>Other Link</p> -
+                <Link
+                  href={`${courseData?.link}`}
+                  className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
+                >
+                  <MdMarkEmailRead />
+                  <span>{courseData?.link}</span>
+                </Link>
+              </div>
+            )}
           </div>
 
-          <div className="mt-8 w-full">
+          {/* <div className="mt-8 w-full">
             <img
               src={`${courseData?.image}`}
               alt={`${courseData?.name}`}
               className=" object-cover rounded-md bg-muted"
             />
-          </div>
+          </div> */}
         </div>
 
         <div
