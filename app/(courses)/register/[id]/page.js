@@ -19,6 +19,8 @@ import { RiUserLocationLine } from "react-icons/ri";
 import RegisterForm from "@/components/RegisterForm";
 import { currentUser } from "@clerk/nextjs";
 import { BsFillClockFill } from "react-icons/bs";
+import Marquee from "react-fast-marquee";
+import SpecialEventTestimonialCard from "@/components/SpecialEventTestimonialCard";
 
 async function Course({ params }) {
   const user = await currentUser();
@@ -74,6 +76,26 @@ async function Course({ params }) {
   }
 
   const averageRating = await calculateAverageRating();
+
+  async function getTestimonials() {
+    const ref = query(
+      collection(db, "course-testimonials"),
+      where("courseId", "==", params.id)
+    );
+    let data = [];
+    try {
+      const snapshot = await getDocs(ref);
+      snapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+    } catch (err) {
+      console.error("Error fetching testimonials" + err);
+    }
+
+    return data;
+  }
+
+  const testimonailsData = await getTestimonials();
 
   return (
     <>
@@ -256,6 +278,109 @@ async function Course({ params }) {
           </div>
         </div>
       </section>
+
+      <Separator className="mt-4" />
+
+      <div className="mt-10">
+        <h4 className="text-4xl font-bold text-primary text-center">
+          Testimonials
+        </h4>
+        <p className="mt-2 text-center">
+          Here's what others who have taken this course say!
+        </p>
+      </div>
+      <div className="mt-10 w-full flex flex-col gap-6 items-center justify-center overflow-hidden mb-10">
+        {testimonailsData.length > 0 ? (
+          <>
+            <Marquee
+              gradient={false}
+              speed={50}
+              className="flex gap-10 w-full"
+              direction="left"
+              pauseOnHover
+            >
+              <div className="flex gap-6">
+                {testimonailsData
+                  .slice(0, testimonailsData / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard
+                      key={index}
+                      {...testimonial}
+                      name={testimonial?.username}
+                      image={testimonial?.imageUrl}
+                      date={testimonial?.timestamp}
+                    />
+                  ))}
+              </div>
+              <div className="flex gap-6">
+                {testimonailsData
+                  .slice(0, testimonailsData.length / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard
+                      key={index}
+                      {...testimonial}
+                      name={testimonial?.username}
+                      image={testimonial?.imageUrl}
+                      date={testimonial?.timestamp}
+                    />
+                  ))}
+              </div>
+              <div className="flex gap-6">
+                {testimonailsData
+                  .slice(0, testimonailsData.length / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard
+                      key={index}
+                      {...testimonial}
+                      name={testimonial?.username}
+                      image={testimonial?.imageUrl}
+                      date={testimonial?.timestamp}
+                    />
+                  ))}
+              </div>
+            </Marquee>
+
+            <Marquee
+              gradient={false}
+              speed={50}
+              className="flex gap-10 w-full"
+              direction="right"
+              pauseOnHover
+            >
+              <div className="flex gap-6">
+                {testimonailsData
+                  .slice(testimonailsData.length / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard
+                      key={index}
+                      {...testimonial}
+                      name={testimonial?.username}
+                      image={testimonial?.imageUrl}
+                      date={testimonial?.timestamp}
+                    />
+                  ))}
+              </div>
+              <div className="flex gap-6">
+                {testimonailsData
+                  .slice(testimonailsData.length / 2)
+                  .map((testimonial, index) => (
+                    <SpecialEventTestimonialCard
+                      key={index}
+                      {...testimonial}
+                      name={testimonial?.username}
+                      image={testimonial?.imageUrl}
+                      date={testimonial?.timestamp}
+                    />
+                  ))}
+              </div>
+            </Marquee>
+          </>
+        ) : (
+          <p className="border rounded-lg p-2">
+            We are collecting user testimonials, they shall be here soon!
+          </p>
+        )}
+      </div>
 
       <Separator className="my-4" />
     </>

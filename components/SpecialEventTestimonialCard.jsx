@@ -19,7 +19,7 @@ function SpecialEventTestimonialCard({
 }) {
   return (
     <div className="w-full">
-      <Card className="max-w-[400px] shadow-lg shadow-muted">
+      <Card className="max-w-[400px] flex-shrink-0 w-full shadow-lg shadow-muted">
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <CardDescription>{type}</CardDescription>

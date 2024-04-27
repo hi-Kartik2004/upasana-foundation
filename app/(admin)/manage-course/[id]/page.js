@@ -1,5 +1,5 @@
 import React from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/config";
 import CourseForm from "@/components/CourseForm";
 import CourseContentForm from "@/components/CourseContentForm";
@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dialog";
 import AddImage from "@/components/AddImage";
 import AddVideo from "@/components/AddVideo";
+import AddTestimonialsForm from "@/components/AddTestimonialsForm";
 
 async function ManageCourses({ params }) {
   let courseData;
@@ -28,6 +29,26 @@ async function ManageCourses({ params }) {
     console.log(courseData);
   } catch (err) {
     console.error(err);
+  }
+
+  async function addTestimonialToFirebase(data) {
+    "use server";
+    if (!data.username) {
+      return false;
+    }
+    const ref = collection(db, "course-testimonials");
+    const newData = {
+      ...data,
+      courseId: courseData.id,
+      courseName: courseData?.name,
+    };
+    try {
+      const snapshot = await addDoc(ref, newData);
+      return true;
+    } catch (err) {
+      console.error(err);
+    }
+    return false;
   }
 
   return (
@@ -76,6 +97,24 @@ async function ManageCourses({ params }) {
       </div>
       <div className="mt-4">
         <Editor courseData={courseData} />
+        <Separator className="my-10" />
+        <div className="flex justify-center items-center">
+          <div className="max-w-[600px] flex-grow p-4 rounded-lg border w-full bg-muted">
+            <div className="mb-4">
+              <h1 className="text-2xl font-bold text-center">
+                Add Testimonials
+              </h1>
+              <p className="mt-1 text-muted-foreground text-center">
+                Add Testimonials for this course, which will be seen on the
+                course page!
+              </p>
+            </div>
+            <AddTestimonialsForm
+              addTestimonialToFirebase={addTestimonialToFirebase}
+              courseData={courseData}
+            />
+          </div>
+        </div>
         <Separator className="my-10" />
         <div className="flex flex-wrap gap-6 mx-6 justify-around mb-10">
           <div className="flex flex-col gap-4 items-center mt-4">
