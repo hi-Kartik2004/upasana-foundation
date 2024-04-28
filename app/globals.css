@@ -210,3 +210,9 @@ nextjs-portal {
 .markdown .img-full {
   @apply w-full;
 }
+
+/* ========= watermark for videos ========= */
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}

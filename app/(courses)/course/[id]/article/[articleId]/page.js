@@ -69,7 +69,7 @@ async function Article({ params }) {
 
   return (
     <div>
-      <div className="max-w-[800px] mt-10 px-4 py-4 mx-auto pt-16">
+      <div className="max-w-[900px] mt-10 px-4 py-4 mx-auto pt-16">
         <div className="flex justify-between gap-2 flex-wrap items-center">
           <p className="text-xs text-muted-foreground">
             Note: The image is randomly generated based on the title.
@@ -87,12 +87,19 @@ async function Article({ params }) {
 
         {blogData && (
           <div className="mt-4">
-            <div className="object-cover w-full lg:h-[170px] h-[150px] overflow-hidden">
+            <div className="object-cover w-full lg:h-[130px] h-[100px] overflow-hidden">
               <img
                 src={`https://source.unsplash.com/random/900x700/?Peaceful-background-smooth/1920X1080`}
                 className="w-full h-full object-cover rounded-lg bg-muted"
                 alt="inside blog image"
               />
+            </div>
+
+            <div className="mt-6">
+              <h1 className="text-4xl font-bold">{blogData.title}</h1>
+              <p className="text-muted-foreground mt-4">
+                {blogData.description} - written by {blogData.user}
+              </p>
             </div>
 
             {
@@ -103,13 +110,6 @@ async function Article({ params }) {
                 ></audio>
               </div>
             }
-
-            <div className="mt-6">
-              <h1 className="text-4xl font-bold">{blogData.title}</h1>
-              <p className="text-muted-foreground mt-4">
-                {blogData.description} - written by {blogData.user}
-              </p>
-            </div>
 
             <div className="mt-6">
               <Blog code={blogData.blog} />

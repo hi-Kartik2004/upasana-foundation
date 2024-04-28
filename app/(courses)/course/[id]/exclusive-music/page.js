@@ -12,20 +12,29 @@ import RenderSecretAudio from "@/components/RenderSecretAudio";
 async function ExclusiveMusic({ params }) {
   let isAuthorised;
   const user = await currentUser();
-  if (globalData.adminEmails.includes(user?.emailAddresses[0]?.emailAddress)) {
-    isAuthorised = true;
-  }
+  // if (globalData.adminEmails.includes(user?.emailAddresses[0]?.emailAddress)) {
+  //   isAuthorised = true;
+  // }
 
   if (!isAuthorised) {
     try {
       const ref = collection(db, "course-music-registrations");
       const snapshot = await getDocs(ref);
       const allMusic = snapshot.docs.map((ele) => ele.data());
-      const myMusic = allMusic.filter(
-        (ele) =>
+
+      const currentDate = new Date(); // Current date and time
+      console.log("Current Date:", currentDate);
+
+      const myMusic = allMusic.filter((ele) => {
+        const expiryDate = ele.expiry && ele.expiry.toDate();
+        console.log("Expiry Date:", expiryDate);
+
+        return (
           ele.registeredEmail === user.emailAddresses[0].emailAddress &&
-          ele.courseId === params.id
-      );
+          ele.courseId === params.id &&
+          expiryDate >= currentDate // Filter based on expiry date
+        );
+      });
 
       if (myMusic.length === 0) {
         isAuthorised = false;
@@ -49,7 +58,8 @@ async function ExclusiveMusic({ params }) {
           You are not authorised to view this page!
         </h1>
         <p className="text-sm mt-2 text-muted-foreground text-center">
-          Contact us, if you think this is a mistake!
+          You course/music might have expired. Contact us, if you think this is
+          a mistake!
         </p>
 
         <Link

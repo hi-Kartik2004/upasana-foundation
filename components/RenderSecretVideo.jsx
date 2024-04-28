@@ -1,11 +1,15 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import React, { useEffect, useState, useRef } from "react";
+import { Tooltip, TooltipContent, TooltipProvider } from "./ui/tooltip";
+import { TooltipTrigger } from "@radix-ui/react-tooltip";
+import { Button } from "./ui/button";
+import { BiFullscreen } from "react-icons/bi";
 
 function RenderSecretVideo({ url }) {
   const [blobURL, setBlobURL] = useState("");
-  // Override the URL for demonstration purposes
-  //   url =
-  //     "https://videos.pexels.com/video-files/20600550/20600550-uhd_3840_2160_30fps.mp4";
+  const [fullScreen, setFullScreen] = useState(false);
+  const videoContainerRef = useRef(null);
 
   // Function to read a File or Blob and print the result
   function readFile(file) {
@@ -14,7 +18,7 @@ function RenderSecretVideo({ url }) {
 
     fr.addEventListener("load", () => {
       const result = fr.result;
-      //   console.log("File data URL:", result);
+      // console.log("File data URL:", result);
     });
 
     fr.addEventListener("error", (err) => {
@@ -43,8 +47,6 @@ function RenderSecretVideo({ url }) {
       // Create a Blob URL from the Blob
       setBlobURL(URL.createObjectURL(blob));
 
-      // Optional: log the Blob URL for testing
-
       // Create a File object from the Blob
       const file = new File([blob], "music-file", { type: blob.type });
 
@@ -63,14 +65,61 @@ function RenderSecretVideo({ url }) {
     fetchTheFile();
   }, []);
 
+  useEffect(() => {
+    function handleFullScreenChange() {
+      setFullScreen(!!document.fullscreenElement);
+    }
+
+    document.addEventListener("fullscreenchange", handleFullScreenChange);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullScreenChange);
+    };
+  }, []);
+
+  function toggleFullscreen() {
+    const vidCont = videoContainerRef.current;
+    if (!document.fullscreenElement) {
+      if (vidCont.requestFullscreen) {
+        vidCont.requestFullscreen();
+      } else if (vidCont.webkitRequestFullscreen) {
+        vidCont.webkitRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
+    }
+  }
+
+  const { isLoaded, user } = useUser();
+
+  if (!isLoaded) {
+    return null;
+  }
+
   return (
-    <div>
-      <video
-        controlsList="nodownload"
-        controls
-        className="w-full"
-        src={blobURL}
-      ></video>
+    <div ref={videoContainerRef} className="video-container relative">
+      <video className="video w-full" src={blobURL} controls></video>
+      <p className="absolute bottom-[40%] translate-y-[40%] left-[30%] translate-x-[-30%] text-xs text-muted-foreground">
+        {user.emailAddresses[0].emailAddress.split("@")[0]}
+      </p>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              className="fullscreen-button absolute top-4 right-4 z-10"
+              onClick={toggleFullscreen}
+              variant="outline"
+            >
+              <BiFullscreen />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Toogle full screen</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </div>
   );
 }

@@ -631,6 +631,13 @@ const data = {
   myCoursesDescription:
     "Access Your registered courses here!! Let your Sadhana ever go on under SadhguruShri’s Grace",
 
+  // my Music
+  myMusicTitle: "My Music",
+  myMusicDescription: "Access your registered exclusive music here!",
+
+  // music prize for each library
+  exclusiveMusicPrice: "500",
+
   // Socials
   instagram: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
   facebook: "https://www.facebook.com/Upasanafoundation.org?mibextid=ZbWKwL",

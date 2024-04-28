@@ -52,6 +52,11 @@ async function MyCourses() {
       <p className="text-center mt-2 text-muted-foreground">
         {globalData?.myCoursesDescription}
       </p>
+      <div className="flex justify-center mt-4">
+        <Link href="/my-music" className="underline underline-offset-8">
+          My Music &rarr;
+        </Link>
+      </div>
       <div className="mt-10 grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
         {data.map((ele) => {
           return (
