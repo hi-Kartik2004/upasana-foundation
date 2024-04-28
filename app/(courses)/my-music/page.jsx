@@ -1,12 +1,31 @@
 import React from "react";
 import globalData from "@/app/data";
 import Link from "next/link";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "@/firebase/config";
 import { currentUser } from "@clerk/nextjs";
 
 async function myMusic() {
   const user = await currentUser();
+
+  async function getCourseDetails(courseId) {
+    const ref = doc(db, "courses/" + courseId);
+    let courseData = {};
+    try {
+      const snapshot = await getDoc(ref);
+      courseData = snapshot.data();
+    } catch (err) {
+      console.error(err);
+    }
+    return courseData;
+  }
 
   async function getMyMusic() {
     const q = query(
@@ -22,14 +41,26 @@ async function myMusic() {
       return data;
     }
 
-    snapshot.forEach((doc) => {
-      data.push(doc.data());
+    const promises = snapshot.docs.map(async (doc) => {
+      try {
+        const courseData = await getCourseDetails(doc.data().courseId);
+        const mergedData = { ...doc.data(), ...courseData };
+
+        data.push(mergedData);
+      } catch (error) {
+        console.error("Error fetching course details:", error);
+      }
     });
+
+    await Promise.all(promises);
 
     return data;
   }
 
-  const data = await getMyMusic();
+  let data = await getMyMusic();
+
+  console.log(data);
+
   return (
     <div className="mt-24 py-4 container">
       <h1 className="text-4xl font-bold text-center">
@@ -39,7 +70,7 @@ async function myMusic() {
         {globalData?.myMusicDescription}
       </p>
       <div className="flex justify-center mt-4">
-        <Link href="/my-music" className="underline underline-offset-8">
+        <Link href="/my-courses" className="underline underline-offset-8">
           &larr; My courses
         </Link>
       </div>
@@ -85,25 +116,28 @@ async function myMusic() {
                     {ele.description || "Not found"}
                   </p>
 
-                  {ele?.registeredBatch &&
+                  {/* {ele?.registeredBatch &&
                   isCurrentTimeBetween(
                     ele?.courseStarts,
                     ele?.courseExpires
-                  ) ? (
-                    <div className="flex justify-between items-center w-full">
-                      <Link
-                        href={"/course/" + ele.id}
-                        className="hover:underline underline-offset-8 text-primary"
-                      >
-                        View &rarr;
-                      </Link>
-                    </div>
-                  ) : (
-                    <p>
-                      You can access this course from{" "}
-                      {new Date(ele?.courseStarts).toLocaleString()}
-                    </p>
-                  )}
+                  ) ? ( */}
+                  <div className="flex justify-between items-center w-full">
+                    <Link
+                      href={"/course/" + ele.id}
+                      className="hover:underline underline-offset-8 text-primary"
+                    >
+                      View &rarr;
+                    </Link>
+                  </div>
+                  {/* ) : ( */}
+                  <p className="mt-4">
+                    You can access this course till{" : "}
+                    {new Date(
+                      ele?.expiry.seconds * 1000 +
+                        (ele?.expiry?.nanoseconds ?? 0) / 1000000
+                    ).toString()}
+                  </p>
+                  {/* )} */}
                 </div>
               </div>
             );

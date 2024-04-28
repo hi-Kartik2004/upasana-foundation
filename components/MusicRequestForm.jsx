@@ -131,8 +131,7 @@ function MusicRequestForm({
         >
           <Link href="/">
             Proceed to make a payment of Rs {globalData.exclusiveMusicPrice}/-{" "}
-            <br />{" "}
-            {status === "Pending" && "(Disabled... pending for approval)"}
+            <br /> {status === "Pending" && "(Disabled... approval pending.)"}
           </Link>
         </Button>
       </div>

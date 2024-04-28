@@ -29,6 +29,15 @@ export function MobileMenu() {
         </SheetHeader>
         <div className="flex flex-col gap-6 items-center justify-center mt-6">
           <SheetClose asChild>
+            <Link
+              href="/my-courses"
+              className="hover:underline underline-offset-8"
+            >
+              My Courses
+            </Link>
+          </SheetClose>
+
+          <SheetClose asChild>
             <Link href="/" className="hover:underline underline-offset-8">
               Home
             </Link>
@@ -49,14 +58,7 @@ export function MobileMenu() {
               Courses
             </Link>
           </SheetClose>
-          <SheetClose asChild>
-            <Link
-              href="/my-courses"
-              className="hover:underline underline-offset-8"
-            >
-              My Courses
-            </Link>
-          </SheetClose>
+
           <SheetClose asChild>
             <Link href="/videos" className="hover:underline underline-offset-8">
               Videos

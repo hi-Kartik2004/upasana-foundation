@@ -31,6 +31,10 @@ const menuLinks = [
     link: "/course-music-registrations",
   },
   {
+    name: "Music Requests",
+    link: "/course-music-requests",
+  },
+  {
     name: "Special Reg.",
     link: "/special-queries",
   },
@@ -129,9 +133,6 @@ function AdminMenu({ username }) {
               hidden: { opacity: 0, y: 20 },
             }}
           >
-            <Button variant="secondary" className="w-full">
-              <Link href={`/${username}`}>/{username}</Link>
-            </Button>
             {menuLinks.map((link, index) => {
               return (
                 <Button variant="secondary" key={index} className="w-full">

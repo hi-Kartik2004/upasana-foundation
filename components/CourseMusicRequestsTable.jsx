@@ -101,6 +101,10 @@ export function CourseMusicRequestsTable() {
       header: "Course",
     },
     {
+      accessorKey: "isRegistered",
+      header: "course taken",
+    },
+    {
       accessorKey: "status",
       header: "status",
     },
@@ -117,7 +121,7 @@ export function CourseMusicRequestsTable() {
       cell: ({ row }) => (
         <AlertDialog>
           <AlertDialogTrigger>
-            <Button variant="outline">View Comments</Button>
+            <Button variant="outline">View</Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
             <p>Comments by {row.getValue("name")}</p>

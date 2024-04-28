@@ -39,6 +39,15 @@ async function Navbar() {
           </Link>
         </div>
         <div className="hidden lg:flex gap-6 items-center">
+          <SignedIn>
+            <Link
+              href="/my-courses"
+              className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
+            >
+              My Courses
+            </Link>
+          </SignedIn>
+
           <Link
             href="/"
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
@@ -120,15 +129,6 @@ async function Navbar() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-
-          <SignedIn>
-            <Link
-              href="/my-courses"
-              className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
-            >
-              My Courses
-            </Link>
-          </SignedIn>
         </div>
         <div className="flex items-center gap-6">
           {user ? (
