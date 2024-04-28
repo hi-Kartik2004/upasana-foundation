@@ -131,7 +131,8 @@ export function CourseMusicRequestsTable() {
       accessorKey: "Approve",
       header: "Approve",
       cell: ({ row }) =>
-        row.original.status === "Pending" && ( // Only render if status is Pending
+        (row.original.status === "Pending" ||
+          row.original.status === "Rejected") && ( // Only render if status is Pending
           <Button size="sm" onClick={() => handleApprove(row)}>
             Approve
           </Button>
@@ -141,7 +142,8 @@ export function CourseMusicRequestsTable() {
       accessorKey: "actions",
       header: "Reject",
       cell: ({ row }) =>
-        row.original.status === "Pending" && ( // Only render if status is Pending
+        (row.original.status === "Pending" ||
+          row.original.status === "Approved") && ( // Only render if status is Pending
           <Button
             size="sm"
             onClick={() => handleDelete(row)}

@@ -125,10 +125,9 @@ function MusicRequestForm({
         <Separator />
         <Button
           variant={"outline"}
-          disabled={!(status === "Approved")}
+          disabled={!(status == "Approved")}
           className="flex text-wrap flex-grow"
           style={{ paddingTop: "1.5rem", paddingBottom: "1.5rem" }}
-          asChild
         >
           <Link href="/">
             Proceed to make a payment of Rs {globalData.exclusiveMusicPrice}/-{" "}
