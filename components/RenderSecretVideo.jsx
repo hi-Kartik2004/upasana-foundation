@@ -102,7 +102,13 @@ function RenderSecretVideo({ url }) {
 
   return (
     <div ref={videoContainerRef} className="video-container relative">
-      <video className="video w-full" src={blobURL} controls></video>
+      <video
+        className="video w-full"
+        src={blobURL}
+        controls
+        controlsList="nodownload"
+      ></video>
+
       <p className="absolute bottom-[40%] translate-y-[40%] left-[30%] translate-x-[-30%] text-xs text-muted-foreground">
         {user.emailAddresses[0].emailAddress.split("@")[0]}
       </p>
