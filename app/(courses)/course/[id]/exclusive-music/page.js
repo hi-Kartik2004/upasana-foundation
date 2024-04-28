@@ -12,9 +12,9 @@ import RenderSecretAudio from "@/components/RenderSecretAudio";
 async function ExclusiveMusic({ params }) {
   let isAuthorised;
   const user = await currentUser();
-  // if (globalData.adminEmails.includes(user?.emailAddresses[0]?.emailAddress)) {
-  //   isAuthorised = true;
-  // }
+  if (globalData.adminEmails.includes(user?.emailAddresses[0]?.emailAddress)) {
+    isAuthorised = true;
+  }
 
   if (!isAuthorised) {
     try {

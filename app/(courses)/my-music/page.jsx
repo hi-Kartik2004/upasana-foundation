@@ -109,7 +109,7 @@ async function myMusic() {
                     className="inline-block mb-3  transition-colors duration-200 hover:text-deep-purple-accent-700"
                   >
                     <p className="text-2xl font-bold leading-5">
-                      {ele.name || "Not Found"}
+                      {"Music Library of " + ele.name || "Not Found"}
                     </p>
                   </Link>
                   <p className="mb-4 text-muted-foreground text-ellipsis line-clamp-3">
