@@ -45,7 +45,10 @@ async function myMusic() {
       try {
         const courseData = await getCourseDetails(doc.data().courseId);
         const mergedData = { ...doc.data(), ...courseData };
-
+        // Check if doc.data().expiry exists, then add it to mergedData
+        if (doc.data().expiry) {
+          mergedData.expiry = doc.data().expiry;
+        }
         data.push(mergedData);
       } catch (error) {
         console.error("Error fetching course details:", error);
@@ -108,7 +111,7 @@ async function myMusic() {
                     aria-label="Article"
                     className="inline-block mb-3  transition-colors duration-200 hover:text-deep-purple-accent-700"
                   >
-                    <p className="text-2xl font-bold leading-5">
+                    <p className="text-2xl font-bold leading-8">
                       {"Music Library of " + ele.name || "Not Found"}
                     </p>
                   </Link>
