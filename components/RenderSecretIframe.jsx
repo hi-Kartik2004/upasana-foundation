@@ -68,17 +68,30 @@ function RenderSecretIframe({ url }) {
   return (
     <div>
       {/* passing blobURL isnt working */}
-      <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin-bottom: 1rem;">
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          paddingBottom: "56.25%",
+          marginBottom: "1rem",
+        }}
+      >
         <iframe
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          style={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            width: "100%",
+            height: "100%",
+          }}
           src={url}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
         ></iframe>
-      </div>{" "}
+      </div>
     </div>
   );
 }
