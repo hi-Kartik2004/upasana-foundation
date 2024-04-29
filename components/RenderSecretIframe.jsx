@@ -60,12 +60,25 @@ function RenderSecretIframe({ url }) {
 
   // Fetch the file when the component mounts
   useEffect(() => {
-    fetchTheFile();
+    // fetchTheFile();
   }, []);
+
+  console.log(blobURL);
 
   return (
     <div>
-      <iframe allowfullscreen className="w-full" src={blobURL}></iframe>
+      {/* passing blobURL isnt working */}
+      <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin-bottom: 1rem;">
+        <iframe
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          src={url}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>{" "}
     </div>
   );
 }
