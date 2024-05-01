@@ -24,6 +24,10 @@ async function fetchEvents() {
   const eventsCollectionRef = collection(db, "events");
   const eventsQuery = query(eventsCollectionRef, orderBy("timestamp", "asc"));
   const snapshot = await getDocs(eventsQuery);
+  if (snapshot.empty) {
+    return [];
+  }
+
   return snapshot.docs.map((doc) => ({
     ...doc.data(),
     id: doc.id,
@@ -54,9 +58,17 @@ function Events() {
       }
     };
     fetchData();
-    const requestedCategories = searchParams.getAll("categories");
 
-    setSelectedCategories(requestedCategories);
+    // Initialize selectedCategories with all available categories
+    const allCategories =
+      globalData?.blogCategories?.map((category) => category.name) ?? [];
+    setSelectedCategories(allCategories);
+
+    // Set selected categories from URL params
+    const requestedCategories = searchParams.getAll("categories");
+    if (requestedCategories.length > 0) {
+      setSelectedCategories(requestedCategories);
+    }
   }, []);
 
   const handleSearch = (e) => {
@@ -87,11 +99,6 @@ function Events() {
     });
 
     router.push(`?${urlParams.toString()}`);
-    const requestedCategories = searchParams.get("categories");
-
-    requestedCategories.map((ele, index) => {
-      setSelectedCategories(...selectedCategories, ele);
-    });
   };
 
   const filterEventsByCategory = (event) => {
@@ -125,21 +132,20 @@ function Events() {
       </div>
 
       <div className="flex items-center gap-4 flex-wrap justify-center">
-        {/* Render checkboxes for each category */}
-        {/* <p className="text-sm text-muted-foreground">Filter by category</p> */}
-        {globalData?.blogCategories.map((category, index) => (
-          <Label key={index} className="flex gap-2 items-center">
-            <Checkbox
-              name="category"
-              value={category.name}
-              type="checkbox"
-              checked={selectedCategories.includes(category.name)}
-              // Handle checkbox change
-              onClick={() => handleCategorySelection(category.name)}
-            />
-            <p>{category.name}</p>
-          </Label>
-        ))}
+        {globalData?.blogCategories &&
+          globalData?.blogCategories.map((category, index) => (
+            <Label key={index} className="flex gap-2 items-center">
+              <Checkbox
+                name="category"
+                value={category.name}
+                type="checkbox"
+                checked={selectedCategories.includes(category.name)}
+                // Handle checkbox change
+                onClick={() => handleCategorySelection(category.name)}
+              />
+              <p>{category.name}</p>
+            </Label>
+          ))}
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-around">
@@ -154,8 +160,9 @@ function Events() {
             </h1>
           </div>
         ) : (
+          filteredEvents &&
           filteredEvents
-            .filter(filterEventsByCategory) // Filter events by category
+            ?.filter(filterEventsByCategory) // Filter events by category
             .map((event) => (
               <Card
                 key={event.id}

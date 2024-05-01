@@ -573,6 +573,20 @@ const data = {
   eventsPageTitle: "Events",
   eventsPageDescription:
     "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
+  blogCategories: [
+    {
+      name: "Event",
+    },
+    {
+      name: "News",
+    },
+    {
+      name: "Announcements",
+    },
+    {
+      name: "Others",
+    },
+  ],
 
   // Donate Page
   donatePageTitle: "You can Make a Difference",
