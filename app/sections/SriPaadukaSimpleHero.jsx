@@ -57,7 +57,7 @@ export const SriPaadukaSimpleHero = ({
         </div>
         <div>
           <img
-            className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
+            className="object-cover w-full h-full rounded shadow-lg sm:h-full"
             src={image ?? data?.sriPaadukaHeroImageUrl}
             alt="sri-paaduka-hero-img"
           />

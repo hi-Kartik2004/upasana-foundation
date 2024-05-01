@@ -425,14 +425,14 @@ const data = {
 
   // Sri Upasaka Testimonials
   sriUpasakaTestimonials: [
-    {
-      title: "",
-      description: "",
-      image: "",
-      name: "",
-      date: "",
-      type: "",
-    },
+    // {
+    //   title: "",
+    //   description: "",
+    //   image: "",
+    //   name: "",
+    //   date: "",
+    //   type: "",
+    // },
   ],
 
   // Sri Paaduka
@@ -496,14 +496,14 @@ const data = {
 
   // Sri Paaduka Testimonials
   sriPaadukaTestimonials: [
-    {
-      title: "",
-      description: "",
-      image: "",
-      name: "",
-      date: "",
-      type: "",
-    },
+    // {
+    //   title: "",
+    //   description: "",
+    //   image: "",
+    //   name: "",
+    //   date: "",
+    //   type: "",
+    // },
   ],
 
   // About sadhguru
