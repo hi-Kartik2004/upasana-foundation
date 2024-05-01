@@ -3,10 +3,10 @@ const data = {
   adminEmails: ["kudlu2004@gmail.com", "upasanafound@gmail.com"],
   // General
   siteName: "Upasana Foundation, Bengaluru",
-  siteDescription: "Empowering Students to Build Tomorrow's Ventures",
+  siteDescription: "A Door to your Journey of Inner Transformation  ",
   clubName: "Upasana Foundation",
   contactPerson: "Upasana Foundation",
-  contactPhone: "+91 94823 30850",
+  contactPhone: "+91 94823 30850 , +91 94823 46950",
   contactEmail: "upasanafound@gmail.com",
 
   //logo
@@ -18,23 +18,24 @@ const data = {
     "Remove the Layer of Dust enclosing Your true hidden Potential ,Come join Us  Let's dive into the Journey of Self Exploration",
 
   // Hero section
-  heroBadgeMessage: "New",
-  heroAlertMessage: "A Change is a must in Each One’s Life🙂",
+  heroBadgeMessage: "Know it",
+  heroAlertMessage:
+    "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done -",
   heroTitleLeft: "Swastha Vyakthi, Swastha Kutumba, Swastha Samaja ",
   heroTitleYellow: " Through Sadhana, Seva and Love!! ",
   heroTitleRight: "  ",
   heroDescription:
     "You are born for a Cause, You Live for a cause and You are here for a Cause, Find it Here ",
-  heroYellowBtnMessage: "Who is Sadhgurushri",
+  heroYellowBtnMessage: "Who is SadhguruShri",
   heroYellowBtnLink: "/about-sadhguru",
   heroYellowBtnMessageForMembers: "View Exclusive Courses",
   heroYellowBtnLinkForMembers: "/courses",
   heroSecondaryBtnMessage: "View Exclusive Courses",
   heroSecondaryBtnLink: "/courses",
   heroMarqueeImages: [
-    "https://static.sadhguru.org/d/46272/1648469542-website-thumbnail-centers-adiyogi-alayam-1.jpg",
-    "https://images.news18.com/ibnlive/uploads/2022/12/adiyogi-isha11-167034881716x9.jpg",
-    "https://i.ytimg.com/vi/USLQo00V-tA/sddefault.jpg",
+    "https://i.postimg.cc/Hn5PWNnD/yoga-gathering.jpg",
+    "https://i.postimg.cc/X7BndNG4/group-pic-diksha.jpg",
+    "https://i.postimg.cc/sXLtgSJS/gurujionstage.jpg",
   ],
 
   // HeroSecondSection
@@ -44,33 +45,27 @@ const data = {
     "Learn the Secrets of a Meaningful Life , Find yourself a new Spiritual Path to See and Live Life , under the Divine Grace of SadhguruShri",
   heroSecondSectionCards: [
     {
-      title: "Change the way you live through ManoShakthi",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      title: "Change the way you live ,think and Perceive.",
+      image: "https://i.postimg.cc/nhgf3twV/manoshakthi-small.jpg",
       href: "/courses",
     },
     {
-      title:
-        "Manifest your Life with what you Actually Want through Self Hypnosis",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      title: "Manifest your Life with what you Actually Want.",
+      image: "https://i.postimg.cc/W1JY5PPn/SAMMOHANA-SMALL.jpg",
       href: "/courses",
     },
     {
-      title: "Tune Your Body through YOGA",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      title: "Tune Your Body and Mind through YOGA",
+      image: "https://i.postimg.cc/vH4P36R9/yoga-small.jpg",
       href: "/courses",
     },
     {
-      title:
-        "Get in Connect with your Inner Potential , Join Shakti Kriya Now!!",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      title: "Activate your inner Potential , The Kundalini Shakti.",
+      image: "https://i.postimg.cc/9FxDFrzx/SHAKTHI-SMALL.jpg",
       href: "/courses",
     },
   ],
-  heroSecondSectionSeeMoreLink: "/",
+  heroSecondSectionSeeMoreLink: "/courses",
 
   //  FourCardFeaturesSection
   fourCardFeaturesSectionBadge: "Something More ✨",
@@ -80,44 +75,54 @@ const data = {
   fourCardFeaturesSectionCards: [
     {
       title: "Know us",
-      description: "Get to Know about Upasana Foundation here",
+      description:
+        "For Inner Individual development , the term Upasana itself means to realize Who am I,  under…  ",
       link: "/about",
       fourCardFeaturesSectionCardImage:
         "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
     },
     {
-      title: "Dive with Us",
-      description: "Get to Know about our Events and Activities",
-      link: "/events",
+      title: "Who is SadhguruShri",
+      description:
+        "An Indian Mystic , Kundalini Yogi and a realized Spiritual Master. He is the founder of…",
+      link: "/about-sadhguru",
 
       fourCardFeaturesSectionCardImage:
-        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
+        "https://i.postimg.cc/8kyPpf8z/sadhgurshri.jpg",
+    },
+    {
+      title: "Learn from SadhguruShri",
+      description:
+        "To Bring us to a Higher state of life , SadhguruShri guides sadhakas through various paths…",
+      link: "/courses",
+
+      fourCardFeaturesSectionCardImage:
+        "https://i.postimg.cc/t4bxPVTG/diksha-ullas.jpg",
     },
     {
       title: "Dive with Us",
-      description: "Get to Know about our Events and Activities",
-      link: "/events",
-
-      fourCardFeaturesSectionCardImage:
-        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
-    },
-    {
-      title: "Regular Doses",
       description:
         "	Transform yourself through Life changing Stories and Preachings",
       link: "/events",
 
       fourCardFeaturesSectionCardImage:
-        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
+        "https://i.postimg.cc/28zcw33h/guruji-on-swing.jpg",
     },
-
     {
       title: "Quick Boosts",
       description: "Start Your day with a lesson from SadhguruShri",
       link: "/Quotes",
 
       fourCardFeaturesSectionCardImage:
-        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
+        "https://i.postimg.cc/76WK7q7F/Quote.jpg",
+    },
+    {
+      title: "Shri Paaduka",
+      description: "Serve and Worship the divine Paaduka of the Guru ",
+      link: "/sri-paaduka",
+
+      fourCardFeaturesSectionCardImage:
+        "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
     },
   ],
 
@@ -139,7 +144,7 @@ const data = {
     },
     {
       title: "Shri Paaduka",
-      description: "Know the Importance of Paaduka and Worship it",
+      description: "Know the Importance of Guru Paaduka and Worship it",
     },
 
     {
@@ -150,74 +155,62 @@ const data = {
     {
       title: "Instill Divine Love",
       description:
-        "We always believe in Seeing each and every life and respect with Love , you will also start feeling the Same ",
+        "We always believe in Seeing each and every life and respect with Love in Ektha Bhava, once come under SadhguruShri ,you will also transform to see the same.",
     },
     {
       title: "Preachings",
-      description: "Learn through Various Preachings by SadhguruShri.",
+      description:
+        "Learn through Various Preachings by SadhguruShri in the Events Page.",
     },
     {
       title: "Donate",
       description:
-        "We are a Volunteer Run Organisation ,Your Contribution towards a Greater cause will surely Make a Difference",
+        "We are a Volunteer Run Organisation ,Your Contribution towards a Greater cause will surely Make a Difference in reaching more people in need of Guidance And Changing Lives .",
     },
     {
       title: "Experiences Say!!",
-      description: "Check out What our various Sadhakas have to say...",
+      description: "Check out What our various Sadhakas have to say below...",
     },
   ],
 
   // Hero Blog section
   heroBlogSectionCards: [
     {
-      badge: "Bhagavad Gita",
-      date: "the Infinite",
-      title: "An Essence",
+      badge: "J R Bangera,Past President KASSIA, FKCCI",
+      date: "2017",
+      title: "Changed Lives",
       description:
-        "In the matter of Experiencing Happiness and distress ,the Individual Soul is Declared Responsible.",
-      href: "/events",
-      imgUrl:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "Pranam,Guruji, I participated in Shakti Kriya. Shibira continued the Practice and attended the follow up sessions, I would like to mention here that there is tremendous impact on my inner and physical strength, my energy level, clarity in thinking,and memory improved a lot, my back pain considerably reduced, there is also reduction in waist line and weight,,Iam daily doing this Kriya. Thanks to the Guruji ,for showing the right PATH.",
+      href: "https://youtube.com/playlist?list=PLB1pLZSsI3POwTQpxviUUqKVyN1Qpx2Gz&si=iEHkBi5gB242jctx",
+      imgUrl: "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
     },
     {
-      badge: "Positivate",
-      date: "Build in Positivity",
-      title: "An Essence",
+      badge: "Ravichandra,Businessman",
+      date: "2013",
+      title: "Changed Lives",
       description:
-        "Know that your are what you think , If you this right , the right things will happen , if you think Wrong ,wrong will happen.",
+        "My Humble Pranams to SadhguruShri, I first attended SadhguruShri’s class in 2014 , from there till today, I have drastically changed in my life ,at alll aspects. The Spiritual Experiences experienced under his grace can not be described by mere words. My whole family follows guruji now. His Krupa has always protected us and helped us Improve in our life constantly",
       href: "/courses",
-      imgUrl:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      imgUrl: "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
     },
     {
-      badge: "SadhgurShri",
-      date: "teachings",
-      title: "A Start",
+      badge: "Krishna murthy, Industrialist",
+      date: "2015",
+      title: "Changed Lives",
       description:
-        "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done",
-      href: "/about-Sadhgurshri",
-      imgUrl:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "I have undergone the Shakti kriya course in August 2015, After I underwent this program, I noticed a lot of changes in my personal life as well as professional life. I spoke to my siblings after a gap of 4 years, reduced my obesity & reduction in my weight as well without any diet! My back pain gone, physical strength increased, I started helping my wife in household activities at home, my stage fear has gone and gained confidence while speaking in the public Speech, my attitude changed and started forgiving attitude. I am enjoying my life, I recommend each and everyone should undergo this Shakti kriya and get benefit from Guruji.",
+      href: "/courses",
+      imgUrl: "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
     },
+
     {
-      badge: "Bhagavad Gita",
-      date: "the Infinite",
-      title: "An Essence",
-      description:
-        "In the matter of Experiencing Happiness and distress ,the Individual Soul is Declared Responsible.",
-      href: "/events",
-      imgUrl:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    {
-      badge: "Bhagavad Gita",
-      date: "the Infinite",
-      title: "An Essence",
+      badge: "Rajesh Arehalli",
+      date: "Lic Agent",
+      title: "Changed Lives",
       description:
         "In the matter of Experiencing Happiness and distress ,the Individual Soul is Declared Responsible.",
       href: "/events",
-      imgUrl:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      imgUrl: "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
     },
   ],
 
@@ -230,36 +223,37 @@ const data = {
     {
       question: "How do I contact You",
       answer:
-        "You can contact us through the Contact Page or Whatsapp bubble..",
+        "You can contact us through the Contact Page or Whatsapp bubble.Also you can call us at +91 94823 46950 , +91 94823 30850.",
     },
     {
       question: "Can I Completely get transformed through your Courses",
       answer:
-        "Yes you can ,but Only with regular Sadhana , Seva and when practiced with Shradha",
+        "Yes you can ,but Only with regular Sadhana, Seva and when practiced with Shradha",
     },
     {
       question: "Where can I find the reviews",
-      answer: "You can find the reviews at our Youtube Channel and Google",
+      answer:
+        "You can find the reviews at our Youtube Channel , at  Google or right above this section",
     },
   ],
 
   // Stats section
   stats: [
     {
-      number: "144K",
-      label: "Downloads",
+      number: "100K+",
+      label: "Changed Lives",
     },
     {
-      number: "144K",
-      label: "Downloads",
+      number: "1000+",
+      label: "Shibirs",
     },
     {
-      number: "144K",
-      label: "Downloads",
+      number: "2003",
+      label: "Changing Lives from",
     },
     {
-      number: "144K",
-      label: "Downloads",
+      number: "100K+",
+      label: "Freed Minds",
     },
   ],
 
@@ -267,18 +261,17 @@ const data = {
   aboutPageHeroTitle: "To Bring You near You!!",
   aboutPageHeroDescription:
     "’UPA’ means Near or Close and ‘Asana’ means Sitting. When you sit close to your Guru , Guru will help you sit Closer to Yourself and Guide you understand , “Who am I”",
-  aboutPageHeroImage:
-    "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  aboutPageHeroImage: "https://i.postimg.cc/jqWZKvPD/yoga-gathering.jpg",
   aboutPageHeroCards: [
     {
       title: "What are We!!",
       description:
-        "A Spiritual Organization founded by an SadhguruShri Rama to help people raise themselves to a Higher State of Life",
+        "A Spiritual Organization founded by an SadhguruShri Rama to help people raise themselves to a Higher State of Life.We believe in Inner transformation from the root.",
     },
     {
       title: "Why are We!!",
       description:
-        "Aimed for the Upliftment of an Individual , we Provide people with various paths so that they can live a life, full of Happiness",
+        "Aimed for the Upliftment of an Individual , Under the Guidance of SadhguruShri, we provide people with various paths so that they can live a life full of Happiness. Our Shibirs, events are always aimed to help people experience a new dimension of life and connect internally",
     },
   ],
 
@@ -294,14 +287,14 @@ const data = {
       icon: "",
       title: "Spiritual Abode",
       description:
-        "Adhyatma is always to let you Be Free without any Bounds , SadhguruShri has always guided Sadhakas in Search of something higher and Greater.",
+        "SadhguruShri always says, Adhyatma is always to let you Be Free without any Bounds , For Sadhakas in Search of something higher and Greater in Life , SadhguruShri grace is always there.",
     },
 
     {
       icon: "",
       title: "You are Divine",
       description:
-        "SadhguruShri always says that each and every human has equal Potential to Achieve , it's only that he doesn't realize it",
+        "SadhguruShri always says that each and every human has equal Potential to Achieve , it's only that he doesn't realize. Here at Upasana Foundation, we help you realize that potential and work with it in life. Especially, we encourage youth to get into this path and start their transformation journey the earliest. ",
     },
     {
       icon: "",
@@ -314,13 +307,13 @@ const data = {
       icon: "",
       title: "Changing Lives",
       description:
-        "Under his Grace , Our Sadhakas , are constantly moving forward in the Same sense , Both Spiritually and in a Worldly Life.",
+        "Under his Grace , Our Sadhakas are constantly moving forward in the Same sense , Both Spiritually and in a Worldly Life.",
     },
     {
       icon: "",
       title: "Moving Higher",
       description:
-        "Thousands of People of all ages, who have come here, have changed their ways and transformed themselves both Spiritually and Materialistically in terms of Body, Mind and Soul",
+        "Thousands of People of all ages, who have come here, have changed their ways and transformed themselves both Spiritually and Materialistically in terms of Body, Mind and Soul.",
     },
     {
       icon: "",
@@ -340,21 +333,21 @@ const data = {
   aboutPageTitle1: "Explore Our Events ,",
   aboutPageTitle2: "Participate in our Shibirs",
   aboutPageDescription:
-    "Here ,you can check out our Shibirs,participate in it, experience it and then Practice it.",
-  aboutPageImage:
-    "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "Here ,you can check out our Shibirs,participate in it, experience it and then Apply it.",
+  aboutPageImage: "https://i.postimg.cc/dQBtsmFK/guruji-calling.jpg",
   aboutPageLearnMoreLink: "/courses",
 
   // Courses
   coursesTitle: "Your Transformation Steps!!",
-  coursesDescription: "",
+  coursesDescription:
+    "Here are a range of courses for you to transform Internally, Change your life from in to out.",
 
   // Video
   videoPageTitle: "Preachings by SadhguruShri",
   videoPageDescription: "",
 
   // Sri Upaska
-  sriUpasakaHeroImageUrl: "https://i.ytimg.com/vi/USLQo00V-tA/sddefault.jpg",
+  sriUpasakaHeroImageUrl: "https://i.postimg.cc/dQBtsmFK/guruji-calling.jpg",
   sriUpasakaHeroTitle: "Shri Upasaka ",
   sriUpasakaHeroDescription:
     "Seva is the Sweetest selfishness on can actually have , for the Upliftment of every being including your Own Self ",
@@ -378,24 +371,24 @@ const data = {
     "Seva is the A mean to remove the I , Here are few points why you Should Perform Service",
   sriUpasakaKnowMoreSectionQuestions: [
     {
-      title: "How will I Changes",
+      title: "How will I Change",
       description:
-        "Seva helps oneself build in Ektha Bhava(Seeing oneself in all) ,thus helping one reach a higher state in Life.",
+        "As you start to serve, you start to see everyone equally as you see yourself .Thus, Seva helps oneself build in Ektha Bhava(Seeing oneself in all) ,thus helping one reach a higher state in Life.",
     },
     {
-      title: "What will I remove?",
+      title: "Is there anything I will lose?",
       description:
-        "Seva burns the Aham-kara, ego in Oneself ,thus making one Open and free Mentally",
+        "The Only thing you will be losing is your Negatives , Mainly ’I’. Seva burns the Aham-kara, ego in Oneself ,thus making one Open and free Mentally",
     },
     {
       title: "What will I Build?",
       description:
-        "We learn a lot through Seva , it builds in Character and Simplicity in Oneself. Also we make Path for many People to move in the right direction",
+        "We learn a lot through Seva , it builds in Character and Simplicity in Oneself. Also we make Path for many People to move in the right direction. We can the Oppurtunity to help people transform themselves.",
     },
     {
       title: "Why Should I perform Seva?",
       description:
-        "Performing Guruseva in your life is something which fills all the gaps in you. An Experience which can’t be just described",
+        "Performing Guruseva in your life is something which fills all the gaps in you. An Experience which can’t be just described.",
     },
     {
       title: "What Can I do?",
@@ -410,7 +403,7 @@ const data = {
     {
       title: "What is most Important?",
       description:
-        "Seva is something which is Only Qualitative, your Strong will to do Seva will take care of everything else.",
+        "Seva is something which is Only Qualitative, your Strong will to do Seva will take care of everything else. The only requirement is that you must make up your mind to do seva which again is for our own good.",
     },
     {
       title: "How do I become a Shri Upasaka?",
@@ -425,155 +418,121 @@ const data = {
   // Sri Upasaka Testimonials
   sriUpasakaTestimonials: [
     {
-      title: "1 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-    {
-      title: "2 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-    {
-      title: "3 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
-    },
-    {
-      title: "4 The quick, brown fox jumps over a lazy dog",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      name: "John Doe",
-      date: "28 DEC 2020",
-      type: "Testimonial",
+      title: "",
+      description: "",
+      image: "",
+      name: "",
+      date: "",
+      type: "",
     },
   ],
 
   // Sri Paaduka
-  sriPaadukaHeroImageUrl: "https://i.ytimg.com/vi/USLQo00V-tA/sddefault.jpg",
-  sriPaadukaHeroTitle: "The quick, brown fox jumps over a lazy dog",
+  sriPaadukaHeroImageUrl: "https://i.postimg.cc/52NLQbN0/paaduka-mix.jpg",
+  sriPaadukaHeroTitle: "Shri Paduka",
   sriPaadukaHeroDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "The whole of Guru’s blessing flows through his Paduka bestowing us with all the Grace needed.",
   sriPaadukaHeroCards: [
     {
-      title: "A business big enough that it could be listed",
-      description:
-        "Those options are already baked in with this model shoot me an email clear.",
+      title:
+        "Papandhakarark Paramparabhyam Traap Trayaheendra Khageshwarabhyam Jadyabdhi Samsoshana Vadawabhyam Namo Namah Shri Guru Padukabhyam",
+      description: "",
     },
     {
-      title: "A business big enough that it could be listed",
-      description:
-        "Those options are already baked in with this model shoot me an email clear.",
+      title:
+        "Guru Paduka is a equally given Importance as the Guru.The paduka is a representaion of the Guru. It can to remove all our dark Sins just as light removes darkness. It can drive away all our miseries and remove all our Ignorance. And this not all about Guru Paduka , its just a very simple Start to define.",
+      description: "",
     },
   ],
 
   // Sri paaduka Know more
-  sriPaadukaKnowMoreSectionBadge: "Brand New ✨",
-  sriPaadukaKnowMoreSectionTitle: "The quick, brown fox jumps over a lazy dog",
+  sriPaadukaKnowMoreSectionBadge: "Pa - Du - Ka",
+  sriPaadukaKnowMoreSectionTitle: "Paati - Dunoti - Kashate",
   sriPaadukaKnowMoreSectionDescription:
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "Pa means paati - Implying the Guru krupa, the grace of Guru always protects his Disciples. Du means Dunoti - Regular worship of Guru Paduka helps one burn away all his sins and get cleansed from Inside Ka means Kashate - By this one is able to Shine completely from Inside.",
   sriPaadukaKnowMoreSectionQuestions: [
     {
-      title: "The quick, brown fox jumps over a lazy dog? 1",
+      title: "Significance of Paduka",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "Paduka is indeed a representation of your Guru’s grace and presence. A symbolic of the Higher energy, Guru around you. Worship of Paduka is an expression of Gratitude towards the presence of Guru in your Life. Worship done with Humility effortlessly removes the ego in you and elevates you to a Higher State",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog? 2",
+      title: " It’s Presence",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "The very presence of Paduka near you implies that there is an Higher energy on which you can completely believe on, just as a child believes his mother. To get an Oppurtunity to worship is itself an intimation of the entry of Guru’s grace in your life.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog? 3",
+      title: "Impact on Surroundings.",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "When there is guru paduka near you, it means that your guru near you. Knowingly or Unknowingly, your mind is elevated to a Blissful and free state. A sense of Satsfaction  peace and enormous positivity is developed. At the same time, a constant feel that your guru is watching you, be proper.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog? 4",
+      title: "Shri Paduka",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "SadhguruShri Rama has consecrated Shri Paduka as a Symbol of Guru Parampara by instilling it with both Dattatreya amsha and Shankara amsha (amsha refers to a portion of their energy) and a part of energy from his Sadhana. Pooja of Shri Paduka is regularly performed. It has always bestowed all the Sadhakas with Upliftment and Prosperity.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog? 5",
+      title: "Is there a way to serve the Shri Paduka ? ",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "Yes ,For the same, SadhguruShri has provided us with an opportunity to perform Shri Paduka pooja at our place. This is a wonderful Opportunity to Invite SadhguruShri and Shri Paduka to your place and perform pooja. This pooja will consist of various Steps including Sankalpa and Abhishekam followed by SadhguruShri’s Ashirvada.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog? 6",
+      title: "What are the next steps for it ?",
       description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
-    },
-    {
-      title: "The quick, brown fox jumps over a lazy dog? 7",
-      description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
-    },
-    {
-      title: "The quick, brown fox jumps over a lazy dog? 8",
-      description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.",
+        "You are required to fill the form below. Soon you will get a call from our side briefing you further steps to proceed",
     },
   ],
 
   // Sri Paaduka Form Heading
-  sriPaadukaFormHeading: "Reserve Your spot for Sri Paaduka Pooja!",
+  sriPaadukaFormHeading: "Perform Shri Paaduka pooja at you Home",
 
   // Sri Paaduka Testimonials
-  sriPaadukaTestimonials: [],
+  sriPaadukaTestimonials: [
+    {
+      title: "",
+      description: "",
+      image: "",
+      name: "",
+      date: "",
+      type: "",
+    },
+  ],
 
   // About sadhguru
-  aboutSadhguruTitle: "The quick, brown fox jumps over a lazy dog",
+  aboutSadhguruTitle:
+    "An Indian Mystic , Kundalini Yogi and a realized Spiritual Master  - <i>SADHGURUSHRI RAMA</i>",
   aboutSadhguruDescription:
-    "SadhguruShri is a master communicator, converses in a very simple language, presents complex ideas in an easy to understand way.",
-  aboutSadhguruImage1:
-    "https://www.upasanafoundation.org/assets/img/guruji-new1.jpg",
-  aboutSadhguruImage2:
-    "https://www.upasanafoundation.org/assets/img/guruji-new1.jpg",
+    "SadhguruShri is indeed just an infinite energy , words fall Short when we have to describe him. ",
+  aboutSadhguruImage1: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
+  aboutSadhguruImage2: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
   aboutSadhguruSections: [
     {
-      title: "The quick, brown fox jumps over a lazy dog",
+      title: "What does the term SadhguruShri Mean",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      link: "/",
-      linkText: "Read More",
+        "The term SadhguruShri can be split into 3 parts and Understood. Sat means Truth and Guru refers to the force, energy which brings us out from Ignorance. The energy which Lights us , and brings us close to our own self .Here Shri denotes divinity, Thus the title SadhguruShri. ",
+      link: "https://youtu.be/rjM_3t6-mUw?si=NLMRKcZshzjnOSR_",
+      linkText: "Here what SadhguruShri has said.",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog",
+      title: "Who is SadhguruShri",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      link: "/",
-      linkText: "Read More",
+        "SadhguruShri Rama is an Indian Mystic ,Kundalini Yogi and a realized spiritual master. He is the founder of Upasana Foundation , a Trust envisioned to offer tools and techniques for inner wellbeing.SadhguruShri is a Master communicator, converses complex concepts of Life and Sadhana in a very Simple way. In conveying his message ,SadhguruShri goes beyond the limited reach of words and offers the grace of direct Experience. SadhguruShri is a true master who, unlike a teacher, awakens you to the next level of spiritual experience.Making a clear departure from mere customs and rituals ,SadhguruShri gives a perfect blend of Spirituality with modern lifestyle in his teachings, so that each and every Individual can apply it in their life. SadhguruShri’s scientific methods for self transformation are both experientially direct and powerful.SadhguruShri teaches and guides his Sadhaks towards the spiritual evolution of their Consciousness through the divine science of Kundalini Jagruti Shakti Kriya, a technique born out of his profound experience of the Self.",
+      link: "/courses",
+      linkText: "Guiding Paths",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog",
+      title: "Early Life of SadhguruShri",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      link: "/",
-      linkText: "Read More",
+        "From a very young age SadhguruShri had a fondness for spirituality & religious practices. He had a special affinity for bhajans, kirtans and harikathas and would never miss an opportunity to attend such events. SadhguruShri would often speak about various aspects of spirituality and how people could inculcate in their daily lives.As a child, SadhguruShri dreamt of being a Sanyasi following a spiritual path when he grew up. At age 16 SadhguruShri chose to leave home and walk the spiritual path. He ventured all over India in search of the true meaning of life. After seeking guidance from many seers across North and South India, SadhguruShri started teaching yoga by organizing yoga camps also known as Kriyatmak Yog Shibir.",
+      link: "/events",
+      linkText: "Preachings",
     },
     {
-      title: "The quick, brown fox jumps over a lazy dog",
+      title: "Few words of SadhguruShri",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      link: "/",
-      linkText: "Read More",
+        "SadhguruShri always teaches his Sadhakas about inner well being and inner Transformations. When we develop ourselves internally with strong foundations , we become Stable in our lives. Once we have transformed ourselves, our family gets transformed, automatically the society and mankind. That is why Sadhana and Seva with complete Shardha on Guru is given Importance here. And most Importantly, this must be done with pure love. Any action performed without love is never Complete.",
+      link: "",
+      linkText: "",
     },
   ],
 
@@ -586,23 +545,6 @@ const data = {
   eventsPageTitle: "Events",
   eventsPageDescription:
     "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
-  blogCategories: [
-    {
-      name: "Event",
-    },
-    {
-      name: "Announcements",
-    },
-    {
-      name: "News",
-    },
-    {
-      name: "Visits",
-    },
-    {
-      name: "Others",
-    },
-  ],
 
   // Donate Page
   donatePageTitle: "You can Make a Difference",
@@ -613,7 +555,7 @@ const data = {
   qrCodeDetails: {
     name: "Upasana Foundation",
     phone: "+91 12345 67890",
-    shortMessage: "lorem ipsum dor sit amet, consectetur adipiscing elit.",
+    shortMessage: "Be a part of the Change",
     upiId: "1234567890@ybl",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6x-ZkJK5Os7Y5HmpPsCOStJDS6EjGrdbC4eKcpaCiiQ&s",
@@ -623,7 +565,6 @@ const data = {
   donationTermsAndConditions: [
     "Donations Once made are Non-refundable",
     "Donations made to Upasana Foundation are exempt from tax under Section 80G of the Income Tax Act, 1961.",
-    "Donations made to Upasana Foundation are exempt from tax under Section 80G of the Income Tax Act, 1961.",
   ],
 
   // my courses
@@ -631,18 +572,11 @@ const data = {
   myCoursesDescription:
     "Access Your registered courses here!! Let your Sadhana ever go on under SadhguruShri’s Grace",
 
-  // my Music
-  myMusicTitle: "My Music",
-  myMusicDescription: "Access your registered exclusive music here!",
-
-  // music prize for each library
-  exclusiveMusicPrice: "500",
-
   // Socials
   instagram: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
   facebook: "https://www.facebook.com/Upasanafoundation.org?mibextid=ZbWKwL",
   youtube: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
-  twitter: "https://twitter.com/",
+  twitter: "/home",
 };
 
 export default data;
