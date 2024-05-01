@@ -15,6 +15,26 @@ import { currentUser } from "@clerk/nextjs";
 async function myMusic() {
   const user = await currentUser();
 
+  function isCourseExpired(courseExpiresTimestamp) {
+    // Get the current timestamp
+    const currentTime = Date.now();
+
+    // Check if the current time is greater than courseExpires
+    return currentTime > courseExpiresTimestamp;
+  }
+
+  function isCurrentTimeBetween(courseStartsTimestamp, courseExpiresTimestamp) {
+    // Get the current timestamp
+    console.log(courseStartsTimestamp, courseExpiresTimestamp);
+    const currentTime = Date.now();
+
+    // Check if the current time is between courseStarts and courseExpires
+    return (
+      currentTime >= courseStartsTimestamp &&
+      currentTime <= courseExpiresTimestamp
+    );
+  }
+
   async function getCourseDetails(courseId) {
     const ref = doc(db, "courses/" + courseId);
     let courseData = {};
@@ -119,28 +139,44 @@ async function myMusic() {
                     {ele.description || "Not found"}
                   </p>
 
-                  {/* {ele?.registeredBatch &&
-                  isCurrentTimeBetween(
+                  {isCurrentTimeBetween(
                     ele?.courseStarts,
-                    ele?.courseExpires
-                  ) ? ( */}
-                  <div className="flex justify-between items-center w-full">
+                    ele?.expiry.seconds * 1000 +
+                      (ele?.expiry?.nanoseconds ?? 0) / 1000000
+                  ) ? (
+                    <div className="flex justify-between items-center w-full">
+                      <Link
+                        href={"/course/" + ele.courseId}
+                        className="hover:underline underline-offset-8 text-primary"
+                      >
+                        View &rarr;
+                      </Link>
+                    </div>
+                  ) : (
+                    <p className="mt-4">
+                      You can access this course till{" : "}
+                      {new Date(
+                        ele?.expiry.seconds * 1000 +
+                          (ele?.expiry?.nanoseconds ?? 0) / 1000000
+                      ).toString()}
+                    </p>
+                  )}
+
+                  {isCourseExpired(
+                    ele?.expiry.seconds * 1000 +
+                      (ele?.expiry?.nanoseconds ?? 0) / 1000000
+                  ) && (
                     <Link
-                      href={"/course/" + ele.id}
-                      className="hover:underline underline-offset-8 text-primary"
+                      href={
+                        "/course/" +
+                        ele?.courseId +
+                        "/exclusive-music/request?renew=true"
+                      }
+                      className="mt-2 underline underline-offset-8 text-primary"
                     >
-                      View &rarr;
+                      Renew
                     </Link>
-                  </div>
-                  {/* ) : ( */}
-                  <p className="mt-4">
-                    You can access this course till{" : "}
-                    {new Date(
-                      ele?.expiry.seconds * 1000 +
-                        (ele?.expiry?.nanoseconds ?? 0) / 1000000
-                    ).toString()}
-                  </p>
-                  {/* )} */}
+                  )}
                 </div>
               </div>
             );

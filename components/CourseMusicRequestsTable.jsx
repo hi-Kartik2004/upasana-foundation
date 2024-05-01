@@ -136,7 +136,8 @@ export function CourseMusicRequestsTable() {
       header: "Approve",
       cell: ({ row }) =>
         (row.original.status === "Pending" ||
-          row.original.status === "Rejected") && ( // Only render if status is Pending
+          row.original.status === "Rejected" ||
+          row.original.status === "Renewal") && ( // Only render if status is Pending
           <Button size="sm" onClick={() => handleApprove(row)}>
             Approve
           </Button>

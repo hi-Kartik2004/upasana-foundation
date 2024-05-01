@@ -148,26 +148,36 @@ function CourseRegisterButton({ data }) {
   };
 
   function extractDateAndConvertToTimestamp(inputString) {
-    // Regular expression pattern to match the date
-    const datePattern = /\d{4}-\d{2}-\d{2}/;
+    try {
+      // Regular expression pattern to match the "From" date and time
+      const dateTimePattern =
+        /From: (\d{4}-\d{2}-\d{2}), To: \d{4}-\d{2}-\d{2}, Time: (\d{2}:\d{2}) IST/;
 
-    // Find the date using regular expression
-    const match = inputString.match(datePattern);
+      // Find the "From" date and time using regular expression
+      const match = inputString.match(dateTimePattern);
 
-    // Check if a match is found
-    if (match) {
-      // Extracted date string
-      const dateString = match[0];
+      // Validate if match is found
+      if (!match) {
+        throw new Error("Invalid date format");
+      }
 
-      // Parse the date string into a Date object
-      const dateObject = new Date(dateString);
+      // Extract "From" date and time parts
+      const datePart = match[1];
+      const timePart = match[2];
 
-      // Convert the Date object to a timestamp using getTime()
-      const timestamp = dateObject.getTime();
+      // Combine "From" date and time strings
+      const dateTimeString = `${datePart}T${timePart}:00`;
 
-      return timestamp; // Return the timestamp
-    } else {
-      return null; // Return null if no date found
+      // Convert to timestamp
+      const timestamp = new Date(dateTimeString).getTime();
+
+      return timestamp;
+    } catch (error) {
+      console.error(
+        "Error extracting date and converting to timestamp:",
+        error.message
+      );
+      return null;
     }
   }
 
@@ -186,6 +196,7 @@ function CourseRegisterButton({ data }) {
       console.error(err);
       return;
     }
+
     const res = await addDoc(ref, {
       ...data,
       registeredName: user?.fullName,
@@ -195,9 +206,7 @@ function CourseRegisterButton({ data }) {
       registeredOccupation: formData.get("occupation"),
       registeredWhatsapp: formData.get("whatsappNumber"),
       registeredBatch: formData.get("batch"),
-      courseExpires: startDate
-        ? startDate + data.expiry * 24 * 60 * 60 * 1000
-        : new Date().getTime() + data.expiry * 24 * 60 * 60 * 1000,
+      courseExpires: startDate + data.expiry * 24 * 60 * 60 * 1000,
       courseStarts: startDate,
       timestamp: new Date().getTime(),
     });

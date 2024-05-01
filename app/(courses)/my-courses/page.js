@@ -5,6 +5,7 @@ import { currentUser } from "@clerk/nextjs";
 import Link from "next/link";
 import globalData from "@/app/data";
 import { MdDelete } from "react-icons/md";
+import { Button } from "@/components/ui/button";
 export const dynamic = "force-dynamic";
 
 async function MyCourses() {
@@ -23,6 +24,14 @@ async function MyCourses() {
     );
   }
 
+  function isCourseExpired(courseExpiresTimestamp) {
+    // Get the current timestamp
+    const currentTime = Date.now();
+
+    // Check if the current time is greater than courseExpires
+    return currentTime > courseExpiresTimestamp;
+  }
+
   const user = await currentUser();
   let data;
   try {
@@ -36,19 +45,10 @@ async function MyCourses() {
     data = querySnapshot.docs
       .map((doc) => {
         const courseData = doc.data();
-        if (
-          isCurrentTimeBetween(
-            courseData.courseStarts,
-            courseData.courseExpires
-          )
-        ) {
-          return {
-            ...courseData,
-            showView: true,
-          };
-        } else {
-          return null;
-        }
+
+        return {
+          ...courseData,
+        };
       })
       .filter(Boolean);
   } catch (err) {
@@ -123,7 +123,8 @@ async function MyCourses() {
                 ) : (
                   <p>
                     You can access this course from{" "}
-                    {new Date(ele?.courseStarts).toLocaleString()}
+                    {new Date(ele?.courseStarts).toLocaleString()} to{" "}
+                    {new Date(ele?.courseExpires).toLocaleString()}
                   </p>
                 )}
               </div>

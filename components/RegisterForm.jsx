@@ -15,10 +15,10 @@ async function RegisterForm({ data }) {
       </SignedIn>
       <SignedOut>
         <div className="mt-4 px-4 py-4 rounded-md border">
-          <h3 className="text-xl text-center">Lorem ipsum dor sit</h3>
+          <h3 className="text-xl text-center">Please stop!</h3>
           <p className="mt-2 text-muted-foreground text-center">
-            It appears that the error you're encountering is related to the
-            usage of the Link component from Next.js
+            It appears that you aren't signed in, you need to sign in to
+            continue registering for this course.
           </p>
           <Link
             href="/sign-in"

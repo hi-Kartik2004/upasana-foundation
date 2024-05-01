@@ -42,7 +42,7 @@ function MusicRequestForm({
       isRegistered: isRegistered,
       musicCourseName: nameOfCourse,
       courseId: courseId,
-      status: "Pending",
+      status: status || "Pending",
       email: user?.emailAddresses[0].emailAddress,
       fees: globalData?.exclusiveMusicPrice,
       timestamp: Date.now(),

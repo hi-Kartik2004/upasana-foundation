@@ -14,8 +14,10 @@ import {
 import { Trophy } from "lucide-react";
 import React from "react";
 
-async function Request({ params }) {
+async function Request({ params, searchParams }) {
   const user = await currentUser();
+  console.log(searchParams);
+  const renew = searchParams.renew || false;
   async function getCourseDetails() {
     const ref = doc(db, "courses/" + params.id);
     try {
@@ -95,11 +97,29 @@ async function Request({ params }) {
     return false;
   }
 
+  function isCourseExpired(expiry) {
+    console.log(expiry);
+    // let expiryDate = new Date(
+    //   expiry.seconds * 1000 + (expiry?.nanoseconds ?? 0) / 1000000
+    // );
+    // let currentDate = new Date();
+    // if (expiryDate < currentDate) {
+    //   return true;
+    // }
+    return false;
+  }
+
   const userEmail = user?.emailAddresses?.[0]?.emailAddress;
+
   let resp = await isUserRequested(userEmail);
+  // let isRegisteredForMusic = await isUserRegisteredForMusic();
+  console.log(resp);
+  if (isCourseExpired(resp.data?.expiry)) {
+    status = "Renewal";
+  }
   let isRegistered = await isUserRegisteredForCourse();
   let status = resp.data?.status;
-  let isRequested = resp?.isRequested;
+  let isRequested = (resp && resp?.isRequested) || false;
 
   return (
     <div className="mt-24">
@@ -109,7 +129,7 @@ async function Request({ params }) {
           nameOfCourse={data?.name}
           courseId={params?.id}
           status={status || "N/A"}
-          isUserRequested={isUserRequested}
+          isUserRequested={status === "Renewal" ? false : isUserRequested}
           isRequested={isRequested}
           isRegistered={isRegistered}
         />
