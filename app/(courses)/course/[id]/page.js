@@ -162,43 +162,43 @@ async function Course({ params }) {
   console.log(title);
   return (
     <div className="mt-28">
-      {thisCourseData.length === 0 ? (
-        <div className="text-center text-2xl mb-10 font-semibold">
-          No records found for this course.
-        </div>
-      ) : (
-        <>
-          <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-extrabold text-center">
-              Course {title ?? "Title"}
-            </h1>
-            <p className="text-center mt-2 text-muted-foreground max-w-[800px] line-clamp-2 mx-4">
-              {courseInfo?.description || "No description provided"}
-            </p>
+      <>
+        <div className="flex flex-col items-center">
+          <h1 className="text-4xl font-extrabold text-center">
+            Course {title ?? "Title"}
+          </h1>
+          <p className="text-center mt-2 text-muted-foreground max-w-[800px] line-clamp-2 mx-4">
+            {courseInfo?.description || "No description provided"}
+          </p>
 
-            <div className="flex gap-4 items-center flex-wrap mt-4">
-              <div>
-                {showRatingButton && (
-                  <RatingDialog
-                    email={user.emailAddresses[0].emailAddress}
-                    courseId={params.id}
-                    name={title}
-                    addRatingToFirestore={addRatingToFirestore}
-                  />
-                )}
-              </div>
-
-              <Link
-                href={`/course/${params.id}/exclusive-music`}
-                className="hover:underline underline-offset-8 text-center text-md"
-              >
-                Get Exclusive Music &rarr;
-              </Link>
+          <div className="flex gap-4 items-center flex-wrap mt-4">
+            <div>
+              {showRatingButton && (
+                <RatingDialog
+                  email={user.emailAddresses[0].emailAddress}
+                  courseId={params.id}
+                  name={title}
+                  addRatingToFirestore={addRatingToFirestore}
+                />
+              )}
             </div>
 
-            {/* <Separator className="mt-8 max-w-[500px] border border-orange-300/75 shadow-lg shadow-orange-500" /> */}
+            <Link
+              href={`/course/${params.id}/exclusive-music`}
+              className="hover:underline underline-offset-8 text-center text-md"
+            >
+              Get Exclusive Music &rarr;
+            </Link>
           </div>
 
+          {/* <Separator className="mt-8 max-w-[500px] border border-orange-300/75 shadow-lg shadow-orange-500" /> */}
+        </div>
+
+        {thisCourseData.length === 0 ? (
+          <div className="text-center text-2xl mb-10 font-semibold mt-10">
+            No records found for this course.
+          </div>
+        ) : (
           <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="grid gap-10 row-gap-8 lg:grid-cols-5 relative">
               <div className="lg:col-span-2 xl:sticky xl:top-24 h-max">
@@ -319,8 +319,8 @@ async function Course({ params }) {
               </div>
             </div>
           </div>
-        </>
-      )}
+        )}
+      </>
     </div>
   );
 }

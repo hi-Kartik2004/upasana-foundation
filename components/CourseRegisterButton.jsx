@@ -195,7 +195,9 @@ function CourseRegisterButton({ data }) {
       registeredOccupation: formData.get("occupation"),
       registeredWhatsapp: formData.get("whatsappNumber"),
       registeredBatch: formData.get("batch"),
-      courseExpires: startDate + data.expiry * 24 * 60 * 60 * 1000,
+      courseExpires: startDate
+        ? startDate + data.expiry * 24 * 60 * 60 * 1000
+        : new Date().getTime() + data.expiry * 24 * 60 * 60 * 1000,
       courseStarts: startDate,
       timestamp: new Date().getTime(),
     });

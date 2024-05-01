@@ -52,11 +52,11 @@ function AdminMenu({ username }) {
   if (user && !data.adminEmails.includes(user.emailAddresses[0].emailAddress))
     return null;
   return (
-    <div className="fixed bottom-6 right-6 z-[100]">
+    <div className="fixed bottom-6 left-6 z-[100]">
       <div className="relative z-100 hidden lg:block">
         <Button
           variant="secondary"
-          className="rounded-full"
+          className="rounded-full border border-gray-400"
           onClick={() => {
             setShowMenu(!showMenu);
           }}
@@ -73,7 +73,7 @@ function AdminMenu({ username }) {
               visible: { opacity: 1, y: 0 },
               hidden: { opacity: 0, y: 20 },
             }}
-            className="absolute -top-2 right-16"
+            className="absolute -top-2 left-16"
           >
             <div className="flex gap-4 items-center bg-background border p-2 rounded-xl z-100 w-full">
               <SignedIn>
@@ -113,7 +113,7 @@ function AdminMenu({ username }) {
         <div>
           <Button
             variant="secondary"
-            className="rounded-full mb-2"
+            className="rounded-full mb-2 border border-gray-400"
             onClick={() => {
               setShowMenu(!showMenu);
             }}

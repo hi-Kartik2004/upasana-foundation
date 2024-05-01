@@ -5,10 +5,15 @@ import { currentUser } from "@clerk/nextjs";
 import Link from "next/link";
 import globalData from "@/app/data";
 import { MdDelete } from "react-icons/md";
+export const dynamic = "force-dynamic";
 
 async function MyCourses() {
+  // no cache
+  console.log("My courses page");
+
   function isCurrentTimeBetween(courseStartsTimestamp, courseExpiresTimestamp) {
     // Get the current timestamp
+    console.log(courseStartsTimestamp, courseExpiresTimestamp);
     const currentTime = Date.now();
 
     // Check if the current time is between courseStarts and courseExpires
@@ -31,9 +36,15 @@ async function MyCourses() {
     data = querySnapshot.docs
       .map((doc) => {
         const courseData = doc.data();
-        if (courseData.courseExpires > currentTime) {
+        if (
+          isCurrentTimeBetween(
+            courseData.courseStarts,
+            courseData.courseExpires
+          )
+        ) {
           return {
             ...courseData,
+            showView: true,
           };
         } else {
           return null;
@@ -43,6 +54,12 @@ async function MyCourses() {
   } catch (err) {
     console.error(err);
   }
+
+  console.log(
+    data[0].courseStarts,
+    data[0].courseExpires,
+    isCurrentTimeBetween(data[0].courseStarts, data[0].courseExpires)
+  );
 
   return (
     <div className="mt-24 py-4 container">
@@ -94,8 +111,7 @@ async function MyCourses() {
                   {ele.description || "Not found"}
                 </p>
 
-                {ele?.registeredBatch &&
-                isCurrentTimeBetween(ele?.courseStarts, ele?.courseExpires) ? (
+                {isCurrentTimeBetween(ele?.courseStarts, ele?.courseExpires) ? (
                   <div className="flex justify-between items-center w-full">
                     <Link
                       href={"/course/" + ele.id}

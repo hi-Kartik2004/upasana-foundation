@@ -18,9 +18,9 @@ const data = {
     "Remove the Layer of Dust enclosing Your true hidden Potential ,Come join Us  Let's dive into the Journey of Self Exploration",
 
   // Hero section
-  heroBadgeMessage: "Know it",
+  heroBadgeMessage: "Fact",
   heroAlertMessage:
-    "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done -",
+    "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done",
   heroTitleLeft: "Swastha Vyakthi, Swastha Kutumba, Swastha Samaja ",
   heroTitleYellow: " Through Sadhana, Seva and Love!! ",
   heroTitleRight: "  ",
@@ -614,11 +614,19 @@ const data = {
   myCoursesDescription:
     "Access Your registered courses here!! Let your Sadhana ever go on under SadhguruShri’s Grace",
 
+  // My music
+  myMusicTitle: "My Music",
+  myMusicDescription:
+    "Access Your purchased Music here!! Let your Sadhana ever go on under SadhguruShri’s Grace",
+
+  exclusiveMusicPrice: "500",
+
   // Socials
   instagram: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
   facebook: "https://www.facebook.com/Upasanafoundation.org?mibextid=ZbWKwL",
-  youtube: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
-  linkedin: "https://www.instagram.com/upasanafoundation/",
+  youtube: "https://www.youtube.com/@UpasanaFoundation-Official",
+  linkedin:
+    "https://www.linkedin.com/in/upasanafoundation/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in",
   twitter: "/",
 };
 
