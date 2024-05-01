@@ -97,7 +97,19 @@ async function Navbar() {
           >
             Contact Us
           </Link>
-          <DropdownMenu>
+          <Link
+            href="/quotes"
+            className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
+          >
+            Quotes
+          </Link>
+          <Link
+            href="/donate"
+            className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
+          >
+            Donate
+          </Link>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant={"link"}
@@ -128,7 +140,7 @@ async function Navbar() {
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
         </div>
         <div className="flex items-center gap-6">
           {user ? (
