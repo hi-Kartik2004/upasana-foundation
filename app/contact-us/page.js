@@ -14,8 +14,11 @@ import Loader from "@/components/Loader";
 import { Input } from "@/components/ui/input";
 import { useUser } from "@clerk/nextjs";
 import { Textarea } from "@/components/ui/textarea";
+import data from "@/app/data";
+import Link from "next/link";
 
 const page = () => {
+  console.log(data);
   const isDarkMode = true;
   const { isLoaded, user } = useUser();
 
@@ -160,19 +163,19 @@ const page = () => {
             <br />
             <div className="flex items-center justify-evenly">
               <h2>
-                <a
+                <Link
                   className="text-xl"
                   target="_blank"
-                  href="https://www.instagram.com/ecelluvce/"
+                  href={data?.instagram || ""}
                 >
                   <FaInstagram color="orange" />
-                </a>
+                </Link>
               </h2>
               <h2>
                 <a
                   className="text-xl"
                   target="_blank"
-                  href="https://www.linkedin.com/company/entrepreneurship-cell-uvce/mycompany/"
+                  href={data?.linkedin || ""}
                 >
                   <FaLinkedin color="orange" />
                 </a>
@@ -181,7 +184,7 @@ const page = () => {
                 <a
                   className="text-xl"
                   target="_blank"
-                  href="mailto:entrepreneurshipcelluvce@gmail.com"
+                  href={"mailto:" + data?.contactEmail || ""}
                 >
                   <FaEnvelope color="orange" />
                 </a>
@@ -190,12 +193,12 @@ const page = () => {
                 <a
                   className="text-xl"
                   target="_blank"
-                  href="tel:+91 98862 25685"
+                  href={"tel:" + data?.contactPhone[0] || ""}
                 >
                   <FaPhone color="orange" />
                 </a>
               </h2>
-              <h2>
+              {/* <h2>
                 <a
                   className="text-xl"
                   target="_blank"
@@ -203,7 +206,7 @@ const page = () => {
                 >
                   <FaMapPin color="orange" />
                 </a>
-              </h2>
+              </h2> */}
             </div>
           </div>
         </div>

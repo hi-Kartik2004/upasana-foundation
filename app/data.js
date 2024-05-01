@@ -6,7 +6,7 @@ const data = {
   siteDescription: "A Door to your Journey of Inner Transformation  ",
   clubName: "Upasana Foundation",
   contactPerson: "Upasana Foundation",
-  contactPhone: "+91 94823 30850 , +91 94823 46950",
+  contactPhone: ["+91 94823 30850", "+91 94823 46950"],
   contactEmail: "upasanafound@gmail.com",
 
   //logo
@@ -508,7 +508,7 @@ const data = {
 
   // About sadhguru
   aboutSadhguruTitle:
-    "An Indian Mystic , Kundalini Yogi and a realized Spiritual Master  - <i>SADHGURUSHRI RAMA</i>",
+    "An Indian Mystic , Kundalini Yogi and a realized Spiritual Master  - SADHGURUSHRI RAMA",
   aboutSadhguruDescription:
     "SadhguruShri is indeed just an infinite energy , words fall Short when we have to describe him. ",
   aboutSadhguruImage1: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
@@ -618,7 +618,8 @@ const data = {
   instagram: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
   facebook: "https://www.facebook.com/Upasanafoundation.org?mibextid=ZbWKwL",
   youtube: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
-  twitter: "/home",
+  linkedin: "https://www.instagram.com/upasanafoundation/",
+  twitter: "/",
 };
 
 export default data;
