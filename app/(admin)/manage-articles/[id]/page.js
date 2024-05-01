@@ -74,12 +74,12 @@ async function ManageArticle({ params }) {
                 {thisCourseData[0]?.description}
               </p>
               <Button variant="secondary" asChild>
-                <Link
+                <a
                   className="mb-4"
                   href={"edit-article/" + thisCourseData[0]?.articleId}
                 >
                   Edit this article &rarr;
-                </Link>
+                </a>
               </Button>
               <div className="flex items-center">
                 <Link href="/about-us" aria-label="Author" className="mr-3">
