@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import React from "react";
 import data from "@/app/data";
+import Link from "next/link";
 
 function SplitFeaturesSection() {
   return (
@@ -45,9 +46,12 @@ function SplitFeaturesSection() {
                       </div>
                     </div>
                     <div>
-                      <h6 className="mb-3 text-xl font-bold leading-5">
+                      <Link
+                        href={details?.link}
+                        className="mb-3 text-xl font-bold leading-5"
+                      >
                         {details?.title}
-                      </h6>
+                      </Link>
                       <p className="text-sm text-muted-foreground">
                         {details?.description}
                       </p>
@@ -83,9 +87,12 @@ function SplitFeaturesSection() {
                       </div>
                     </div>
                     <div>
-                      <h6 className="mb-3 text-xl font-bold leading-5">
+                      <Link
+                        href={details?.link}
+                        className="mb-3 text-xl font-bold leading-5"
+                      >
                         {details?.title}
-                      </h6>
+                      </Link>
                       <p className="text-sm text-muted-foreground">
                         {details?.description}
                       </p>

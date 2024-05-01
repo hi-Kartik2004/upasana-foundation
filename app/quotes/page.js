@@ -23,7 +23,18 @@ function Quotes() {
       </div>
 
       <div className="mt-10 flex flex-wrap items-center justify-around gap-4">
-        <Card className="max-w-[420px]">
+        {data?.quotes?.map((quote, index) => (
+          <Card key={index} className="max-w-[420px]">
+            <CardHeader>
+              <CardTitle>{quote?.title}</CardTitle>
+              <CardDescription>{quote?.description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <img src={quote?.image} alt="quotes" />
+            </CardContent>
+          </Card>
+        ))}
+        {/* <Card className="max-w-[420px]">
           <CardHeader>
             <CardTitle>Lorem ipsum dor sit ipem</CardTitle>
             <CardDescription>Lorem ipsum dor sit ipem</CardDescription>
@@ -60,7 +71,7 @@ function Quotes() {
               alt="quotes"
             />
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
     </div>
   );

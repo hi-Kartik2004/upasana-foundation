@@ -136,40 +136,48 @@ const data = {
       title: "Divya Marg",
       description:
         "Experience the Potential in you ,and Divinity of your Inner Self through our Various Shibirs(Workshops).",
+      link: "/courses",
     },
     {
       title: "Shri Upasaka",
       description:
         "As Said ,seva is the Sweetest Selfishness one Can have ,At Upasana Foundation ,you can take up the Opportunity to Perform Seva in Various Forms ",
+      link: "/sri-upasaka",
     },
     {
       title: "Shri Paaduka",
       description: "Know the Importance of Guru Paaduka and Worship it",
+      link: "/sri-paaduka",
     },
 
     {
       title: "Ever-Learn",
       description:
         "Start your day with the Teachings and Sayings of SadhguruShri",
+      link: "/quotes",
     },
     {
       title: "Instill Divine Love",
       description:
         "We always believe in Seeing each and every life and respect with Love in Ektha Bhava, once come under SadhguruShri ,you will also transform to see the same.",
+      link: "/about-sadhguru",
     },
     {
       title: "Preachings",
       description:
         "Learn through Various Preachings by SadhguruShri in the Events Page.",
+      link: "/events",
     },
     {
       title: "Donate",
       description:
         "We are a Volunteer Run Organisation ,Your Contribution towards a Greater cause will surely Make a Difference in reaching more people in need of Guidance And Changing Lives .",
+      link: "/donate",
     },
     {
       title: "Experiences Say!!",
       description: "Check out What our various Sadhakas have to say below...",
+      link: "/#hero-blog-section",
     },
   ],
 
@@ -540,6 +548,26 @@ const data = {
   quotesPageTitle: "Quick Boosts",
   quotesPageDescription:
     "Know what SadhguruShri has said about Various fields of Life",
+  quotes: [
+    {
+      title: "On Life",
+      description:
+        "Life is not about what you have, but about what you have to give.",
+      image: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
+    },
+    {
+      title: "On Life",
+      description:
+        "Life is not about what you have, but about what you have to give.",
+      image: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
+    },
+    {
+      title: "On Life",
+      description:
+        "Life is not about what you have, but about what you have to give.",
+      image: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
+    },
+  ],
 
   // Events Page
   eventsPageTitle: "Events",
