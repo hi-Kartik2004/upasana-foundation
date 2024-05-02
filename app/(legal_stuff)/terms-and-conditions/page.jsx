@@ -13,13 +13,15 @@ function TermsAndConditions() {
           PAYMENT: Return, Refund, & Cancellation Policy
         </h3>
         <p className="mt-2 text-muted-foreground text-sm whitespace-pre-wrap">
-          Once we receive the notification from the Payment Gatewayyour, as the
-          case may be, a refund is issued to the original payment method (in
-          case of pre-paid transactions) or to your bank account.
+          1. Cancellation or transfer of any course/event will not be accepted.
         </p>
         <p className="text-muted-foreground text-sm whitespace-pre-wrap mt-2">
-          The refund time period for different modes of payments is provided
-          below.
+          2. Violation of instructions and rules for a particular course may
+          lead to Cancellation of Registration.
+        </p>
+        <p className="text-muted-foreground text-sm whitespace-pre-wrap mt-2">
+          3. Refund will be provided only in the case were there is Cancellation
+          of a particular event/course from the administrative side
         </p>
       </div>
 
@@ -47,7 +49,7 @@ function TermsAndConditions() {
         <p className="text-muted-foreground text-sm whitespace-pre-wrap mt-2">
           + After ordering a product, you discover after a few minutes or hours
           that you don’t need it. Whatsoever reason you have got to cancel an
-          order, it is possible.
+          order, it is not possible.
         </p>
       </div>
 
