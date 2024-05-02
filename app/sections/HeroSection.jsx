@@ -25,7 +25,7 @@ function HeroSection({ isMember }) {
   }
 
   return (
-    <section className="pt-24 py-6 dark:bg-[url('/texture-pattern.svg')] bg-[url('/texture-pattern-light.svg')] w-full overflow-hidden">
+    <section className="pt-24 py-6 dark:bg-[url('/texture-pattern-dark.svg')] bg-[url('/texture-pattern-light.svg')] w-full overflow-hidden">
       <motion.div
         initial="hidden"
         whileInView="visible"

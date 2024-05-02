@@ -42,7 +42,9 @@ function HeroBlogSection() {
                 >
                   {ele?.title}
                 </Link>
-                <p className="mb-2 text-muted-foreground">{ele?.description}</p>
+                <p className="mb-2 text-muted-foreground line-clamp-10">
+                  {ele?.description}
+                </p>
                 <Link
                   href={ele?.href}
                   aria-label="Learn More"

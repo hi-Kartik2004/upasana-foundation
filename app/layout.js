@@ -19,10 +19,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={
-            inter.className +
-            "dark:bg-[url('/texture-pattern-dark.svg')] bg-url('/texture-pattern-light.svg')"
-          }
+          className={`${inter.className} dark:bg-url('/texture-pattern-dark.svg') bg-url('/texture-pattern-light.svg')`}
         >
           <ThemeProvider
             attribute="class"

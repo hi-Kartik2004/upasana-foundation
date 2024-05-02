@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 62, 91%, 86%;
+    --background: ;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 20 14.3% 4.1%;
@@ -27,6 +27,8 @@
     --ring: 24.6 95% 53.1%;
     --radius: 1rem;
     --orange: 24.6 95% 53.1%;
+    --texture-pattern-light: url("/texture-pattern-light.svg");
+    --texture-pattern-dark: url("/texture-pattern-dark.svg");
   }
 
   .dark {
@@ -57,7 +59,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground bg-[url('/texture-pattern-light.svg')] dark:bg-[url('/texture-pattern-dark.svg')];
     scroll-behavior: smooth;
   }
 }
@@ -68,6 +70,19 @@ input:disabled {
 
 body {
   font-family: "Merriweather", serif !important;
+  /* background: var(--texture-pattern-light) !important; */
+}
+
+/* background: var(--texture-pattern-light) !important; */
+body .dark {
+  /* background: var(--texture-pattern-dark) !important; */
+}
+
+.line-clamp-10 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
 }
 
 /* ======== Scrollbar ========== */
