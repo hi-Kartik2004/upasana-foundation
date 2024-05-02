@@ -18,9 +18,9 @@ const data = {
     "Remove the Layer of Dust enclosing Your true hidden Potential ,Come join Us  Let's dive into the Journey of Self Exploration",
 
   // Hero section
-  heroBadgeMessage: "Fact",
+  heroBadgeMessage: "Know it",
   heroAlertMessage:
-    "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done",
+    "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done - SadhguruShri",
   heroTitleLeft: "Swastha Vyakthi, Swastha Kutumba, Swastha Samaja ",
   heroTitleYellow: " Through Sadhana, Seva and Love!! ",
   heroTitleRight: "  ",
@@ -35,6 +35,7 @@ const data = {
   heroMarqueeImages: [
     "https://i.postimg.cc/Hn5PWNnD/yoga-gathering.jpg",
     "https://i.postimg.cc/X7BndNG4/group-pic-diksha.jpg",
+    "https://i.postimg.cc/zX1t0txk/DSC02502.jpg",
     "https://i.postimg.cc/sXLtgSJS/gurujionstage.jpg",
   ],
 
@@ -46,12 +47,12 @@ const data = {
   heroSecondSectionCards: [
     {
       title: "Change the way you live ,think and Perceive.",
-      image: "https://i.postimg.cc/nhgf3twV/manoshakthi-small.jpg",
+      image: "https://i.postimg.cc/SxPt7y3n/m-ANOSHAKTI.jpg",
       href: "/courses",
     },
     {
       title: "Manifest your Life with what you Actually Want.",
-      image: "https://i.postimg.cc/W1JY5PPn/SAMMOHANA-SMALL.jpg",
+      image: "https://i.postimg.cc/L6KPPGxm/s-AMMOHANA.jpg",
       href: "/courses",
     },
     {
@@ -61,7 +62,7 @@ const data = {
     },
     {
       title: "Activate your inner Potential , The Kundalini Shakti.",
-      image: "https://i.postimg.cc/9FxDFrzx/SHAKTHI-SMALL.jpg",
+      image: "https://i.postimg.cc/D0KzW3nD/SHAKTI-KRIYA.jpg",
       href: "/courses",
     },
   ],
@@ -79,7 +80,7 @@ const data = {
         "For Inner Individual development , the term Upasana itself means to realize Who am I,  under…  ",
       link: "/about",
       fourCardFeaturesSectionCardImage:
-        "http://www.upasanafoundation.org/assets/img/courses/Shakti-Kriya.jpg",
+        "https://i.postimg.cc/HnDw99qN/CP0-0930.jpg",
     },
     {
       title: "Who is SadhguruShri",
@@ -102,11 +103,11 @@ const data = {
     {
       title: "Dive with Us",
       description:
-        "	Transform yourself through Life changing Stories and Preachings",
+        " Transform yourself through Life changing Stories and Preachings",
       link: "/events",
 
       fourCardFeaturesSectionCardImage:
-        "https://i.postimg.cc/28zcw33h/guruji-on-swing.jpg",
+        "https://i.postimg.cc/9QWvBdVz/DSC01054.jpg",
     },
     {
       title: "Quick Boosts",
@@ -184,41 +185,43 @@ const data = {
   // Hero Blog section
   heroBlogSectionCards: [
     {
-      badge: "J R Bangera,Past President KASSIA, FKCCI",
+      badge: "Rahul, Entrepreneur",
       date: "2017",
       title: "Changed Lives",
       description:
-        "Pranam,Guruji, I participated in Shakti Kriya. Shibira continued the Practice and attended the follow up sessions, I would like to mention here that there is tremendous impact on my inner and physical strength, my energy level, clarity in thinking,and memory improved a lot, my back pain considerably reduced, there is also reduction in waist line and weight,,Iam daily doing this Kriya. Thanks to the Guruji ,for showing the right PATH.",
+        " I have been going to yoga classes at Upasana Foundation for a few months now and have nothing but positive things to say about the classes, guruji with his divine touch presence one can feel bliss and more energetic, and the open atmosphere in the which the yoga is conducted.I regularly attend scheduled classes.I appreciate Gurujis thought put into each session by the various methods to make sure that each minute spent there is meaningful and useful to mind and body. Being an 'older' and one who came to yoga in 40's with knee surgery few years back, I am happily in my best physical & mental health ever. I only wish I had started at a younger age. I know that I use techniques in everyday life for coping during stressful times. I take the time to notice and observe before reacting. I am more attuned to the good days too. At a physical level, I feel stronger, more energized and willing to push myself further to that 'edge'....such a gift at this point in my life when balance and bone & muscle strength are more important than ever.  At Upasana Foundation, everyone of every level feels welcome in this cozy, nurturing space.  I consider this my yoga “home” and am thankful and amazed at how far I have come on my personal journey there. .",
       href: "https://youtube.com/playlist?list=PLB1pLZSsI3POwTQpxviUUqKVyN1Qpx2Gz&si=iEHkBi5gB242jctx",
-      imgUrl: "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
+      imgUrl: "https://i.postimg.cc/02w5mx2r/Rahul.jpg",
     },
     {
       badge: "Ravichandra,Businessman",
       date: "2013",
       title: "Changed Lives",
       description:
-        "My Humble Pranams to SadhguruShri, I first attended SadhguruShri’s class in 2014 , from there till today, I have drastically changed in my life ,at alll aspects. The Spiritual Experiences experienced under his grace can not be described by mere words. My whole family follows guruji now. His Krupa has always protected us and helped us Improve in our life constantly",
+        "My Humble Pranams to SadhguruShri, I first attended SadhguruShri’s class in 2014 , from there till today, I have drastically changed ,in all aspects of life. Before meeting guruji, I used to consult a  lot of astrologers for small problems. Now I search for the solution from within by completely analyzing myself and the issue. The Spiritual Experiences experienced under his grace can not be described by mere words. My whole family follows guruji now. His Krupa has always protected us and helped us Improve in our life constantly",
       href: "/courses",
-      imgUrl: "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
+      imgUrl:
+        "https://i.postimg.cc/zBYD0ct8/20231121-184142-Chidananda-B-R.jpg",
     },
     {
-      badge: "Krishna murthy, Industrialist",
-      date: "2015",
+      badge: "Rekha",
+      date: "2023",
       title: "Changed Lives",
       description:
-        "I have undergone the Shakti kriya course in August 2015, After I underwent this program, I noticed a lot of changes in my personal life as well as professional life. I spoke to my siblings after a gap of 4 years, reduced my obesity & reduction in my weight as well without any diet! My back pain gone, physical strength increased, I started helping my wife in household activities at home, my stage fear has gone and gained confidence while speaking in the public Speech, my attitude changed and started forgiving attitude. I am enjoying my life, I recommend each and everyone should undergo this Shakti kriya and get benefit from Guruji.",
+        "Shakti Kriya is an amazing camp. As the name Shakti Kriya suggests, it is the act of awakening the energy and spirit within us. I have been practicing Shakti Kriya continuously for about 08 months, due to which the problem of cold which I have had for about 10 years has been cured. I am a government employee and the practice of action helps reduce stress and keep me energized throughout the day. My fear and shyness decreased and my courage and self-confidence increased. There is also progress in spiritual matters, and the performance of this action leads to divine experiences such as vibration in the chakras. All in all, those who want development in worldly and otherworldly matters should definitely attend this camp. My heartwarming tribute to the Charan Kamalas of the Most Reverend Guru Sadhguru Shri Rama who guided such a great achievement.....",
       href: "/courses",
-      imgUrl: "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
+      imgUrl:
+        "https://i.postimg.cc/zBYD0ct8/20231121-184142-Chidananda-B-R.jpg",
     },
 
     {
-      badge: "Rajesh Arehalli",
-      date: "Lic Agent",
+      badge: "Raghu , Student",
+      date: "2023",
       title: "Changed Lives",
       description:
-        "In the matter of Experiencing Happiness and distress ,the Individual Soul is Declared Responsible.",
+        "ನಮಸ್ತೆ, ಮೊದಲು ನಾನು ತಿಳಿದಿದ್ದ ಸತ್ಯ ಎಂದರೆ ಈ ದೇವರು ದೇವಸ್ಥಾನ ಇವೆಲ್ಲವೂ ಏನಿದ್ದರೂ ಮಡಿವಂತಿಕೆ ಇರುವವರು ಹಾಗೂ ಒಳ್ಳೆಯ ಕುಟುಂಬ ದಿಂದ ಬಂದವರಿಗೆ ಮಾತ್ರ ಎಂದು ತಿಳಿದಿದ್ದೆ ಆದರೆ ನನ್ನ ಗುರುಗಳ ಒಂದು ಶಿಬಿರದಿಂದ ನಮ್ಮಂತವರಿಗೂ ಈ ಸರಳವಾಗಿ ಪ್ರಕೃತಿಯೊಂದಿಗೆ ಸಂಪರ್ಕವನ್ನು ಸಿದ್ಧಿಸಿಕೊಳ್ಳಬಹುದಾದ ಮಾರ್ಗವನ್ನು ತೋರಿಸಿಕೊಟ್ಟಿದ್ದಾರೆ  ನಾನು ವಿದ್ಯಾರ್ಥಿ ಆಗಿರುವುದರಿಂದ ಈ ಶಕ್ತಿ ಕ್ರಿಯ ಸಾಧನವನ್ನು ನನ್ನ ಶಿಕ್ಷಣ ಕ್ಷೇತ್ರದಲ್ಲಿ ಬಳಸಿಕೊಂಡಿದ್ದೇನೆ ಇದರಿಂದ ನನಗೆ ನನ್ನ ಇಚ್ಛಾಶಕ್ತಿ ಜ್ಞಾನಶಕ್ತಿ ಕ್ರಿಯಾಶಕ್ತಿ ದಿನದಿಂದ ದಿನಕ್ಕೆ ಧನಾತ್ಮಕವಾಗುತ್ತಿದೆ ಮೊದಲು ನನಗೆ ಒಬ್ಬ ಗುರು ಸಿಕ್ಕಿದರೆ ಸಾಕು ಎಂದುಕೊಂಡಿದ್ದೆ ಆದರೆ ಈ ಕ್ರಿಯೆ ಮಾಡಿದ ಮೇಲೆ ನನಗೆ ಎಲ್ಲಾ ವಿಷಯಗಳಲ್ಲಿ ಸಹಾಯವಾಗುವಂತಹ ಗುರುಗಳು ಸಿಕ್ಕಿದ್ದಾರೆ ಇದರಿಂದ ನನಗೆ ನನ್ನ ಎಜುಕೇಶನ್ ಗೆ ತುಂಬಾ ಉಪಯುಕ್ತವಾಗಿದೆ . ಮೊದಲು ಒಂದು ಪುಸ್ತಕವನ್ನು ಓದಬೇಕಾದರೆ ಒಂದು ವಾರ ಅಥವಾ ಎರಡು ವಾರ ಆಗುತ್ತಿತ್ತು ಆದರೆ ಈ ಶಕ್ತಿ ಕ್ರಿಯದಿಂದ ಬೆಳಗ್ಗೆ ಸಂಕಲ್ಪ ಮಾಡಿ ಓದಲು ಕುಳಿತರೆ ಒಂದು ಎರಡು ದಿನಗಳಲ್ಲಿ ಸಂಪೂರ್ಣವಾಗಿ ಓದಿ ಅರ್ಥ ಮಾಡಿಕೊಂಡು ಜ್ಞಾಪಕದಲ್ಲಿ ಇರುತ್ತದೆ ನನ್ನ ಮನಸ್ಸಿನ ಶಕ್ತಿ ಏಕಾಗ್ರತೆ ದೈಹಿಕ ಬಲ ದಿನದಿಂದ ದಿನಕ್ಕೆ ಹೆಚ್ಚುತ್ತಾ ಹೋಗುತ್ತಿದೆ ಈ ಒಂದು ವರ್ಷದ ಸಾಧನೆಯಲ್ಲಿ ನನ್ನ ಸಂಕಲ್ಪ ಶಕ್ತಿ ಏನೇ ಗುರುಗಳಲ್ಲಿ ಬೇಡಿಕೊಂಡರು ಅದು ಒಂದೇ ದಿನದಲ್ಲಿ ಪೂರ್ಣಗೊಳ್ಳುತ್ತಿದೆ ಹಾಗೂ ಪ್ರಕೃತಿಯ ವಿಸ್ಮಯ ಅಗೋಚರ ಶಕ್ತಿಗಳ ಅನುಭವ ಆಗುತ್ತಿದೆ ಮಾತುಗಳು ಹೆಚ್ಚಾಗಿ ಆಡುವುದಕ್ಕಿಂತ ಮನಸ್ಸಿನಲ್ಲಿ ವಿಶ್ವಾಸ ಹೆಚ್ಚಾಗಿ ಪಡೆದುಕೊಂಡಿದೆ",
       href: "/events",
-      imgUrl: "https://i.postimg.cc/WbkSxLLn/SHRIPAADUKA.jpg",
+      imgUrl: "https://i.postimg.cc/FFjcL0n8/IMG-20240112-023826-Raghu-N.jpg",
     },
   ],
 
@@ -391,7 +394,7 @@ const data = {
     {
       title: "What will I Build?",
       description:
-        "We learn a lot through Seva , it builds in Character and Simplicity in Oneself. Also we make Path for many People to move in the right direction. We can the Oppurtunity to help people transform themselves.",
+        "We learn a lot through Seva , it builds in Character and Simplicity in Oneself. Also we make Path for many People to move in the right direction. We can the Opportunity to help people transform themselves.",
     },
     {
       title: "Why Should I perform Seva?",
@@ -437,9 +440,9 @@ const data = {
 
   // Sri Paaduka
   sriPaadukaHeroImageUrl: "https://i.postimg.cc/52NLQbN0/paaduka-mix.jpg",
-  sriPaadukaHeroTitle: "Shri Paduka",
+  sriPaadukaHeroTitle: "Shri Paaduka",
   sriPaadukaHeroDescription:
-    "The whole of Guru’s blessing flows through his Paduka bestowing us with all the Grace needed.",
+    "The whole of Guru’s blessing flows through his Paaduka bestowing us with all the Grace needed.",
   sriPaadukaHeroCards: [
     {
       title:
@@ -448,7 +451,7 @@ const data = {
     },
     {
       title:
-        "Guru Paduka is a equally given Importance as the Guru.The paduka is a representaion of the Guru. It can to remove all our dark Sins just as light removes darkness. It can drive away all our miseries and remove all our Ignorance. And this not all about Guru Paduka , its just a very simple Start to define.",
+        "Guru Paaduka is equally given Importance as the Guru.The paduka is a representation of the Guru. It can remove all our dark Sins just as light removes darkness. It can drive away all our miseries and remove all our Ignorance. And this not all about Guru Paduka , it's just a very simple Start to define.",
       description: "",
     },
   ],
@@ -457,32 +460,32 @@ const data = {
   sriPaadukaKnowMoreSectionBadge: "Pa - Du - Ka",
   sriPaadukaKnowMoreSectionTitle: "Paati - Dunoti - Kashate",
   sriPaadukaKnowMoreSectionDescription:
-    "Pa means paati - Implying the Guru krupa, the grace of Guru always protects his Disciples. Du means Dunoti - Regular worship of Guru Paduka helps one burn away all his sins and get cleansed from Inside Ka means Kashate - By this one is able to Shine completely from Inside.",
+    "Pa means paati - Implying the Guru krupa, the grace of Guru always protects his Disciples. Du means Dunoti - Regular worship of Guru Paaduka helps one burn away all his sins and get cleansed from Inside Ka means Kashate - By this one is able to Shine completely from Inside.",
   sriPaadukaKnowMoreSectionQuestions: [
     {
-      title: "Significance of Paduka",
+      title: "Significance of Paaduka",
       description:
-        "Paduka is indeed a representation of your Guru’s grace and presence. A symbolic of the Higher energy, Guru around you. Worship of Paduka is an expression of Gratitude towards the presence of Guru in your Life. Worship done with Humility effortlessly removes the ego in you and elevates you to a Higher State",
+        "Paaduka is indeed a representation of your Guru’s grace and presence. A symbolic of the Higher energy, Guru around you. Worship of Paaduka is an expression of Gratitude towards the presence of Guru in your Life. Worship done with Humility effortlessly removes the ego in you and elevates you to a Higher State",
     },
     {
       title: " It’s Presence",
       description:
-        "The very presence of Paduka near you implies that there is an Higher energy on which you can completely believe on, just as a child believes his mother. To get an Oppurtunity to worship is itself an intimation of the entry of Guru’s grace in your life.",
+        "The very presence of Paaduka near you implies that there is an Higher energy on which you can completely believe on, just as a child believes his mother. To get an Oppurtunity to worship is itself an intimation of the entry of Guru’s grace in your life.",
     },
     {
       title: "Impact on Surroundings.",
       description:
-        "When there is guru paduka near you, it means that your guru near you. Knowingly or Unknowingly, your mind is elevated to a Blissful and free state. A sense of Satsfaction  peace and enormous positivity is developed. At the same time, a constant feel that your guru is watching you, be proper.",
+        "When there is guru paaduka near you, it means that your guru near you. Knowingly or Unknowingly, your mind is elevated to a Blissful and free state. A sense of Satsfaction  peace and enormous positivity is developed. At the same time, a constant feel that your guru is watching you, be proper.",
     },
     {
       title: "Shri Paduka",
       description:
-        "SadhguruShri Rama has consecrated Shri Paduka as a Symbol of Guru Parampara by instilling it with both Dattatreya amsha and Shankara amsha (amsha refers to a portion of their energy) and a part of energy from his Sadhana. Pooja of Shri Paduka is regularly performed. It has always bestowed all the Sadhakas with Upliftment and Prosperity.",
+        "SadhguruShri Rama has consecrated Shri Paaduka as a Symbol of Guru Parampara by instilling it with both Dattatreya amsha and Shankara amsha (amsha refers to a portion of their energy) and a part of energy from his Sadhana. Pooja of Shri Paaduka is regularly performed. It has always bestowed all the Sadhakas with Upliftment and Prosperity.",
     },
     {
-      title: "Is there a way to serve the Shri Paduka ? ",
+      title: "Is there a way to serve the Shri Paaduka ? ",
       description:
-        "Yes ,For the same, SadhguruShri has provided us with an opportunity to perform Shri Paduka pooja at our place. This is a wonderful Opportunity to Invite SadhguruShri and Shri Paduka to your place and perform pooja. This pooja will consist of various Steps including Sankalpa and Abhishekam followed by SadhguruShri’s Ashirvada.",
+        "Yes ,For the same, SadhguruShri has provided us with an opportunity to perform Shri Paaduka pooja at our place. This is a wonderful Opportunity to Invite SadhguruShri and Shri Paaduka to your place and perform pooja. This pooja will consist of various Steps including Sankalpa and Abhishekam followed by SadhguruShri’s Ashirvada.",
     },
     {
       title: "What are the next steps for it ?",
@@ -511,8 +514,8 @@ const data = {
     "An Indian Mystic , Kundalini Yogi and a realized Spiritual Master  - SADHGURUSHRI RAMA",
   aboutSadhguruDescription:
     "SadhguruShri is indeed just an infinite energy , words fall Short when we have to describe him. ",
-  aboutSadhguruImage1: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
-  aboutSadhguruImage2: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
+  aboutSadhguruImage1: "https://i.postimg.cc/rFvMggM8/guruji2.jpg",
+  aboutSadhguruImage2: "https://i.postimg.cc/rFvMggM8/guruji2.jpg",
   aboutSadhguruSections: [
     {
       title: "What does the term SadhguruShri Mean",
@@ -550,22 +553,34 @@ const data = {
     "Know what SadhguruShri has said about Various fields of Life",
   quotes: [
     {
-      title: "On Life",
-      description:
-        "Life is not about what you have, but about what you have to give.",
-      image: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
+      title: "Mind",
+      description: "Importance of knowing how the mind works",
+      image: "https://i.postimg.cc/76WK7q7F/Quote.jpg",
     },
     {
-      title: "On Life",
-      description:
-        "Life is not about what you have, but about what you have to give.",
-      image: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
+      title: "Intuition",
+      description: "Power of Intuition",
+      image: "https://i.postimg.cc/4x4tXzYR/intution.jpg",
     },
     {
-      title: "On Life",
-      description:
-        "Life is not about what you have, but about what you have to give.",
-      image: "https://i.postimg.cc/4NF0Nzc2/guruji.jpg",
+      title: "Life",
+      description: "How should you live life",
+      image: "https://i.postimg.cc/cHCdFLk3/jeevana.jpg",
+    },
+    {
+      title: "On Shru Venkatachalapathi Avadhoota",
+      description: "How should you live life",
+      image: "https://i.postimg.cc/gjwSSCP4/venkatachalapathi-avadootha.jpg",
+    },
+    {
+      title: "Sight",
+      description: "Are you seeing the right?",
+      image: "https://i.postimg.cc/mkbMhMm9/see-what-search.jpg",
+    },
+    {
+      title: "Mind",
+      description: "Key to succeed",
+      image: "https://i.postimg.cc/CM35vbGs/On-Mind.jpg",
     },
   ],
 
@@ -575,13 +590,16 @@ const data = {
     "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
   blogCategories: [
     {
-      name: "Event",
+      name: "Events",
     },
     {
-      name: "News",
+      name: "Visits",
     },
     {
       name: "Announcements",
+    },
+    {
+      name: "Stories",
     },
     {
       name: "Others",
@@ -619,8 +637,7 @@ const data = {
   myMusicDescription:
     "Access Your purchased Music here!! Let your Sadhana ever go on under SadhguruShri’s Grace",
 
-  exclusiveMusicPrice: "500",
-
+  exclusiveMusicPrice: "499",
   // Socials
   instagram: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
   facebook: "https://www.facebook.com/Upasanafoundation.org?mibextid=ZbWKwL",
