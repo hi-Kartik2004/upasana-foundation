@@ -19,7 +19,7 @@ function HeroBlogSection() {
             >
               <img
                 src={ele?.imgUrl}
-                className="object-cover w-full h-48"
+                className="object-cover w-full h-96"
                 alt={ele?.title}
               />
               <div className="p-5 border-t border-gray-300">
