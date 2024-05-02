@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: ;
+    --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 20 14.3% 4.1%;
@@ -71,11 +71,6 @@ input:disabled {
 body {
   font-family: "Merriweather", serif !important;
   /* background: var(--texture-pattern-light) !important; */
-}
-
-/* background: var(--texture-pattern-light) !important; */
-body .dark {
-  /* background: var(--texture-pattern-dark) !important; */
 }
 
 .line-clamp-10 {
