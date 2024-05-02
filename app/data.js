@@ -478,7 +478,7 @@ const data = {
         "When there is guru paaduka near you, it means that your guru near you. Knowingly or Unknowingly, your mind is elevated to a Blissful and free state. A sense of Satsfaction  peace and enormous positivity is developed. At the same time, a constant feel that your guru is watching you, be proper.",
     },
     {
-      title: "Shri Paduka",
+      title: "Shri Paaduka",
       description:
         "SadhguruShri Rama has consecrated Shri Paaduka as a Symbol of Guru Parampara by instilling it with both Dattatreya amsha and Shankara amsha (amsha refers to a portion of their energy) and a part of energy from his Sadhana. Pooja of Shri Paaduka is regularly performed. It has always bestowed all the Sadhakas with Upliftment and Prosperity.",
     },
@@ -558,25 +558,21 @@ const data = {
       image: "https://i.postimg.cc/76WK7q7F/Quote.jpg",
     },
     {
-      title: "Intuition",
-      description: "Power of Intuition",
-      image: "https://i.postimg.cc/4x4tXzYR/intution.jpg",
-    },
-    {
       title: "Life",
       description: "How should you live life",
       image: "https://i.postimg.cc/cHCdFLk3/jeevana.jpg",
-    },
-    {
-      title: "On Shru Venkatachalapathi Avadhoota",
-      description: "How should you live life",
-      image: "https://i.postimg.cc/gjwSSCP4/venkatachalapathi-avadootha.jpg",
     },
     {
       title: "Sight",
       description: "Are you seeing the right?",
       image: "https://i.postimg.cc/mkbMhMm9/see-what-search.jpg",
     },
+    {
+      title: "On Shru Venkatachalapathi Avadhoota",
+      description: "How should you live life",
+      image: "https://i.postimg.cc/gjwSSCP4/venkatachalapathi-avadootha.jpg",
+    },
+
     {
       title: "Mind",
       description: "Key to succeed",
