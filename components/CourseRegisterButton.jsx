@@ -181,6 +181,30 @@ function CourseRegisterButton({ data }) {
     }
   }
 
+  async function availFreeMusic(courseId, registeredEmail, freeMusicDuration) {
+    // freeMusicDuration is in months Eg: 1
+    const ref = collection(db, "course-music-registrations");
+
+    try {
+      // Calculate expiry timestamp
+      const currentTimestamp = new Date().getTime(); // Current time in milliseconds
+      const millisecondsInMonth = 30 * 24 * 60 * 60 * 1000; // Assuming 30 days per month
+      const expiryTimestamp =
+        currentTimestamp + freeMusicDuration * millisecondsInMonth;
+
+      await addDoc(ref, {
+        courseId: courseId,
+        registeredEmail: registeredEmail,
+        expiry: Date.now(),
+      });
+      return true;
+    } catch (err) {
+      console.log(err);
+    }
+
+    return false;
+  }
+
   const addRegistrationToFirestore = async (e) => {
     e.preventDefault();
     setRegistering(true);
@@ -210,6 +234,16 @@ function CourseRegisterButton({ data }) {
       courseStarts: startDate,
       timestamp: new Date().getTime(),
     });
+
+    try {
+      await availFreeMusic(
+        data?.id,
+        user?.emailAddresses[0].emailAddress,
+        data?.freeMusciDuration
+      );
+    } catch (err) {
+      console.error(err);
+    }
 
     console.log(res);
     setRegistering(false);

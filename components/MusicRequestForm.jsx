@@ -20,6 +20,8 @@ function MusicRequestForm({
   courseId,
   isRequested,
   isRegistered,
+  musicCost = globalData?.exclusiveMusicPrice,
+  renew = false,
 }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(isRequested);
@@ -86,7 +88,8 @@ function MusicRequestForm({
     >
       <Toaster />
       <h1 className="text-center font-bold text-xl">
-        ✨ Request Form for {nameOfCourse}'s Exclusive Music!
+        ✨ {renew ? "Renewal" : "Request"} Form for {nameOfCourse}'s Exclusive
+        Music!
       </h1>
       <Separator />
       <Input name="name" value={formData.name} disabled={true} />
@@ -118,7 +121,9 @@ function MusicRequestForm({
         >
           {isRequested && !submitting
             ? `Already requested status: ${status}`
-            : `Submit request to access exclusive music for ${nameOfCourse}`}
+            : `Submit request to ${
+                renew ? "renew " : "access "
+              } exclusive music for ${nameOfCourse}`}
 
           {submitting && ` Submitting...`}
         </Button>
@@ -130,8 +135,8 @@ function MusicRequestForm({
           style={{ paddingTop: "1.5rem", paddingBottom: "1.5rem" }}
         >
           <Link href="/">
-            Proceed to make a payment of Rs {globalData.exclusiveMusicPrice}/-{" "}
-            <br /> {status === "Pending" && "(Disabled... approval pending.)"}
+            Proceed to make a payment of Rs {musicCost}/- <br />{" "}
+            {status === "Pending" && "(Disabled... approval pending.)"}
           </Link>
         </Button>
       </div>

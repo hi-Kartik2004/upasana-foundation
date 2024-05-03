@@ -128,10 +128,12 @@ async function Request({ params, searchParams }) {
           addMusicRequestToFirestore={addMusicRequestToFirestore}
           nameOfCourse={data?.name}
           courseId={params?.id}
-          status={status || "N/A"}
-          isUserRequested={status === "Renewal" ? false : isUserRequested}
-          isRequested={isRequested}
+          status={renew ? "Renewal" : status || "N/A"}
+          isUserRequested={renew ? false : isUserRequested}
+          isRequested={renew ? false : isRequested}
           isRegistered={isRegistered}
+          musicCost={data?.musicCost}
+          renew={renew}
         />
       </div>
     </div>

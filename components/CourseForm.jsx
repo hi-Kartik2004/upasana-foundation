@@ -118,6 +118,15 @@ const formSchema = z.object({
       time: z.string().optional(),
     })
   ),
+  musicCost: z.coerce
+    .number()
+    .min(1, "music cost after free access cannot be unfilled"),
+  musicFreeDuration: z.coerce
+    .number()
+    .min(
+      1,
+      "free music duration after the user has taken the course (in months)"
+    ),
 });
 
 // Function to handle Firestore operation
@@ -188,6 +197,8 @@ export default function CourseForm({ edit, courseData }) {
       time: "",
       timeOfEachClass: "",
       batches: [],
+      musicCost: null,
+      musicFreeDuration: null,
     },
   });
 
@@ -598,10 +609,52 @@ export default function CourseForm({ edit, courseData }) {
             <FormItem>
               <FormLabel>Course Duration*</FormLabel>
               <FormControl>
-                <Input value={editData?.venue} placeholder="10" {...field} />
+                <Input value={editData?.expiry} placeholder="10" {...field} />
               </FormControl>
               <FormDescription>
                 The duration of the course in days.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="musicCost"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Music Cost*</FormLabel>
+              <FormControl>
+                <Input
+                  value={editData?.musicCost}
+                  placeholder="100"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription>
+                The cost of music after free duration (in INR)
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="musicFreeDuration"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Free music duration*</FormLabel>
+              <FormControl>
+                <Input
+                  value={editData?.musicFreeDuration}
+                  placeholder="6"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription>
+                Free music duration after taking a course (in months)
               </FormDescription>
               <FormMessage />
             </FormItem>

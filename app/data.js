@@ -636,6 +636,7 @@ const data = {
     "Access Your purchased Music here!! Let your Sadhana ever go on under SadhguruShri’s Grace",
 
   exclusiveMusicPrice: "499",
+  exclusiveMusicDuration: 1, // in months
   // Socials
   instagram: "https://instagram.com/upasanafoundation?igshid=MzRlODBiNWFlZA==",
   facebook: "https://www.facebook.com/Upasanafoundation.org?mibextid=ZbWKwL",
