@@ -12,6 +12,7 @@ import StatsSection from "./sections/StatsSection";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { BiLogoWhatsapp } from "react-icons/bi";
+import HeroDialog from "@/components/HeroDialog";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
           />
         </Link>
       </div>
+      <HeroDialog />
       <HeroSection />
       <Separator />
       <HeroContentsSection />

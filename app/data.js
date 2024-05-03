@@ -18,6 +18,8 @@ const data = {
     "Remove the Layer of Dust enclosing Your true hidden Potential ,Come join Us  Let's dive into the Journey of Self Exploration",
 
   // Hero section
+  heroDialogVideoLink:
+    "https://videos.pexels.com/video-files/20600550/20600550-uhd_3840_2160_30fps.mp4",
   heroBadgeMessage: "Know it",
   heroAlertMessage:
     "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done - SadhguruShri",
