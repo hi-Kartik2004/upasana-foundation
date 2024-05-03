@@ -89,7 +89,7 @@ async function Article({ params }) {
           <div className="mt-4">
             <div className="object-cover w-full lg:h-[130px] h-[100px] overflow-hidden">
               <img
-                src={`https://source.unsplash.com/random/900x700/?Peaceful-background-smooth/1920X1080`}
+                src={`https://source.unsplash.com/random/900×700/?garden`}
                 className="w-full h-full object-cover rounded-lg bg-muted"
                 alt="inside blog image"
               />

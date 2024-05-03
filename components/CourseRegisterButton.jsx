@@ -4,11 +4,14 @@ import { Button } from "./ui/button";
 import { db } from "@/firebase/config";
 import { useUser } from "@clerk/clerk-react";
 import {
+  Timestamp,
   addDoc,
   collection,
+  getDoc,
   getDocs,
   query,
   serverTimestamp,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import { Input } from "./ui/input";
@@ -189,27 +192,23 @@ function CourseRegisterButton({ data }) {
   }
 
   async function availFreeMusic(courseId, registeredEmail, freeMusicDuration) {
-    // freeMusicDuration is in months Eg: 1
     const ref = collection(db, "course-music-registrations");
-
+    console.log(freeMusicDuration);
+    const expiryDate = Date.now() + freeMusicDuration * 24 * 60 * 60 * 1000;
+    const expiryTimestamp = Timestamp.fromDate(new Date(expiryDate));
     try {
-      // Calculate expiry timestamp
-      const currentTimestamp = new Date().getTime(); // Current time in milliseconds
-      const millisecondsInMonth = 30 * 24 * 60 * 60 * 1000; // Assuming 30 days per month
-      const expiryTimestamp =
-        currentTimestamp + freeMusicDuration * millisecondsInMonth;
-
-      await addDoc(ref, {
+      // Step 1: Write the initial document with server timestamp
+      const docRef = await addDoc(ref, {
         courseId: courseId,
         registeredEmail: registeredEmail,
-        expiry: serverTimestamp(),
+        expiry: expiryTimestamp,
       });
+
       return true;
     } catch (err) {
-      console.log(err);
+      console.error(err);
+      return false;
     }
-
-    return false;
   }
 
   const addRegistrationToFirestore = async (e) => {
@@ -246,7 +245,7 @@ function CourseRegisterButton({ data }) {
       await availFreeMusic(
         data?.id,
         user?.emailAddresses[0].emailAddress,
-        data?.freeMusciDuration
+        data?.musicFreeDuration
       );
     } catch (err) {
       console.error(err);

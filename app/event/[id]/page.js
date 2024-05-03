@@ -109,7 +109,7 @@ function Event({ params }) {
         </div>
       ) : (
         <Suspense fallback={<p>Loading...</p>}>
-          <div className="max-w-[800px] px-4 py-4 mx-auto mt-8 pt-16">
+          <div className="max-w-[900px] px-4 py-4 mx-auto mt-8 pt-16">
             <div className="flex justify-between gap-2 flex-wrap items-center">
               <p className="text-xs text-muted-foreground">
                 Note: The image is randomly generated based on the title.
@@ -125,11 +125,9 @@ function Event({ params }) {
             </div>
             {blogData && (
               <div className="mt-4">
-                <div className="object-cover w-full lg:h-[170px] h-[150px] overflow-hidden">
+                <div className="object-cover w-full lg:h-[130px] h-[100px] overflow-hidden">
                   <img
-                    src={`https://source.unsplash.com/random/900x700/?Futuristic-background-related-to${encodeURIComponent(
-                      blogData.title
-                    )}/1920X1080`}
+                    src={`https://source.unsplash.com/random/900x700/?garden`}
                     className="w-full h-full object-cover rounded-lg bg-muted"
                     alt="inside blog image"
                   />

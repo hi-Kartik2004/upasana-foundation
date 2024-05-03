@@ -649,12 +649,12 @@ export default function CourseForm({ edit, courseData }) {
               <FormControl>
                 <Input
                   value={editData?.musicFreeDuration}
-                  placeholder="6"
+                  placeholder="120"
                   {...field}
                 />
               </FormControl>
               <FormDescription>
-                Free music duration after taking a course (in months)
+                Free music duration after taking a course (in days)
               </FormDescription>
               <FormMessage />
             </FormItem>

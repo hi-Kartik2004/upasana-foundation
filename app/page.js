@@ -14,6 +14,7 @@ import Link from "next/link";
 import { BiLogoWhatsapp } from "react-icons/bi";
 import HeroDialog from "@/components/HeroDialog";
 import globalData from "@/app/data";
+import { SignedOut } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -27,7 +28,9 @@ export default function Home() {
           />
         </Link>
       </div>
-      <HeroDialog videoUrl={globalData?.heroDialogVideoLink} />
+      <SignedOut>
+        <HeroDialog videoUrl={globalData?.heroDialogVideoLink} />
+      </SignedOut>
       <HeroSection />
       <Separator />
       <HeroContentsSection />
