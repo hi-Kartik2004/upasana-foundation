@@ -3,7 +3,14 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { db } from "@/firebase/config";
 import { useUser } from "@clerk/clerk-react";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  serverTimestamp,
+  where,
+} from "firebase/firestore";
 import { Input } from "./ui/input";
 import { useToast } from "./ui/use-toast";
 import { Toaster } from "./ui/toaster";
@@ -195,7 +202,7 @@ function CourseRegisterButton({ data }) {
       await addDoc(ref, {
         courseId: courseId,
         registeredEmail: registeredEmail,
-        expiry: Date.now(),
+        expiry: serverTimestamp(),
       });
       return true;
     } catch (err) {
@@ -247,6 +254,7 @@ function CourseRegisterButton({ data }) {
 
     console.log(res);
     setRegistering(false);
+    // setRegistered(true);
     checkIfAlreadyRegistered();
     toast({
       title: "Registration Successful",

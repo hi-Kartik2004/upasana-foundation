@@ -6,7 +6,7 @@ const data = {
   siteDescription: "A Door to your Journey of Inner Transformation  ",
   clubName: "Upasana Foundation",
   contactPerson: "Upasana Foundation",
-  contactPhone: ["+91 94823 30850", "+91 94823 46950"],
+  contactPhone: "+91 94823 30850",
   contactEmail: "upasanafound@gmail.com",
 
   //logo
@@ -19,7 +19,7 @@ const data = {
 
   // Hero section
   heroDialogVideoLink:
-    "https://www.youtube.com/embed/pWIsWYdPUvo?si=Iuk4Bj80bfmZ82NA",
+    "https://www.youtube.com/embed/BdVExqRdLXo?si=rvHs6sn1KIZTY42o",
   heroBadgeMessage: "Know it",
   heroAlertMessage:
     "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done - SadhguruShri",
