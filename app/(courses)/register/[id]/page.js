@@ -21,6 +21,7 @@ import { currentUser } from "@clerk/nextjs";
 import { BsFillClockFill } from "react-icons/bs";
 import Marquee from "react-fast-marquee";
 import SpecialEventTestimonialCard from "@/components/SpecialEventTestimonialCard";
+import HeroDialog from "@/components/HeroDialog";
 
 async function Course({ params }) {
   const user = await currentUser();
@@ -238,14 +239,7 @@ async function Course({ params }) {
             </div>
             {courseData?.link && (
               <div className="mt-2 flex gap-2 items-center">
-                <p>Other Link</p> -
-                <Link
-                  href={`${courseData?.link}`}
-                  className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
-                >
-                  <MdMarkEmailRead />
-                  <span>{courseData?.link}</span>
-                </Link>
+                <HeroDialog videoUrl={courseData?.link} />
               </div>
             )}
           </div>

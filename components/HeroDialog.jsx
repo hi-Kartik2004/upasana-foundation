@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { Button } from "./ui/button";
 import globalData from "@/app/data";
 
-function HeroDialog() {
+function HeroDialog({ videoUrl }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -30,11 +30,11 @@ function HeroDialog() {
               Listen what SadhguruShri tells regarding Upasana Foundation.
             </p>
           </div>
-          <video
-            src={globalData?.heroDialogVideoLink}
+          <iframe
+            src={videoUrl}
             controls
             autoPlay
-            className="rounded-lg w-full h-full"
+            className="rounded-lg w-full h-full aspect-video"
           />
         </DialogContent>
       </Dialog>

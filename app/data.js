@@ -19,7 +19,7 @@ const data = {
 
   // Hero section
   heroDialogVideoLink:
-    "https://videos.pexels.com/video-files/20600550/20600550-uhd_3840_2160_30fps.mp4",
+    "https://www.youtube.com/embed/pWIsWYdPUvo?si=Iuk4Bj80bfmZ82NA",
   heroBadgeMessage: "Know it",
   heroAlertMessage:
     "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done - SadhguruShri",

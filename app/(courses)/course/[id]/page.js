@@ -185,7 +185,7 @@ async function Course({ params }) {
 
             <Link
               href={`/course/${params.id}/exclusive-music`}
-              className="hover:underline underline-offset-8 text-center text-md"
+              className="hover:underline underline-offset-8 text-center text-sm"
             >
               Get Exclusive Music &rarr;
             </Link>

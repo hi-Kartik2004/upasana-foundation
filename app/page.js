@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { BiLogoWhatsapp } from "react-icons/bi";
 import HeroDialog from "@/components/HeroDialog";
+import globalData from "@/app/data";
 
 export default function Home() {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
           />
         </Link>
       </div>
-      <HeroDialog />
+      <HeroDialog videoUrl={globalData?.heroDialogVideoLink} />
       <HeroSection />
       <Separator />
       <HeroContentsSection />
