@@ -2,6 +2,7 @@ import React from "react";
 import globalData from "@/app/data";
 import Link from "next/link";
 import {
+  Timestamp,
   collection,
   doc,
   getDoc,
@@ -11,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/firebase/config";
 import { currentUser } from "@clerk/nextjs";
+import moment from "moment";
 
 async function myMusic() {
   const user = await currentUser();
@@ -155,10 +157,14 @@ async function myMusic() {
                   ) : (
                     <p className="mt-4">
                       You can access this course till{" : "}
-                      {new Date(
-                        ele?.expiry.seconds * 1000 +
-                          (ele?.expiry?.nanoseconds ?? 0) / 1000000
-                      ).toString()}
+                      {ele?.expiry && (
+                        <>
+                          {new Date(
+                            ele.expiry.seconds * 1000 +
+                              Math.floor(ele.expiry.nanoseconds / 1000000)
+                          ).toLocaleString()}
+                        </>
+                      )}
                     </p>
                   )}
 
