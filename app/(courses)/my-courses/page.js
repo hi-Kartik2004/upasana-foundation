@@ -123,8 +123,15 @@ async function MyCourses() {
                 ) : (
                   <p>
                     You can access this course from{" "}
-                    {new Date(ele?.courseStarts).toString()} to{" "}
-                    {new Date(ele?.courseExpires).toString()}
+                    <p className="mt-4">
+                      {new Date(ele?.courseStarts).toLocaleString("en-IN", {
+                        timeZone: "IST",
+                      })}{" "}
+                      to{" "}
+                      {new Date(ele?.courseExpires).toLocaleString("en-IN", {
+                        timeZone: "IST",
+                      })}
+                    </p>
                   </p>
                 )}
               </div>

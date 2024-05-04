@@ -162,7 +162,9 @@ async function myMusic() {
                           {new Date(
                             ele.expiry.seconds * 1000 +
                               Math.floor(ele.expiry.nanoseconds / 1000000)
-                          ).toString()}
+                          ).toLocaleString("en-IN", {
+                            timeZone: "IST",
+                          })}
                         </>
                       )}
                     </p>
