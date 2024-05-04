@@ -90,14 +90,12 @@ async function ExclusiveMusic({ params }) {
             Exclusive Music
           </h1>
           <p className="text-center mt-2 text-muted-foreground max-w-[800px] line-clamp-2">
-            3 I have a sidebar that works great but when I tried to put it in a
-            sticky/fixed position, the fixed class makes the content on the
-            right of the sidebar overrides the sidebar and I try with sticky
-            class but doesn't work
+            Below is the excluisve music for your course, use earphones for best
+            experience
           </p>
           <Link
             href={`/course/${params.id}`}
-            className="mt-4 hover:underline underline-offset-8 text-md text-center"
+            className="mt-4 hover:underline underline-offset-8 text-sm text-center"
           >
             Get Back to Course &rarr;
           </Link>
