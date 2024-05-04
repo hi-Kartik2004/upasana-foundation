@@ -109,7 +109,7 @@ function Footer() {
                     href="/sri-paaduka"
                     className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
                   >
-                    Sri Paaduka
+                    Shri Paaduka
                   </Link>
                 </li>
                 <li>
@@ -117,7 +117,7 @@ function Footer() {
                     href="/sri-upasaka"
                     className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
                   >
-                    Sri Upasaka
+                    Shri Upasaka
                   </Link>
                 </li>
                 {/* <li>

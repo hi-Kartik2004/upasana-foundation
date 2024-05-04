@@ -241,15 +241,15 @@ function CourseRegisterButton({ data }) {
       timestamp: new Date().getTime(),
     });
 
-    try {
-      await availFreeMusic(
-        data?.id,
-        user?.emailAddresses[0].emailAddress,
-        data?.musicFreeDuration
-      );
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   await availFreeMusic(
+    //     data?.id,
+    //     user?.emailAddresses[0].emailAddress,
+    //     data?.musicFreeDuration
+    //   );
+    // } catch (err) {
+    //   console.error(err);
+    // }
 
     console.log(res);
     setRegistering(false);

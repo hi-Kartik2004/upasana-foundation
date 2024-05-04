@@ -83,13 +83,13 @@ async function Navbar() {
             href="/sri-paaduka"
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
           >
-            Sri Paaduka
+            Shri Paaduka
           </Link>
           <Link
             href="/sri-upasaka"
             className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
           >
-            Sri Upasaka
+            Shri Upasaka
           </Link>
           <Link
             href="/contact-us"

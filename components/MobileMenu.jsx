@@ -59,17 +59,17 @@ export function MobileMenu() {
             </Link>
           </SheetClose>
 
-          <SheetClose asChild>
+          {/* <SheetClose asChild>
             <Link href="/videos" className="hover:underline underline-offset-8">
               Videos
             </Link>
-          </SheetClose>
+          </SheetClose> */}
           <SheetClose asChild>
             <Link
               href="/sri-paaduka"
               className="hover:underline underline-offset-8"
             >
-              Sri Paaduka
+              Shri Paaduka
             </Link>
           </SheetClose>
           <SheetClose asChild>
@@ -77,7 +77,7 @@ export function MobileMenu() {
               href="/sri-upasaka"
               className="hover:underline underline-offset-8"
             >
-              Sri Upasaka
+              Shri Upasaka
             </Link>
           </SheetClose>
           <SheetClose asChild>

@@ -1,5 +1,12 @@
 import React from "react";
-import { addDoc, collection, doc, getDoc } from "firebase/firestore";
+import {
+  Timestamp,
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 import { db } from "@/firebase/config";
 import CourseForm from "@/components/CourseForm";
 import CourseContentForm from "@/components/CourseContentForm";
@@ -19,6 +26,7 @@ import {
 import AddImage from "@/components/AddImage";
 import AddVideo from "@/components/AddVideo";
 import AddTestimonialsForm from "@/components/AddTestimonialsForm";
+import AddMusicRegistration from "@/components/AddMusicRegistration";
 
 async function ManageCourses({ params }) {
   let courseData;
@@ -48,6 +56,36 @@ async function ManageCourses({ params }) {
     } catch (err) {
       console.error(err);
     }
+    return false;
+  }
+
+  async function addMusicRegistrationToFirebase(
+    email,
+    freeMusicDuration = 120
+  ) {
+    "use server";
+    const ref = collection(db, "course-music-registrations");
+    const expiryDate = Date.now() + freeMusicDuration * 24 * 60 * 60 * 1000;
+    const expiryTimestamp = Timestamp.fromDate(new Date(expiryDate));
+    const newData = {
+      registeredEmail: email,
+      courseId: courseData?.id,
+      courseName: courseData?.name,
+      expiry: expiryTimestamp,
+      timestamp: serverTimestamp(),
+      durationInDays: freeMusicDuration,
+      fees: 0,
+    };
+
+    try {
+      const snapshot = await addDoc(ref, newData);
+      // console.log(snapshot);
+
+      return true;
+    } catch (err) {
+      console.error(err);
+    }
+
     return false;
   }
 
@@ -98,23 +136,44 @@ async function ManageCourses({ params }) {
       <div className="mt-4">
         <Editor courseData={courseData} />
         <Separator className="my-10" />
-        <div className="flex justify-center items-center">
+        <div className="flex justify-around items-center flex-wrap container gap-4">
           <div className="max-w-[600px] flex-grow p-4 rounded-lg border w-full bg-muted">
-            <div className="mb-4">
-              <h1 className="text-2xl font-bold text-center">
-                Add Testimonials
-              </h1>
-              <p className="mt-1 text-muted-foreground text-center">
-                Add Testimonials for this course, which will be seen on the
-                course page!
-              </p>
+            <div className="">
+              <div className="mb-4">
+                <h1 className="text-2xl font-bold text-center">
+                  Add Testimonials
+                </h1>
+                <p className="mt-1 text-muted-foreground text-center">
+                  Add Testimonials for this course, which will be seen on the
+                  course page!
+                </p>
+              </div>
+
+              <div className="flex flex-wrap justify-between mx-auto">
+                <div className="max-w-[600px] w-full">
+                  <AddTestimonialsForm
+                    addTestimonialToFirebase={addTestimonialToFirebase}
+                    courseData={courseData}
+                  />
+                </div>
+              </div>
             </div>
-            <AddTestimonialsForm
-              addTestimonialToFirebase={addTestimonialToFirebase}
-              courseData={courseData}
-            />
+          </div>
+
+          <div className="p-4 rounded-lg border w-full bg-muted max-w-[600px]">
+            <h3 className="text-2xl font-bold text-center">
+              Give free music access to users!
+            </h3>
+
+            <div className="mt-4">
+              <AddMusicRegistration
+                addMusicRegistrationToFirebase={addMusicRegistrationToFirebase}
+                courseData={courseData}
+              />
+            </div>
           </div>
         </div>
+
         <Separator className="my-10" />
         <div className="flex flex-wrap gap-6 mx-6 justify-around mb-10">
           <div className="flex flex-col gap-4 items-center mt-4">
