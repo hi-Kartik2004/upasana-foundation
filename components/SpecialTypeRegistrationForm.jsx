@@ -18,7 +18,7 @@ async function SpecialTypeRegistrationForm({ extraField }) {
         <div className="mt-4 px-4 py-4 rounded-md border">
           <h3 className="text-xl text-center">Access Denied</h3>
           <p className="mt-2 text-muted-foreground text-center">
-            You need to login to register for this pooja!
+            You need to login to register for this event!
           </p>
           <Link
             href="/sign-in"
