@@ -71,7 +71,7 @@ async function ManageCourses({ params }) {
               Edit Course Details
             </h1>
             <p className="mt-1 text-muted-foreground text-center">
-              lorem ipsum dor sit ipem
+              Fill the form to modify the course details
             </p>
           </div>
 
@@ -85,7 +85,7 @@ async function ManageCourses({ params }) {
                 Add Exclusive Course content
               </h1>
               <p className="mt-1 text-muted-foreground text-center">
-                lorem ipsum dor sit ipem
+                Fill the below form the add Blogs
               </p>
             </div>
             <MusicForm courseData={courseData} />
