@@ -41,7 +41,7 @@ function Donate() {
           <h2 className="text-center flex items-center text-2xl underline underline-offset-8">
             Donate via QR Code
           </h2>
-          <div className="mt-10 flex items-center justify-around border rounded-lg p-4">
+          <div className="mt-10 flex items-center justify-around border rounded-lg p-4 bg-card">
             <div className="border p-4 rounded-lg bg-muted">
               <img src={globalData?.qrCodeDetails.image} alt="qr-code" />
             </div>
