@@ -1,6 +1,6 @@
 "use client";
-
-import * as React from "react";
+import React, { useState, useEffect } from "react";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import {
   CaretSortIcon,
   ChevronDownIcon,
@@ -107,14 +107,14 @@ const columns = [
 ];
 
 export function CourseRegistrationsTable() {
-  const [data, setData] = React.useState([]);
-  const [sorting, setSorting] = React.useState([]);
-  const [columnFilters, setColumnFilters] = React.useState([]);
-  const [columnVisibility, setColumnVisibility] = React.useState({});
-  const [rowSelection, setRowSelection] = React.useState({});
-  const [sortByTimestampAsc, setSortByTimestampAsc] = React.useState(false);
+  const [data, setData] = useState([]);
+  const [sorting, setSorting] = useState([]);
+  const [columnFilters, setColumnFilters] = useState([]);
+  const [columnVisibility, setColumnVisibility] = useState({});
+  const [rowSelection, setRowSelection] = useState({});
+  const [sortByTimestampAsc, setSortByTimestampAsc] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const ref = collection(db, "course-registrations");
@@ -195,50 +195,63 @@ export function CourseRegistrationsTable() {
               className="max-w-sm"
             />
           </div>
+          <div className="flex flex-col gap-4 items-start">
+            <div className="flex flex-wrap items-center max-w-[500px]">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="ml-auto">
+                    Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  {table
+                    .getAllColumns()
+                    .filter((column) => column.getCanHide())
+                    .map((column) => {
+                      return (
+                        <DropdownMenuCheckboxItem
+                          key={column.id}
+                          className="capitalize"
+                          checked={column.getIsVisible()}
+                          onCheckedChange={(value) =>
+                            column.toggleVisibility(!!value)
+                          }
+                        >
+                          {column.id}
+                        </DropdownMenuCheckboxItem>
+                      );
+                    })}
+                </DropdownMenuContent>
+              </DropdownMenu>
 
-          <div className="flex flex-wrap items-center max-w-[500px]">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-auto">
-                  Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {table
-                  .getAllColumns()
-                  .filter((column) => column.getCanHide())
-                  .map((column) => {
-                    return (
-                      <DropdownMenuCheckboxItem
-                        key={column.id}
-                        className="capitalize"
-                        checked={column.getIsVisible()}
-                        onCheckedChange={(value) =>
-                          column.toggleVisibility(!!value)
-                        }
-                      >
-                        {column.id}
-                      </DropdownMenuCheckboxItem>
-                    );
-                  })}
-              </DropdownMenuContent>
-            </DropdownMenu>
+              <Button
+                className="ml-4"
+                variant="outline"
+                onClick={handleToggleSortByTimestamp}
+              >
+                Sort by Taken on Date{" "}
+                <CaretSortIcon
+                  className={`h-4 w-4 ${
+                    sortByTimestampAsc ? "rotate-180" : ""
+                  }`}
+                />
+              </Button>
+            </div>
 
-            <Button
+            {/* Add the Excel download button */}
+            <ReactHTMLTableToExcel
+              id="excelButton"
               className="ml-4"
-              variant="outline"
-              onClick={handleToggleSortByTimestamp}
-            >
-              Sort by Taken on Date{" "}
-              <CaretSortIcon
-                className={`h-4 w-4 ${sortByTimestampAsc ? "rotate-180" : ""}`}
-              />
-            </Button>
+              table="table-to-xls"
+              filename="course_registrations"
+              sheet="Sheet"
+              buttonText="Download as Excel"
+            />
           </div>
         </div>
       </div>
       <div className="rounded-md border">
-        <Table>
+        <Table id="table-to-xls">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

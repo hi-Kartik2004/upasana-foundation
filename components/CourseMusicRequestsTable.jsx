@@ -6,6 +6,8 @@ import {
   ChevronDownIcon,
   DotsHorizontalIcon,
 } from "@radix-ui/react-icons";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -300,12 +302,21 @@ export function CourseMusicRequestsTable() {
               className="max-w-sm"
             />
             <Input
-              placeholder="Filter by names..."
+              placeholder="Filter by course names..."
               value={table.getColumn("name")?.getFilterValue() ?? ""}
               onChange={(event) =>
                 table.getColumn("name")?.setFilterValue(event.target.value)
               }
               className="max-w-sm"
+            />
+
+            <ReactHTMLTableToExcel
+              id="excelButton"
+              className="ml-4"
+              table="table-to-xls"
+              filename="course_registrations"
+              sheet="Sheet"
+              buttonText="Download as Excel"
             />
           </div>
 
@@ -347,7 +358,7 @@ export function CourseMusicRequestsTable() {
         </div>
       </div>
       <div className="rounded-md border">
-        <Table>
+        <Table id="table-to-xls">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
