@@ -100,7 +100,7 @@ async function Course({ params }) {
 
   return (
     <>
-      <section className="flex flex-wrap container gap-10 mt-16 py-10 justify-center xl:justify-between relative">
+      <section className="flex flex-wrap container gap-10 mt-12 py-10 justify-center xl:justify-between relative">
         <div className="max-w-[650px] w-full">
           {/* <div className="w-full h-[100px] rounded-md">
             <img
@@ -109,15 +109,16 @@ async function Course({ params }) {
               className="w-full h-full object-cover rounded-md bg-muted"
             />
           </div> */}
-          <div className="w-full">
-            <img
-              src={`${courseData?.image}`}
-              alt={`${courseData?.name}`}
-              className=" object-cover rounded-md bg-muted"
-            />
-          </div>
 
           <div className="mt-4">
+            {courseData?.link && (
+              <iframe
+                src={courseData?.link}
+                controls
+                autoPlay
+                className="rounded-lg w-full mb-10 aspect-video"
+              />
+            )}
             <h1 className="text-2xl font-semibold">{courseData?.name}</h1>
             <div className="flex items-center justify-between mt-4">
               <div className="flex flex-col gap-2">
@@ -230,11 +231,20 @@ async function Course({ params }) {
                 <span>{globalData?.contactEmail}</span>
               </Link>
             </div>
-            {courseData?.link && (
+
+            <div className="w-full mt-4">
+              <img
+                src={`${courseData?.image}`}
+                alt={`${courseData?.name}`}
+                className=" object-cover rounded-md bg-muted"
+              />
+            </div>
+
+            {/* {courseData?.link && (
               <div className="mt-2 flex gap-2 items-center">
                 <HeroDialog videoUrl={courseData?.link} />
               </div>
-            )}
+            )} */}
           </div>
 
           {/* <div className="mt-8 w-full">
