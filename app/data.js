@@ -6,7 +6,7 @@ const data = {
   siteDescription: "A Door to your Journey of Inner Transformation  ",
   clubName: "Upasana Foundation",
   contactPerson: "Upasana Foundation",
-  contactPhone: "+91 94823 30850",
+  contactPhone: ["+91 94823 46950", "+91 94823 30850"],
   contactEmail: "upasanafound@gmail.com",
 
   //logo

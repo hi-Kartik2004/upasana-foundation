@@ -208,33 +208,26 @@ async function Course({ params }) {
           <div className="mt-8">
             <h1 className="text-xl font-semibold">Contact</h1>
             <div className="mt-2 flex gap-2 items-center">
-              <p>{globalData?.contactPerson}</p> -
-              <Link
-                href={`tel:${globalData?.contactPhone}`}
-                className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
-              >
-                <FaPhoneAlt />
-                <span>{globalData?.contactPhone}</span>
-              </Link>
+              <p>{globalData?.contactPerson} Phone</p> -
+              {globalData?.contactPhone.map((contact) => (
+                <Link
+                  href={`tel:${contact}`}
+                  className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
+                >
+                  <FaPhoneAlt />
+                  <span>{contact}</span>
+                </Link>
+              ))}
             </div>
+
             <div className="mt-2 flex gap-2 items-center">
-              <p>{globalData?.contactPerson}</p> -
+              <p>{globalData?.contactPerson} Email</p> -
               <Link
                 href={`mailto:${globalData?.contactEmail}`}
                 className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
               >
                 <MdMarkEmailRead />
                 <span>{globalData?.contactEmail}</span>
-              </Link>
-            </div>
-            <div className="mt-2 flex gap-2 items-center">
-              <p>Alternate Email</p> -
-              <Link
-                href={`mailto:${courseData?.email}`}
-                className="flex items-center gap-2 text-muted-foreground hover:underline underline-offset-4"
-              >
-                <MdMarkEmailRead />
-                <span>{courseData?.email}</span>
               </Link>
             </div>
             {courseData?.link && (

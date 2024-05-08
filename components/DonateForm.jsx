@@ -73,7 +73,7 @@ function DonateForm({ addDonationToFirestore }) {
         onSubmit={(e) => {
           handleSubmit(e);
         }}
-        className="rounded-lg border p-4 flex flex-col gap-4 w-full"
+        className="rounded-lg border p-4 flex flex-col gap-4 w-full bg-card"
       >
         <h2 className="mt-4 text-center underline underline-offset-8 text-3xl">
           Donation Form
