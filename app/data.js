@@ -540,28 +540,28 @@ const data = {
       title: "The term SadhguruShri",
       description:
         "The term SadhguruShri can be split into 3 parts and Understood. Sat means Truth and Guru refers to the force, energy which brings us out from Ignorance. The energy which Lights us , and brings us close to our own self .Here Shri denotes divinity, Thus the title SadhguruShri. ",
-      link: "https://upasana-foundation.vercel.app/heroImage.jpeg",
+      link: "https://i.ytimg.com/vi/Vhi5Dnrhpyw/hqdefault.jpg",
       linkText: "Here what SadhguruShri has said.",
     },
     {
       title: "Vision",
       description:
         "Making a clear departure from mere customs and rituals,SadhguruShri gives a perfect blend of Spirituality with modern lifestyle in his teachings, so that each and every Individual can apply it in their life. SadhguruShri’s scientific methods for self transformation are both experientially direct and powerful.SadhguruShri teaches and guides his Sadhaks towards the spiritual evolution of their Consciousness through the divine science of Kundalini Jagruti Shakti Kriya, a technique born out of his profound experience of the Self.",
-      link: "https://upasana-foundation.vercel.app/heroImage.jpeg",
+      link: "https://firebasestorage.googleapis.com/v0/b/upasana-foundation.appspot.com/o/courses%2Fdiksha%20ullas.jpeg_1714478115799?alt=media&token=3da87471-01f3-4424-bbe9-3bff498ea4cc",
       linkText: "Guiding Paths",
     },
     {
       title: "Early Life of SadhguruShri",
       description:
         "From a very young age SadhguruShri had a fondness for spirituality & religious practices. He had a special affinity for bhajans, kirtans and harikathas and would never miss an opportunity to attend such events. SadhguruShri would often speak about various aspects of spirituality and how people could inculcate in their daily lives.As a child, SadhguruShri dreamt of being a Sanyasi following a spiritual path when he grew up. At age 16 SadhguruShri chose to leave home and walk the spiritual path. He ventured all over India in search of the true meaning of life. After seeking guidance from many seers across North and South India, SadhguruShri started teaching yoga by organizing yoga camps also known as Kriyatmak Yog Shibir.",
-      link: "https://upasana-foundation.vercel.app/heroImage.jpeg",
+      link: "https://i.ytimg.com/vi/pWIsWYdPUvo/maxresdefault.jpg",
       linkText: "Preachings",
     },
     {
       title: "Few words from SadhguruShri",
       description:
         "SadhguruShri always teaches his Sadhakas about inner well being and inner Transformations. When we develop ourselves internally with strong foundations , we become Stable in our lives. Once we have transformed ourselves, our family gets transformed, automatically the society and mankind. That is why Sadhana and Seva with complete Shardha on Guru is given Importance here. And most Importantly, this must be done with pure love. Any action performed without love is never Complete.",
-      link: "https://upasana-foundation.vercel.app/heroImage.jpeg",
+      link: "https://i.ytimg.com/vi/xNtUftdkGyQ/sddefault.jpg",
       linkText: "",
     },
   ],

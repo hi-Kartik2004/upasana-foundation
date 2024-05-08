@@ -44,6 +44,10 @@ function HeroSection({ isMember }) {
               alertMessage={data?.heroAlertMessage}
             />
           </div> */}
+          <img
+            src="https://static.sadhguru.org/assets/images/flower-divider-horizontal-beige.svg"
+            alt="flower"
+          />
 
           <h1 className="text-3xl lg:leading-tight	 md:text-4xl lg:text-5xl max-w-[800px] font-bold">
             {data?.heroTitleLeft + " "}
