@@ -208,7 +208,7 @@ async function Course({ params }) {
 
           <div className="mt-8">
             <h1 className="text-xl font-semibold">Contact</h1>
-            <div className="mt-2 flex gap-2 items-center">
+            <div className="mt-2 flex gap-2 items-center flex-wrap">
               <p>{globalData?.contactPerson} Phone</p> -
               {globalData?.contactPhone.map((contact) => (
                 <Link
