@@ -232,7 +232,7 @@ async function Course({ params }) {
               </Link>
             </div>
 
-            <div className="w-full mt-4">
+            <div className="w-full mt-10">
               <img
                 src={`${courseData?.image}`}
                 alt={`${courseData?.name}`}
