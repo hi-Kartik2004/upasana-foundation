@@ -177,11 +177,19 @@ export function CourseRegistrationsTable() {
               className="max-w-sm"
             />
             <Input
-              placeholder="Filter by names..."
-              value={table.getColumn("registeredName")?.getFilterValue() ?? ""}
+              placeholder="Filter by course names..."
+              value={table.getColumn("name")?.getFilterValue() ?? ""}
+              onChange={(event) =>
+                table.getColumn("name")?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+            <Input
+              placeholder="Filter by batches..."
+              value={table.getColumn("registeredBatch")?.getFilterValue() ?? ""}
               onChange={(event) =>
                 table
-                  .getColumn("registeredName")
+                  .getColumn("registeredBatch")
                   ?.setFilterValue(event.target.value)
               }
               className="max-w-sm"
