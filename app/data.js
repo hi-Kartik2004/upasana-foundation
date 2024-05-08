@@ -10,7 +10,7 @@ const data = {
   contactEmail: "upasanafound@gmail.com",
 
   //logo
-  logoLink: "https://i.postimg.cc/Bvv37qdc/swan-3.png",
+  logoLink: "/logo.png",
 
   // SignIn Page
   signInTitle: "You are Here for a Higher Cause",

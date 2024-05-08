@@ -17,7 +17,7 @@ function AboutHeroSection() {
             <p className="mb-5 text-base text-muted-foreground md:text-lg md:text-center">
               {data?.aboutPageDescription}
             </p>
-            <Divider />
+
             <div className="mb-10 text-center md:mb-16 lg:mb-20">
               <Link
                 href={`${data?.aboutPageLearnMoreLink}`}
@@ -26,6 +26,7 @@ function AboutHeroSection() {
                 Learn more &rarr;
               </Link>
             </div>
+            <Divider />
             <div className="flex flex-col items-center">
               <div className="mb-2 text-sm text-muted-foreground md:mb-2">
                 Follow us

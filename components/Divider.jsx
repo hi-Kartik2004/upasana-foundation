@@ -1,9 +1,9 @@
 import React from "react";
 
-function Divider() {
+function Divider({ left }) {
   return (
     <>
-      <div className="dark:hidden flex justify-center">
+      <div className={`dark:hidden ${!left && "flex justify-center"}`}>
         <img
           src="/divider-dark.svg"
           alt="divider-flower-dark"
