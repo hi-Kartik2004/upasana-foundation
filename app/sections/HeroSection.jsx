@@ -26,68 +26,84 @@ function HeroSection({ isMember }) {
 
   return (
     <section className="pt-24 py-6 dark:bg-[url('/texture-pattern-dark.svg')] bg-[url('/texture-pattern-light.svg')] w-full overflow-hidden">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.3 }}
-        variants={{
-          visible: { opacity: 1, y: 0 },
-          hidden: { opacity: 0, y: 10 },
-        }}
-        className="container flex flex-col items-center w-full"
-      >
-        <div className="">
-          <AlertComponent
-            badgeMessage={data?.heroBadgeMessage}
-            alertMessage={data?.heroAlertMessage}
+      <div className="w-full p-5 max-w-[1300px] mx-auto my-auto flex-col flex justify-between items-center md:items-center lg:flex-row gap-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.3 }}
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 10 },
+          }}
+          className="container flex flex-col lg:items-start items-center w-full my-auto"
+        >
+          {/* <div className="mb-10">
+            <AlertComponent
+              badgeMessage={data?.heroBadgeMessage}
+              alertMessage={data?.heroAlertMessage}
+            />
+          </div> */}
+
+          <h1 className="text-3xl lg:leading-tight	 md:text-4xl lg:text-5xl max-w-[800px] font-bold">
+            {data?.heroTitleLeft + " "}
+            <span className="bg-gradient-to-b from-[#ff5837] to-[#ff9300] bg-clip-text text-transparent">
+              {data?.heroTitleYellow + " "}
+            </span>{" "}
+            {data?.heroTitleRight}
+          </h1>
+
+          <p className="max-w-[800px] lg:text-base text-muted-foreground text-md text-start my-6 lg:my-8">
+            {data?.heroDescription}
+          </p>
+
+          <div className="flex gap-6 flex-col md:flex-row">
+            {isMember ? (
+              <Button
+                className="flex gap-2 items-center font-semibold"
+                size="lg"
+              >
+                <Link
+                  href={`${data.heroYellowBtnLinkForMembers}`}
+                  className="flex gap-2 items-center"
+                >
+                  {data?.heroYellowBtnMessageForMembers} &rarr;
+                </Link>
+              </Button>
+            ) : (
+              <Button
+                className="flex gap-2 items-center font-semibold"
+                size="lg"
+              >
+                <Link
+                  href={`${data.heroYellowBtnLink}`}
+                  className="flex gap-2 items-center"
+                >
+                  {data?.heroYellowBtnMessage} &rarr;
+                </Link>
+              </Button>
+            )}
+
+            <Button
+              className="flex gap-2 items-center border-primary/20 border"
+              variant="secondary"
+              size="lg"
+            >
+              <Link href={`${data.heroSecondaryBtnLink}`}>
+                {data.heroSecondaryBtnMessage} &rarr;
+              </Link>
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="max-w-[500px] w-full">
+          <img
+            src="/heroImage.jpeg"
+            alt="hero_img"
+            className="object-cover rounded-lg shadow-lg"
           />
         </div>
-
-        <h1 className="text-3xl lg:leading-tight	 md:text-4xl lg:text-5xl max-w-[1000px] font-bold text-center mt-6">
-          {data?.heroTitleLeft + " "}
-          <span className="bg-gradient-to-b from-[#ff5837] to-[#ff9300] bg-clip-text text-transparent">
-            {data?.heroTitleYellow + " "}
-          </span>{" "}
-          {data?.heroTitleRight}
-        </h1>
-
-        <p className="max-w-[800px] lg:text-base text-muted-foreground text-md text-center my-6 lg:my-8">
-          {data?.heroDescription}
-        </p>
-
-        <div className="flex gap-6 flex-col lg:flex-row">
-          {isMember ? (
-            <Button className="flex gap-2 items-center font-semibold" size="lg">
-              <Link
-                href={`${data.heroYellowBtnLinkForMembers}`}
-                className="flex gap-2 items-center"
-              >
-                {data?.heroYellowBtnMessageForMembers} &rarr;
-              </Link>
-            </Button>
-          ) : (
-            <Button className="flex gap-2 items-center font-semibold" size="lg">
-              <Link
-                href={`${data.heroYellowBtnLink}`}
-                className="flex gap-2 items-center"
-              >
-                {data?.heroYellowBtnMessage} &rarr;
-              </Link>
-            </Button>
-          )}
-
-          <Button
-            className="flex gap-2 items-center border-primary/20 border"
-            variant="secondary"
-            size="lg"
-          >
-            <Link href={`${data.heroSecondaryBtnLink}`}>
-              {data.heroSecondaryBtnMessage} &rarr;
-            </Link>
-          </Button>
-        </div>
-      </motion.div>
+      </div>
 
       <motion.div
         initial="hidden"

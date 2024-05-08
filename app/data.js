@@ -20,11 +20,11 @@ const data = {
   // Hero section
   heroDialogVideoLink:
     "https://www.youtube.com/embed/BdVExqRdLXo?si=rvHs6sn1KIZTY42o",
-  heroBadgeMessage: "Know it",
+  heroBadgeMessage: "Quote",
   heroAlertMessage:
     "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done - SadhguruShri",
   heroTitleLeft: "Swastha Vyakthi, Swastha Kutumba, Swastha Samaja ",
-  heroTitleYellow: " Through Sadhana, Seva and Love!! ",
+  heroTitleYellow: " Through Sadhana, Seva and Love!",
   heroTitleRight: "  ",
   heroDescription:
     "You are born for a Cause, You Live for a cause and You are here for a Cause, Find it Here ",

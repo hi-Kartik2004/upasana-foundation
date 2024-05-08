@@ -140,21 +140,16 @@ export function MusicRegistrationsTable() {
   };
 
   const handleFilterByExpiryDate = (row) => {
+    console.log("filtering", row);
     if (!row.original || !row.original.expiry) {
-      console.log("row.original", row.original);
       return false; // If row or expiry is undefined, exclude the row
     }
 
-    const expiryTimestamp =
-      row.original.expiry.seconds * 1000 +
-      Math.floor(row.original.expiry.nanoseconds / 1000000);
-    const expiryDate = new Date(expiryTimestamp);
+    const expiryDate = row.original.expiry.toDate(); // Convert Firestore Timestamp to JavaScript Date
     if (startFilterDate && stopFilterDate) {
-      const startTimestamp = new Date(startFilterDate).getTime();
-      const stopTimestamp = new Date(stopFilterDate).getTime();
-      return (
-        expiryTimestamp >= startTimestamp && expiryTimestamp <= stopTimestamp
-      );
+      const startDate = new Date(startFilterDate);
+      const stopDate = new Date(stopFilterDate);
+      return startDate <= expiryDate && expiryDate <= stopDate;
     }
     return true;
   };

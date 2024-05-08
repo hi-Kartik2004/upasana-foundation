@@ -68,6 +68,7 @@
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "url-encode-decode": "^1.0.0",
+    "v0": "^2.2.1",
     "vaul": "^0.9.0",
     "youtube-api": "^3.0.1",
     "zod": "^3.22.4"

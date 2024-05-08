@@ -7,7 +7,7 @@ function AlertComponent(props) {
         <Badge>
           <span className="text-xs">{props.badgeMessage}</span>
         </Badge>
-        <p className="text-xs">{props.alertMessage} &rarr;</p>
+        <p className="text-xs">{props.alertMessage}</p>
       </div>
     </div>
   );
