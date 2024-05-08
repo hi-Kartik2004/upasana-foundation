@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import data from "@/app/data";
+import Divider from "@/components/Divider";
 
 function HeroContentsSection() {
   return (
@@ -14,10 +15,12 @@ function HeroContentsSection() {
           </span>
           <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
         </h2>
+
         <p className="text-muted-foreground lg:text-md lg:max-w-md">
           {data?.heroSecondSectionDescription}
         </p>
       </div>
+
       <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
         {data.heroSecondSectionCards &&
           data?.heroSecondSectionCards.map((card) => {

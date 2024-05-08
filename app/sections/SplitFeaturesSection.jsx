@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import React from "react";
 import data from "@/app/data";
 import Link from "next/link";
+import Divider from "@/components/Divider";
 
 function SplitFeaturesSection() {
   return (
@@ -14,9 +15,11 @@ function SplitFeaturesSection() {
           <h2 className="mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-primary sm:text-5xl md:mx-auto">
             {data?.splitFeaturesSectionTitle}
           </h2>
+
           <p className="text-base text-muted-foreground md:text-md">
             {data?.splitFeaturesSectionDescription}
           </p>
+          <Divider />
         </div>
         <div className="grid max-w-screen-lg mx-auto space-y-6 lg:grid-cols-2 lg:space-y-0 lg:divide-x">
           <div className="space-y-6 sm:px-16">

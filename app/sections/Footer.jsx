@@ -6,6 +6,7 @@ import {
   BiLogoLinkedinSquare,
   BiLogoYoutube,
 } from "react-icons/bi";
+import VerticalDivider from "@/components/VerticalDivider";
 
 function Footer() {
   return (
@@ -186,28 +187,32 @@ function Footer() {
               </ul>
             </div>
           </div>
-          <div className="md:max-w-md lg:col-span-2 lg:ml-4 mt-2">
-            <span className="text-base font-medium tracking-wide text-muted-foreground">
-              Subscribe for updates
-            </span>
-            <form className="flex flex-col mt-4 md:flex-row">
-              <input
-                placeholder="Email"
-                required
-                type="text"
-                className="flex-grow w-full h-12 px-4 mb-3 transition duration-200 border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-              />
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-primary transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none border border-gray-300"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="mt-4 text-sm text-gray-500">
-              Get regular updated of our Shibirs, volunteer opportunities,
-              events and a lot more
-            </p>
+
+          <div className="md:max-w-md lg:col-span-2 lg:ml-4 mt-2 flex w-full">
+            <VerticalDivider />
+            <div className="flex flex-col gap-2 ml-4">
+              <span className="text-base font-medium tracking-wide text-muted-foreground">
+                Subscribe for updates
+              </span>
+              <form className="flex flex-col mt-4 md:flex-row">
+                <input
+                  placeholder="Email"
+                  required
+                  type="text"
+                  className="flex-grow w-full h-12 px-4 mb-3 transition duration-200 border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                />
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-primary transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none border border-gray-300"
+                >
+                  Subscribe
+                </button>
+              </form>
+              <p className="mt-4 text-sm text-gray-500">
+                Get regular updated of our Shibirs, volunteer opportunities,
+                events and a lot more
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex flex-col justify-between pt-5 pb-10 border-t border-gray-800 sm:flex-row">

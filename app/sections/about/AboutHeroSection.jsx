@@ -1,6 +1,7 @@
 import React from "react";
 import data from "@/app/data";
 import Link from "next/link";
+import Divider from "@/components/Divider";
 
 function AboutHeroSection() {
   return (
@@ -16,6 +17,7 @@ function AboutHeroSection() {
             <p className="mb-5 text-base text-muted-foreground md:text-lg md:text-center">
               {data?.aboutPageDescription}
             </p>
+            <Divider />
             <div className="mb-10 text-center md:mb-16 lg:mb-20">
               <Link
                 href={`${data?.aboutPageLearnMoreLink}`}

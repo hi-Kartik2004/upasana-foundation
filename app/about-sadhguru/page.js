@@ -10,13 +10,31 @@ function AboutSadhguru() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
+              <div className="hidden dark:block">
+                <img
+                  src="https://static.sadhguru.org/assets/images/flower-divider-horizontal-beige.svg"
+                  alt="divider-flower-dark"
+                  className="mb-2"
+                />
+              </div>
+
+              <div className="block dark:hidden">
+                <img
+                  src=" https://static.sadhguru.org/d/46272/1654103596-divider-yoga.svg/"
+                  alt="divider-flower-dark"
+                  className="mb-2"
+                />
+              </div>
+
               <div className="space-y-2">
                 <h1 className="text-primary text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                   SadhguruShri Rama
                 </h1>
+
                 <h2 className="text-xl font-medium text-gray-500 dark:text-gray-400">
                   Founder, Upasana Foundation
                 </h2>
+
                 <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                   {/* {data?.aboutSadhguruTitle} */}
                   {data?.aboutSadhguruDescription()}

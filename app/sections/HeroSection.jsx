@@ -8,6 +8,7 @@ import data from "../data";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Loader from "@/components/Loader";
+import Divider from "@/components/Divider";
 
 function HeroSection({ isMember }) {
   const [loading, setLoading] = useState(true);
@@ -44,10 +45,7 @@ function HeroSection({ isMember }) {
               alertMessage={data?.heroAlertMessage}
             />
           </div> */}
-          <img
-            src="https://static.sadhguru.org/assets/images/flower-divider-horizontal-beige.svg"
-            alt="flower"
-          />
+          <Divider />
 
           <h1 className="text-3xl lg:leading-tight	 md:text-4xl lg:text-5xl max-w-[800px] font-bold">
             {data?.heroTitleLeft + " "}

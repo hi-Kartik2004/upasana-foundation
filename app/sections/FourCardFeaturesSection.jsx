@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import React from "react";
 import data from "@/app/data";
 import Link from "next/link";
+import Divider from "@/components/Divider";
 
 function FourCardFeaturesSection() {
   return (
@@ -17,6 +18,7 @@ function FourCardFeaturesSection() {
           {data?.fourCardFeaturesSectionDescription}
         </p>
       </div>
+      <Divider />
 
       <div className="flex justify-end mb-4">
         <p className="text-lg">scroll &rarr;</p>
