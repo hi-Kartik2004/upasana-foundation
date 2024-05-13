@@ -39,6 +39,7 @@ function MusicRequestForm({
     comments: "",
     batch: batch,
   });
+  const [hasActiveMusic, setHasActiveMusic] = useState(isAlreadyClaimed);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -93,7 +94,7 @@ function MusicRequestForm({
       timestamp: Date.now(),
     };
     if (await addRegistrationToFirestore(data)) {
-      isAlreadyClaimed = true;
+      setHasActiveMusic(true);
       toast({
         title: "Registration successful!",
         description: "You can start accessing the exclusive music now!",
@@ -150,7 +151,7 @@ function MusicRequestForm({
         <div className="flex flex-col gap-4 mt-2">
           <Button
             className="flex text-wrap flex-grow"
-            disabled={submitted}
+            disabled={submitted | hasActiveMusic}
             style={{ paddingTop: "1.5rem", paddingBottom: "1.5rem" }}
           >
             {isRequested && !submitting
@@ -166,15 +167,15 @@ function MusicRequestForm({
       </form>
       <Button
         variant={"outline"}
-        disabled={!(status == "Approved") | isAlreadyClaimed}
+        disabled={!(status == "Approved") | hasActiveMusic}
         className="flex text-wrap flex-grow mt-4"
         style={{ paddingTop: "1.5rem", paddingBottom: "1.5rem" }}
         onClick={handleRegistration}
       >
-        {isAlreadyClaimed
+        {hasActiveMusic
           ? "You have already claimed the exclusive music!"
-          : `Proceed to make a payment of Rs ${musicCost}/- <br />{" "}
-        ${status === "Pending" && "(Disabled... approval pending.)"}`}
+          : `Proceed to make a payment of Rs ${musicCost}/-
+        ${status !== "Approved" ? "(Disabled... approval pending)" : ""}`}
       </Button>
     </div>
   );
