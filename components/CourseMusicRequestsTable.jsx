@@ -134,6 +134,20 @@ export function CourseMusicRequestsTable() {
       ),
     },
     {
+      accessorKey: "batch",
+      header: "Batch",
+      cell: ({ row }) => (
+        <p className="w-[200px]">
+          Batch From: {row.original?.batch?.date}, {row.original?.batch?.time}{" "}
+          IST
+        </p>
+      ),
+      filterFn: (row, columnId, filterValue) => {
+        const batchInfo = `Batch From: ${row.original?.batch?.date}, ${row.original?.batch?.time} IST`;
+        return batchInfo.toLowerCase().includes(filterValue.toLowerCase());
+      },
+    },
+    {
       accessorKey: "Approve",
       header: "Approve",
       cell: ({ row }) =>
@@ -306,6 +320,15 @@ export function CourseMusicRequestsTable() {
               value={table.getColumn("name")?.getFilterValue() ?? ""}
               onChange={(event) =>
                 table.getColumn("name")?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+
+            <Input
+              placeholder="Filter by batch..."
+              value={table.getColumn("batch")?.getFilterValue() ?? ""}
+              onChange={(event) =>
+                table.getColumn("batch")?.setFilterValue(event.target.value)
               }
               className="max-w-sm"
             />

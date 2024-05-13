@@ -180,6 +180,7 @@ async function addMessageToFirestore({ formData }) {
 export default function CourseForm({ edit, courseData }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [batches, setBatches] = useState([]);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -302,6 +303,17 @@ export default function CourseForm({ edit, courseData }) {
     }
   }
 
+  const addBatch = () => {
+    setBatches([...batches, { date: "", time: "" }]);
+  };
+
+  // Function to handle removing a batch
+  const removeBatch = (index) => {
+    const updatedBatches = [...batches];
+    updatedBatches.splice(index, 1);
+    setBatches(updatedBatches);
+  };
+
   const { toast } = useToast();
 
   useEffect(() => {
@@ -309,6 +321,9 @@ export default function CourseForm({ edit, courseData }) {
       if (edit) {
         const data = await getCourseData();
         form.reset(data); // Reset the form with the new data
+        if (data && data.batches) {
+          setBatches(data.batches);
+        }
       }
     };
 
@@ -498,49 +513,41 @@ export default function CourseForm({ edit, courseData }) {
           )}
         />
 
-        <Button
-          onClick={() => {
-            form.setValue("batches", [
-              ...form.getValues().batches,
-              { date: "", time: "" },
-            ]);
-          }}
-        >
-          Add Batch
-        </Button>
+        <Button onClick={addBatch}>Add Batch</Button>
 
-        {form.getValues().batches &&
-          form.getValues().batches.map((batch, index) => (
-            <div key={index}>
-              <FormField
-                control={form.control}
-                name={`batches[${index}].date`}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{`Batch ${index + 1} Date*`}</FormLabel>
-                    <FormControl>
-                      <Input type="date" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+        {batches.map((batch, index) => (
+          <div key={index}>
+            <FormField
+              control={form.control}
+              name={`batches[${index}].date`}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{`Batch ${index + 1} Date*`}</FormLabel>
+                  <FormControl>
+                    <Input type="date" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-              <FormField
-                control={form.control}
-                name={`batches[${index}].time`}
-                render={({ field }) => (
-                  <FormItem className="mt-2">
-                    <FormLabel>{`Batch ${index + 1} Time*`}</FormLabel>
-                    <FormControl>
-                      <Input type="time" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-          ))}
+            <FormField
+              control={form.control}
+              name={`batches[${index}].time`}
+              render={({ field }) => (
+                <FormItem className="mt-2">
+                  <FormLabel>{`Batch ${index + 1} Time*`}</FormLabel>
+                  <FormControl>
+                    <Input type="time" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button onClick={() => removeBatch(index)}>Remove</Button>
+          </div>
+        ))}
 
         {/* <FormField
           control={form.control}

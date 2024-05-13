@@ -9,7 +9,7 @@ function CourseMusicRegistrations() {
         <div className="w-full container mt-4 max-w-[1200px] ">
           <div>
             <h1 className="text-2xl font-semibold">
-              Course Music Registrations
+              Course Music Registrations Requests
             </h1>
             <p className="text-muted-foreground">
               {" "}

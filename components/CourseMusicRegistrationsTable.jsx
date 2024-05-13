@@ -93,6 +93,29 @@ export function MusicRegistrationsTable() {
       header: "Fees",
     },
     {
+      accessorKey: "registeredName",
+      header: "Name",
+    },
+
+    {
+      accessorKey: "registeredPhone",
+      header: "Phone",
+    },
+    {
+      accessorKey: "batch",
+      header: "Batch",
+      cell: ({ row }) => (
+        <p className="w-[200px]">
+          Batch From: {row.original?.batch?.date}, {row.original?.batch?.time}{" "}
+          IST
+        </p>
+      ),
+      filterFn: (row, columnId, filterValue) => {
+        const batchInfo = `Batch From: ${row.original?.batch?.date}, ${row.original?.batch?.time} IST`;
+        return batchInfo.toLowerCase().includes(filterValue.toLowerCase());
+      },
+    },
+    {
       accessorKey: "timestamp",
       header: "Activated On",
       cell: ({ row }) => (
@@ -231,6 +254,15 @@ export function MusicRegistrationsTable() {
                 table
                   .getColumn("registeredEmail")
                   ?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+
+            <Input
+              placeholder="Filter by batch..."
+              value={table.getColumn("batch")?.getFilterValue() ?? ""}
+              onChange={(event) =>
+                table.getColumn("batch")?.setFilterValue(event.target.value)
               }
               className="max-w-sm"
             />
