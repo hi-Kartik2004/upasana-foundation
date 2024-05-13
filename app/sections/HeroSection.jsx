@@ -26,8 +26,8 @@ function HeroSection({ isMember }) {
   }
 
   return (
-    <section className="pt-24 py-6 dark:bg-[url('/texture-pattern-dark.svg')] bg-[url('/texture-pattern-light.svg')] w-full overflow-hidden">
-      <div className="w-full p-5 max-w-[1300px] mx-auto my-auto flex-col flex justify-between items-center md:items-center lg:flex-row gap-10">
+    <section className="pt-24 py-6 dark:bg-[url('/upasana-coverphoto-4.jpg')] bg-[url('/upasana-coverphoto-4.jpg')] bg-opacity-50 bg-blend-darken	 w-full overflow-hidden min-h-screen h-full bg-no-repeat">
+      <div className="w-full p-5 max-w-[1300px] mx-auto my-auto flex-col flex justify-between items-center md:items-center lg:flex-row gap-10 h-full  mt-2 md:mt-14">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -37,7 +37,7 @@ function HeroSection({ isMember }) {
             visible: { opacity: 1, y: 0 },
             hidden: { opacity: 0, y: 10 },
           }}
-          className="container flex flex-col lg:items-start items-center w-full my-auto"
+          className="container flex flex-col lg:items-start items-center w-full my-auto h-full "
         >
           {/* <div className="mb-10">
             <AlertComponent
@@ -47,15 +47,15 @@ function HeroSection({ isMember }) {
           </div> */}
           <Divider />
 
-          <h1 className="text-3xl lg:leading-tight	 md:text-4xl lg:text-5xl max-w-[800px] font-bold">
+          <h1 className="text-3xl lg:leading-tight md:text-4xl lg:text-5xl max-w-[800px] font-bold text-white">
             {data?.heroTitleLeft + " "}
-            <span className="bg-gradient-to-b from-[#ff5837] to-[#ff9300] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-b from-[white] to-[white] bg-clip-text text-transparent">
               {data?.heroTitleYellow + " "}
             </span>{" "}
             {data?.heroTitleRight}
           </h1>
 
-          <p className="max-w-[800px] lg:text-base text-muted-foreground text-md text-start my-6 lg:my-8">
+          <p className="max-w-[800px] lg:text-base text-gray-700 text-md text-start my-6 lg:my-8">
             {data?.heroDescription}
           </p>
 
@@ -98,7 +98,7 @@ function HeroSection({ isMember }) {
           </div>
         </motion.div>
 
-        <div className="max-w-[500px] w-full">
+        <div className="max-w-[500px] w-full block md:hidden">
           <img
             src="/heroImage.jpeg"
             alt="hero_img"
@@ -107,7 +107,7 @@ function HeroSection({ isMember }) {
         </div>
       </div>
 
-      <motion.div
+      {/* <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
@@ -138,7 +138,7 @@ function HeroSection({ isMember }) {
             ))}
           </div>
         </Marquee>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }
