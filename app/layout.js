@@ -6,6 +6,7 @@ import Navbar from "./sections/Navbar";
 import Footer from "./sections/Footer";
 
 import AdminMenu from "@/components/AdminMenu";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,15 @@ export default function RootLayout({ children }) {
               <AdminMenu />
             </SignedIn>
             <Navbar />
+            <div className="fixed right-6 bottom-6 z-50">
+              <Link target="_blank" href={`https://wa.me/${"+919482330850"}`}>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBuTSKJXT0jrs3q-rT87uhekCyyWY_FX_RC5CK4O0IDA&s"
+                  className="max-w-[50px] rounded-full"
+                  alt="whatsapp-floating-btn"
+                />
+              </Link>
+            </div>
             {children}
             <Footer />
           </ThemeProvider>
