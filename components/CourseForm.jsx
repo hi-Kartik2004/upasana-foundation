@@ -158,13 +158,20 @@ async function addMessageToFirestore({ formData }) {
       throw downloadError;
     }
 
-    const docData = {
+    let docData = {
       ...formData,
       timestamp: Date.now(),
       image: downloadURL,
     };
 
-    docData.batches = formData.batches;
+    // Check if batches exist in formData
+    if (formData.batches) {
+      // Filter out any empty batches
+      const nonEmptyBatches = formData.batches.filter(
+        (batch) => batch.date && batch.time
+      );
+      docData.batches = nonEmptyBatches;
+    }
 
     const collectionRef = collection(db, "courses");
     const docRef = await addDoc(collectionRef, docData);
