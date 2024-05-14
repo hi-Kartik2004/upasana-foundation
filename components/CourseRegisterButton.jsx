@@ -56,7 +56,7 @@ function calculateExpiryDate(batchDate, expiry) {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
-    const expiryDate = `${year}-${month}-${day}`;
+    const expiryDate = `${day}-${month}-${year}`;
 
     // Return the formatted expiry date
     return expiryDate;
@@ -64,6 +64,19 @@ function calculateExpiryDate(batchDate, expiry) {
     console.error("Error calculating expiry date:", error.message);
     return null;
   }
+}
+
+function reverseDate(dateString) {
+  // Split the date string into components
+  const [year, month, day] = dateString.split("-");
+
+  // Reverse the order of the components
+  const reversedDateComponents = [day, month, year];
+
+  // Join the reversed components back together
+  const reversedDateString = reversedDateComponents.join("-");
+
+  return reversedDateString;
 }
 
 function BatchDropdown({ expiry, batches, onSelectBatch }) {
@@ -80,15 +93,15 @@ function BatchDropdown({ expiry, batches, onSelectBatch }) {
               <SelectItem
                 required
                 key={index}
-                value={`Batch ${index + 1} - From: ${
+                value={`Batch ${index + 1} - From: ${reverseDate(
                   batch.date
-                }, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
+                )}, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
                   batch.time
                 } IST`}
               >
-                {`Batch ${index + 1} - From: ${
+                {`Batch ${index + 1} - From: ${reverseDate(
                   batch.date
-                }, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
+                )}, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
                   batch.time
                 } IST`}
               </SelectItem>
