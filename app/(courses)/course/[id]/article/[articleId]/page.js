@@ -107,6 +107,7 @@ async function Article({ params }) {
                 <audio
                   controls
                   src={blogData?.recordingUrl?.recordingUrl || ""}
+                  controlsList="nodownload"
                 ></audio>
               </div>
             }
