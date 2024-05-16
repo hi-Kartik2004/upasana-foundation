@@ -56,9 +56,9 @@ async function MyCourses() {
   }
 
   console.log(
-    data[0].courseStarts,
-    data[0].courseExpires,
-    isCurrentTimeBetween(data[0].courseStarts, data[0].courseExpires)
+    data[0]?.courseStarts,
+    data[0]?.courseExpires,
+    isCurrentTimeBetween(data[0]?.courseStarts, data[0]?.courseExpires)
   );
 
   return (
