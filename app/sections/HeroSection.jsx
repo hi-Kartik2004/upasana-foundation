@@ -47,15 +47,15 @@ function HeroSection({ isMember }) {
           </div> */}
           <Divider />
 
-          <h1 className="text-3xl lg:leading-tight md:text-4xl lg:text-5xl max-w-[800px] font-bold text-white">
-            {data?.heroTitleLeft + " "}
-            <span className="bg-gradient-to-b from-[white] to-[white] bg-clip-text text-transparent">
+          <h1 className="text-4xl lg:leading-tight md:text-4xl lg:text-5xl max-w-[800px] font-bold bg-gradient-to-t  from-[#e9e9e9] to-[white] bg-clip-text text-transparent">
+            {data?.heroTitleLeft()}
+            <span className="bg-gradient-to-b from-[black] to-[gray] bg-clip-text text-transparent text-xl md:text-2xl">
               {data?.heroTitleYellow + " "}
             </span>{" "}
             {data?.heroTitleRight}
           </h1>
 
-          <p className="max-w-[800px] lg:text-base text-gray-700 text-md text-start my-6 lg:my-8">
+          <p className="max-w-[400px] lg:text-base text-gray-700 text-md my-6 lg:my-8 text-center lg:text-start">
             {data?.heroDescription}
           </p>
 
@@ -98,7 +98,7 @@ function HeroSection({ isMember }) {
           </div>
         </motion.div>
 
-        <div className="max-w-[500px] w-full block md:hidden">
+        <div className="max-w-[500px] w-full block lg:hidden">
           <img
             src="/heroImage.jpeg"
             alt="hero_img"

@@ -42,6 +42,10 @@ const menuLinks = [
     name: "Queries",
     link: "/contact-us-queries",
   },
+  {
+    name: "Ratings",
+    link: "/course-ratings",
+  },
 ];
 
 function AdminMenu({ username }) {

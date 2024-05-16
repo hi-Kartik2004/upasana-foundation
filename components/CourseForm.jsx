@@ -123,14 +123,17 @@ const formSchema = z.object({
     .min(1, "music cost after free access cannot be unfilled"),
   musicFreeDuration: z.coerce
     .number()
-    .min(
-      1,
-      "free music duration after the user has taken the course (in months)"
-    ),
+    .min(1, "music duration after the user has taken the course (in months)"),
+  faqs: z.array(
+    z.object({
+      question: z.string().min(2, "Question must be at least 2 characters."),
+      answer: z.string().min(2, "Answer must be at least 2 characters."),
+    })
+  ),
 });
 
 // Function to handle Firestore operation
-async function addMessageToFirestore({ formData }) {
+async function addMessageToFirestore({ formData, faqs }) {
   const timestamp = new Date().getTime();
 
   try {
@@ -162,6 +165,7 @@ async function addMessageToFirestore({ formData }) {
       ...formData,
       timestamp: Date.now(),
       image: downloadURL,
+      faqs: faqs, // Include FAQs in the document data
     };
 
     // Check if batches exist in formData
@@ -188,6 +192,21 @@ export default function CourseForm({ edit, courseData }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [batches, setBatches] = useState([]);
+  const [faqs, setFaqs] = useState([]);
+
+  const addFaq = () => {
+    const newFaq = {
+      question: form.getValues(`faqs[${faqs.length}].question`) || "",
+      answer: form.getValues(`faqs[${faqs.length}].answer`) || "",
+    };
+    setFaqs([...faqs, newFaq]);
+  };
+
+  const removeFaq = (index) => {
+    const updatedFaqs = [...faqs];
+    updatedFaqs.splice(index, 1);
+    setFaqs(updatedFaqs);
+  };
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -207,17 +226,32 @@ export default function CourseForm({ edit, courseData }) {
       batches: [],
       musicCost: null,
       musicFreeDuration: null,
+      faqs: [],
     },
   });
 
   // Function to handle form submission
   async function onSubmit(values) {
+    // Retrieve the FAQ values from the form
+    const faqValues = form.getValues().faqs;
+
+    // Filter out any empty FAQ entries
+    const filteredFaqs = faqValues.filter(
+      (faq) => faq.question.trim() !== "" && faq.answer.trim() !== ""
+    );
+
+    // Update the state with the filtered FAQ entries
+    setFaqs(filteredFaqs);
+
     console.log("Form Values:", values); // Log form values
 
     setSubmitting(true);
 
     try {
-      const isDocAdded = await addMessageToFirestore({ formData: values });
+      const isDocAdded = await addMessageToFirestore({
+        formData: values,
+        faqs: filteredFaqs, // Pass the filtered FAQ entries to Firestore
+      });
 
       if (isDocAdded) {
         setSubmitted(true);
@@ -247,9 +281,10 @@ export default function CourseForm({ edit, courseData }) {
     setSubmitting(true);
     try {
       const { id, ...editValues } = form.getValues(); // Get form values excluding 'id'
+      const formData = { ...editValues, faqs: faqs };
       const isDocEdited = await editCourseInFirestore({
         id,
-        formData: editValues,
+        formData: formData,
       });
 
       if (isDocEdited) {
@@ -274,6 +309,7 @@ export default function CourseForm({ edit, courseData }) {
   };
 
   async function editCourseInFirestore({ id, formData }) {
+    console.log("faqs, ", faqs);
     try {
       const imageFile = formData.image;
 
@@ -330,6 +366,9 @@ export default function CourseForm({ edit, courseData }) {
         form.reset(data); // Reset the form with the new data
         if (data && data.batches) {
           setBatches(data.batches);
+        }
+        if (data && data.faqs) {
+          setFaqs(data.faqs); // Set FAQs when editing
         }
       }
     };
@@ -659,7 +698,7 @@ export default function CourseForm({ edit, courseData }) {
           name="musicFreeDuration"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Free music duration*</FormLabel>
+              <FormLabel>Music duration*</FormLabel>
               <FormControl>
                 <Input
                   value={editData?.musicFreeDuration}
@@ -740,6 +779,43 @@ export default function CourseForm({ edit, courseData }) {
             </FormItem>
           )}
         />
+        <Button onClick={addFaq}>Add FAQ</Button>
+
+        {faqs.map((faq, index) => (
+          <div key={index}>
+            <FormField
+              control={form.control}
+              name={`faqs[${index}].question`}
+              render={({ field }) => (
+                <FormItem className="mb-2">
+                  <FormLabel>{`FAQ ${index + 1} Question*`}</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Question" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              className="mt-2"
+              name={`faqs[${index}].answer`}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{`FAQ ${index + 1} Answer*`}</FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Answer" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <Button className="mt-4" onClick={() => removeFaq(index)}>
+              Remove FAQ
+            </Button>
+          </div>
+        ))}
+        <br />
         {edit ? (
           <Button onClick={handleEdit} disabled={submitting}>
             {submitting ? "Editing..." : "Edit this Course Details"}

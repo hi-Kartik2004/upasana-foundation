@@ -23,8 +23,23 @@ const data = {
   heroBadgeMessage: "Quote",
   heroAlertMessage:
     "Surrender is the most Difficult thing in the World while you are doing and the Easiest when done - SadhguruShri",
-  heroTitleLeft: "Swastha Vyakthi, Swastha Kutumba, Swastha Samaja ",
-  heroTitleYellow: " Through Sadhana, Seva and Love!",
+  heroTitleLeft: () => {
+    return (
+      <>
+        <p>
+          Swastha <span className="text-green-700">Vyakthi</span>
+        </p>
+        <p>
+          Swastha <span className="text-green-700">Kutumba</span>
+        </p>
+        <p>
+          Swastha <span className="text-green-700">Samaja</span>
+        </p>
+      </>
+    );
+  },
+
+  heroTitleYellow: " Through Sadhana, Seva and Love.",
   heroTitleRight: "  ",
   heroDescription:
     "You are born for a Cause, You Live for a cause and You are here for a Cause, Find it Here ",
