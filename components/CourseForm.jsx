@@ -313,6 +313,7 @@ export default function CourseForm({ edit, courseData }) {
     try {
       const imageFile = formData.image;
 
+      // Check if a new image file is provided
       if (imageFile && imageFile.size === 0) {
         console.warn("File size is 0 bytes. Skipping upload.");
       }
