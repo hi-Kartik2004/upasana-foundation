@@ -47,7 +47,7 @@ function HeroSection({ isMember }) {
           </div> */}
           <Divider />
 
-          <h1 className="text-4xl lg:leading-tight md:text-4xl lg:text-5xl max-w-[800px] font-bold bg-gradient-to-t  from-[#e9e9e9] to-[white] bg-clip-text text-transparent">
+          <h1 className="text-3xl lg:leading-tight md:text-4xl lg:text-5xl max-w-[800px] font-bold bg-gradient-to-t  from-[#e9e9e9] to-[white] bg-clip-text text-transparent text-center lg:text-start">
             {data?.heroTitleLeft()}
             <span className="bg-gradient-to-b from-[black] to-[gray] bg-clip-text text-transparent text-xl md:text-2xl">
               {data?.heroTitleYellow + " "}
