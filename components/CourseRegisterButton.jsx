@@ -394,6 +394,16 @@ function CourseRegisterButton({ data }) {
               You can only register for a course once, untill it expires. Your
               course Expires on {new Date(expiry).toString()}
             </p>
+
+            <Button
+              className="mt-4"
+              size={"sm"}
+              onClick={() => {
+                setRegistered(false);
+              }}
+            >
+              Register Again &rarr;
+            </Button>
           </div>
         )}
         {!registered && (
