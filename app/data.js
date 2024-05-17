@@ -221,17 +221,6 @@ const data = {
         "https://i.postimg.cc/zBYD0ct8/20231121-184142-Chidananda-B-R.jpg",
     },
     {
-      badge: "Rekha",
-      date: "2023",
-      title: "Changed Lives",
-      description:
-        "Shakti Kriya is an amazing camp. As the name Shakti Kriya suggests, it is the act of awakening the energy and spirit within us. I have been practicing Shakti Kriya continuously for about 08 months, due to which the problem of cold which I have had for about 10 years has been cured. I am a government employee and the practice of action helps reduce stress and keep me energized throughout the day. My fear and shyness decreased and my courage and self-confidence increased. There is also progress in spiritual matters, and the performance of this action leads to divine experiences such as vibration in the chakras. All in all, those who want development in worldly and otherworldly matters should definitely attend this camp. My heartwarming tribute to the Charan Kamalas of the Most Reverend Guru Sadhguru Shri Rama who guided such a great achievement.....",
-      href: "/courses",
-      imgUrl:
-        "https://i.postimg.cc/zBYD0ct8/20231121-184142-Chidananda-B-R.jpg",
-    },
-
-    {
       badge: "Raghu , Student",
       date: "2023",
       title: "Changed Lives",
@@ -555,7 +544,7 @@ const data = {
       title: "The term SadhguruShri",
       description:
         "The term SadhguruShri can be split into 3 parts and Understood. Sat means Truth and Guru refers to the force, energy which brings us out from Ignorance. The energy which Lights us , and brings us close to our own self .Here Shri denotes divinity, Thus the title SadhguruShri. ",
-      link: "https://i.ytimg.com/vi/Vhi5Dnrhpyw/hqdefault.jpg",
+      link: "https://i.postimg.cc/1tKTvSXZ/SADHGURUSHRI.png",
       linkText: "Here what SadhguruShri has said.",
     },
     {
@@ -569,7 +558,7 @@ const data = {
       title: "Early Life of SadhguruShri",
       description:
         "From a very young age SadhguruShri had a fondness for spirituality & religious practices. He had a special affinity for bhajans, kirtans and harikathas and would never miss an opportunity to attend such events. SadhguruShri would often speak about various aspects of spirituality and how people could inculcate in their daily lives.As a child, SadhguruShri dreamt of being a Sanyasi following a spiritual path when he grew up. At age 16 SadhguruShri chose to leave home and walk the spiritual path. He ventured all over India in search of the true meaning of life. After seeking guidance from many seers across North and South India, SadhguruShri started teaching yoga by organizing yoga camps also known as Kriyatmak Yog Shibir.",
-      link: "https://i.ytimg.com/vi/pWIsWYdPUvo/maxresdefault.jpg",
+      link: "https://i.postimg.cc/G2Ffs0V6/DSC02201.jpg",
       linkText: "Preachings",
     },
     {
