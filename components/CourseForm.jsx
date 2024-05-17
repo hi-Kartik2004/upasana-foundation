@@ -194,20 +194,26 @@ export default function CourseForm({ edit, courseData }) {
   const [batches, setBatches] = useState([]);
   const [faqs, setFaqs] = useState([]);
 
+  // Function to handle adding a new FAQ
   const addFaq = () => {
     const newFaq = {
       question: "",
       answer: "",
     };
+    // Update form state with new FAQ
     setFaqs([...faqs, newFaq]);
   };
 
+  // Function to handle removing a FAQ
   const removeFaq = (index) => {
     const updatedFaqs = [...faqs];
     updatedFaqs.splice(index, 1);
+    // Update form state after removing FAQ
     setFaqs(updatedFaqs);
-    form.setValue(`faqs`, updatedFaqs); // Update form values after removing FAQ
+    // Update form values after removing FAQ
+    form.setValue(`faqs`, updatedFaqs);
   };
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
