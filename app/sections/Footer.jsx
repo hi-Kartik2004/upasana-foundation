@@ -68,7 +68,7 @@ function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/register/LnLJ9zWFGTOyu5W1AuNx"
+                    href="/register/ZCvtDix5iSE8xyRZxnuW"
                     className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200 capitalize"
                   >
                     <span className="capitalize">Manoshakthi </span>
@@ -76,7 +76,7 @@ function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/register/DhDp1Aiic4mYPpoOEVHv"
+                    href="register/BFBjqtVd0dl3lp3gwr76"
                     className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200 capitalize"
                   >
                     Sammohana Tantra
@@ -84,7 +84,7 @@ function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/register/3qn7HuhY9cDS21ReY6jd"
+                    href="register/BFBjqtVd0dl3lp3gwr76"
                     className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200 capitalize"
                   >
                     Shakti Kriya
@@ -92,7 +92,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/register/XMSNkcpoFpI4xssUcyrM"
+                    href="/register/AMsomNjDzBeruMIu84S0"
                     className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200 capitalize"
                   >
                     Kundalini Diksha
