@@ -307,7 +307,6 @@ function CourseRegisterButton({ data }) {
                   type="text"
                   placeholder="Enter your name"
                   required={true}
-                  disabled={user?.fullName ? true : false}
                   value={user?.fullName ? user.fullName : null}
                 />
               </div>
@@ -398,15 +397,8 @@ function CourseRegisterButton({ data }) {
           </div>
         )}
         {!registered && (
-          <Button
-            disabled={registering | (data?.batches?.length === 0)}
-            className="mt-2"
-          >
-            {data?.bactches?.length === 0
-              ? "No Active Batches"
-              : registering
-              ? "Registering..."
-              : "Register Now"}
+          <Button disabled={registering} className="mt-2">
+            {registering ? "Registering..." : "Register Now"}
           </Button>
         )}
       </form>
