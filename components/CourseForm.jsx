@@ -196,8 +196,8 @@ export default function CourseForm({ edit, courseData }) {
 
   const addFaq = () => {
     const newFaq = {
-      question: form.getValues(`faqs[${faqs.length}].question`) || "",
-      answer: form.getValues(`faqs[${faqs.length}].answer`) || "",
+      question: "",
+      answer: "",
     };
     setFaqs([...faqs, newFaq]);
   };
@@ -206,8 +206,8 @@ export default function CourseForm({ edit, courseData }) {
     const updatedFaqs = [...faqs];
     updatedFaqs.splice(index, 1);
     setFaqs(updatedFaqs);
+    form.setValue(`faqs`, updatedFaqs); // Update form values after removing FAQ
   };
-
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -356,6 +356,7 @@ export default function CourseForm({ edit, courseData }) {
     const updatedBatches = [...batches];
     updatedBatches.splice(index, 1);
     setBatches(updatedBatches);
+    form.setValue(`batches`, updatedBatches); // Update form values after removing batch
   };
 
   const { toast } = useToast();
@@ -791,7 +792,11 @@ export default function CourseForm({ edit, courseData }) {
                 <FormItem className="mb-2">
                   <FormLabel>{`FAQ ${index + 1} Question*`}</FormLabel>
                   <FormControl>
-                    <Input placeholder="Question" {...field} />
+                    <Input
+                      placeholder="Question"
+                      defaultValue={faq.question}
+                      {...field}
+                    />
                   </FormControl>
                 </FormItem>
               )}
@@ -805,7 +810,11 @@ export default function CourseForm({ edit, courseData }) {
                 <FormItem>
                   <FormLabel>{`FAQ ${index + 1} Answer*`}</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Answer" {...field} />
+                    <Textarea
+                      placeholder="Answer"
+                      defaultValue={faq.answer}
+                      {...field}
+                    />
                   </FormControl>
                 </FormItem>
               )}

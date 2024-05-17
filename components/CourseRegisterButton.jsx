@@ -398,8 +398,15 @@ function CourseRegisterButton({ data }) {
           </div>
         )}
         {!registered && (
-          <Button disabled={registering} className="mt-2">
-            {registering ? "Registering..." : "Register Now"}
+          <Button
+            disabled={registering | (data?.batches?.length === 0)}
+            className="mt-2"
+          >
+            {data?.bactches?.length === 0
+              ? "No Active Batches"
+              : registering
+              ? "Registering..."
+              : "Register Now"}
           </Button>
         )}
       </form>
