@@ -121,6 +121,14 @@ function Footer() {
                     Shri Upasaka
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/register/fIK7mJ3vZP3Pv3A4IJkj"
+                    className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                  >
+                    Devi Sadhana
+                  </Link>
+                </li>
                 {/* <li>
                   <Link
                     href="/donate"
