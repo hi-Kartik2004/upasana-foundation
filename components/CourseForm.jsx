@@ -124,6 +124,7 @@ const formSchema = z.object({
   musicFreeDuration: z.coerce
     .number()
     .min(1, "music duration after the user has taken the course (in months)"),
+  prerequisites: z.string().optional(),
   faqs: z.array(
     z.object({
       question: z.string().min(2, "Question must be at least 2 characters."),
@@ -233,6 +234,7 @@ export default function CourseForm({ edit, courseData }) {
       musicCost: null,
       musicFreeDuration: null,
       faqs: [],
+      prerequisites: "",
     },
   });
 
@@ -787,6 +789,26 @@ export default function CourseForm({ edit, courseData }) {
             </FormItem>
           )}
         />
+
+        <FormField
+          control={form.control}
+          name="prerequisites"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Prerequisites</FormLabel>
+              <FormControl>
+                <Input
+                  value={editData?.prerequisites}
+                  placeholder="ids of the prequisites courses (, seperated if many)"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription>Prequisites course ids</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <Button onClick={addFaq}>Add FAQ</Button>
 
         {faqs.map((faq, index) => (

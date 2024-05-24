@@ -12,6 +12,11 @@ const data = {
   //logo
   logoLink: "/logo.png",
 
+  // featured course
+  featuredCourseName: "Divya Marg",
+  featuredCourseDescription: "A Journey to your Inner Self",
+  featuredCourseImage: "https://i.postimg.cc/SxPt7y3n/m-ANOSHAKTI.jpg",
+  featuredCourseLink: "/courses",
   // SignIn Page
   signInTitle: "You are Here for a Higher Cause",
   signInDescription:

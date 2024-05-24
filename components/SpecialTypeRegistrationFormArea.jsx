@@ -115,6 +115,16 @@ function SpecialTypeRegistrationFormArea({ extraField }) {
     { value: "Pranayama Shibir", label: "Pranayama Shibir" },
     { value: "Yogika ahara", label: "Yogika ahara" },
     { value: "Thathastu", label: "Thathastu" },
+    { value: "Manoshakthi", label: "Manoshakthi" },
+    { value: "Devi Sadhana", label: "Devi Sadhana" },
+    {
+      value: "Kundalini Diksha",
+      label: "Kundalini Diksha",
+    },
+    {
+      value: "Sammoahana Tantra",
+      label: "Sammoahana Tantra",
+    },
   ];
 
   return (

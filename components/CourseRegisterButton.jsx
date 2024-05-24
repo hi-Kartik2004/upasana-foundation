@@ -36,29 +36,23 @@ import {
 
 function calculateExpiryDate(batchDate, expiry) {
   try {
-    // Parse the batch date string as a Date object
     const date = new Date(batchDate);
 
-    // Validate the parsed date
     if (isNaN(date.getTime())) {
       throw new Error(`Invalid date value: ${batchDate}`);
     }
 
-    // Validate the expiry parameter
     if (typeof expiry !== "number" || expiry < 0) {
       throw new Error(`Invalid expiry value: ${expiry}`);
     }
 
-    // Add the expiry (number of days) to the date
     date.setDate(date.getDate() + expiry);
 
-    // Format the expiry date as YYYY-MM-DD
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
     const expiryDate = `${day}-${month}-${year}`;
 
-    // Return the formatted expiry date
     return expiryDate;
   } catch (error) {
     console.error("Error calculating expiry date:", error.message);
@@ -67,20 +61,13 @@ function calculateExpiryDate(batchDate, expiry) {
 }
 
 function reverseDate(dateString) {
-  // Split the date string into components
   const [year, month, day] = dateString.split("-");
-
-  // Reverse the order of the components
   const reversedDateComponents = [day, month, year];
-
-  // Join the reversed components back together
   const reversedDateString = reversedDateComponents.join("-");
-
   return reversedDateString;
 }
 
 function BatchDropdown({ expiry, batches, onSelectBatch }) {
-  console.log("called batch dropdown!");
   return (
     <Select name="batch">
       <SelectTrigger className="w-full">
@@ -135,8 +122,54 @@ function CourseRegisterButton({ data }) {
   const [registered, setRegistered] = useState(false);
   const [expiry, setExpiry] = useState(null);
   const [batch, setBatch] = useState(null);
+  const [disabled, setDisabled] = useState(false);
+  const prereqs = data?.prerequisites.split(",");
+
+  const trimmedPrereqs = prereqs.map((prereq) => prereq.trim());
 
   const { toast } = useToast();
+
+  const checkPrerequisites = async () => {
+    if (trimmedPrereqs.length === 1 && trimmedPrereqs[0] === "") {
+      setDisabled(false);
+      return;
+    }
+    try {
+      const ref = collection(db, "course-registrations");
+      const res = await getDocs(
+        query(
+          ref,
+          where("registeredEmail", "==", user?.emailAddresses[0]?.emailAddress)
+        )
+      );
+
+      let regs = res.docs.map((doc) => doc.data().id);
+
+      const missingPrereqs = trimmedPrereqs.filter(
+        (prereq) => !regs.includes(prereq)
+      );
+
+      if (missingPrereqs.length > 0) {
+        setDisabled(true);
+        toast({
+          title: "Missing Prerequisites",
+          description: `You are missing the following prerequisites: ${missingPrereqs.join(
+            ", "
+          )}`,
+          variant: "destructive",
+        });
+      } else {
+        setDisabled(false);
+      }
+    } catch (error) {
+      console.error("Error checking prerequisites:", error);
+      toast({
+        title: `Error: ${error}`,
+        description: "An error occurred while checking your prerequisites.",
+        variant: "destructive",
+      });
+    }
+  };
 
   const checkIfAlreadyRegistered = async () => {
     try {
@@ -160,7 +193,6 @@ function CourseRegisterButton({ data }) {
       }
     } catch (error) {
       console.error("Error checking registration:", error);
-      // Handle the error (e.g., show a message to the user)
       toast({
         title: `Error: ${error}`,
         description:
@@ -172,26 +204,20 @@ function CourseRegisterButton({ data }) {
 
   function extractDateAndConvertToTimestamp(inputString) {
     try {
-      // Regular expression pattern to match the "From" date and time
       const dateTimePattern =
         /From: (\d{4}-\d{2}-\d{2}), To: \d{4}-\d{2}-\d{2}, Time: (\d{2}:\d{2}) IST/;
 
-      // Find the "From" date and time using regular expression
       const match = inputString.match(dateTimePattern);
 
-      // Validate if match is found
       if (!match) {
         throw new Error("Invalid date format");
       }
 
-      // Extract "From" date and time parts
       const datePart = match[1];
       const timePart = match[2];
 
-      // Combine "From" date and time strings
       const dateTimeString = `${datePart}T${timePart}:00`;
 
-      // Convert to timestamp
       const timestamp = new Date(dateTimeString).getTime();
 
       return timestamp;
@@ -210,7 +236,6 @@ function CourseRegisterButton({ data }) {
     const expiryDate = Date.now() + freeMusicDuration * 24 * 60 * 60 * 1000;
     const expiryTimestamp = Timestamp.fromDate(new Date(expiryDate));
     try {
-      // Step 1: Write the initial document with server timestamp
       const docRef = await addDoc(ref, {
         courseId: courseId,
         registeredEmail: registeredEmail,
@@ -254,19 +279,8 @@ function CourseRegisterButton({ data }) {
       timestamp: new Date().getTime(),
     });
 
-    // try {
-    //   await availFreeMusic(
-    //     data?.id,
-    //     user?.emailAddresses[0].emailAddress,
-    //     data?.musicFreeDuration
-    //   );
-    // } catch (err) {
-    //   console.error(err);
-    // }
-
     console.log(res);
     setRegistering(false);
-    // setRegistered(true);
     checkIfAlreadyRegistered();
     toast({
       title: "Registration Successful",
@@ -276,6 +290,7 @@ function CourseRegisterButton({ data }) {
 
   useEffect(() => {
     checkIfAlreadyRegistered();
+    checkPrerequisites();
   }, []);
 
   return (
@@ -406,7 +421,7 @@ function CourseRegisterButton({ data }) {
             </Button>
           </div>
         )}
-        {!registered && (
+        {!registered && !disabled && (
           <Button disabled={registering} className="mt-2">
             {registering ? "Registering..." : "Register Now"}
           </Button>

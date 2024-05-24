@@ -2,6 +2,8 @@ import { SignedIn, SignedOut, currentUser } from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 import CourseRegisterButton from "./CourseRegisterButton";
+import { collection } from "firebase/firestore";
+import { db } from "@/firebase/config";
 
 async function RegisterForm({ data }) {
   const user = await currentUser();
