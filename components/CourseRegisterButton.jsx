@@ -123,12 +123,35 @@ function CourseRegisterButton({ data }) {
   const [expiry, setExpiry] = useState(null);
   const [batch, setBatch] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  const prereqs = data?.prerequisites.split(",");
+
+  let prereqs = [];
+  if (data?.prerequisites) {
+    prereqs = data?.prerequisites.split(",");
+  }
 
   const trimmedPrereqs = prereqs.map((prereq) => prereq.trim());
 
   const { toast } = useToast();
 
+  const getPrereqsNames = async (prereqs) => {
+    try {
+      const ref = collection(db, "courses");
+
+      // Use document ID in the query condition
+      const res = await getDocs(query(ref, where("__name__", "in", prereqs)));
+
+      let data = [];
+      res.docs.forEach((doc) => {
+        data.push(doc.data().name);
+      });
+
+      console.log("Prereqs names:", data);
+      return data;
+    } catch (error) {
+      console.error("Error getting prerequisites names:", error);
+      return [];
+    }
+  };
   const checkPrerequisites = async () => {
     if (trimmedPrereqs.length === 1 && trimmedPrereqs[0] === "") {
       setDisabled(false);
@@ -149,13 +172,27 @@ function CourseRegisterButton({ data }) {
         (prereq) => !regs.includes(prereq)
       );
 
+      const missingPrereqsNames = await getPrereqsNames(missingPrereqs);
+
       if (missingPrereqs.length > 0) {
         setDisabled(true);
+        const links = missingPrereqs.map((prereqId, index) => (
+          <Link key={prereqId} href={`/register/${prereqId}`}>
+            {missingPrereqsNames[index]}
+          </Link>
+        ));
         toast({
           title: "Missing Prerequisites",
-          description: `You are missing the following prerequisites: ${missingPrereqs.join(
-            ", "
-          )}`,
+          description: (
+            <>
+              You are missing the following prerequisites:
+              <ul>
+                {links.map((link, index) => (
+                  <li key={index}>{link}</li>
+                ))}
+              </ul>
+            </>
+          ),
           variant: "destructive",
         });
       } else {
