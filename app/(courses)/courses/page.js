@@ -5,6 +5,7 @@ import Link from "next/link";
 import globalData from "@/app/data";
 import { currentUser } from "@clerk/nextjs";
 import { MdDelete } from "react-icons/md";
+import Head from "next/head";
 
 export async function Courses() {
   const user = await currentUser();
@@ -22,6 +23,21 @@ export async function Courses() {
 
   return (
     <div className="mt-10 px-4 py-16 container">
+      <Head>
+        <title>Our Courses</title>
+        <meta
+          name="description"
+          content="Your Transformation Steps, here are a range of courses for you to transform Internally, Change your life from in to out.
+          "
+        />
+        <meta
+          name="keywords"
+          content="Indian Mystic, Kundalini Yogi, Spiritual Master, About Sadhguru Shri, Sadhana, Spiritual experience"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="upasana foundation" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <div className="mb-10 flex flex-col items-center gap-2">
         <h1 className="text-4xl font-bold text-center">
           {globalData?.coursesTitle}

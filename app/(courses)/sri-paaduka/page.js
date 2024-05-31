@@ -6,10 +6,26 @@ import { Separator } from "@/components/ui/separator";
 import React from "react";
 import Marquee from "react-fast-marquee";
 import globalData from "@/app/data";
+import Head from "next/head";
 
 function Page() {
   return (
     <div className="container flex flex-col items-center mt-12">
+      <Head>
+        <title>Shri Paaduka</title>
+        <meta
+          name="description"
+          content="SadhguruShri Rama has consecrated Shri Paaduka as a Symbol of Guru Parampara by instilling it with both Dattatreya amsha and Shankara amsha (amsha refers to a portion of their energy) and a part of energy from his Sadhana. Pooja of Shri Paaduka is regularly performed. It has always bestowed all the Sadhakas with Upliftment and Prosperity.
+          "
+        />
+        <meta
+          name="keywords"
+          content="Indian Mystic, Kundalini Yogi, Spiritual Master, About Sadhguru Shri, Sadhana, Spiritual experience, Shri Paaduka, Upasana foundation"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="upasana foundation" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <SriPaadukaSimpleHero extraField={"Sri Paaduka Pooja"} />
       <Separator />
       <SriPaadukaFaqSection />

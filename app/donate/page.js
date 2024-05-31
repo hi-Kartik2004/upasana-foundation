@@ -23,6 +23,21 @@ function Donate() {
   }
   return (
     <div className="container mt-28 mb-10">
+      <Head>
+        <title>Donate</title>
+        <meta
+          name="description"
+          content="Upasana Foundation is a Volunteer run Organization , Your Donation will help us reach out to even more people and Bring transformations in their Lives. Thus when you Donate here you Indirectly express yourself following Samastha Lokha Sukhino Bhavantu.
+          "
+        />
+        <meta
+          name="keywords"
+          content="Indian Mystic, Kundalini Yogi, Spiritual Master, About Sadhguru Shri, Sadhana, Spiritual experience, Shri Upasaka, Upasana foundation, Volunteering, Sadhguru Shri Rama, Donatation Upasana foundation, Donate"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="upasana foundation" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <Toaster />
       <div className="flex justify-center flex-col items-center">
         <h1 className="text-primary text-center text-4xl font-bold">

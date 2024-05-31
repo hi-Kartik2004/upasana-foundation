@@ -2,10 +2,26 @@ import AboutSadhguruDetails from "@/components/AboutSadhguruDetails";
 import Link from "next/link";
 import React from "react";
 import data from "@/app/data";
+import Head from "next/head";
 
 function AboutSadhguru() {
   return (
     <>
+      <Head>
+        <title>About SadhguruShri Rama</title>
+        <meta
+          name="description"
+          content="SadhguruShri Rama is an Indian Mystic ,Kundalini Yogi and a realized spiritual master. He is the founder of Upasana Foundation, a Trust envisioned to offer tools and techniques for inner wellbeing.
+          SadhguruShri is a Master communicator, converses complex concepts of Life and Sadhana in a very Simple way. In conveying his message ,SadhguruShri goes beyond the limited reach of words and offers the grace of direct Experience. SadhguruShri is a true master who, unlike a teacher, awakens you to the next level of spiritual experience."
+        />
+        <meta
+          name="keywords"
+          content="Indian Mystic, Kundalini Yogi, Spiritual Master, About Sadhguru Shri, Sadhana, Spiritual experience"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="upasana foundation" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <section className="w-full py-24 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">

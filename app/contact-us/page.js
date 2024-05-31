@@ -16,6 +16,7 @@ import { useUser } from "@clerk/nextjs";
 import { Textarea } from "@/components/ui/textarea";
 import data from "@/app/data";
 import Link from "next/link";
+import Head from "next/head";
 
 const page = () => {
   console.log(data);
@@ -77,6 +78,21 @@ const page = () => {
 
   return (
     <main>
+      <Head>
+        <title>Contact Us</title>
+        <meta
+          name="description"
+          content="Contact Upasana Foundation using our phone number, Email or connect with us on socials like facebook and instagram.
+          "
+        />
+        <meta
+          name="keywords"
+          content="Indian Mystic, Kundalini Yogi, Spiritual Master, About Sadhguru Shri, Sadhana, Spiritual experience, Shri Upasaka, Upasana foundation, Volunteering, Contact Upasana Foundation"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="upasana foundation" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <section className="text-gray-600 body-font relative min-h-screen">
         <div className="absolute inset-0 bg-gray-300">
           <iframe
