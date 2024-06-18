@@ -8,6 +8,7 @@ import Footer from "./sections/Footer";
 import AdminMenu from "@/components/AdminMenu";
 import Link from "next/link";
 import Head from "next/head";
+import GoogleTranslateComponent from "@/components/GoogleTranslateComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +33,9 @@ export default function RootLayout({ children }) {
             <SignedIn>
               <AdminMenu />
             </SignedIn>
+
             <Navbar />
+
             <div className="fixed right-6 bottom-6 z-50">
               <Link target="_blank" href={`https://wa.me/${"+919482330850"}`}>
                 <img

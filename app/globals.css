@@ -232,3 +232,16 @@ nextjs-portal {
 video::-webkit-media-controls-fullscreen-button {
   display: none !important;
 }
+
+/* ======== google translor =========== */
+#google_translate_element select {
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+}
+#google_translate_element img {
+  display: none;
+}
+
+.skiptranslate {
+  display: none;
+}
