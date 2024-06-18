@@ -13,7 +13,7 @@ async function Navbar() {
 
   return (
     <>
-      <nav className="fixed z-10 w-full top-0 backdrop-blur-3xl  border bg-yellow-50 dark:bg-[#291600]/50">
+      <nav className="fixed z-10 w-full backdrop-blur-3xl  border bg-yellow-50 dark:bg-[#291600]/50">
         <div className="container px-4 py-3 items-center flex justify-between">
           <div className="flex gap-4 items-center">
             <div className="flex lg:hidden">
