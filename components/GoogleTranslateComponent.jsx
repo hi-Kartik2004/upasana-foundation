@@ -44,7 +44,7 @@ function GoogleTranslateComponent({ className }) {
     setLoading(false);
   }, []);
 
-  if (loading) return null;
+  if (loading) return <p>Loading...</p>;
 
   return <div id="google_translate_element" className={className}></div>;
 }

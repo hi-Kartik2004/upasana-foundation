@@ -5,6 +5,8 @@ import { ThemeToggleBtn } from "@/components/ThemeToggleBtn";
 import { SignedIn, UserButton, currentUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { dynamic } from "next/dynamic";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { LanguagesIcon } from "lucide-react";
 
 async function Navbar() {
   const user = await currentUser();
@@ -13,7 +15,7 @@ async function Navbar() {
 
   return (
     <>
-      <nav className="fixed z-10 w-full backdrop-blur-3xl  border bg-yellow-50 dark:bg-[#291600]/50">
+      <nav className="fixed z-[10] top-0 w-full backdrop-blur-3xl  border bg-yellow-50 dark:bg-[#291600]/50">
         <div className="container px-4 py-3 items-center flex justify-between">
           <div className="flex gap-4 items-center">
             <div className="flex lg:hidden">
@@ -99,6 +101,16 @@ async function Navbar() {
             >
               Donate
             </Link>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm">
+                  <LanguagesIcon />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="w-full flex justify-center">
+                <GoogleTranslateComponent className="" />
+              </DialogContent>
+            </Dialog>
             {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -148,8 +160,6 @@ async function Navbar() {
           </div>
         </div>
       </nav>
-
-      <GoogleTranslateComponent className="absolute md:top-24 top-2 left-[50%] translate-x-[-50%] z-10" />
     </>
   );
 }

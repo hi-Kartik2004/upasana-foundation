@@ -8,7 +8,6 @@ import Footer from "./sections/Footer";
 import AdminMenu from "@/components/AdminMenu";
 import Link from "next/link";
 import Head from "next/head";
-import GoogleTranslateComponent from "@/components/GoogleTranslateComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 

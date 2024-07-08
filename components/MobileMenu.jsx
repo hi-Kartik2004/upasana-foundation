@@ -13,6 +13,9 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 import { IoIosMenu } from "react-icons/io";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import { LanguagesIcon } from "lucide-react";
+import GoogleTranslateComponent from "./GoogleTranslateComponent";
 
 export function MobileMenu() {
   return (
@@ -115,6 +118,17 @@ export function MobileMenu() {
               Donate
             </Link>
           </SheetClose>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm">
+                <LanguagesIcon />
+              </button>
+            </DialogTrigger>
+            <DialogContent className="w-full flex justify-center">
+              <GoogleTranslateComponent className="" />
+            </DialogContent>
+          </Dialog>
         </div>
       </SheetContent>
     </Sheet>
