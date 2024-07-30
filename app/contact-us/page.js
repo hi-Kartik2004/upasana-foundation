@@ -36,6 +36,7 @@ const page = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
   const [isSubmit, setisSubmit] = useState("");
@@ -52,20 +53,26 @@ const page = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addDoc(userCollection, {
-      name: user.fullName ?? "Not Provided",
-      email: user.emailAddresses[0].emailAddress,
-      message: formData.message,
-      timestamp: Date.now(),
-      phone: user?.phoneNumbers[0]?.phoneNumber ?? "Not provided",
-    });
+    try {
+      addDoc(userCollection, {
+        name: user?.fullName ?? formData.name,
+        email: user?.emailAddresses[0]?.emailAddress ?? formData?.email,
+        message: formData.message ?? "Not Provided",
+        timestamp: Date.now(),
+        phone: user?.phoneNumbers[0]?.phoneNumber ?? formData?.phone,
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setisSubmit(
-      "We recieved your message and will get back to you on the provided email soon!"
+      "We recieved your message and will get back to you on the provided phone number and email soon!"
     );
     setFormData({
+      name: "",
+      email: "",
+      phone: "",
       message: "",
     });
-    // console.log('Form Data:', formData);
   };
 
   if (loading) {
@@ -145,6 +152,24 @@ const page = () => {
                   autoComplete="off"
                   disabled={user?.fullName ? true : false}
                   value={user?.emailAddresses[0].emailAddress ?? null}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="phone"
+                  className="block text-white-700 text-sm font-bold mb-2"
+                >
+                  Phone:
+                </label>
+                <Input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  onChange={handleChange}
+                  autoComplete="off"
+                  disabled={user?.phoneNumbers[0]?.phoneNumber ? true : false}
+                  value={user?.phoneNumbers[0]?.phoneNumber ?? null}
                   required
                 />
               </div>

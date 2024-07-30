@@ -42,6 +42,13 @@ export function ContactUsTable() {
           id: doc.id,
           ...doc.data(),
         }));
+        fetchedData.sort((a, b) => b.timestamp - a.timestamp);
+        // remove +91 if present in phone number
+        fetchedData.forEach((item) => {
+          if (item.phone.startsWith("+91")) {
+            item.phone = item.phone.slice(3);
+          }
+        });
         setData(fetchedData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -103,6 +110,7 @@ export function ContactUsTable() {
             <TableRow>
               <TableHead>Email</TableHead>
               <TableHead>Name</TableHead>
+              <TableHead>Phone</TableHead>
               <TableHead>Message</TableHead>
               <TableHead>Timestamp</TableHead>
               <TableHead>Actions</TableHead>
@@ -113,6 +121,7 @@ export function ContactUsTable() {
               <TableRow key={row.id}>
                 <TableCell>{row.email}</TableCell>
                 <TableCell>{row.name}</TableCell>
+                <TableCell>{row.phone}</TableCell>
                 <TableCell>
                   <Dialog>
                     <DialogTrigger asChild>
