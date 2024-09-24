@@ -7,7 +7,7 @@ const data = {
   clubName: "Upasana Foundation",
   contactPerson: "Upasana Foundation",
   contactPhone: ["+91 94823 46950", "+91 94823 30850"],
-  contactEmail: "upasanafound@gmail.com",
+  contactEmail: "info@upasanafoundation.org",
 
   //logo
   logoLink: "/logo.png",

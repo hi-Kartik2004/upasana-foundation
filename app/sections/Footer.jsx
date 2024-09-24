@@ -216,10 +216,10 @@ function Footer() {
                   Subscribe
                 </button>
               </form>
-              <p className="mt-4 text-sm text-gray-500">
-                Get regular updated of our Shibirs, volunteer opportunities,
-                events and a lot more
-              </p>
+              <Link href={`mailto:${data?.contactEmail}`}>
+                Write to us at info@upasanafoundation.org for details regarding
+                Shibirs, volunteer opportunities, events and a lot more
+              </Link>
             </div>
           </div>
         </div>
