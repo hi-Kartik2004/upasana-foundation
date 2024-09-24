@@ -216,7 +216,7 @@ function Footer() {
                   Subscribe
                 </button>
               </form>
-              <Link href={`mailto:${data?.contactEmail}`}>
+              <Link href={`mailto:${data?.contactEmail}`} className="text-sm">
                 Write to us at info@upasanafoundation.org for details regarding
                 Shibirs, volunteer opportunities, events and a lot more
               </Link>

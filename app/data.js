@@ -1,6 +1,11 @@
 const data = {
   // admin emails
-  adminEmails: ["kudlu2004@gmail.com", "upasanafound@gmail.com"],
+  adminEmails: [
+    "kudlu2004@gmail.com",
+    "upasanafound@gmail.com",
+    "info@upasanafoundation.org",
+    "sadhgurushri@upasanafoundation.org",
+  ],
   // General
   siteName: "Upasana Foundation, Bengaluru",
   siteDescription: "A Door to your Journey of Inner Transformation  ",
