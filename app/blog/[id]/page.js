@@ -112,7 +112,8 @@ function Event({ params }) {
           <div className="max-w-[900px] px-4 py-4 mx-auto mt-8 pt-16">
             <div className="flex justify-between gap-2 flex-wrap items-center">
               <p className="text-xs text-muted-foreground">
-                Note: The image is randomly generated based on the title.
+                Note: Reporting the blog without any valid reason might lead to
+                a ban from the platform.
               </p>
               <Button variant="secondary">
                 <Link
@@ -132,8 +133,6 @@ function Event({ params }) {
                     alt="inside blog image"
                   />
                 </div> */}
-
-                
 
                 <div className="mt-6">
                   <h1 className="text-4xl font-bold">{blogData.title}</h1>
