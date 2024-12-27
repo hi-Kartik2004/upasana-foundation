@@ -27,7 +27,9 @@ function page() {
                 <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-background">
                   {category?.icon}
                 </div>
-                <p className="mb-2 font-bold capitalize">{category?.name}</p>
+                <p className="mb-2 font-bold capitalize">
+                  {category?.name} related
+                </p>
                 <p className="text-sm leading-5 text-muted-foreground">
                   {category?.description}
                 </p>

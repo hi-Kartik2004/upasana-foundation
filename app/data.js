@@ -593,19 +593,19 @@ const data = {
     "Know what SadhguruShri has said about Various fields of Life",
   quoteCategories: [
     {
-      name: "mind realted",
+      name: "mind",
       description:
         "Insights and wisdom on understanding and mastering the mind",
       icon: <BrainIcon className="w-5 h-5" />,
     },
     {
-      name: "life related",
+      name: "life",
       description:
         "Wisdom and guidance on living a fulfilling and meaningful life",
       icon: <BsPeopleFill />,
     },
     {
-      name: "all other",
+      name: "others",
       description:
         "Various other insightful quotes from SadhguruShri | Upasana Foundation",
       icon: <PlusCircleIcon />,
