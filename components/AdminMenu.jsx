@@ -19,7 +19,7 @@ const menuLinks = [
     link: "/add-video",
   },
   {
-    name: "Add Event",
+    name: "Add Blog",
     link: "/add-event",
   },
   {

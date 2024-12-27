@@ -187,7 +187,7 @@ function CategoryBlogs({ params }) {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">
-                    {new Date(event.timestamp).toLocaleDateString()}
+                    {new Date(event.timestamp).toLocaleDateString("en-in")}
                   </p>
                   {globalData.adminEmails.includes(
                     user && user.emailAddresses[0].emailAddress
