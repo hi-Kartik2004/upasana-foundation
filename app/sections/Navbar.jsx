@@ -69,7 +69,7 @@ async function Navbar() {
               href="/events"
               className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
             >
-              Events
+              Blogs
             </Link>
             <Link
               href="/sri-paaduka"

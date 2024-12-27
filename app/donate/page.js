@@ -8,6 +8,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { toast } from "@/components/ui/use-toast";
 import { Toaster } from "@/components/ui/toaster";
 import globalData from "@/app/data";
+import Head from "next/head";
 
 function Donate() {
   async function addDonationToFirestore(data) {

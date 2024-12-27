@@ -614,7 +614,7 @@ const data = {
   ],
 
   // Events Page
-  eventsPageTitle: "Events",
+  eventsPageTitle: "Blogs",
   eventsPageDescription:
     "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
   blogCategories: [

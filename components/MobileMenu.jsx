@@ -100,7 +100,7 @@ export function MobileMenu() {
 
           <SheetClose asChild>
             <Link href="/events" className="hover:underline underline-offset-8">
-              Events
+              Blogs
             </Link>
           </SheetClose>
 
