@@ -45,6 +45,14 @@ function Footer() {
                 </li>
                 <li>
                   <Link
+                    href="/blogs"
+                    className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                  >
+                    Blogs
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/quotes"
                     className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
                   >
@@ -216,7 +224,7 @@ function Footer() {
                   Subscribe
                 </button>
               </form>
-              <Link href={`mailto:${data?.contactEmail}`} className="text-sm">
+              <Link href={`mailto:${data?.contactEmail}`} className="text-sm text-muted-foreground">
                 Write to us at info@upasanafoundation.org for details regarding
                 Shibirs, volunteer opportunities, events and a lot more
               </Link>

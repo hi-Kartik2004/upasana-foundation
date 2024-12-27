@@ -171,12 +171,12 @@ function Events() {
               >
                 <CardHeader>
                   <CardTitle>
-                    <Link href={`/event/${event.id}`}>
+                    <Link href={`/blog/${event.id}`}>
                       {event?.title ?? "No title!"}
                     </Link>
                   </CardTitle>
                   <CardDescription className="line-clamp-2 mt-4">
-                    <Link href={`event/${event.id}`}>
+                    <Link href={`blog/${event.id}`}>
                       {event?.description ?? "No description"}
                     </Link>
                   </CardDescription>
@@ -217,7 +217,7 @@ function Events() {
                 </CardFooter>
 
                 <CardContent>
-                  <Link href={`/event/${event.id}`}>
+                  <Link href={`/blog/${event.id}`}>
                     <img
                       src={event?.eventImg}
                       alt={event.title}

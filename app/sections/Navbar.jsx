@@ -66,7 +66,7 @@ async function Navbar() {
               Courses
             </Link>
             <Link
-              href="/events"
+              href="/blogs"
               className="text-muted-foreground hover:text-primary hover:underline underline-offset-8 duration-100 text-sm"
             >
               Blogs

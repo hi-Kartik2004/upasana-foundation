@@ -21,7 +21,13 @@ import { currentUser } from "@clerk/nextjs";
 import { BsFillClockFill } from "react-icons/bs";
 import Marquee from "react-fast-marquee";
 import SpecialEventTestimonialCard from "@/components/SpecialEventTestimonialCard";
-import HeroDialog from "@/components/HeroDialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 async function Course({ params }) {
   const user = await currentUser();
@@ -97,6 +103,7 @@ async function Course({ params }) {
   }
 
   const testimonailsData = await getTestimonials();
+  // console.log(testimonailsData);
 
   return (
     <>
@@ -204,6 +211,18 @@ async function Course({ params }) {
             <p className="text-muted-foreground mt-2 whitespace-pre-wrap">
               {courseData?.prizes}
             </p>
+          </div>
+
+          <div className={`mt-8 ${courseData?.faqs.length ? "" : "hidden"}`}>
+            <h1 className="text-xl font-semibold">FAQs</h1> 
+          {courseData && courseData?.faqs?.map((faq) => <Accordion key={faq.question} type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>{faq?.question}</AccordionTrigger>
+              <AccordionContent>
+                {faq?.answer}
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>)}
           </div>
 
           <div className="mt-8">

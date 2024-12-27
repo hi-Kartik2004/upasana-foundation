@@ -47,7 +47,7 @@ export async function Courses() {
         </p>
       </div>
       <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-        {data.map((ele) => {
+        {data && data.map((ele) => {
           return (
             <div
               key={ele.name}

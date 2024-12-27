@@ -125,12 +125,21 @@ function Event({ params }) {
             </div>
             {blogData && (
               <div className="mt-4">
-                <div className="object-cover w-full lg:h-[130px] h-[100px] overflow-hidden">
+                {/* <div className="object-cover w-full lg:h-[130px] h-[100px] overflow-hidden">
                   <img
                     src={`https://source.unsplash.com/random/900x700/?garden`}
                     className="w-full h-full object-cover rounded-lg bg-muted"
                     alt="inside blog image"
                   />
+                </div> */}
+
+                
+
+                <div className="mt-6">
+                  <h1 className="text-4xl font-bold">{blogData.title}</h1>
+                  <p className="text-muted-foreground mt-4">
+                    {blogData.description} - written by {blogData.user}
+                  </p>
                 </div>
 
                 {
@@ -141,13 +150,6 @@ function Event({ params }) {
                     ></audio>
                   </div>
                 }
-
-                <div className="mt-6">
-                  <h1 className="text-4xl font-bold">{blogData.title}</h1>
-                  <p className="text-muted-foreground mt-4">
-                    {blogData.description} - written by {blogData.user}
-                  </p>
-                </div>
 
                 <div className="mt-6">
                   <Blog code={blogData.blog} />

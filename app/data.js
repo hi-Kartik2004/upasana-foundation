@@ -1,3 +1,8 @@
+import { BookAIcon, BrainIcon, PlusCircleIcon } from "lucide-react";
+import { BsPeopleFill } from "react-icons/bs";
+import { GiTrumpet } from "react-icons/gi";
+import { MdOutlineAnnouncement } from "react-icons/md";
+
 const data = {
   // admin emails
   adminEmails: [
@@ -217,7 +222,8 @@ const data = {
       title: "Changed Lives",
       description:
         "I have been going to yoga classes at Upasana Foundation for a few months now and have nothing but positive things to say about the classes, guruji with his divine touch presence one can feel bliss and more energetic, and the open atmosphere in the which the yoga is conducted.I regularly attend scheduled classes.I appreciate Gurujis thought put into each session by the various methods to make sure that each minute spent there is meaningful and useful to mind and body. Being an 'older' and one who came to yoga in 40's with knee surgery few years back, I am happily in my best physical & mental health ever. I only wish I had started at a younger age. I know that I use techniques in everyday life for coping during stressful times. I take the time to notice and observe before reacting. I am more attuned to the good days too. At a physical level, I feel stronger, more energized and willing to push myself further to that 'edge'....such a gift at this point in my life when balance and bone & muscle strength are more important than ever.  At Upasana Foundation, everyone of every level feels welcome in this cozy, nurturing space.  I consider this my yoga “home” and am thankful and amazed at how far I have come on my personal journey there. .",
-      href: "https://youtube.com/playlist?list=PLB1pLZSsI3POwTQpxviUUqKVyN1Qpx2Gz&si=iEHkBi5gB242jctx",
+      href:
+        "https://youtube.com/playlist?list=PLB1pLZSsI3POwTQpxviUUqKVyN1Qpx2Gz&si=iEHkBi5gB242jctx",
       imgUrl: "https://i.postimg.cc/02w5mx2r/Rahul.jpg",
     },
     {
@@ -561,7 +567,8 @@ const data = {
       title: "Vision",
       description:
         "Making a clear departure from mere customs and rituals,SadhguruShri gives a perfect blend of Spirituality with modern lifestyle in his teachings, so that each and every Individual can apply it in their life. SadhguruShri’s scientific methods for self transformation are both experientially direct and powerful.SadhguruShri teaches and guides his Sadhaks towards the spiritual evolution of their Consciousness through the divine science of Kundalini Jagruti Shakti Kriya, a technique born out of his profound experience of the Self.",
-      link: "https://firebasestorage.googleapis.com/v0/b/upasana-foundation.appspot.com/o/courses%2Fdiksha%20ullas.jpeg_1714478115799?alt=media&token=3da87471-01f3-4424-bbe9-3bff498ea4cc",
+      link:
+        "https://firebasestorage.googleapis.com/v0/b/upasana-foundation.appspot.com/o/courses%2Fdiksha%20ullas.jpeg_1714478115799?alt=media&token=3da87471-01f3-4424-bbe9-3bff498ea4cc",
       linkText: "Guiding Paths",
     },
     {
@@ -584,56 +591,99 @@ const data = {
   quotesPageTitle: "Quick Boosts",
   quotesPageDescription:
     "Know what SadhguruShri has said about Various fields of Life",
-  quotes: [
+  quoteCategories: [
     {
-      title: "Mind",
-      description: "Importance of knowing how the mind works",
-      image: "https://i.postimg.cc/76WK7q7F/Quote.jpg",
+      name: "mind realted",
+      description:
+        "Insights and wisdom on understanding and mastering the mind",
+      icon: <BrainIcon className="w-5 h-5" />,
     },
     {
-      title: "Life",
-      description: "How should you live life",
-      image: "https://i.postimg.cc/cHCdFLk3/jeevana.jpg",
+      name: "life related",
+      description:
+        "Wisdom and guidance on living a fulfilling and meaningful life",
+      icon: <BsPeopleFill />,
     },
     {
-      title: "Sight",
-      description: "Are you seeing the right?",
-      image: "https://i.postimg.cc/mkbMhMm9/see-what-search.jpg",
-    },
-    {
-      title: "On Shru Venkatachalapathi Avadhoota",
-      description: "How should you live life",
-      image: "https://i.postimg.cc/gjwSSCP4/venkatachalapathi-avadootha.jpg",
-    },
-
-    {
-      title: "Mind",
-      description: "Key to succeed",
-      image: "https://i.postimg.cc/CM35vbGs/On-Mind.jpg",
+      name: "all other",
+      description:
+        "Various other insightful quotes from SadhguruShri | Upasana Foundation",
+      icon: <PlusCircleIcon />,
     },
   ],
 
-  // Events Page
+  quotes: {
+    mind: [
+      {
+        title: "Mind",
+        description: "Importance of knowing how the mind works",
+        image: "https://i.postimg.cc/76WK7q7F/Quote.jpg",
+      },
+      {
+        title: "Mind",
+        description: "Key to succeed",
+        image: "https://i.postimg.cc/CM35vbGs/On-Mind.jpg",
+      },
+    ],
+    life: [
+      {
+        Life: "Life",
+        description: "How should you live life",
+        image: "https://i.postimg.cc/cHCdFLk3/jeevana.jpg",
+      },
+      {
+        title: "Sight",
+        description: "Are you seeing the right?",
+        image: "https://i.postimg.cc/mkbMhMm9/see-what-search.jpg",
+      },
+    ],
+    others: [
+      {
+        title: "On Shru Venkatachalapathi Avadhoota",
+        description: "How should you live life",
+        image: "https://i.postimg.cc/gjwSSCP4/venkatachalapathi-avadootha.jpg",
+      },
+    ],
+  },
+
+  // Blogs Page (old name: events)
   eventsPageTitle: "Blogs",
   eventsPageDescription:
     "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
   blogCategories: [
     {
       name: "Events",
+      description:
+        "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
+      icon: <BsPeopleFill />,
     },
     {
       name: "Visits",
+      description:
+        "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
+      icon: <GiTrumpet className="w-5 h-5" />,
     },
     {
       name: "Announcements",
+      description:
+        "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
+      icon: <MdOutlineAnnouncement />,
     },
     {
       name: "Stories",
+      description:
+        "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
+      icon: <BookAIcon />,
     },
     {
       name: "Others",
+      description:
+        "Learn about our various activities ,Read and Implement various eye Opening teachings of SadhguruShri",
+      icon: <PlusCircleIcon />,
     },
   ],
+
+  blogsCategoryPageTitle: "Upasana Foundation Blogs",
 
   // Donate Page
   donatePageTitle: "You can Make a Difference",

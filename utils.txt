@@ -1,0 +1,4 @@
+// Indexes
+
+https://accounts.google.com/AccountChooser?continue=https://console.firebase.google.com/v1/r/project/upasana-foundation/firestore/indexes?create_composite%3DClFwcm9qZWN0cy91cGFzYW5hLWZvdW5kYXRpb24vZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL2V2ZW50cy9pbmRleGVzL18QARoOCgpjYXRlZ29yaWVzGAEaDQoJdGltZXN0YW1wEAEaDAoIX19uYW1lX18QAQ&faa=1
+
