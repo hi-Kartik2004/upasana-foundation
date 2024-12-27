@@ -23,7 +23,7 @@ const data = {
   logoLink: "/logo.png",
 
   // featured course
-  featuredCourseName: "Divya Marg",
+  featuredCourseName: "Mano Shakthi",
   featuredCourseDescription: "A Journey to your Inner Self",
   featuredCourseImage: "https://i.postimg.cc/SxPt7y3n/m-ANOSHAKTI.jpg",
   featuredCourseLink: "/courses",
