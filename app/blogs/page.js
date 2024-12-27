@@ -19,7 +19,7 @@ function page() {
         <div className="mt-8 flex flex-wrap gap-4 justify-start items-center">
           {globalData.blogCategories.map((category, index) => (
             <Link
-              href={`/blogs/${category?.name.toLowerCase()}`}
+              href={`/blogs/${category?.name}`}
               key={category?.name || index}
               className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-muted rounded shadow-xl group hover:shadow-2xl border border-gray-400 max-w-[400px] w-full"
             >
