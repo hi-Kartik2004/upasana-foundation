@@ -116,6 +116,7 @@ const formSchema = z.object({
     z.object({
       date: z.string().optional(),
       time: z.string().optional(),
+      language: z.string().optional(),
     })
   ),
   musicCost: z.coerce
@@ -356,7 +357,7 @@ export default function CourseForm({ edit, courseData }) {
   }
 
   const addBatch = () => {
-    setBatches([...batches, { date: "", time: "" }]);
+    setBatches([...batches, { date: "", time: "", language: "" }]);
   };
 
   // Function to handle removing a batch
@@ -595,6 +596,20 @@ export default function CourseForm({ edit, courseData }) {
                   <FormLabel>{`Batch ${index + 1} Time*`}</FormLabel>
                   <FormControl>
                     <Input type="time" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name={`batches[${index}].language`}
+              render={({ field }) => (
+                <FormItem className="mt-2">
+                  <FormLabel>{`Batch ${index + 1} Language*`}</FormLabel>
+                  <FormControl>
+                    <Input type="text" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

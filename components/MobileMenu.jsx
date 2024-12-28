@@ -88,7 +88,7 @@ export function MobileMenu() {
               href="/about-sadhguru"
               className="hover:underline underline-offset-8"
             >
-              About Sadhguru Shri
+              About SadhguruShri
             </Link>
           </SheetClose>
 

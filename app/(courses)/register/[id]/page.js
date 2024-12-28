@@ -26,8 +26,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-
+} from "@/components/ui/accordion";
 
 async function Course({ params }) {
   const user = await currentUser();
@@ -193,12 +192,9 @@ async function Course({ params }) {
                   key={date}
                   className="text-muted-foreground mt-2 whitespace-pre-wrap"
                 >
-                  {"Batch " +
-                    +(index + 1) +
-                    " : " +
-                    reverseDateFormat(date?.date) +
-                    ", " +
-                    date?.time}
+                  {`Batch ${index + 1} : ${reverseDateFormat(date?.date)}, ${
+                    date?.time
+                  } ${date?.language && "(" + date?.language + ")"}`}
                 </p>
               ))}
             <p className="mt-2 text-sm text-muted-foreground">
@@ -214,15 +210,16 @@ async function Course({ params }) {
           </div>
 
           <div className={`mt-8 ${courseData?.faqs.length ? "" : "hidden"}`}>
-            <h1 className="text-xl font-semibold">FAQs</h1> 
-          {courseData && courseData?.faqs?.map((faq) => <Accordion key={faq.question} type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>{faq?.question}</AccordionTrigger>
-              <AccordionContent>
-                {faq?.answer}
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>)}
+            <h1 className="text-xl font-semibold">FAQs</h1>
+            {courseData &&
+              courseData?.faqs?.map((faq) => (
+                <Accordion key={faq.question} type="single" collapsible>
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>{faq?.question}</AccordionTrigger>
+                    <AccordionContent>{faq?.answer}</AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              ))}
           </div>
 
           <div className="mt-8">

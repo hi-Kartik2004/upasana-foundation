@@ -374,6 +374,7 @@ const data = {
   coursesTitle: "Your Transformation Steps!!",
   coursesDescription:
     "Here are a range of courses for you to transform Internally, Change your life from in to out.",
+  courseLanguages: ["Kannada", "English", "Hindi", "Telugu", "Tamil"],
 
   // Video
   videoPageTitle: "Preachings by SadhguruShri",

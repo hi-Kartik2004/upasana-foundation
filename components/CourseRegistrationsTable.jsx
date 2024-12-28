@@ -86,6 +86,10 @@ const columns = [
     header: "Course Name",
   },
   {
+    accessorKey: "registeredLanguage",
+    header: "Registered Language",
+  },
+  {
     accessorKey: "registeredBatch",
     header: "Batch",
     cell: ({ row }) => (

@@ -33,6 +33,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import globalData from "@/app/data";
+import { Label } from "./ui/label";
 
 function calculateExpiryDate(batchDate, expiry) {
   try {
@@ -67,35 +69,38 @@ function reverseDate(dateString) {
   return reversedDateString;
 }
 
-function BatchDropdown({ expiry, batches, onSelectBatch }) {
+function BatchDropdown({ expiry, batches, onSelectBatch, required = false }) {
   return (
-    <Select name="batch">
-      <SelectTrigger className="w-full">
-        <SelectValue placeholder="Select a batch" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          {batches &&
-            batches.map((batch, index) => (
-              <SelectItem
-                required
-                key={index}
-                value={`Batch ${index + 1} - From: ${reverseDate(
-                  batch.date
-                )}, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
-                  batch.time
-                } IST`}
-              >
-                {`Batch ${index + 1} - From: ${reverseDate(
-                  batch.date
-                )}, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
-                  batch.time
-                } IST`}
-              </SelectItem>
-            ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <Label>
+      <span className="text-sm text-muted-foreground">Select your Batch*</span>
+      <Select name="batch" required={required}>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Select a batch" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            {batches &&
+              batches.map((batch, index) => (
+                <SelectItem
+                  required
+                  key={index}
+                  value={`Batch ${index + 1} - From: ${reverseDate(
+                    batch.date
+                  )}, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
+                    batch.time
+                  } IST`}
+                >
+                  {`Batch ${index + 1} - From: ${reverseDate(
+                    batch.date
+                  )}, To: ${calculateExpiryDate(batch?.date, expiry)}, Time: ${
+                    batch.time
+                  } IST`}
+                </SelectItem>
+              ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </Label>
   );
 }
 
@@ -241,8 +246,7 @@ function CourseRegisterButton({ data }) {
 
   function extractDateAndConvertToTimestamp(inputString) {
     try {
-      const dateTimePattern =
-        /From: (\d{4}-\d{2}-\d{2}), To: \d{4}-\d{2}-\d{2}, Time: (\d{2}:\d{2}) IST/;
+      const dateTimePattern = /From: (\d{4}-\d{2}-\d{2}), To: \d{4}-\d{2}-\d{2}, Time: (\d{2}:\d{2}) IST/;
 
       const match = inputString.match(dateTimePattern);
 
@@ -311,6 +315,7 @@ function CourseRegisterButton({ data }) {
       registeredOccupation: formData.get("occupation"),
       registeredWhatsapp: formData.get("whatsappNumber"),
       registeredBatch: formData.get("batch"),
+      registeredLanguage: formData.get("registeredLanguage"),
       courseExpires: startDate + data.expiry * 24 * 60 * 60 * 1000,
       courseStarts: startDate,
       timestamp: new Date().getTime(),
@@ -329,6 +334,17 @@ function CourseRegisterButton({ data }) {
     checkIfAlreadyRegistered();
     checkPrerequisites();
   }, []);
+
+  let languages = [];
+  function getLanguages() {
+    const languageSet = new Set();
+    data?.batches.forEach((batch) => {
+      languageSet.add(batch.language);
+    });
+    languages = Array.from(languageSet);
+  }
+
+  getLanguages();
 
   return (
     <div className="flex w-full">
@@ -427,13 +443,51 @@ function CourseRegisterButton({ data }) {
                 />
               </div>
 
+              <Label>
+                <span className="text-sm text-muted-foreground">
+                  Select course Language*
+                </span>
+
+                <Select name="registeredLanguage" required={true}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select your language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      {languages.length &&
+                        languages.map((language) => (
+                          <SelectItem key={language} value={language}>
+                            {language}
+                          </SelectItem>
+                        ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </Label>
+
               <BatchDropdown
                 expiry={data?.expiry}
                 batches={data?.batches}
                 onSelectBatch={(val) => {
                   setBatch(val);
                 }}
+                required={true}
               />
+
+              {/* <Label>
+                <span className="text-sm text-muted-foreground">Venue*</span>
+
+                <Select disabled name="venue" value={data?.venue}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select your language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value={data?.venue}>{data?.venue}</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </Label> */}
             </div>
           )
         ) : (
