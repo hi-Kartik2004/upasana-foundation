@@ -209,7 +209,7 @@ async function Course({ params }) {
             </p>
           </div>
 
-          <div className={`mt-8 ${courseData?.faqs.length ? "" : "hidden"}`}>
+          <div className={`mt-8 ${courseData?.faqs?.length ? "" : "hidden"}`}>
             <h1 className="text-xl font-semibold">FAQs</h1>
             {courseData &&
               courseData?.faqs?.map((faq) => (
